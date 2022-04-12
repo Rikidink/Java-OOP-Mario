@@ -14,3 +14,8 @@ Updating UML diagrams and design rationale:
 -        Each group member will update relevant information as needed during the implementation process.
 -        Once implementation is complete, each group member will review their allocated requirements and ensure that all updates are reflected there appropriately.
 -        We aim to have this aspect complete by Saturday 30/04
+
+
+
+I accept this WBA - Linden
+
