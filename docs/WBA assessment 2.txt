@@ -1,0 +1,16 @@
+Work Breakdown Agreement – FIT2099 Assignment 2
+ 
+Implementation:
+Each of us will aim to work on the same requirements that we took charge of for assignment 1:
+·        Ricky: 1,2
+·        Linden: 3,4
+·        Bec: 5,6,7
+-        Although we have allocated separate requirements to each team member, there is the expectation that if we get stuck, we will contact the other group members so that they can put fresh eyes on the problem. 
+-        We are also allowing individuals to work on each other’s requirements if they find they have time to work on the assignment but cannot yet work on their own requirements (e.g. code from earlier requirements that later requirements rely on is not yet complete).
+-        We aim to have implementation complete by the end of Sunday 24/04
+-        This allows time for difficulties to be fixed in the following week if need be
+ 
+Updating UML diagrams and design rationale:
+-        Each group member will update relevant information as needed during the implementation process.
+-        Once implementation is complete, each group member will review their allocated requirements and ensure that all updates are reflected there appropriately.
+-        We aim to have this aspect complete by Saturday 30/04
