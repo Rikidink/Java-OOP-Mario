@@ -7,6 +7,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.CanSpeak;
+import game.actions.BuyAction;
 import game.actions.SpeakAction;
 
 import java.util.ArrayList;
@@ -44,6 +45,9 @@ public class Toad extends Actor implements CanSpeak {
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList actions = new ActionList();
         actions.add(new SpeakAction(this));
+        actions.add(new BuyAction(otherActor, "Power Star", 600));
+        actions.add(new BuyAction(otherActor, "Super Mushroom", 400));
+        actions.add(new BuyAction(otherActor, "Wrench", 200));
         return actions;
     }
 
