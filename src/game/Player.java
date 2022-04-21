@@ -24,6 +24,7 @@ public class Player extends Actor  {
 	public Player(String name, char displayChar, int hitPoints) {
 		super(name, displayChar, hitPoints);
 		this.addCapability(Status.HOSTILE_TO_ENEMY);
+		this.addCapability(Status.CAN_RESET);
 	}
 
 	@Override
@@ -32,6 +33,9 @@ public class Player extends Actor  {
 		if (lastAction.getNextAction() != null)
 			return lastAction.getNextAction();
 
+		if (this.hasCapability(Status.CAN_RESET)) {
+			actions.add(new ResetAction());
+		}
 		// return/print the console menu
 		return menu.showMenu(this, actions, display);
 	}

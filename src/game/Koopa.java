@@ -1,32 +1,27 @@
 package game;
 
+
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actions.ActionList;
+import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
-import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
 
 import java.util.HashMap;
 import java.util.Map;
+
 /**
  * A little fungus guy.
  */
-public class Goomba extends Actor {
+public class Koopa extends Actor {
 	private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
 
 	/**
 	 * Constructor.
 	 */
-	public Goomba(){
-		super("Goomba", 'g', 20);
-		System.out.println("Dumb goomba being initialised");
-	}
-
-	public Goomba(Actor player) {
-		super("Goomba", 'g', 20); //changed health to 20
-		this.behaviours.put(1, new SuicideBehaviour()); // the order here is important, first to last possible
-		this.behaviours.put(9,new FollowBehaviour(player));
+	public Koopa() {
+		super("Koopa", 'K', 100); //100 hp
 		this.behaviours.put(10, new WanderBehaviour());
 	}
 

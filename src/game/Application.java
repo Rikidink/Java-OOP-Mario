@@ -17,11 +17,11 @@ public class Application {
 
 	public static void main(String[] args) {
 
-			World world = new World(new Display());
+		World world = new World(new Display());
 
-			FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Tree());
+		FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Tree());
 
-			List<String> map = Arrays.asList(
+		List<String> map = Arrays.asList(
 				"..........................................##..........+.........................",
 				"............+............+..................#...................................",
 				"............................................#...................................",
@@ -42,16 +42,28 @@ public class Application {
 				"......................................................#.........................",
 				".......................................................##.......................");
 
-			GameMap gameMap = new GameMap(groundFactory, map);
-			world.addGameMap(gameMap);
+		GameMap gameMap = new GameMap(groundFactory, map);
+		world.addGameMap(gameMap);
 
-			Actor mario = new Player("Player", 'm', 100);
-			world.addPlayer(mario, gameMap.at(42, 10));
+		Actor mario = new Player("Player", 'm', 100);
+		world.addPlayer(mario, gameMap.at(42, 10));
 
-			// FIXME: the Goomba should be generated from the Tree
-			gameMap.at(35, 10).addActor(new Goomba());
+		gameMap.at(44, 11).addActor(new Toad());
 
-			world.run();
+		// FIXME: the Goomba should be generated from the Tree
+		gameMap.at(35, 10).addActor(new Goomba(mario));
+		gameMap.at(34, 10).addActor(new Goomba(mario));
+		gameMap.at(33, 10).addActor(new Goomba(mario));
+		gameMap.at(32, 10).addActor(new Goomba(mario));
+		gameMap.at(31, 10).addActor(new Goomba(mario));
+		gameMap.at(35, 9).addActor(new Goomba(mario));
+		gameMap.at(34, 9).addActor(new Goomba(mario));
+		gameMap.at(33, 9).addActor(new Goomba(mario));
+		gameMap.at(32, 9).addActor(new Goomba(mario));
+		gameMap.at(31, 9).addActor(new Goomba(mario));
+
+
+		world.run();
 
 	}
 }
