@@ -34,8 +34,6 @@ public class SuicideBehaviour extends Action implements Behaviour {
 
 	}
 
-
-	//TODO: worry about below later - can I just delete it?
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		return menuDescription(actor);

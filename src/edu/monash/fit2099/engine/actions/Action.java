@@ -13,8 +13,7 @@ public abstract class Action {
 	 *
 	 * @param actor The actor performing the action.
 	 * @param map The map the actor is on.
-	 * @return a description of what happened that can be displayed to the user.
-	 */
+     */
 	public abstract String execute(Actor actor, GameMap map);
 	
 	/**

@@ -27,6 +27,4 @@ public class SuicideAction extends Action {
 	public String menuDescription(Actor actor) {
 		return actor + " dies of natural causes";
 	}
-	
-
 }
