@@ -68,8 +68,8 @@ public class AttackBehaviour implements Behaviour{
 
     /**
      * Find the direction form which the attack occurs
-     * @param a from actor
-     * @param b to actor
+     * @param attacker from actor
+     * @param target to actor
      * @return the direction, eg North-East
      **/
     private String direction(Location attacker, Location target) {
