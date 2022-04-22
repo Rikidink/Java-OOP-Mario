@@ -11,4 +11,6 @@ abstract public class Tree extends Ground {
     public Tree(char displayChar) {
         super(displayChar);
     }
+
+    public abstract void spawnObject();
 }

@@ -6,4 +6,8 @@ public class Sprout extends Tree {
         super('+');
         
     }
+
+    public void spawnObject(){
+
+    }
 }
