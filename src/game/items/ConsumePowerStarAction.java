@@ -13,6 +13,8 @@ public class ConsumePowerStarAction extends Action {
      */
     private final Item item;
 
+    private int timeRemaining; //default value - just in case
+
 
     /**
      * Constructor.
@@ -22,6 +24,12 @@ public class ConsumePowerStarAction extends Action {
 
     public ConsumePowerStarAction(Item item) {
         this.item = item;
+        this.timeRemaining = 22;
+    }
+
+    public ConsumePowerStarAction(Item item, int timeRemaining) {
+        this.item = item;
+        this.timeRemaining = timeRemaining;
     }
 
     @Override
@@ -36,6 +44,16 @@ public class ConsumePowerStarAction extends Action {
 
     @Override
     public String menuDescription(Actor actor) {
-        return actor + " consumes the Power Star";
+        return actor + " consumes the Power Star - " + timeRemaining + " turns remaining";
     }
+
+    /**
+     * Get the amount of time left before the item is destroyed
+     * @return
+     */
+    public void setTimeRemaining(int timeRemaining) {
+        this.timeRemaining = timeRemaining;
+    }
+
+
 }
