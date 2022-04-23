@@ -37,7 +37,7 @@ public class ConsumeSuperMushroomAction extends Action {
 
     @Override
     public String menuDescription(Actor actor) {
-        return actor + " consumes the tasty Super Mushroom";
+        return actor + " consumes the Super Mushroom";
     }
 
 }

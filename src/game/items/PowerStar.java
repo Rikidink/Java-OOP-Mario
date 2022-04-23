@@ -63,12 +63,4 @@ public class PowerStar extends Item {
 	}
 
 
-
-	public int getTimeRemaining() {
-		return timeRemaining;
-	}
-
-
-
-
 }
