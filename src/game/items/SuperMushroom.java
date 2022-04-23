@@ -20,6 +20,9 @@ public class SuperMushroom extends Item {
 	public SuperMushroom() {
 		super("Super Mushroom", '^', true);
 
+		super.addAction(new ConsumeSuperMushroomAction(this)); //add can be consumed as an allowable action
+		//get if to only work if off the ground - NOT NEEDED
+
 	}
 
 	/**
@@ -29,8 +32,6 @@ public class SuperMushroom extends Item {
 	 * pick up or drop the mushroom
 	 */
 	public List<Action> getAllowableActions() {
-		super.addAction(new ConsumeSuperMushroomAction(this));
-		//get if to only work if off the ground - NOT NEEDED
 
 
 		return super.getAllowableActions();
