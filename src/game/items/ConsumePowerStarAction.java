@@ -6,7 +6,7 @@ import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Status;
 
-public class ConsumeSuperMushroomAction extends Action {
+public class ConsumePowerStarAction extends Action {
 
     /**
      * Current item
@@ -20,7 +20,7 @@ public class ConsumeSuperMushroomAction extends Action {
      * @param item the item to drop
      */
 
-    public ConsumeSuperMushroomAction(Item item) {
+    public ConsumePowerStarAction(Item item) {
         this.item = item;
     }
 
@@ -28,14 +28,14 @@ public class ConsumeSuperMushroomAction extends Action {
     public String execute(Actor actor, GameMap map) {
         actor.removeItemFromInventory(item);
         map.locationOf(actor).removeItem(item);
-        actor.increaseMaxHp(50);  //increase max hp by 50
-        actor.addCapability(Status.HAS_EATEN_SUPER_MUSHROOM); // adds a status
+        actor.heal(200); //heal by 200 hit points
+        actor.addCapability(Status.HAS_EATEN_POWER_STAR); // adds a status
 
         return menuDescription(actor);
     }
 
     @Override
     public String menuDescription(Actor actor) {
-        return actor + " consumes the tasty Super Mushroom";
+        return actor + " consumes the Power Star";
     }
 }

@@ -13,6 +13,7 @@ import game.actors.Goomba;
 import game.actors.Koopa;
 import game.actors.Player;
 import game.actors.Toad;
+import game.items.PowerStar;
 import game.items.SuperMushroom;
 import game.trees.Sprout;
 import game.trees.Tree;
@@ -57,14 +58,15 @@ public class Application {
 		Actor mario = new Player("Player", 'm', 100);
 		world.addPlayer(mario, gameMap.at(42, 10));
 
-		//gameMap.at(44, 11).addActor(new Toad());
+		gameMap.at(44, 11).addActor(new Toad());
 
 		// FIXME: the Goomba should be generated from the Tree
 //		gameMap.at(43, 8).addActor(new Koopa(mario));
-//		gameMap.at(43, 7).addActor(new Koopa(mario));
+		gameMap.at(43, 7).addActor(new Koopa(mario));
 
 
 		gameMap.at(42, 10).addItem(new SuperMushroom());
+		gameMap.at(42, 10).addItem(new PowerStar());
 
 
 		world.run();

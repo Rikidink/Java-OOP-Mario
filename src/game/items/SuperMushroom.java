@@ -25,19 +25,4 @@ public class SuperMushroom extends Item {
 
 	}
 
-	/**
-	 * Getter.
-	 *
-	 * Allows an actor -eg player - to potentially do more than just
-	 * pick up or drop the mushroom
-	 */
-	public List<Action> getAllowableActions() {
-
-
-		return super.getAllowableActions();
-	}
-
-
-
-
 }
