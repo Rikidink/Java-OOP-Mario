@@ -64,8 +64,7 @@ public class Application {
 //		gameMap.at(43, 8).addActor(new Koopa(mario));
 		gameMap.at(43, 7).addActor(new Koopa(mario));
 
-
-		gameMap.at(42, 10).addItem(new SuperMushroom());
+		gameMap.at(42, 10).addItem(new PowerStar());
 		gameMap.at(42, 10).addItem(new PowerStar());
 
 

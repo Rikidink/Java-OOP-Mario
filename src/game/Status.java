@@ -9,6 +9,5 @@ public enum Status {
     TALL, // use this status to tell that current instance has "grown".
     CAN_RESET, // if something can be reset
     HAS_EATEN_SUPER_MUSHROOM, //if an actor needs to have the effects of having eaten a mushroom
-    NO_RECENT_DAMAGE, // this will be removed from an actor when it takes damage
     HAS_EATEN_POWER_STAR //if a player has eaten a power star
 }
