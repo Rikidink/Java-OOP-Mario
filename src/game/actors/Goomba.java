@@ -23,12 +23,6 @@ public class Goomba extends Actor implements Resettable {
 	/**
 	 * Constructor.
 	 */
-	public Goomba(){
-		super("Goomba", 'g', 20);
-		this.behaviours.put(1, new SuicideBehaviour()); // the order here is important, first to last possible
-		this.behaviours.put(10, new WanderBehaviour());
-		registerInstance();
-	}
 
 	public Goomba(Actor player) {
 		super("Goomba", 'g', 20); //changed health to 20
@@ -37,6 +31,7 @@ public class Goomba extends Actor implements Resettable {
 		this.behaviours.put(9,new FollowBehaviour(player));
 		this.behaviours.put(10, new WanderBehaviour());
 		registerInstance();
+
 	}
 
 	/**

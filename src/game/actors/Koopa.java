@@ -25,16 +25,8 @@ import java.util.Map;
  */
 public class Koopa extends Actor implements Resettable {
 	private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
-	/**
-	 * Constructor.
-	 */
-	public Koopa(){
-		super("Koopa", 'K', 100);
-		this.addCapability(Status.CAN_BE_DORMANT); // adds a status
-		this.behaviours.put(10, new WanderBehaviour());
-		this.addItemToInventory(new SuperMushroom()); //So it drops a supermushroom when it dies
-		registerInstance();
-	}
+
+
 	/**
 	 * Constructor.
 	 */

@@ -36,6 +36,7 @@ public class Coin extends Item implements Resettable {
         map.at(x, y).removeItem(this);
     }
 
+
     @Override
     public void registerInstance() {
         Resettable.super.registerInstance();
