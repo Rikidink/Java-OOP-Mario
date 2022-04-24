@@ -31,7 +31,7 @@ public class Application {
 		World world = new World(new Display());
 
 		// replaced tree constructor with sprout
-		FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Sprout());
+		FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor()/*, new Sprout()*/);
 
 		List<String> map = Arrays.asList(
 				"..........................................##....................................",
@@ -73,7 +73,7 @@ public class Application {
 		gameMap.at(42, 8).addItem(new Coin(500, 42, 8)); //just for testing purposes
 
 		// Testing for sprout/trees
-		gameMap.at(1, 1).setGround(new Sprout());
+		gameMap.at(1, 1).setGround(new Sprout(mario));
 
 		world.run();
 

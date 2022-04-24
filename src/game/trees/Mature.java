@@ -1,13 +1,16 @@
 package game.trees;
 
+import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Dirt;
 import game.actors.Koopa;
+import game.actors.Player;
 
 public class Mature extends Tree {
 
-    public Mature(){
+    public Mature(Actor mario){
         super('T');
+        this.mario = mario;
     }
 
 
@@ -24,7 +27,7 @@ public class Mature extends Tree {
         else {
             if(Math.random() <= 0.15){
                 if(!location.containsAnActor()){
-                    location.addActor(new Koopa());
+                    location.addActor(new Koopa(mario));
                 }
             }
         }

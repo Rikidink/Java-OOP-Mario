@@ -15,12 +15,11 @@ public class Sapling extends Tree {
         turnCount += 1;
 
         if(turnCount == 10){
-            location.setGround(new Mature());
+            location.setGround(new Mature(mario));
         }
         else {
             if(Math.random() <= 0.10){
                 location.addItem(new Coin(20,location.x(), location.y()));
-                System.out.println("COIN MAKED");
             }
         }
 
