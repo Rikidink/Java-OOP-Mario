@@ -2,19 +2,20 @@ package game.actions;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
+import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Wallet;
 
 public class BuyAction extends Action {
 
     private Actor buyer;
-    //RF: change these to the actual item types once they have been added
-    private String item;
+    private Item item;
     private Integer price;
 
-    public BuyAction(Actor buyer, String item, Integer price) {
+    public BuyAction(Actor buyer, Item item, Integer price) {
         this.buyer = buyer;
         this.item = item;
+        item.togglePortability();
         this.price = price;
     }
 
@@ -22,7 +23,8 @@ public class BuyAction extends Action {
     public String execute(Actor actor, GameMap map) {
         if (Wallet.getInstance().getWalletValue() >= price) {
             Wallet.getInstance().removeFromWallet(price);
-            return (actor + " buys " + item);
+            actor.addItemToInventory(item);
+            return (actor + " buys " + item.toString());
         }
         else {
             return "You don't have enough coins!";
@@ -31,6 +33,6 @@ public class BuyAction extends Action {
 
     @Override
     public String menuDescription(Actor actor) {
-        return (actor + " buys " + item + "($" + price + ")");
+        return (actor + " buys " + item.toString() + " ($" + price + ")");
     }
 }

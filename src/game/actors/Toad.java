@@ -9,6 +9,9 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import game.CanSpeak;
 import game.actions.BuyAction;
 import game.actions.SpeakAction;
+import game.items.PowerStar;
+import game.items.SuperMushroom;
+import game.items.Wrench;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -45,9 +48,9 @@ public class Toad extends Actor implements CanSpeak {
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList actions = new ActionList();
         actions.add(new SpeakAction(this));
-        actions.add(new BuyAction(otherActor, "Power Star", 600));
-        actions.add(new BuyAction(otherActor, "Super Mushroom", 400));
-        actions.add(new BuyAction(otherActor, "Wrench", 200));
+        actions.add(new BuyAction(otherActor, new PowerStar(), 600));
+        actions.add(new BuyAction(otherActor, new SuperMushroom(), 400));
+        actions.add(new BuyAction(otherActor, new Wrench(), 200));
         return actions;
     }
 
