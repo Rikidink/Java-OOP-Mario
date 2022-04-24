@@ -5,8 +5,10 @@ import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
+import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.CanSpeak;
+import game.Status;
 import game.actions.BuyAction;
 import game.actions.SpeakAction;
 import game.items.PowerStar;
@@ -39,8 +41,19 @@ public class Toad extends Actor implements CanSpeak {
         return new DoNothingAction();
     }
 
-    public String speak() {
-        int dialogueNumber = rand.nextInt(4);
+    public String speak(Actor actor) {
+        int randBound = 4;
+        for (Item item : actor.getInventory()) {
+            if (item.toString().equals("Wrench")) {
+                randBound = 3;
+            }
+        }
+        for (Enum<?> capability : actor.capabilitiesList()) {
+            if (capability == Status.HAS_EATEN_POWER_STAR) {
+                randBound--;
+            }
+        }
+        int dialogueNumber = rand.nextInt(randBound);
         return dialogue.get(dialogueNumber);
     }
 
@@ -55,9 +68,9 @@ public class Toad extends Actor implements CanSpeak {
     }
 
     private void setDialogue() {
-        dialogue.add("You might need a wrench to smash Koopa's hard shells.");
-        dialogue.add("You better get back to finding the Power Stars.");
         dialogue.add("The Princess is depending on you! You are our only hope.");
         dialogue.add("Being imprisoned in these walls can drive a fungus crazy :(");
+        dialogue.add("You better get back to finding the Power Stars.");
+        dialogue.add("You might need a wrench to smash Koopa's hard shells.");
     }
 }
