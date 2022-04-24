@@ -1,6 +1,7 @@
 package game.trees;
 
 import edu.monash.fit2099.engine.positions.Location;
+import game.items.Coin;
 
 public class Sapling extends Tree {
 
@@ -18,8 +19,8 @@ public class Sapling extends Tree {
         }
         else {
             if(Math.random() <= 0.10){
-                // ADD ITEM SHOULD BE COIN HERE:
-                // location.addItem();
+                location.addItem(new Coin(20,location.x(), location.y()));
+                System.out.println("COIN MAKED");
             }
         }
 

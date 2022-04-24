@@ -24,7 +24,7 @@ public class Mature extends Tree {
         else {
             if(Math.random() <= 0.15){
                 if(!location.containsAnActor()){
-                    //location.addActor(new Koopa());
+                    location.addActor(new Koopa());
                 }
             }
         }
