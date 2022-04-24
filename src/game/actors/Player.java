@@ -8,13 +8,14 @@ import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
 import edu.monash.fit2099.engine.weapons.Weapon;
+import game.Resettable;
 import game.Status;
 import game.actions.ResetAction;
 
 /**
  * Class representing the Player.
  */
-public class Player extends Actor  {
+public class Player extends Actor implements Resettable {
 
 	private final Menu menu = new Menu();
 
@@ -29,6 +30,7 @@ public class Player extends Actor  {
 		super(name, displayChar, hitPoints);
 		this.addCapability(Status.HOSTILE_TO_ENEMY);
 		this.addCapability(Status.CAN_RESET);
+		registerInstance();
 	}
 
 	@Override
@@ -66,4 +68,13 @@ public class Player extends Actor  {
 		return this.hasCapability(Status.TALL) ? Character.toUpperCase(super.getDisplayChar()): super.getDisplayChar();
 	}
 
+	@Override
+	public void resetInstance(GameMap map) {
+		heal(getMaxHp());
+	}
+
+	@Override
+	public void registerInstance() {
+		Resettable.super.registerInstance();
+	}
 }
