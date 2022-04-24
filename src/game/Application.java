@@ -7,6 +7,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.FancyGroundFactory;
 import edu.monash.fit2099.engine.positions.GameMap;
+import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.positions.World;
 
 import game.actors.Goomba;
@@ -68,8 +69,8 @@ public class Application {
 		gameMap.at(42, 10).addItem(new PowerStar());
 		gameMap.at(42, 10).addItem(new PowerStar());
 
-		gameMap.at(42, 9).addItem(new Coin(500)); //just for testing purposes
-		gameMap.at(42, 8).addItem(new Coin(500)); //just for testing purposes
+		gameMap.at(42, 9).addItem(new Coin(500, 42, 9)); //just for testing purposes
+		gameMap.at(42, 8).addItem(new Coin(500, 42, 8)); //just for testing purposes
 
 		// Testing for sprout/trees
 		gameMap.at(1, 1).setGround(new Sprout());

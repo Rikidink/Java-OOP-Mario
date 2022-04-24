@@ -1,6 +1,7 @@
 package game;
 
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.items.Coin;
 
 import java.util.ArrayList;
 import java.util.List;
