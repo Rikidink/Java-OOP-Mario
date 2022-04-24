@@ -13,6 +13,7 @@ import game.actors.Goomba;
 import game.actors.Koopa;
 import game.actors.Player;
 import game.actors.Toad;
+import game.items.Coin;
 import game.items.PowerStar;
 import game.items.SuperMushroom;
 import game.trees.Sprout;
@@ -66,6 +67,9 @@ public class Application {
 
 		gameMap.at(42, 10).addItem(new PowerStar());
 		gameMap.at(42, 10).addItem(new PowerStar());
+
+		gameMap.at(42, 9).addItem(new Coin(500)); //just for testing purposes
+		gameMap.at(42, 8).addItem(new Coin(500)); //just for testing purposes
 
 		// Testing for sprout/trees
 		gameMap.at(1, 1).setGround(new Sprout());
