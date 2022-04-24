@@ -24,8 +24,12 @@ public class Wallet {
         walletValue = 0;
     }
 
-    public void updateWallet (Integer value) {
+    public void addToWallet(Integer value) {
         walletValue += value;
+    }
+
+    public void removeFromWallet(Integer value) {
+        walletValue -= value;
     }
 
     public Integer getWalletValue() {

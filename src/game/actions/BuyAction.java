@@ -3,6 +3,7 @@ package game.actions;
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.Wallet;
 
 public class BuyAction extends Action {
 
@@ -19,7 +20,13 @@ public class BuyAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        return (actor + " buys " + item);
+        if (Wallet.getInstance().getWalletValue() >= price) {
+            Wallet.getInstance().removeFromWallet(price);
+            return (actor + " buys " + item);
+        }
+        else {
+            return "You don't have enough coins!";
+        }
     }
 
     @Override

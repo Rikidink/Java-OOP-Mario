@@ -18,7 +18,7 @@ public class PickUpCoinAction extends PickUpItemAction {
     @Override
     public String execute(Actor actor, GameMap map) {
         super.execute(actor, map);
-        Wallet.getInstance().updateWallet(coin.getValue());
+        Wallet.getInstance().addToWallet(coin.getValue());
         return (actor + " gained $" + coin.getValue() + ". Total money: $" + Wallet.getInstance().getWalletValue());
     }
 
