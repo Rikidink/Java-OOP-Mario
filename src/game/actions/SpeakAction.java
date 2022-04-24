@@ -15,7 +15,7 @@ public class SpeakAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        return speaker.speak();
+        return speaker.speak(actor);
     }
 
     @Override
