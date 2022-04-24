@@ -19,6 +19,7 @@ public class SuicideAction extends Action {
 
 	@Override
 	public String execute(Actor actor, GameMap map) {
+		map.removeActor(actor);
 		return menuDescription(actor);
 	}
 
@@ -26,6 +27,4 @@ public class SuicideAction extends Action {
 	public String menuDescription(Actor actor) {
 		return actor + " dies of natural causes";
 	}
-	
-
 }

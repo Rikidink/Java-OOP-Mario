@@ -25,8 +25,6 @@ public class SuicideBehaviour extends Action implements Behaviour {
 		i = random.nextInt();
 
 		if (i % 10 == 0){ //to get a 10% chance to auto kill
-			map.removeActor(actor);
-
 			return new SuicideAction();
 
 		}
@@ -36,8 +34,6 @@ public class SuicideBehaviour extends Action implements Behaviour {
 
 	}
 
-
-	//TODO: worry about below later - can I just delete it?
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		return menuDescription(actor);

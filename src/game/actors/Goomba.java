@@ -6,13 +6,11 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
+import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.Resettable;
 import game.Status;
 import game.actions.AttackAction;
-import game.behaviours.Behaviour;
-import game.behaviours.FollowBehaviour;
-import game.behaviours.SuicideBehaviour;
-import game.behaviours.WanderBehaviour;
+import game.behaviours.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,12 +25,15 @@ public class Goomba extends Actor implements Resettable {
 	 */
 	public Goomba(){
 		super("Goomba", 'g', 20);
-		System.out.println("Dumb goomba being initialised");
+		this.behaviours.put(1, new SuicideBehaviour()); // the order here is important, first to last possible
+		this.behaviours.put(10, new WanderBehaviour());
+		registerInstance();
 	}
 
 	public Goomba(Actor player) {
 		super("Goomba", 'g', 20); //changed health to 20
 		this.behaviours.put(1, new SuicideBehaviour()); // the order here is important, first to last possible
+		this.behaviours.put(7,new AttackBehaviour(player));
 		this.behaviours.put(9,new FollowBehaviour(player));
 		this.behaviours.put(10, new WanderBehaviour());
 		registerInstance();
@@ -80,4 +81,15 @@ public class Goomba extends Actor implements Resettable {
 	public void registerInstance() {
 		Resettable.super.registerInstance();
 	}
+
+
+	/**
+	 * Creates and returns an intrinsic weapon.
+	 * @return a freshly-instantiated IntrinsicWeapon
+	 */
+	@Override
+	protected IntrinsicWeapon getIntrinsicWeapon() {
+		return new IntrinsicWeapon(10, "kicks");
+	} //weapon hitrates are 50% by default
+
 }

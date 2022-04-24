@@ -10,8 +10,13 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.World;
 
 import game.actors.Goomba;
+import game.actors.Koopa;
 import game.actors.Player;
 import game.actors.Toad;
+import game.items.PowerStar;
+import game.items.SuperMushroom;
+import game.trees.Sprout;
+import game.trees.Tree;
 
 /**
  * The main class for the Mario World game.
@@ -23,9 +28,56 @@ public class Application {
 
 		World world = new World(new Display());
 
-		FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Tree());
+		// replaced tree constructor with sprout
+		FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Sprout());
 
 		List<String> map = Arrays.asList(
+				"..........................................##....................................",
+				"............................................#...................................",
+				"............................................#...................................",
+				".............................................##.................................",
+				"...............................................#................................",
+				"................................................#...............................",
+				"..................................................#.............................",
+				".................................................##.............................",
+				"................................................##..............................",
+				".........................................#____####..............................",
+				"........................................#_____###...............................",
+				"........................................#______###..............................",
+				".........................................#_____###..............................",
+				".................................................##.............................",
+				"...................................................#............................",
+				"....................................................#...........................",
+				".....................................................#..........................",
+				"......................................................#.........................",
+				".......................................................##.......................");
+
+		GameMap gameMap = new GameMap(groundFactory, map);
+		world.addGameMap(gameMap);
+
+		Actor mario = new Player("Player", 'm', 100);
+		world.addPlayer(mario, gameMap.at(42, 10));
+
+		gameMap.at(44, 11).addActor(new Toad());
+
+		// FIXME: the Goomba should be generated from the Tree
+		//gameMap.at(43, 8).addActor(new Koopa(mario));
+		//gameMap.at(43, 7).addActor(new Koopa(mario));
+
+		gameMap.at(42, 10).addItem(new PowerStar());
+		gameMap.at(42, 10).addItem(new PowerStar());
+
+		// Testing for sprout/trees
+		gameMap.at(1, 1).setGround(new Sprout());
+
+		world.run();
+
+	}
+
+	/*
+
+	The old map, just in case we need it again
+
 				"..........................................##..........+.........................",
 				"............+............+..................#...................................",
 				"............................................#...................................",
@@ -45,29 +97,6 @@ public class Application {
 				"...................+.................................#..........................",
 				"......................................................#.........................",
 				".......................................................##.......................");
-
-		GameMap gameMap = new GameMap(groundFactory, map);
-		world.addGameMap(gameMap);
-
-		Actor mario = new Player("Player", 'm', 100);
-		world.addPlayer(mario, gameMap.at(42, 10));
-
-		gameMap.at(44, 11).addActor(new Toad());
-
-		// FIXME: the Goomba should be generated from the Tree
-		gameMap.at(35, 10).addActor(new Goomba(mario));
-		gameMap.at(34, 10).addActor(new Goomba(mario));
-		gameMap.at(33, 10).addActor(new Goomba(mario));
-		gameMap.at(32, 10).addActor(new Goomba(mario));
-		gameMap.at(31, 10).addActor(new Goomba(mario));
-		gameMap.at(35, 9).addActor(new Goomba(mario));
-		gameMap.at(34, 9).addActor(new Goomba(mario));
-		gameMap.at(33, 9).addActor(new Goomba(mario));
-		gameMap.at(32, 9).addActor(new Goomba(mario));
-		gameMap.at(31, 9).addActor(new Goomba(mario));
-
-
-		world.run();
-
-	}
+	 */
 }
+
