@@ -17,6 +17,7 @@ import game.actors.Toad;
 import game.items.Coin;
 import game.items.PowerStar;
 import game.items.SuperMushroom;
+import game.trees.Mature;
 import game.trees.Sprout;
 import game.trees.Tree;
 
@@ -73,7 +74,9 @@ public class Application {
 		gameMap.at(42, 8).addItem(new Coin(500, 42, 8)); //just for testing purposes
 
 		// Testing for sprout/trees
-		gameMap.at(1, 1).setGround(new Sprout(mario));
+		gameMap.at(1, 1	).setGround(new Sprout(mario));
+
+
 
 		world.run();
 

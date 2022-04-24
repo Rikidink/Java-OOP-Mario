@@ -3,7 +3,6 @@ package game.trees;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Location;
 import game.actors.Goomba;
-import game.actors.Player;
 
 public class Sprout extends Tree {
 
@@ -13,8 +12,6 @@ public class Sprout extends Tree {
         this.mario = mario;
         
     }
-
-    // TODO: Need to figure out how to get mario object into goomba constructor so that goomba moves around
 
     @Override
     public void tick(Location location) {
