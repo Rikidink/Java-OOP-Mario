@@ -27,23 +27,26 @@ public class FollowBehaviour implements Behaviour {
 
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
-		if(!map.contains(target) || !map.contains(actor))
+		Location finalDestination;
+		Exit finalExit;
+
+		if (!map.contains(target) || !map.contains(actor))
 			return null;
-		
+
 		Location here = map.locationOf(actor);
 		Location there = map.locationOf(target);
 
 		int currentDistance = distance(here, there);
+		Location destination;
 		for (Exit exit : here.getExits()) {
-			Location destination = exit.getDestination();
+			destination = exit.getDestination();
 			if (destination.canActorEnter(actor)) {
 				int newDistance = distance(destination, there);
-				if (newDistance < currentDistance) {
+				if (newDistance < currentDistance || currentDistance == 1) {
 					return new MoveActorAction(destination, exit.getName());
 				}
 			}
 		}
-
 		return null;
 	}
 

@@ -42,7 +42,7 @@ public class AttackAction extends Action {
 
 	@Override
 	public String execute(Actor actor, GameMap map) {
-
+		target.addCapability(Status.FOLLOWING);
 		Weapon weapon = actor.getWeapon();
 
 		if (!(rand.nextInt(100) <= weapon.chanceToHit())) {
@@ -72,7 +72,7 @@ public class AttackAction extends Action {
 			target.removeCapability(Status.CAN_BE_DORMANT);
 			result = actor + " " + weapon.verb() + " " + target + ". " + target + " becomes dormant.";
 
-		} else if (target.hasCapability(Status.IS_DORMANT) && !(weapon.verb() == "wrenches")){ //trying to attack a dormant actor with ineffective weapon
+		} else if (target.hasCapability(Status.IS_DORMANT) && !(weapon.verb().equals("wrenches"))){ //trying to attack a dormant actor with ineffective weapon
 			result = actor + " " + weapon.verb() + " " + target + ". The dormant " + target + " snickers at the " + actor + " behind his very tough shell.";
 
 		} else { // else actor can be attacked normally

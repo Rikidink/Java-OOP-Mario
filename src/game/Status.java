@@ -11,5 +11,6 @@ public enum Status {
     HAS_EATEN_SUPER_MUSHROOM, //if an actor needs to have the effects of having eaten a mushroom
     HAS_EATEN_POWER_STAR, //if a player has eaten a power star
     IS_DORMANT, //if an actor is dormant - related to being attacked
-    CAN_BE_DORMANT //if an actor can become IS_DORMANT
+    CAN_BE_DORMANT, //if an actor can become IS_DORMANT
+    FOLLOWING
 }

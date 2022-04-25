@@ -56,6 +56,10 @@ public class Koopa extends Actor implements Resettable {
 		if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
 			actions.add(new AttackAction(this,direction));
 		}
+		if (this.hasCapability(Status.FOLLOWING)) {
+			behaviours.put(9, new FollowBehaviour(otherActor));
+			behaviours.put(8, new AttackBehaviour(otherActor));
+		}
 		return actions;
 	}
 

@@ -21,17 +21,10 @@ public class SuicideBehaviour extends Action implements Behaviour {
 	 */
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
-		int i;
-		i = random.nextInt();
-
-		if (i % 10 == 0){ //to get a 10% chance to auto kill
+		if (random.nextInt(100) <= 10){ //to get a 10% chance to auto kill
 			return new SuicideAction();
-
 		}
-
 		return null;
-
-
 	}
 
 	@Override

@@ -27,8 +27,6 @@ public class Goomba extends Actor implements Resettable {
 	public Goomba(Actor player) {
 		super("Goomba", 'g', 20); //changed health to 20
 		this.behaviours.put(1, new SuicideBehaviour()); // the order here is important, first to last possible
-		this.behaviours.put(7,new AttackBehaviour(player));
-		this.behaviours.put(9,new FollowBehaviour(player));
 		this.behaviours.put(10, new WanderBehaviour());
 		registerInstance();
 
@@ -49,6 +47,10 @@ public class Goomba extends Actor implements Resettable {
 		// it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
 		if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
 			actions.add(new AttackAction(this,direction));
+		}
+		if (this.hasCapability(Status.FOLLOWING)) {
+			behaviours.put(9, new FollowBehaviour(otherActor));
+			behaviours.put(8, new AttackBehaviour(otherActor));
 		}
 		return actions;
 	}

@@ -22,7 +22,7 @@ public class Sprout extends Tree {
             location.setGround(new Sapling());
         }
         else {
-            if(Math.random() <= 0.10){
+            if(Math.random() <= 0.1){
                 if(!location.containsAnActor()){
                     location.addActor(new Goomba(mario));
                 }

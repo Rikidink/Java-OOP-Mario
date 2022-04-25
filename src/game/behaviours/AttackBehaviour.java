@@ -34,17 +34,11 @@ public class AttackBehaviour implements Behaviour{
         Location here = map.locationOf(actor);
         Location there = map.locationOf(target);
 
-        boolean currentDistance = distance(here, there);
-
-
         if (distance(here, there)) {
             String str_direction =  direction(here, there);
             return new AttackAction(target, str_direction);
-
                 }
         return null;
-
-
         }
 
 
@@ -60,14 +54,11 @@ public class AttackBehaviour implements Behaviour{
         int distx = Math.abs(attacker.x() - target.x());
         int disty = Math.abs(attacker.y() - target.y());
 
-        if (Math.max(distx,disty) <= 1){
-            return true;
-        }
-        return false;
+        return Math.max(distx, disty) <= 1;
     }
 
     /**
-     * Find the direction form which the attack occurs
+     * Find the direction from which the attack occurs
      * @param attacker from actor
      * @param target to actor
      * @return the direction, eg North-East
@@ -92,21 +83,20 @@ public class AttackBehaviour implements Behaviour{
         } else if(disty > 0) {
             horizontal = "South";
         }
-        switch (horizontal) {
-            case "?":
-                if (vertical == "?") {
-                    return "Directly on top of you!!??";
-                } else {
-                    return vertical;
-                }
 
-            default:
-                if (vertical == "?") {
-                    return horizontal;
-                } else {
-                    return  vertical + "-" + horizontal;
-                }
+        if (horizontal.equals("?")) {
+            if (vertical.equals("?")) {
+                return "Directly on top of you!!??";
+            } else {
+                return vertical;
+            }
         }
-
+        else {
+            if (vertical.equals("?")) {
+                return horizontal;
+            } else {
+                return  vertical + "-" + horizontal;
+            }
+        }
     }
 }
