@@ -13,5 +13,6 @@ public enum Status {
     IS_DORMANT, //if an actor is dormant - related to being attacked
     CAN_BE_DORMANT, //if an actor can become IS_DORMANT
     FOLLOWING, //indicates that the enemy is following the player
-    CANNOT_ENTER_FLOOR //for enemies, so that they cannot walk on the floor
+    CANNOT_ENTER_FLOOR, //for enemies, so that they cannot walk on the floor
+    FERTILE_GROUND
 }

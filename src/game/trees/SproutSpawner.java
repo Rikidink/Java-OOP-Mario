@@ -4,6 +4,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Dirt;
+import game.Status;
 
 import java.util.Random;
 
@@ -26,7 +27,7 @@ public class SproutSpawner {
             int randomHeight = rand.nextInt((mapHeight) + 1);
             int randomWidth = rand.nextInt((mapWidth) + 1);
 
-            if(gameMap.at(randomWidth, randomHeight).getGround() instanceof Dirt){
+            if(gameMap.at(randomWidth, randomHeight).getGround().hasCapability(Status.FERTILE_GROUND)){
                 gameMap.at(randomWidth, randomHeight).setGround(new Sprout (mario));
                 sproutAmount -= 1;
             }

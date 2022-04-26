@@ -4,6 +4,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Dirt;
+import game.Status;
 import game.actors.Koopa;
 
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ public class Mature extends Tree {
             ArrayList<Exit> exits = new ArrayList<>();
 
             for(int i = 0; i < location.getExits().size(); i++){
-                if(location.getExits().get(i).getDestination().getGround() instanceof Dirt){
+                if(location.getExits().get(i).getDestination().getGround().hasCapability(Status.FERTILE_GROUND)){
                     exits.add(location.getExits().get(i));
                 }
             }
