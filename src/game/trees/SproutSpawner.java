@@ -27,7 +27,7 @@ public class SproutSpawner {
             int randomWidth = rand.nextInt((mapWidth) + 1);
 
             if(gameMap.at(randomWidth, randomHeight).getGround() instanceof Dirt){
-                gameMap.at(randomWidth, randomHeight).setGround(new Sprout (mario));
+                gameMap.at(randomWidth, randomHeight).setGround(new Sprout (mario, randomWidth, randomHeight));
                 sproutAmount -= 1;
             }
         }
