@@ -2,6 +2,7 @@ package game.trees;
 
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Exit;
+import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Dirt;
 import game.Status;
@@ -12,13 +13,10 @@ import java.util.Random;
 
 public class Mature extends Tree {
 
-    public Mature(Actor mario){
-        super('T');
+    public Mature(Actor mario, int x, int y){
+        super('T', x, y);
         this.mario = mario;
     }
-
-
-
 
     @Override
     public void tick(Location location) {
@@ -39,7 +37,7 @@ public class Mature extends Tree {
             }
             if(exits.size() > 0){
                 int randExitNum = rand.nextInt(exits.size());
-                exits.get(randExitNum).getDestination().setGround(new Sprout(mario));
+                exits.get(randExitNum).getDestination().setGround(new Sprout(mario, location.x(), location.y()));
             }
 
         }
@@ -52,5 +50,17 @@ public class Mature extends Tree {
         }
 
 
+    }
+
+    @Override
+    public void resetInstance(GameMap map) {
+        if (Math.random() <= 0.5) {
+            map.at(x, y).setGround(new Dirt());
+        }
+    }
+
+    @Override
+    public void registerInstance() {
+        super.registerInstance();
     }
 }

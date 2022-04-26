@@ -38,7 +38,8 @@ public class Player extends Actor implements Resettable {
 			//do all of the mushroom stuff
 			this.setDisplayChar('M'); //the display character evolves to the uppercase letter (e.g., from m to M).
 
-			//TODO: it can jump freely with a 100% success rate and no fall damage.
+			//TODO: it can jump freely with a 100% success rate and no fall damage.5
+
 		} else {
 			this.setDisplayChar('m'); //undo mushroom character change
 
@@ -47,8 +48,6 @@ public class Player extends Actor implements Resettable {
 		if(this.hasCapability(Status.HAS_EATEN_POWER_STAR)){
 			System.out.println("Mario is INVINCIBLE!");
 		}
-
-
 
 		// Handle multi-turn Actions
 		if (lastAction.getNextAction() != null)
