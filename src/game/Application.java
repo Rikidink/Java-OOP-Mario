@@ -19,7 +19,6 @@ import game.items.PowerStar;
 import game.items.SuperMushroom;
 import game.trees.Mature;
 import game.trees.Sprout;
-import game.trees.SproutSpawner;
 import game.trees.Tree;
 
 /**
@@ -71,7 +70,10 @@ public class Application {
 		gameMap.at(42, 9).addItem(new Coin(500, 42, 9)); //just for testing purposes
 		gameMap.at(42, 8).addItem(new Coin(500, 42, 8)); //just for testing purposes
 
-		SproutSpawner.generateSprouts(mario, gameMap);
+		// Testing for sprout/trees
+		gameMap.at(43, 9	).setGround(new Sprout(mario));
+
+
 
 		world.run();
 

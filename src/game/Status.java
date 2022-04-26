@@ -12,5 +12,6 @@ public enum Status {
     HAS_EATEN_POWER_STAR, //if a player has eaten a power star
     IS_DORMANT, //if an actor is dormant - related to being attacked
     CAN_BE_DORMANT, //if an actor can become IS_DORMANT
-    FOLLOWING
+    FOLLOWING, //indicates that the enemy is following the player
+    CANNOT_ENTER_FLOOR //for enemies, so that they cannot walk on the floor
 }

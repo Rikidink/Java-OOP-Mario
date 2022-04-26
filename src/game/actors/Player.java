@@ -4,10 +4,8 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
-import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
-import edu.monash.fit2099.engine.weapons.Weapon;
 import game.Resettable;
 import game.Status;
 import game.actions.ResetAction;
@@ -71,6 +69,11 @@ public class Player extends Actor implements Resettable {
 	@Override
 	public void resetInstance(GameMap map) {
 		heal(getMaxHp());
+		for (Enum<?> status : capabilitiesList()) {
+			if (status == Status.HAS_EATEN_POWER_STAR || status == Status.HAS_EATEN_SUPER_MUSHROOM) {
+				this.removeCapability(status);
+			}
+		}
 	}
 
 	@Override

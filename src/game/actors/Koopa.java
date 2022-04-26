@@ -33,6 +33,7 @@ public class Koopa extends Actor implements Resettable {
 	public Koopa(Actor player) {
 		super("Koopa", 'K', 100); //100 hp
 		this.addCapability(Status.CAN_BE_DORMANT); // adds a status
+		this.addCapability(Status.CANNOT_ENTER_FLOOR);
 		this.behaviours.put(7,new AttackBehaviour(player));
 		this.behaviours.put(9,new FollowBehaviour(player));
 		this.behaviours.put(10, new WanderBehaviour());
