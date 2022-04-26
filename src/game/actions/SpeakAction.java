@@ -9,6 +9,11 @@ public class SpeakAction extends Action {
 
     private final CanSpeak speaker;
 
+    /**
+     * Constructor
+     *
+     * @param speaker   The CanSpeak who will be doing the speaking.
+     */
     public SpeakAction(CanSpeak speaker) {
         this.speaker = speaker;
     }

@@ -41,6 +41,14 @@ public class Toad extends Actor implements CanSpeak {
         return new DoNothingAction();
     }
 
+    /**
+     * Randomly chooses a line for Toad to say to the Player.
+     * Checks if the Player is holding a Wrench or under the effects of a PowerStar.
+     * If either of these are true it omits the related dialogue options, so they cannot be chosen.
+     *
+     * @param actor The actor that Toad is speaking to i.e. the Player
+     * @return      The randomly chosen dialogue option that Toad will speak
+     */
     public String speak(Actor actor) {
         int randBound = 4;
         for (Item item : actor.getInventory()) {
@@ -67,6 +75,9 @@ public class Toad extends Actor implements CanSpeak {
         return actions;
     }
 
+    /**
+     * Fills Toad's dialogue attribute with the lines of dialogue he can potentially say.
+     */
     private void setDialogue() {
         dialogue.add("The Princess is depending on you! You are our only hope.");
         dialogue.add("Being imprisoned in these walls can drive a fungus crazy :(");

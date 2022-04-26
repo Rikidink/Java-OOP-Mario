@@ -20,10 +20,17 @@ public class Wallet {
         return instance;
     }
 
+    /**
+     * Constructor
+     */
     public Wallet () {
         walletValue = 0;
     }
 
+    /**
+     *
+     * @param value The value of a Coin that has been picked up
+     */
     public void addToWallet(Integer value) {
         walletValue += value;
     }

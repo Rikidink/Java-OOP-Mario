@@ -14,6 +14,13 @@ public class Coin extends Item implements Resettable {
     private int x;
     private int y;
 
+    /**
+     * Constructor
+     *
+     * @param value The value of the Coin (dollar amount)
+     * @param x     The x value of the location of the Coin
+     * @param y     The y value of the location of the Coin
+     */
     public Coin (Integer value, int x, int y) {
         super("Coin", '$', false);
         this.value = value;
@@ -22,6 +29,11 @@ public class Coin extends Item implements Resettable {
         registerInstance();
     }
 
+    /**
+     * Getter for the value of a given Coin
+     *
+     * @return the value of the Coin (dollar amount)
+     */
     public Integer getValue() {
         return value;
     }

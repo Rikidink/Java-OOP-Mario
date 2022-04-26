@@ -10,6 +10,11 @@ public class PickUpCoinAction extends PickUpItemAction {
 
     private Coin coin;
 
+    /**
+     * Constructor
+     *
+     * @param coin  The Coin object that is being picked up
+     */
     public PickUpCoinAction (Coin coin) {
         super(coin);
         this.coin = coin;
