@@ -17,7 +17,7 @@ public class SproutSpawner {
 
     public static void generateSprouts(Actor mario, GameMap gameMap){
         Random rand = new Random();
-        int sproutAmount = 15;
+        int sproutAmount = 30;
         int mapHeight = gameMap.getYRange().max();
         int mapWidth = gameMap.getXRange().max();
         // make sure to +1 in the random value
