@@ -1,5 +1,6 @@
 package game.items;
 
+import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.weapons.WeaponItem;
 
 /**
@@ -8,6 +9,7 @@ import edu.monash.fit2099.engine.weapons.WeaponItem;
 public class Wrench extends WeaponItem {
 
     public Wrench() {
-            super("Wrench", 'W', 50, "wrenches", 80);
+        super("Wrench", 'W', 50, "wallops", 80);
+        this.togglePortability();
     }
 }
