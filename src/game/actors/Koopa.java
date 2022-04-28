@@ -16,6 +16,7 @@ import game.behaviours.Behaviour;
 import game.behaviours.FollowBehaviour;
 import game.behaviours.WanderBehaviour;
 import game.items.SuperMushroom;
+import game.items.Wrench;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -54,7 +55,7 @@ public class Koopa extends Actor implements Resettable {
 	public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
 		ActionList actions = new ActionList();
 		// it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
-		if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY) && !(this.hasCapability(Status.IS_DORMANT))) {
+		if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY) && !(this.hasCapability(Status.IS_DORMANT)) || otherActor.getWeapon().toString().equals("Wrench")) {
 			actions.add(new AttackAction(this,direction));
 		}
 		if (this.hasCapability(Status.FOLLOWING)) {

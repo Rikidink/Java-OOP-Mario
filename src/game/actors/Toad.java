@@ -71,7 +71,7 @@ public class Toad extends Actor implements CanSpeak {
         actions.add(new SpeakAction(this));
         actions.add(new BuyAction(otherActor, new PowerStar(), 600));
         actions.add(new BuyAction(otherActor, new SuperMushroom(), 400));
-        actions.add(new BuyAction(otherActor, new Wrench(), 200));
+        actions.add(new BuyAction(otherActor, new Wrench(otherActor), 200));
         return actions;
     }
 
