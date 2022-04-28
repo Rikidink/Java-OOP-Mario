@@ -12,6 +12,5 @@ public class Wrench extends WeaponItem {
     public Wrench(Actor actor) {
         super("Wrench", 'W', 50, "wallops", 80);
         this.togglePortability();
-        actor.addCapability(Status.HAS_WRENCH);
     }
 }
