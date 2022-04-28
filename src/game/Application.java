@@ -17,10 +17,7 @@ import game.actors.Toad;
 import game.items.Coin;
 import game.items.PowerStar;
 import game.items.SuperMushroom;
-import game.trees.Mature;
-import game.trees.Sprout;
-import game.trees.SproutSpawner;
-import game.trees.Tree;
+import game.trees.*;
 
 /**
  * The main class for the Mario World game.
@@ -46,7 +43,7 @@ public class Application {
 				".................................................##.............................",
 				"................................................##..............................",
 				".........................................#____####..............................",
-				"........................................#_____###...............................",
+				"........................................._____###...............................",
 				"........................................#______###..............................",
 				".........................................#_____###..............................",
 				".................................................##.............................",
@@ -74,6 +71,9 @@ public class Application {
 
 		// Testing for sprout/trees
 		SproutSpawner.generateSprouts(mario, gameMap);
+
+		//Testing wall
+		gameMap.at(40, 10).setGround(new Wall());
 
 
 

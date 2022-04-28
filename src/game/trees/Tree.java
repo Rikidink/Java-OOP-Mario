@@ -1,8 +1,11 @@
 package game.trees;
 
+import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Ground;
+import edu.monash.fit2099.engine.positions.Location;
 import game.Resettable;
+import game.actions.JumpAction;
 
 
 abstract public class Tree extends Ground implements Resettable {
@@ -21,5 +24,12 @@ abstract public class Tree extends Ground implements Resettable {
         this.x = x;
         this.y = y;
         registerInstance();
+    }
+
+    @Override
+    public ActionList allowableActions(Actor actor, Location location, String direction) {
+        ActionList actions = new ActionList();
+        actions.add(new JumpAction());
+        return actions;
     }
 }
