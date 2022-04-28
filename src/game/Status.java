@@ -15,5 +15,5 @@ public enum Status {
     FOLLOWING, //indicates that the enemy is following the player
     CANNOT_ENTER_FLOOR, //for enemies, so that they cannot walk on the floor
     FERTILE_GROUND,
-    HAS_WRENCH
+    HOSTILE_TO_PLAYER
 }

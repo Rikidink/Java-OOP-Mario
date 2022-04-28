@@ -35,8 +35,7 @@ public class Koopa extends Actor implements Resettable {
 		super("Koopa", 'K', 100); //100 hp
 		this.addCapability(Status.CAN_BE_DORMANT); // adds a status
 		this.addCapability(Status.CANNOT_ENTER_FLOOR);
-		this.behaviours.put(7,new AttackBehaviour(player));
-		this.behaviours.put(9,new FollowBehaviour(player));
+		this.addCapability(Status.HOSTILE_TO_PLAYER);
 		this.behaviours.put(10, new WanderBehaviour());
 		this.addItemToInventory(new SuperMushroom()); //So it drops a supermushroom when it dies
 		registerInstance();
@@ -54,7 +53,9 @@ public class Koopa extends Actor implements Resettable {
 	@Override
 	public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
 		ActionList actions = new ActionList();
-		// it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
+		if (!(otherActor.hasCapability(Status.HOSTILE_TO_PLAYER))) {
+			behaviours.put(8, new AttackBehaviour(otherActor));
+		}		// it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
 		if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY) && !(this.hasCapability(Status.IS_DORMANT)) || otherActor.getWeapon().toString().equals("Wrench")) {
 			actions.add(new AttackAction(this,direction));
 		}
