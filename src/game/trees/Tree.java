@@ -29,7 +29,7 @@ abstract public class Tree extends Ground implements Resettable {
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList actions = new ActionList();
-        actions.add(new JumpAction());
+        actions.add(new JumpAction(location, actor, direction));
         return actions;
     }
 }
