@@ -6,10 +6,8 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
-import game.Resettable;
-import game.Status;
-import game.actions.AttackAction;
-import game.actions.ResetAction;
+import game.reset.Resettable;
+import game.reset.ResetAction;
 
 /**
  * Class representing the Player.

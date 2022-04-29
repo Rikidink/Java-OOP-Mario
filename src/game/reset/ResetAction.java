@@ -1,10 +1,9 @@
-package game.actions;
+package game.reset;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
-import game.ResetManager;
-import game.Status;
+import game.actors.Status;
 
 public class ResetAction extends Action {
 

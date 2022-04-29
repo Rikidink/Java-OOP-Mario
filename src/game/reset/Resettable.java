@@ -1,6 +1,7 @@
-package game;
+package game.reset;
 
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.reset.ResetManager;
 
 public interface Resettable {
     /**

@@ -5,7 +5,7 @@ import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.ground.Dirt;
-import game.Status;
+import game.actors.Status;
 import game.actors.Koopa;
 
 import java.util.ArrayList;

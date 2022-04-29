@@ -2,7 +2,7 @@ package game.trees;
 
 import edu.monash.fit2099.engine.actors.Actor;
 import game.ground.HigherGround;
-import game.Resettable;
+import game.reset.Resettable;
 
 
 /**

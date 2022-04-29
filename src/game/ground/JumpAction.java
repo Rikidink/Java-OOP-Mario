@@ -5,8 +5,7 @@ import edu.monash.fit2099.engine.actions.MoveActorAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
-import game.ground.HigherGround;
-import game.Status;
+import game.actors.Status;
 
 /**
  * The class JumpAction which performs a jump to a higher ground
