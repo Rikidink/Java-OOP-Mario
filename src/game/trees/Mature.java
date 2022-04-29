@@ -13,6 +13,11 @@ import java.util.Random;
 
 public class Mature extends Tree {
 
+    private final double successRate = 0.7;
+    private final int fallDamage = 30;
+    private final String highGroundName = "Mature";
+
+
     public Mature(Actor mario, int x, int y){
         super('T', x, y);
         this.mario = mario;
@@ -64,5 +69,8 @@ public class Mature extends Tree {
         super.registerInstance();
     }
 
-
+    @Override
+    public String getHighGroundName() {
+        return highGroundName;
+    }
 }

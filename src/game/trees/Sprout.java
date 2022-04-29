@@ -8,6 +8,10 @@ import game.actors.Goomba;
 
 public class Sprout extends Tree {
 
+    private final double successRate = 0.9;
+    private final int fallDamage = 10;
+    private final String highGroundName = "Sprout";
+
 
     public Sprout(Actor mario, int x, int y){
         super('+', x, y);
@@ -32,6 +36,7 @@ public class Sprout extends Tree {
         }
     }
 
+    
     @Override
     public void resetInstance(GameMap map) {
         if (Math.random() <= 0.5) {
@@ -44,5 +49,8 @@ public class Sprout extends Tree {
         super.registerInstance();
     }
 
-
+    @Override
+    public String getHighGroundName() {
+        return highGroundName;
+    }
 }

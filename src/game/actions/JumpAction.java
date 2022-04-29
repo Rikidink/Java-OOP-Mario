@@ -10,7 +10,6 @@ import game.Wall;
 
 public class JumpAction extends Action {
 
-    // dont really know what to do with this
     private HigherGround highGround;
     private Actor player;
     private Location location;
@@ -24,9 +23,18 @@ public class JumpAction extends Action {
 
     @Override
     public String execute(Actor actor, GameMap map){
-        MoveActorAction move = new MoveActorAction(this.location, direction);
-        move.execute(actor, map);
-        return "Jumped";
+
+        // TODO: HAVE TO RETRIEVE THE GROUND'S SUCCESSRATE AND FALLDAMAGE
+
+        if(Math.random() <= 0.5){
+            MoveActorAction move = new MoveActorAction(this.location, this.direction);
+            move.execute(actor,map);
+            return "Jumped to " + this.direction + " successfully!";
+        }
+        else {
+            actor.hurt(20);
+            return "Jump to " + this.direction  + " failed! Lost " + 20 + " health!";
+        }
     }
 
 
@@ -34,6 +42,6 @@ public class JumpAction extends Action {
     @Override
     public String menuDescription(Actor actor) {
 
-        return "Jump to wall";
+        return "Jump to high ground";
     }
 }

@@ -7,6 +7,10 @@ import game.items.Coin;
 
 public class Sapling extends Tree {
 
+    private final double successRate = 0.8;
+    private final int fallDamage = 20;
+    private final String highGroundName = "Sapling";
+
     public Sapling(int x, int y){
         super('t', x, y);
     }

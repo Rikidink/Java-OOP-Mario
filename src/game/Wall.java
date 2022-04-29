@@ -6,7 +6,11 @@ import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.actions.JumpAction;
 
-public class Wall extends Ground implements HigherGround{
+public class Wall extends HigherGround {
+
+	private final double successRate = 0.8;
+	private final int fallDamage = 20;
+	private final String highGroundName = "Wall";
 
 	public Wall() {
 		super('#');
@@ -25,8 +29,13 @@ public class Wall extends Ground implements HigherGround{
 	@Override
 	public ActionList allowableActions(Actor actor, Location location, String direction) {
 		ActionList actions = new ActionList();
+
 		actions.add(new JumpAction(location, actor, direction));
 		return actions;
 	}
 
+	@Override
+	public String getHighGroundName() {
+		return highGroundName;
+	}
 }

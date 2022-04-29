@@ -4,11 +4,12 @@ import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
+import game.HigherGround;
 import game.Resettable;
 import game.actions.JumpAction;
 
 
-abstract public class Tree extends Ground implements Resettable {
+abstract public class Tree extends HigherGround implements Resettable {
 
     protected Actor mario;
     protected int turnCount = 0;
@@ -32,4 +33,6 @@ abstract public class Tree extends Ground implements Resettable {
         actions.add(new JumpAction(location, actor, direction));
         return actions;
     }
+
+
 }
