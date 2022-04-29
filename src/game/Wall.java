@@ -27,11 +27,13 @@ public class Wall extends HigherGround {
 	}
 
 	@Override
-	public ActionList allowableActions(Actor actor, Location location, String direction) {
-		ActionList actions = new ActionList();
+	public double getSuccessRate() {
+		return successRate;
+	}
 
-		actions.add(new JumpAction(location, actor, direction, (HigherGround) location.getGround()));
-		return actions;
+	@Override
+	public int getFallDamage() {
+		return fallDamage;
 	}
 
 	@Override

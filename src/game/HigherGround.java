@@ -1,6 +1,10 @@
 package game;
 
+import edu.monash.fit2099.engine.actions.ActionList;
+import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Ground;
+import edu.monash.fit2099.engine.positions.Location;
+import game.actions.JumpAction;
 
 import java.util.ArrayList;
 
@@ -19,16 +23,21 @@ abstract public class HigherGround extends Ground {
         super(displayChar);
     }
 
-    public double getSuccessRate(){
-        return successRate;
-    }
+    public abstract double getSuccessRate();
 
-    public int getFallDamage(){
-        return fallDamage;
-    }
+    public abstract int getFallDamage();
 
-    public String getHighGroundName(){
-        return highGroundName;
+    public abstract String getHighGroundName();
+
+    @Override
+    public ActionList allowableActions(Actor actor, Location location, String direction) {
+        ActionList actions = new ActionList();
+
+        if(!location.containsAnActor()){
+            actions.add(new JumpAction(location, actor, direction, (HigherGround) location.getGround()));
+        }
+         return actions;
+
     }
 
 }

@@ -25,17 +25,14 @@ public class JumpAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map){
 
-        // TODO: HAVE TO RETRIEVE THE GROUND'S SUCCESSRATE AND FALLDAMAGE
-        // TODO: DONT SHOW MENU DESCRIPTION FOR HIGH GROUND PLAYER IS ON: DONT ADD JUMPACTION OBJECT IF PLAYER ON LOCATION, CHECK IN THE GROUND CLASS ACTIONLIST
-
         if(Math.random() <= highGround.getSuccessRate()){
             MoveActorAction move = new MoveActorAction(this.location, this.direction);
             move.execute(actor,map);
-            return "Jumped to " + this.direction + " successfully!";
+            return "Jumped to " + highGround.getHighGroundName() + " " + location.x() + " " +  location.y() + " successfully!";
         }
         else {
             actor.hurt(highGround.getFallDamage());
-            return "Jump to " + this.direction  + " failed! Lost " + 20 + " health!";
+            return "Jump to " + this.direction  + " failed! Lost " + highGround.getFallDamage() + " health!";
         }
     }
 
@@ -44,6 +41,6 @@ public class JumpAction extends Action {
     @Override
     public String menuDescription(Actor actor) {
 
-        return "Jump to high ground";
+        return "Jump to " + highGround.getHighGroundName() + " (" + location.x() + " " + location.y() + ")";
     }
 }

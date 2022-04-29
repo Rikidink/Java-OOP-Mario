@@ -27,12 +27,6 @@ abstract public class Tree extends HigherGround implements Resettable {
         registerInstance();
     }
 
-    @Override
-    public ActionList allowableActions(Actor actor, Location location, String direction) {
-        ActionList actions = new ActionList();
-        actions.add(new JumpAction(location, actor, direction, (HigherGround) location.getGround()));
-        return actions;
-    }
 
 
 }

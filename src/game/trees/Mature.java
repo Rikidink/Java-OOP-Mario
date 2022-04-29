@@ -70,6 +70,16 @@ public class Mature extends Tree {
     }
 
     @Override
+    public double getSuccessRate() {
+        return successRate;
+    }
+
+    @Override
+    public int getFallDamage() {
+        return fallDamage;
+    }
+
+    @Override
     public String getHighGroundName() {
         return highGroundName;
     }
