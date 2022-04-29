@@ -15,24 +15,26 @@ public class JumpAction extends Action {
     private Location location;
     private String direction;
 
-    public JumpAction(Location location, Actor actor, String direction){
+    public JumpAction(Location location, Actor actor, String direction, HigherGround ground){
         this.location = location;
         this.player = actor;
         this.direction = direction;
+        this.highGround = ground;
     }
 
     @Override
     public String execute(Actor actor, GameMap map){
 
         // TODO: HAVE TO RETRIEVE THE GROUND'S SUCCESSRATE AND FALLDAMAGE
+        // TODO: DONT SHOW MENU DESCRIPTION FOR HIGH GROUND PLAYER IS ON: DONT ADD JUMPACTION OBJECT IF PLAYER ON LOCATION, CHECK IN THE GROUND CLASS ACTIONLIST
 
-        if(Math.random() <= 0.5){
+        if(Math.random() <= highGround.getSuccessRate()){
             MoveActorAction move = new MoveActorAction(this.location, this.direction);
             move.execute(actor,map);
             return "Jumped to " + this.direction + " successfully!";
         }
         else {
-            actor.hurt(20);
+            actor.hurt(highGround.getFallDamage());
             return "Jump to " + this.direction  + " failed! Lost " + 20 + " health!";
         }
     }

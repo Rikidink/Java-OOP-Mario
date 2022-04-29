@@ -30,7 +30,7 @@ public class Wall extends HigherGround {
 	public ActionList allowableActions(Actor actor, Location location, String direction) {
 		ActionList actions = new ActionList();
 
-		actions.add(new JumpAction(location, actor, direction));
+		actions.add(new JumpAction(location, actor, direction, (HigherGround) location.getGround()));
 		return actions;
 	}
 
