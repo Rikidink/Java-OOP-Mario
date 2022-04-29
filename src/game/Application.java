@@ -57,8 +57,7 @@ public class Application {
 		world.addGameMap(gameMap);
 
 		Actor mario = new Player("Player", 'm', 100);
-		//world.addPlayer(mario, gameMap.at(42, 10));
-		world.addPlayer(mario, gameMap.at(1,1));
+		world.addPlayer(mario, gameMap.at(42, 10));
 
 		gameMap.at(44, 11).addActor(new Toad());
 
@@ -75,7 +74,6 @@ public class Application {
 
 		//Testing wall
 		gameMap.at(40, 10).setGround(new Wall());
-		gameMap.at(0, 1).setGround(new Wall());
 
 
 
