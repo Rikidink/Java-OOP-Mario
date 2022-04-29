@@ -1,11 +1,12 @@
-package game.actions;
+package game.ground;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actions.MoveActorAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
-import game.HigherGround;
+import game.ground.HigherGround;
+import game.Status;
 
 /**
  * The class JumpAction which performs a jump to a higher ground
@@ -56,7 +57,7 @@ public class JumpAction extends Action {
     public String execute(Actor actor, GameMap map){
 
         // uses the success rate from high ground objects
-        if(Math.random() <= highGround.getSuccessRate()){
+        if(actor.hasCapability(Status.HAS_EATEN_SUPER_MUSHROOM) || Math.random() <= highGround.getSuccessRate()){
             MoveActorAction move = new MoveActorAction(this.location, this.direction);
             move.execute(actor,map);
             return "Jumped to " + highGround.getHighGroundName() + " " + location.x() + " " +  location.y() + " successfully!";

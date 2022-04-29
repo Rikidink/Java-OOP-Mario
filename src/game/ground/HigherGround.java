@@ -1,10 +1,11 @@
-package game;
+package game.ground;
 
 import edu.monash.fit2099.engine.actions.ActionList;
+import edu.monash.fit2099.engine.actions.MoveActorAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
-import game.actions.JumpAction;
+import game.Status;
 
 
 /**
@@ -67,7 +68,12 @@ abstract public class HigherGround extends Ground {
         ActionList actions = new ActionList();
 
         if(!location.containsAnActor()){
-            actions.add(new JumpAction(location, actor, direction, (HigherGround) location.getGround()));
+            if (actor.hasCapability(Status.HAS_EATEN_POWER_STAR)){
+                actions.add(new PowerStarMoveActorAction(location,direction));
+            } else {
+                actions.add(new JumpAction(location, actor, direction, (HigherGround) location.getGround()));
+            }
+
         }
          return actions;
 

@@ -31,6 +31,7 @@ public class ConsumeSuperMushroomAction extends Action {
         map.locationOf(actor).removeItem(item);
         actor.increaseMaxHp(50);  //increase max hp by 50
         actor.addCapability(Status.TALL); // adds a status
+        actor.addCapability(Status.HAS_EATEN_SUPER_MUSHROOM); // adds a status
 
         return menuDescription(actor);
     }
