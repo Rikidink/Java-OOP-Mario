@@ -14,7 +14,6 @@ public enum Status {
     CAN_BE_DORMANT, //if an actor can become IS_DORMANT
     FOLLOWING, //indicates that the enemy is following the player
     CANNOT_ENTER_FLOOR, //for enemies, so that they cannot walk on the floor
-    FERTILE_GROUND,
+    FERTILE_GROUND, // given to grounds if they can support trees
     HOSTILE_TO_PLAYER,
-    HIGHER_GROUND
 }

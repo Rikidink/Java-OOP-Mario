@@ -71,7 +71,6 @@ public class Application {
 		gameMap.at(42, 9).addItem(new Coin(500, 42, 9)); //just for testing purposes
 		gameMap.at(42, 8).addItem(new Coin(500, 42, 8)); //just for testing purposes
 
-		// Testing for sprout/trees
 		SproutSpawner.generateSprouts(mario, gameMap);
 
 
