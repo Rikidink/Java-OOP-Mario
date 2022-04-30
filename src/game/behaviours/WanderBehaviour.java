@@ -9,7 +9,7 @@ import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 
-public class WanderBehaviour extends Action implements Behaviour {
+public class WanderBehaviour implements Behaviour {
 	
 	private final Random random = new Random();
 
@@ -23,12 +23,12 @@ public class WanderBehaviour extends Action implements Behaviour {
 	 */
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
-		ArrayList<Action> actions = new ArrayList<Action>();
+		ArrayList<Action> actions = new ArrayList<A>();
 		
 		for (Exit exit : map.locationOf(actor).getExits()) {
             Location destination = exit.getDestination();
             if (destination.canActorEnter(actor)) {
-            	actions.add(exit.getDestination().getMoveAction(actor, "around", exit.getHotKey()));
+            	actions.add(exit.getDestination().getMoveAction(actor, exit.getName(), exit.getHotKey()));
             }
         }
 		
@@ -38,16 +38,5 @@ public class WanderBehaviour extends Action implements Behaviour {
 		else {
 			return null;
 		}
-
-	}
-
-	@Override
-	public String execute(Actor actor, GameMap map) {
-		return menuDescription(actor);
-	}
-
-	@Override
-	public String menuDescription(Actor actor) {
-		return "Raagrh...";
 	}
 }

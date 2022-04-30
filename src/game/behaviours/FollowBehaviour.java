@@ -10,6 +10,7 @@ import edu.monash.fit2099.engine.actions.MoveActorAction;
 /**
  * A class that figures out a MoveAction that will move the actor one step 
  * closer to a target Actor.
+ *
  * @see edu.monash.fit2099.demo.mars.Application
  */
 public class FollowBehaviour implements Behaviour {
@@ -25,23 +26,27 @@ public class FollowBehaviour implements Behaviour {
 		this.target = subject;
 	}
 
+	/**
+	 *
+	 * @see Behaviour#getAction(Actor actor, GameMap map)
+	 */
 	@Override
 	public Action getAction(Actor actor, GameMap map) {
-		Location finalDestination;
-		Exit finalExit;
-
-		if (!map.contains(target) || !map.contains(actor))
+		if (!map.contains(target) || !map.contains(actor)) {
 			return null;
+		}
 
 		Location here = map.locationOf(actor);
 		Location there = map.locationOf(target);
 
 		int currentDistance = distance(here, there);
 		Location destination;
+
 		for (Exit exit : here.getExits()) {
 			destination = exit.getDestination();
 			if (destination.canActorEnter(actor)) {
 				int newDistance = distance(destination, there);
+
 				if (newDistance < currentDistance || currentDistance == 1) {
 					return new MoveActorAction(destination, exit.getName());
 				}

@@ -45,14 +45,13 @@ public class Coin extends Item implements Resettable {
         return new PickUpCoinAction(this);
     }
 
+    /**
+     * Resets abilities, attributes, and/or items.
+     *
+     * @see Resettable#resetInstance(GameMap map)
+     */
     @Override
     public void resetInstance(GameMap map) {
         map.at(x, y).removeItem(this);
-    }
-
-
-    @Override
-    public void registerInstance() {
-        Resettable.super.registerInstance();
     }
 }

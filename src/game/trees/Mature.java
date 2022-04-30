@@ -7,6 +7,7 @@ import edu.monash.fit2099.engine.positions.Location;
 import game.ground.Dirt;
 import game.actors.Status;
 import game.enemies.Koopa;
+import game.reset.Resettable;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -77,16 +78,16 @@ public class Mature extends Tree {
 
     }
 
+    /**
+     * Resets abilities, attributes, and/or items.
+     *
+     * @see Resettable#resetInstance(GameMap map)
+     */
     @Override
     public void resetInstance(GameMap map) {
         if (Math.random() <= 0.5) {
             map.at(x, y).setGround(new Dirt());
         }
-    }
-
-    @Override
-    public void registerInstance() {
-        super.registerInstance();
     }
 
     /**

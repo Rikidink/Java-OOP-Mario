@@ -11,8 +11,8 @@ import game.Wallet;
  */
 public class BuyAction extends Action {
 
-    private Item item;
-    private Integer price;
+    private final Item item;
+    private final Integer price;
 
     /**
      * Constructor
@@ -26,6 +26,11 @@ public class BuyAction extends Action {
         this.price = price;
     }
 
+    /**
+     * Perform the Action
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
         if (Wallet.getInstance().getWalletValue() >= price) {
@@ -38,6 +43,11 @@ public class BuyAction extends Action {
         }
     }
 
+    /**
+     * Returns a descriptive String
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String menuDescription(Actor actor) {
         return (actor + " buys " + item.toString() + " ($" + price + ")");

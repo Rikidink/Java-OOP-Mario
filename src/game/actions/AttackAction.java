@@ -40,6 +40,11 @@ public class AttackAction extends Action {
 		this.direction = direction;
 	}
 
+	/**
+	 * Perform the Action
+	 *
+	 * @see Action#execute(Actor actor, GameMap map)
+	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		target.addCapability(Status.FOLLOWING);
@@ -66,6 +71,7 @@ public class AttackAction extends Action {
 		if (target.hasCapability(Status.TALL)) {
 			target.removeCapability(Status.TALL);
 		}
+
 		target.hurt(damage);
 
 		if (!target.isConscious() && target.hasCapability(Status.CAN_BE_DORMANT)) {
@@ -91,14 +97,16 @@ public class AttackAction extends Action {
 				// remove actor
 				map.removeActor(target);
 				result += System.lineSeparator() + target + " is killed.";
-
 			}
 		}
-
 		return result;
 	}
 
-
+	/**
+	 * Returns a descriptive String
+	 *
+	 * @see Action#execute(Actor actor, GameMap map)
+	 */
 	@Override
 	public String menuDescription(Actor actor) {
 		return actor + " attacks " + target + " at " + direction;

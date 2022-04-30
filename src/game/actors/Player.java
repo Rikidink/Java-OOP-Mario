@@ -32,6 +32,11 @@ public class Player extends Actor implements Resettable {
 		registerInstance();
 	}
 
+	/**
+	 * Select and return an action to perform on the current turn.
+	 *
+	 * @see Actor#playTurn(ActionList actions, Action lastAction, GameMap map, Display display)
+	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
 		System.out.println("HP: " + printHp());
@@ -50,11 +55,20 @@ public class Player extends Actor implements Resettable {
 		return menu.showMenu(this, actions, display);
 	}
 
+	/**
+	 *
+	 * @see Actor#getDisplayChar()
+	 */
 	@Override
 	public char getDisplayChar(){
 		return this.hasCapability(Status.TALL) ? Character.toUpperCase(super.getDisplayChar()): super.getDisplayChar();
 	}
 
+	/**
+	 * Resets abilities, attributes, and/or items.
+	 *
+	 * @see Resettable#resetInstance(GameMap map)
+	 */
 	@Override
 	public void resetInstance(GameMap map) {
 		heal(getMaxHp());
@@ -65,13 +79,9 @@ public class Player extends Actor implements Resettable {
 		}
 	}
 
-	@Override
-	public void registerInstance() {
-		Resettable.super.registerInstance();
-	}
-
 	/**
 	 *Manages effects of the PowerStar on the Player once it has been consumed
+	 *
 	 */
 	private void managePowerStar() {
 		if (this.hasCapability(Status.HAS_EATEN_POWER_STAR_THIS_TURN)){

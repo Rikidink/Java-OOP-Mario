@@ -22,6 +22,7 @@ public class Toad extends Actor implements CanSpeak {
 
     /**
      * Random number generator
+     *
      */
     protected Random rand = new Random();
 
@@ -34,6 +35,11 @@ public class Toad extends Actor implements CanSpeak {
         setDialogue();
     }
 
+    /**
+     * Select and return an action to perform on the current turn.
+     *
+     * @see Actor#playTurn(ActionList actions, Action lastAction, GameMap map, Display display)
+     */
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
         return new DoNothingAction();
@@ -57,6 +63,7 @@ public class Toad extends Actor implements CanSpeak {
                 hasWrench = 2;
             }
         }
+
         if (actor.hasCapability(Status.HAS_EATEN_POWER_STAR)) {
                 hasPowerStar = 3;
             }
@@ -81,6 +88,7 @@ public class Toad extends Actor implements CanSpeak {
 
     /**
      * Fills Toad's dialogue attribute with the lines of dialogue he can potentially say.
+     *
      */
     private void setDialogue() {
         dialogue.add("The Princess is depending on you! You are our only hope.");

@@ -9,27 +9,32 @@ import game.actors.Status;
 
 /**
  * An abstract class that denotes that a child can be jumped to
+ *
  */
 abstract public class HigherGround extends Ground {
 
     /**
      * The success rate of a jump on a given high ground
+     *
      */
     protected double successRate;
 
     /**
      * The fall damage taken if the jump to the high ground failed
+     *
      */
     protected int fallDamage;
 
     /**
      * A string of the name of the high ground
+     *
      */
     protected String highGroundName;
 
 
     /**
      * Base abstract constructor for the HigherGround class
+     *
      * @param displayChar the displayed letter of the class on the game map
      */
     public HigherGround(char displayChar, double successRate, int fallDamage, String highGroundName) {
@@ -41,6 +46,7 @@ abstract public class HigherGround extends Ground {
 
     /**
      * Method to return the success rate of the jump
+     *
      * @return the success rate
      */
     public abstract double getSuccessRate();
@@ -48,18 +54,21 @@ abstract public class HigherGround extends Ground {
 
     /**
      * Method to return the fall damage received for a failed jump
+     *
      * @return the fall damage
      */
     public abstract int getFallDamage();
 
     /**
      * Method to return the high ground name
+     *
      * @return string of the high ground name
      */
     public abstract String getHighGroundName();
 
     /**
      * Method that adds the jump action to higher ground objects
+     *
      * @param actor the Actor acting; i.e: the player
      * @param location the current Location of the higher ground
      * @param direction the direction of the Ground from the Actor
@@ -72,13 +81,11 @@ abstract public class HigherGround extends Ground {
         if(!location.containsAnActor()){
             if (actor.hasCapability(Status.HAS_EATEN_POWER_STAR)){
                 actions.add(new PowerStarMoveActorAction(location,direction));
-            } else {
+            }
+            else {
                 actions.add(new JumpAction(location, actor, direction, (HigherGround) location.getGround()));
             }
-
         }
          return actions;
-
     }
-
 }

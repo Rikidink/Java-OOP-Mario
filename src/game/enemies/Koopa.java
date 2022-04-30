@@ -17,7 +17,7 @@ import game.behaviours.FollowBehaviour;
 import game.items.SuperMushroom;
 
 /**
- * A little fungus guy.
+ * A big turtle guy.
  */
 public class Koopa extends Enemy implements Resettable {
 
@@ -34,6 +34,7 @@ public class Koopa extends Enemy implements Resettable {
 	/**
 	 * At the moment, we only make it can be attacked by Player.
 	 * You can do something else with this method.
+	 *
 	 * @param otherActor the Actor that might perform an action.
 	 * @param direction  String representing the direction of the other Actor
 	 * @param map        current GameMap
@@ -45,10 +46,13 @@ public class Koopa extends Enemy implements Resettable {
 		ActionList actions = new ActionList();
 		if (!(otherActor.hasCapability(Status.HOSTILE_TO_PLAYER))) {
 			behaviours.put(8, new AttackBehaviour(otherActor));
-		}		// it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
+		}
+
+		// it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
 		if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY) && !(this.hasCapability(Status.IS_DORMANT)) || otherActor.getWeapon().toString().equals("Wrench")) {
 			actions.add(new AttackAction(this,direction));
 		}
+
 		if (this.hasCapability(Status.FOLLOWING)) {
 			behaviours.put(9, new FollowBehaviour(otherActor));
 			behaviours.put(8, new AttackBehaviour(otherActor));
@@ -58,13 +62,15 @@ public class Koopa extends Enemy implements Resettable {
 
 	/**
 	 * Figure out what to do next.
+	 *
 	 * @see Actor#playTurn(ActionList, Action, GameMap, Display)
 	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
 		if (this.hasCapability(Status.IS_DORMANT)) { //if dormant...
 			this.setDisplayChar('D');
-		} else { //Koopa will only do an action if it is not dormant
+		}
+		else { //Koopa will only do an action if it is not dormant
 			for (Behaviour Behaviour : behaviours.values()) {
 				Action action = Behaviour.getAction(this, map);
 				if (action != null)
@@ -74,24 +80,24 @@ public class Koopa extends Enemy implements Resettable {
 		return new DoNothingAction();
 	}
 
+	/**
+	 * Resets abilities, attributes, and/or items.
+	 *
+	 * @see Resettable#resetInstance(GameMap map)
+	 */
 	@Override
 	public void resetInstance(GameMap map) {
 		map.removeActor(this);
 	}
 
-	@Override
-	public void registerInstance() {
-		Resettable.super.registerInstance();
-	}
-
 	/**
 	 * Creates and returns an intrinsic weapon.
+	 *
 	 * @return a freshly-instantiated IntrinsicWeapon
 	 */
 	@Override
 	protected IntrinsicWeapon getIntrinsicWeapon() {
 		return new IntrinsicWeapon(30, "punches");
-	} //weapon hitrates are 50% by default
-
+	}
 }
 

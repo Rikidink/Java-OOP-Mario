@@ -9,8 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class Enemy extends Actor {
-    protected final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
 
+    protected final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
 
     /**
      * Constructor.
