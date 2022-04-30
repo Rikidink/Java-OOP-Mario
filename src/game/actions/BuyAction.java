@@ -11,19 +11,16 @@ import game.Wallet;
  */
 public class BuyAction extends Action {
 
-    private Actor buyer;
     private Item item;
     private Integer price;
 
     /**
      * Constructor
      *
-     * @param buyer The Actor who is taking the BuyAction i.e. the Player
      * @param item  The Item that the BuyAction allows the Actor to buy
      * @param price The price of the Item that relates to the BuyAction
      */
-    public BuyAction(Actor buyer, Item item, Integer price) {
-        this.buyer = buyer;
+    public BuyAction(Item item, Integer price) {
         this.item = item;
         item.togglePortability();
         this.price = price;

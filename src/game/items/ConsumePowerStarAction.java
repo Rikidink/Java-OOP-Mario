@@ -13,19 +13,15 @@ public class ConsumePowerStarAction extends Action {
      */
     private final Item item;
 
-    private int timeRemaining; //default value - just in case
+    private int timeRemaining;
 
 
-    /**
+    /**2
+
      * Constructor.
      *
      * @param item the item to drop
      */
-
-    public ConsumePowerStarAction(Item item) {
-        this.item = item;
-        this.timeRemaining = 22;
-    }
 
     public ConsumePowerStarAction(Item item, int timeRemaining) {
         this.item = item;
@@ -50,7 +46,6 @@ public class ConsumePowerStarAction extends Action {
 
     /**
      * Get the amount of time left before the item is destroyed
-     * @return
      */
     public void setTimeRemaining(int timeRemaining) {
         this.timeRemaining = timeRemaining;
