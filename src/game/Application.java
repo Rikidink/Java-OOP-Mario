@@ -61,6 +61,8 @@ public class Application {
 		gameMap.at(42, 10).addItem(new SuperMushroom());
 		gameMap.at(44, 11).addActor(new Toad());
 
+		gameMap.at(42, 10).addItem(new PowerStar());
+
 		SproutSpawner.generateSprouts(mario, gameMap);
 		world.run();
 
