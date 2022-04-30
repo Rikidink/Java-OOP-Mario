@@ -4,7 +4,7 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
-import game.Status;
+import game.actors.Status;
 
 public class ConsumePowerStarAction extends Action {
 
@@ -38,6 +38,7 @@ public class ConsumePowerStarAction extends Action {
         map.locationOf(actor).removeItem(item);
         actor.heal(200); //heal by 200 hit points
         actor.addCapability(Status.HAS_EATEN_POWER_STAR); // adds a status
+        actor.addCapability(Status.HAS_EATEN_POWER_STAR_THIS_TURN); // adds a status
 
         return menuDescription(actor);
     }

@@ -6,10 +6,9 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
-import game.Resettable;
-import game.Status;
-import game.actions.AttackAction;
-import game.actions.ResetAction;
+import game.Wallet;
+import game.reset.Resettable;
+import game.reset.ResetAction;
 
 /**
  * Class representing the Player.
@@ -17,6 +16,7 @@ import game.actions.ResetAction;
 public class Player extends Actor implements Resettable {
 
 	private final Menu menu = new Menu();
+	int remainingInvincibility = -10;
 
 	/**
 	 * Constructor.
@@ -34,10 +34,21 @@ public class Player extends Actor implements Resettable {
 
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-			//TODO: it can jump freely with a 100% success rate and no fall damage.5
+		System.out.println("HP: " + printHp());
+		System.out.println("Money: $" + Wallet.getInstance().getWalletValue());
 
+		if (this.hasCapability(Status.HAS_EATEN_POWER_STAR_THIS_TURN)){
+			this.removeCapability(Status.HAS_EATEN_POWER_STAR_THIS_TURN);
+			remainingInvincibility = 10;
+
+		}
 		if(this.hasCapability(Status.HAS_EATEN_POWER_STAR)){
-			System.out.println("Mario is INVINCIBLE!");
+			if (remainingInvincibility >= 1) {
+				remainingInvincibility -= 1;
+				System.out.println("Mario is INVINCIBLE!");
+			} else {
+				this.removeCapability(Status.HAS_EATEN_POWER_STAR);
+			}
 		}
 
 		// Handle multi-turn Actions

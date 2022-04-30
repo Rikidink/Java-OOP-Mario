@@ -6,6 +6,9 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import game.Wallet;
 import game.items.Coin;
 
+/**
+ * A variation on the PickUpItem class that specifies what happens when a Coin is picked up
+ */
 public class PickUpCoinAction extends PickUpItemAction {
 
     private Coin coin;

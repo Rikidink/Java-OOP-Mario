@@ -4,8 +4,7 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
-import edu.monash.fit2099.engine.positions.Location;
-import game.Status;
+import game.actors.Status;
 
 public class ConsumeSuperMushroomAction extends Action {
 
@@ -31,6 +30,7 @@ public class ConsumeSuperMushroomAction extends Action {
         map.locationOf(actor).removeItem(item);
         actor.increaseMaxHp(50);  //increase max hp by 50
         actor.addCapability(Status.TALL); // adds a status
+        actor.addCapability(Status.HAS_EATEN_SUPER_MUSHROOM); // adds a status
 
         return menuDescription(actor);
     }

@@ -1,8 +1,8 @@
 package game.trees;
 
 import edu.monash.fit2099.engine.actors.Actor;
-import game.HigherGround;
-import game.Resettable;
+import game.ground.HigherGround;
+import game.reset.Resettable;
 
 
 /**

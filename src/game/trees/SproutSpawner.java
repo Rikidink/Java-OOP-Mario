@@ -2,9 +2,7 @@ package game.trees;
 
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
-import edu.monash.fit2099.engine.positions.Location;
-import game.Dirt;
-import game.Status;
+import game.actors.Status;
 
 import java.util.Random;
 

@@ -7,8 +7,6 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
-import game.CanSpeak;
-import game.Status;
 import game.actions.BuyAction;
 import game.actions.SpeakAction;
 import game.items.PowerStar;
@@ -51,12 +49,12 @@ public class Toad extends Actor implements CanSpeak {
      */
     public String speak(Actor actor) {
         int randBound = 4;
-        for (Item item : actor.getInventory()) {
+        for (Item item : actor.getInventory()) { //checking if there is a wrench in the inventory
             if (item.toString().equals("Wrench")) {
                 randBound = 3;
             }
         }
-        for (Enum<?> capability : actor.capabilitiesList()) {
+        for (Enum<?> capability : actor.capabilitiesList()) { //checking if the player is under the effects of the PowerStar
             if (capability == Status.HAS_EATEN_POWER_STAR) {
                 randBound--;
             }
