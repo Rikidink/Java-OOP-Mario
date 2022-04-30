@@ -12,29 +12,13 @@ import game.actors.Goomba;
 public class Sprout extends Tree {
 
     /**
-     * The success rate if the player jumps to the sprout
-     */
-    private final double successRate = 0.9;
-
-    /**
-     * The fall damage the player receives if the jump to sprout fails
-     */
-    private final int fallDamage = 10;
-
-    /**
-     * The name of the sprout as a string
-     */
-    private final String highGroundName = "Sprout";
-
-
-    /**
      * Constructor to create a sprout object
      * @param mario the player
      * @param x x position of sprout
      * @param y y position of sprout
      */
     public Sprout(Actor mario, int x, int y){
-        super('+', x, y);
+        super('+', x, y, 0.9, 10, "Sprout");
         this.mario = mario;
         
     }

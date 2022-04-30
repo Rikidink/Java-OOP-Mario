@@ -38,13 +38,20 @@ abstract public class Tree extends HigherGround implements Resettable {
      * @param x x position of a tree
      * @param y y position of a tree
      */
-    public Tree(char displayChar, int x, int y) {
-        super(displayChar);
+    public Tree(char displayChar, int x, int y, double successRate, int fallDamage, String highGroundName) {
+        super(displayChar, successRate, fallDamage, highGroundName);
         this.x = x;
         this.y = y;
         registerInstance();
     }
 
-
-
+    /**
+     * Method that determines if an actor can enter a wall
+     * @param actor the Actor to check
+     * @return false, can't enter a wall
+     */
+    @Override
+    public boolean canActorEnter(Actor actor) {
+        return false;
+    }
 }

@@ -11,27 +11,12 @@ import game.items.Coin;
 public class Sapling extends Tree {
 
     /**
-     * The success rate if a player jumps to sapling
-     */
-    private final double successRate = 0.8;
-
-    /**
-     * The fall damage if a player's jump is unsuccessful
-     */
-    private final int fallDamage = 20;
-
-    /**
-     * The name of the sapling as a string
-     */
-    private final String highGroundName = "Sapling";
-
-    /**
      * Constructor for the sapling
      * @param x x position of the sapling
      * @param y y position of the sapling
      */
     public Sapling(int x, int y){
-        super('t', x, y);
+        super('t', x, y, 0.8, 20, "Sapling");
     }
 
     /**

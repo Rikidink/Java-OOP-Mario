@@ -9,26 +9,10 @@ import game.ground.HigherGround;
 public class Wall extends HigherGround {
 
 	/**
-	 * The success rate if the player jumps to the wall
-	 */
-	private final double successRate = 0.8;
-
-	/**
-	 * The fall damage the player receives if the jump to wall falls
-	 */
-	private final int fallDamage = 20;
-
-	/**
-	 * The name of the wall as a string
-	 */
-	private final String highGroundName = "Wall";
-
-
-	/**
 	 * Constructor to create a wall
 	 */
 	public Wall() {
-		super('#');
+		super('#', 0.8, 20, "Wall");
 	}
 
 	/**
@@ -76,4 +60,6 @@ public class Wall extends HigherGround {
 	public String getHighGroundName() {
 		return highGroundName;
 	}
+
+
 }

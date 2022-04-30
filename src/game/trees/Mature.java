@@ -17,29 +17,13 @@ import java.util.Random;
 public class Mature extends Tree {
 
     /**
-     * The success rate if the player jumps to the mature
-     */
-    private final double successRate = 0.7;
-
-    /**
-     * The fall damage the player receives if the jump to mature fails
-     */
-    private final int fallDamage = 30;
-
-    /**
-     * THe name of the mature as a string
-     */
-    private final String highGroundName = "Mature";
-
-
-    /**
      * Constructor to create a mature object
      * @param mario the player
      * @param x x position of mature
      * @param y y position of mature
      */
     public Mature(Actor mario, int x, int y){
-        super('T', x, y);
+        super('T', x, y, 0.7, 30, "Mature");
         this.mario = mario;
     }
 

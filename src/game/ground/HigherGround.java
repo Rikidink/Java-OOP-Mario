@@ -32,8 +32,11 @@ abstract public class HigherGround extends Ground {
      * Base abstract constructor for the HigherGround class
      * @param displayChar the displayed letter of the class on the game map
      */
-    public HigherGround(char displayChar) {
+    public HigherGround(char displayChar, double successRate, int fallDamage, String highGroundName) {
         super(displayChar);
+        this.successRate = successRate;
+        this.fallDamage = fallDamage;
+        this.highGroundName = highGroundName;
     }
 
     /**
