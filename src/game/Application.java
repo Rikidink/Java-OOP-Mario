@@ -63,6 +63,7 @@ public class Application {
 
 		gameMap.at(42, 10).addItem(new PowerStar());
 
+		// spanws sprouts
 		SproutSpawner.generateSprouts(mario, gameMap);
 		world.run();
 
