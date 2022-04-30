@@ -16,7 +16,7 @@ import game.reset.ResetAction;
 public class Player extends Actor implements Resettable {
 
 	private final Menu menu = new Menu();
-	int remainingInvincibility = -10;
+	private int remainingInvincibility = -10;
 
 	/**
 	 * Constructor.

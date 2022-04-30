@@ -15,7 +15,7 @@ public class PowerStar extends Item {
 
 	private int timeRemaining = 10; // time remaining until item is  destroyed
 
-	ConsumePowerStarAction consumePowerStarAction = new ConsumePowerStarAction(this, timeRemaining);
+	private ConsumePowerStarAction consumePowerStarAction = new ConsumePowerStarAction(this, timeRemaining);
 
 	/***
 	 * Constructor
