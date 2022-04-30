@@ -4,7 +4,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.ground.Dirt;
-import game.actors.Goomba;
+import game.enemies.Goomba;
 
 /**
  * Sprout; a child class of tree
@@ -42,7 +42,7 @@ public class Sprout extends Tree {
         else {
             if(Math.random() <= 0.1){
                 if(!location.containsAnActor()){
-                    location.addActor(new Goomba(mario));
+                    location.addActor(new Goomba());
                 }
             }
         }

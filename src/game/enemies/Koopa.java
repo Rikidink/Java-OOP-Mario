@@ -1,4 +1,4 @@
-package game.actors;
+package game.enemies;
 
 
 import edu.monash.fit2099.engine.actions.Action;
@@ -8,33 +8,25 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
+import game.actors.Status;
 import game.reset.Resettable;
 import game.actions.AttackAction;
 import game.behaviours.AttackBehaviour;
 import game.behaviours.Behaviour;
 import game.behaviours.FollowBehaviour;
-import game.behaviours.WanderBehaviour;
 import game.items.SuperMushroom;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * A little fungus guy.
  */
-public class Koopa extends Actor implements Resettable {
-	private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
-
+public class Koopa extends Enemy implements Resettable {
 
 	/**
 	 * Constructor.
 	 */
-	public Koopa(Actor player) {
+	public Koopa() {
 		super("Koopa", 'K', 100); //100 hp
 		this.addCapability(Status.CAN_BE_DORMANT); // adds a status
-		this.addCapability(Status.CANNOT_ENTER_FLOOR);
-		this.addCapability(Status.HOSTILE_TO_PLAYER);
-		this.behaviours.put(10, new WanderBehaviour());
 		this.addItemToInventory(new SuperMushroom()); //So it drops a supermushroom when it dies
 		registerInstance();
 	}

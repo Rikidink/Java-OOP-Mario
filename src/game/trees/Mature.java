@@ -6,7 +6,7 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.ground.Dirt;
 import game.actors.Status;
-import game.actors.Koopa;
+import game.enemies.Koopa;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -69,7 +69,7 @@ public class Mature extends Tree {
         else {
             if(Math.random() <= 0.15){
                 if(!location.containsAnActor()){
-                   location.addActor(new Koopa(mario));
+                   location.addActor(new Koopa());
                 }
             }
         }

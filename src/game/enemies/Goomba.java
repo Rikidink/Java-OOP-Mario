@@ -1,4 +1,4 @@
-package game.actors;
+package game.enemies;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actions.ActionList;
@@ -7,28 +7,22 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
+import game.actors.Status;
 import game.reset.Resettable;
 import game.actions.AttackAction;
 import game.behaviours.*;
 
-import java.util.HashMap;
-import java.util.Map;
 /**
  * A little fungus guy.
  */
-public class Goomba extends Actor implements Resettable {
-	private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
-
+public class Goomba extends Enemy implements Resettable {
 	/**
 	 * Constructor.
 	 */
 
-	public Goomba(Actor player) {
+	public Goomba() {
 		super("Goomba", 'g', 20); //changed health to 20
 		this.behaviours.put(1, new SuicideBehaviour()); // the order here is important, first to last possible
-		this.behaviours.put(10, new WanderBehaviour());
-		this.addCapability(Status.CANNOT_ENTER_FLOOR);
-		this.addCapability(Status.HOSTILE_TO_PLAYER);
 		registerInstance();
 
 	}
