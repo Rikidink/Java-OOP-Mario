@@ -16,15 +16,14 @@ public class ConsumePowerStarAction extends Action {
     private int timeRemaining;
 
 
-    /**2
-
+    /**
      * Constructor.
      *
-     * @param item the item to drop
+     * @param powerStar the item to drop
      */
 
-    public ConsumePowerStarAction(Item item, int timeRemaining) {
-        this.item = item;
+    public ConsumePowerStarAction(PowerStar powerStar, int timeRemaining) {
+        this.item = powerStar;
         this.timeRemaining = timeRemaining;
     }
 
@@ -50,6 +49,4 @@ public class ConsumePowerStarAction extends Action {
     public void setTimeRemaining(int timeRemaining) {
         this.timeRemaining = timeRemaining;
     }
-
-
 }

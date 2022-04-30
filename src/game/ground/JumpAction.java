@@ -56,7 +56,7 @@ public class JumpAction extends Action {
     public String execute(Actor actor, GameMap map){
 
         // uses the success rate from high ground objects
-        if(actor.hasCapability(Status.HAS_EATEN_SUPER_MUSHROOM) || Math.random() <= highGround.getSuccessRate()){
+        if(actor.hasCapability(Status.TALL) || Math.random() <= highGround.getSuccessRate()){
             MoveActorAction move = new MoveActorAction(this.location, this.direction);
             move.execute(actor,map);
             return "Jumped to " + highGround.getHighGroundName() + " " + location.x() + " " +  location.y() + " successfully!";
