@@ -14,7 +14,6 @@ import game.actors.Toad;
 import game.ground.Dirt;
 import game.ground.Floor;
 import game.ground.Wall;
-import game.items.Coin;
 import game.items.PowerStar;
 import game.items.SuperMushroom;
 import game.trees.*;

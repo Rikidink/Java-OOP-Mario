@@ -6,6 +6,9 @@ import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Wallet;
 
+/**
+ * An Action type for buying an Item from another Actor
+ */
 public class BuyAction extends Action {
 
     private Actor buyer;

@@ -7,6 +7,9 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import game.reset.Resettable;
 import game.actions.PickUpCoinAction;
 
+/**
+ * A special type of Item that is a Coin
+ */
 public class Coin extends Item implements Resettable {
 
     private Integer value;

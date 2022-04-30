@@ -5,6 +5,9 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.actors.Status;
 
+/**
+ * An Action type for resetting the game
+ */
 public class ResetAction extends Action {
 
     protected static final String hotkey = "r";
