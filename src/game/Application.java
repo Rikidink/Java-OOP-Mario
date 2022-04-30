@@ -57,13 +57,13 @@ public class Application {
 
 		Actor mario = new Player("Player", 'm', 100);
 		world.addPlayer(mario, gameMap.at(42, 10));
-//		gameMap.at(42, 10).addItem(new PowerStar());
-		gameMap.at(42, 10).addItem(new Wrench());
+
+
 //		gameMap.at(42, 10).addItem(new SuperMushroom());
 		gameMap.at(44, 11).addActor(new Toad());
-		gameMap.at(44, 9).addActor(new Koopa());
 
-		// spanws sprouts
+
+		// spawns sprouts
 		SproutSpawner.generateSprouts(mario, gameMap);
 		world.run();
 

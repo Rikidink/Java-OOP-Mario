@@ -120,13 +120,12 @@ public class World {
 			actions.add(item.getAllowableActions());
 			// Game rule. If you're carrying it, you can drop it.
 			actions.add(item.getDropAction(actor));
-
 		}
 
 		// Game rule. Allows the actor to interact with current ground
 		actions.add(here.getGround().allowableActions(actor, here, ""));
 
-		for (Exit exit : here.getExits()) { //add all of the left right up down movements
+		for (Exit exit : here.getExits()) {
 			Location destination = exit.getDestination();
 
 			if (actorLocations.isAnActorAt(destination)) {
@@ -141,7 +140,6 @@ public class World {
 			actions.add(item.getAllowableActions());
 			// Game rule. If it's on the ground you can pick it up.
 			actions.add(item.getPickUpAction(actor));
-
 		}
 		actions.add(new DoNothingAction());
 

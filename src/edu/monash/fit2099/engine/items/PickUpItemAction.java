@@ -26,7 +26,8 @@ public class PickUpItemAction extends Action {
 	 * @see Action#execute(Actor, GameMap)
 	 * @param actor The actor performing the action.
 	 * @param map The map the actor is on.
-     */
+	 * @return a suitable description to display in the UI
+	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		map.locationOf(actor).removeItem(item);
