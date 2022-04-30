@@ -65,8 +65,8 @@ public class Goomba extends Actor implements Resettable {
 	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-		for(Behaviour Behaviour : behaviours.values()) {
-			Action action = Behaviour.getAction(this, map);
+		for(Behaviour behaviour : behaviours.values()) {
+			Action action = behaviour.getAction(this, map);
 			if (action != null)
 				return action;
 		}
