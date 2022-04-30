@@ -28,8 +28,7 @@ public class Application {
 
 		World world = new World(new Display());
 
-		// replaced tree constructor with sprout
-		FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor()/*, new Sprout()*/);
+		FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor());
 
 		List<String> map = Arrays.asList(
 				"..........................................##....................................",
