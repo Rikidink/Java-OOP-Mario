@@ -6,6 +6,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
+import game.Wallet;
 import game.reset.Resettable;
 import game.reset.ResetAction;
 
@@ -33,6 +34,9 @@ public class Player extends Actor implements Resettable {
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
 			//TODO: it can jump freely with a 100% success rate and no fall damage.5
+
+		System.out.println("HP: " + printHp());
+		System.out.println("Money: $" + Wallet.getInstance().getWalletValue());
 
 		if(this.hasCapability(Status.HAS_EATEN_POWER_STAR)){
 			System.out.println("Mario is INVINCIBLE!");

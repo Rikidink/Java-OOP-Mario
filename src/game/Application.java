@@ -14,6 +14,7 @@ import game.actors.Toad;
 import game.ground.Dirt;
 import game.ground.Floor;
 import game.ground.Wall;
+import game.items.Coin;
 import game.items.PowerStar;
 import game.items.SuperMushroom;
 import game.trees.*;
@@ -57,7 +58,8 @@ public class Application {
 
 		Actor mario = new Player("Player", 'm', 100);
 		world.addPlayer(mario, gameMap.at(42, 10));
-
+		gameMap.at(42, 10).addItem(new PowerStar());
+		gameMap.at(42, 10).addItem(new SuperMushroom());
 		gameMap.at(44, 11).addActor(new Toad());
 
 		SproutSpawner.generateSprouts(mario, gameMap);
