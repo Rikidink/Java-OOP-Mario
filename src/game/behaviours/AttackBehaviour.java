@@ -24,7 +24,12 @@ public class AttackBehaviour implements Behaviour{
     }
 
 
-    //copied from follow behaviour
+    /**
+     * gets the action the actor does (attack or not)
+     * @param actor the Actor acting
+     * @param map the GameMap containing the Actor
+     * @return null or some info about the attack
+     */
     @Override
     public Action getAction(Actor actor, GameMap map) {
         if(!map.contains(target) || !map.contains(actor))

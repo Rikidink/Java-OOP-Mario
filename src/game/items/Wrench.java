@@ -10,6 +10,6 @@ public class Wrench extends WeaponItem {
 
     public Wrench() {
         super("Wrench", 'W', 50, "wallops", 80);
-        this.togglePortability();
+        //this.togglePortability();
     }
 }

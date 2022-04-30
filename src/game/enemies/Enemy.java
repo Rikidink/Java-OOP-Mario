@@ -8,6 +8,9 @@ import game.behaviours.WanderBehaviour;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * A generic enemy
+ */
 public abstract class Enemy extends Actor {
 
     protected final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour

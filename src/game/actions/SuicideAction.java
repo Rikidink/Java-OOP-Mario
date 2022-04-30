@@ -12,9 +12,16 @@ import edu.monash.fit2099.engine.positions.GameMap;
 public class SuicideAction extends Action {
 
 	/**
-	 * Perform the Action
-	 *
-	 * @see Action#execute(Actor actor, GameMap map)
+	 * Constructor
+	 */
+	public SuicideAction() {
+	}
+
+	/**
+	 * Removes the actor from the game
+	 * @param actor The actor performing the action.
+	 * @param map The map the actor is on.
+	 * @return the description for the actor being removed
 	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
@@ -23,9 +30,9 @@ public class SuicideAction extends Action {
 	}
 
 	/**
-	 * Returns a descriptive String
-	 *
-	 * @see Action#execute(Actor actor, GameMap map)
+	 * A description of actor being removed from the game
+	 * @param actor The actor performing the action.
+	 * @return the description
 	 */
 	@Override
 	public String menuDescription(Actor actor) {

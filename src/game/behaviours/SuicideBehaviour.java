@@ -7,6 +7,9 @@ import game.actions.SuicideAction;
 
 import java.util.Random;
 
+/**
+ * Behaviour for suicide
+ */
 public class SuicideBehaviour implements Behaviour {
 
 	private final Random random = new Random();

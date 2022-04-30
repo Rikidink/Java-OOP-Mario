@@ -6,8 +6,10 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.items.Coin;
-import game.trees.Mature;
 
+/**
+ * This is what happenes when you move while being affected by a power star
+ */
 public class PowerStarMoveActorAction extends MoveActorAction {
     /**
      * Constructor
@@ -31,8 +33,8 @@ public class PowerStarMoveActorAction extends MoveActorAction {
     public String execute(Actor actor, GameMap map) {
         map.moveActor(actor, moveToLocation);
         moveToLocation.setGround(new Dirt()); //remove the high ground
-        moveToLocation.addItem(new Coin(5,moveToLocation.x(), moveToLocation.y()));
-        return menuDescription(actor); //spawn a coin
+        moveToLocation.addItem(new Coin(5,moveToLocation.x(), moveToLocation.y())); //spawn a coin
+        return menuDescription(actor);
     }
 
     /**

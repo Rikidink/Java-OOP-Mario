@@ -6,6 +6,9 @@ import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.actors.Status;
 
+/**
+ * Eat a super mushroom
+ */
 public class ConsumeSuperMushroomAction extends Action {
 
     /**
@@ -24,6 +27,12 @@ public class ConsumeSuperMushroomAction extends Action {
         this.item = item;
     }
 
+    /**
+     * Does the action
+     * @param actor The actor performing the action.
+     * @param map The map the actor is on.
+     * @return short description of the action done
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
         actor.removeItemFromInventory(item);
@@ -34,6 +43,11 @@ public class ConsumeSuperMushroomAction extends Action {
         return menuDescription(actor);
     }
 
+    /**
+     * A short description of the action done in execute
+     * @param actor The actor performing the action.
+     * @return the description of the action
+     */
     @Override
     public String menuDescription(Actor actor) {
         return actor + " consumes the Super Mushroom";
