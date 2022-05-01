@@ -33,7 +33,7 @@ public class Sapling extends Tree {
 
         // after 10 turns the sapling is replaced with a sapling
         if(turnCount == 10){
-            location.setGround(new Mature(mario, location.x(), location.y()));
+            location.setGround(new Mature(location.x(), location.y()));
         }
         // 10 percent chance to spawn a coin on the sapling
         else {

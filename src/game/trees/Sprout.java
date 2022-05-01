@@ -14,13 +14,11 @@ public class Sprout extends Tree {
 
     /**
      * Constructor to create a sprout object
-     * @param mario the player
      * @param x x position of sprout
      * @param y y position of sprout
      */
-    public Sprout(Actor mario, int x, int y){
+    public Sprout(int x, int y){
         super('+', x, y, 0.9, 10, "Sprout");
-        this.mario = mario;
         
     }
 

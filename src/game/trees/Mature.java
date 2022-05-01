@@ -19,13 +19,11 @@ public class Mature extends Tree {
 
     /**
      * Constructor to create a mature object
-     * @param mario the player
      * @param x x position of mature
      * @param y y position of mature
      */
-    public Mature(Actor mario, int x, int y){
+    public Mature(int x, int y){
         super('T', x, y, 0.7, 30, "Mature");
-        this.mario = mario;
     }
 
     /**
@@ -61,7 +59,7 @@ public class Mature extends Tree {
             // if there is fertile ground, choose a random exit in arraylist and spawn sprout
             if(exits.size() > 0){
                 int randExitNum = rand.nextInt(exits.size());
-                exits.get(randExitNum).getDestination().setGround(new Sprout(mario, location.x(), location.y()));
+                exits.get(randExitNum).getDestination().setGround(new Sprout(location.x(), location.y()));
             }
 
         }

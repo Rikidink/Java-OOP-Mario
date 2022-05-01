@@ -12,11 +12,6 @@ import game.reset.Resettable;
 abstract public class Tree extends HigherGround implements Resettable {
 
     /**
-     * Attribute of the player used as a parameter for enemy constructors
-     */
-    protected Actor mario;
-
-    /**
      * Integer to count turns for turn-based functionality
      */
     protected int turnCount = 0;

@@ -38,7 +38,7 @@ public class SproutSpawner {
 
             // checks to see if the randomly selected ground is fertile, and spawns a sprout if true
             if(gameMap.at(randomWidth, randomHeight).getGround().hasCapability(Status.FERTILE_GROUND)){
-                gameMap.at(randomWidth, randomHeight).setGround(new Sprout (mario, randomWidth, randomHeight));
+                gameMap.at(randomWidth, randomHeight).setGround(new Sprout (randomWidth, randomHeight));
                 sproutAmount -= 1;
             }
         }
