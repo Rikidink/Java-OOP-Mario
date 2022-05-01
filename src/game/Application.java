@@ -65,7 +65,7 @@ public class Application {
 
 
 		// spawns sprouts
-		SproutSpawner.generateSprouts(mario, gameMap);
+		SproutSpawner.generateSprouts(gameMap);
 		world.run();
 
 	}

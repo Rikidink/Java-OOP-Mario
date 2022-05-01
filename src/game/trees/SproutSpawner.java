@@ -20,10 +20,9 @@ public class SproutSpawner {
 
     /**
      * Method to place an x amount of sprouts randomly on the game map
-     * @param mario the player
      * @param gameMap the game map sprouts spawn on
      */
-    public static void generateSprouts(Actor mario, GameMap gameMap){
+    public static void generateSprouts( GameMap gameMap){
         Random rand = new Random();
 
         // amount of sprouts that should be spawned on the map
