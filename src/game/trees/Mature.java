@@ -59,7 +59,9 @@ public class Mature extends Tree {
             // if there is fertile ground, choose a random exit in arraylist and spawn sprout
             if(exits.size() > 0){
                 int randExitNum = rand.nextInt(exits.size());
-                exits.get(randExitNum).getDestination().setGround(new Sprout(location.x(), location.y()));
+                int randX = exits.get(randExitNum).getDestination().x();
+                int randY = exits.get(randExitNum).getDestination().y();
+                exits.get(randExitNum).getDestination().setGround(new Sprout(randX, randY));
             }
 
         }
