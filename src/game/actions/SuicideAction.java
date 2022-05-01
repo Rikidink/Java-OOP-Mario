@@ -17,12 +17,23 @@ public class SuicideAction extends Action {
 	public SuicideAction() {
 	}
 
+	/**
+	 * Removes the actor from the game
+	 * @param actor The actor performing the action.
+	 * @param map The map the actor is on.
+	 * @return the description for the actor being removed
+	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		map.removeActor(actor);
 		return menuDescription(actor);
 	}
 
+	/**
+	 * A description of actor being removed from the game
+	 * @param actor The actor performing the action.
+	 * @return the description
+	 */
 	@Override
 	public String menuDescription(Actor actor) {
 		return actor + " dies of natural causes";

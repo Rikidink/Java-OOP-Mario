@@ -9,13 +9,15 @@ import edu.monash.fit2099.engine.positions.FancyGroundFactory;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.World;
 
+
 import game.actors.Player;
 import game.actors.Toad;
+import game.enemies.Koopa;
 import game.ground.Dirt;
 import game.ground.Floor;
 import game.ground.Wall;
 import game.items.PowerStar;
-import game.items.SuperMushroom;
+import game.items.Wrench;
 import game.trees.*;
 
 /**
@@ -56,13 +58,13 @@ public class Application {
 
 		Actor mario = new Player("Player", 'm', 100);
 		world.addPlayer(mario, gameMap.at(42, 10));
+
+
 		gameMap.at(42, 10).addItem(new PowerStar());
-		gameMap.at(42, 10).addItem(new SuperMushroom());
 		gameMap.at(44, 11).addActor(new Toad());
 
-		gameMap.at(42, 10).addItem(new PowerStar());
 
-		// spanws sprouts
+		// spawns sprouts
 		SproutSpawner.generateSprouts(mario, gameMap);
 		world.run();
 

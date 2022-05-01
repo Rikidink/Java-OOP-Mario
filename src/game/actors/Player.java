@@ -16,7 +16,7 @@ import game.reset.ResetAction;
 public class Player extends Actor implements Resettable {
 
 	private final Menu menu = new Menu();
-	int remainingInvincibility = -10;
+	private int remainingInvincibility = -10;
 
 	/**
 	 * Constructor.
@@ -32,24 +32,16 @@ public class Player extends Actor implements Resettable {
 		registerInstance();
 	}
 
+	/**
+	 * Select and return an action to perform on the current turn.
+	 *
+	 * @see Actor#playTurn(ActionList actions, Action lastAction, GameMap map, Display display)
+	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
 		System.out.println("HP: " + printHp());
 		System.out.println("Money: $" + Wallet.getInstance().getWalletValue());
-
-		if (this.hasCapability(Status.HAS_EATEN_POWER_STAR_THIS_TURN)){
-			this.removeCapability(Status.HAS_EATEN_POWER_STAR_THIS_TURN);
-			remainingInvincibility = 10;
-
-		}
-		if(this.hasCapability(Status.HAS_EATEN_POWER_STAR)){
-			if (remainingInvincibility >= 1) {
-				remainingInvincibility -= 1;
-				System.out.println("Mario is INVINCIBLE!");
-			} else {
-				this.removeCapability(Status.HAS_EATEN_POWER_STAR);
-			}
-		}
+		managePowerStar();
 
 		// Handle multi-turn Actions
 		if (lastAction.getNextAction() != null)
@@ -58,27 +50,52 @@ public class Player extends Actor implements Resettable {
 		if (this.hasCapability(Status.CAN_RESET)) {
 			actions.add(new ResetAction());
 		}
+
 		// return/print the console menu
 		return menu.showMenu(this, actions, display);
 	}
 
+	/**
+	 *
+	 * @see Actor#getDisplayChar()
+	 */
 	@Override
 	public char getDisplayChar(){
 		return this.hasCapability(Status.TALL) ? Character.toUpperCase(super.getDisplayChar()): super.getDisplayChar();
 	}
 
+	/**
+	 * Resets abilities, attributes, and/or items.
+	 *
+	 * @see Resettable#resetInstance(GameMap map)
+	 */
 	@Override
 	public void resetInstance(GameMap map) {
 		heal(getMaxHp());
 		for (Enum<?> status : capabilitiesList()) {
-			if (status == Status.HAS_EATEN_POWER_STAR || status == Status.HAS_EATEN_SUPER_MUSHROOM) {
+			if (status == Status.HAS_EATEN_POWER_STAR || status == Status.TALL) {
 				this.removeCapability(status);
 			}
 		}
 	}
 
-	@Override
-	public void registerInstance() {
-		Resettable.super.registerInstance();
+	/**
+	 *Manages effects of the PowerStar on the Player once it has been consumed
+	 *
+	 */
+	private void managePowerStar() {
+		if (this.hasCapability(Status.HAS_EATEN_POWER_STAR_THIS_TURN)){
+			this.removeCapability(Status.HAS_EATEN_POWER_STAR_THIS_TURN);
+			remainingInvincibility = 10;
+		}
+
+		if(this.hasCapability(Status.HAS_EATEN_POWER_STAR)){
+			if (remainingInvincibility >= 1) {
+				remainingInvincibility -= 1;
+				System.out.println("Mario is INVINCIBLE!");
+			} else {
+				this.removeCapability(Status.HAS_EATEN_POWER_STAR);
+			}
+		}
 	}
 }

@@ -1,4 +1,4 @@
-package game.actors;
+package game.enemies;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actions.ActionList;
@@ -7,35 +7,28 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
+import game.actors.Status;
 import game.reset.Resettable;
 import game.actions.AttackAction;
 import game.behaviours.*;
 
-import java.util.HashMap;
-import java.util.Map;
 /**
  * A little fungus guy.
  */
-public class Goomba extends Actor implements Resettable {
-	private final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
+public class Goomba extends Enemy implements Resettable {
 
 	/**
 	 * Constructor.
 	 */
-
-	public Goomba(Actor player) {
+	public Goomba() {
 		super("Goomba", 'g', 20); //changed health to 20
 		this.behaviours.put(1, new SuicideBehaviour()); // the order here is important, first to last possible
-		this.behaviours.put(10, new WanderBehaviour());
-		this.addCapability(Status.CANNOT_ENTER_FLOOR);
-		this.addCapability(Status.HOSTILE_TO_PLAYER);
 		registerInstance();
-
 	}
 
 	/**
-	 * At the moment, we only make it can be attacked by Player.
-	 * You can do something else with this method.
+	 *All of the things it can do
+	 *
 	 * @param otherActor the Actor that might perform an action.
 	 * @param direction  String representing the direction of the other Actor
 	 * @param map        current GameMap
@@ -45,13 +38,16 @@ public class Goomba extends Actor implements Resettable {
 	@Override
 	public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
 		ActionList actions = new ActionList();
+
 		if (!(otherActor.hasCapability(Status.HOSTILE_TO_PLAYER))) {
 			behaviours.put(8, new AttackBehaviour(otherActor));
 		}
+
 		// it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
 		if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
 			actions.add(new AttackAction(this,direction));
 		}
+
 		if (this.hasCapability(Status.FOLLOWING)) {
 			behaviours.put(9, new FollowBehaviour(otherActor));
 			behaviours.put(8, new AttackBehaviour(otherActor));
@@ -61,28 +57,28 @@ public class Goomba extends Actor implements Resettable {
 
 	/**
 	 * Figure out what to do next.
+	 *
 	 * @see Actor#playTurn(ActionList, Action, GameMap, Display)
 	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-		for(Behaviour Behaviour : behaviours.values()) {
-			Action action = Behaviour.getAction(this, map);
+		for(Behaviour behaviour : behaviours.values()) {
+			Action action = behaviour.getAction(this, map);
 			if (action != null)
 				return action;
 		}
 		return new DoNothingAction();
 	}
 
+	/**
+	 * Resets abilities, attributes, and/or items.
+	 *
+	 * @see Resettable#resetInstance(GameMap map)
+	 */
 	@Override
 	public void resetInstance(GameMap map) {
 		map.removeActor(this);
 	}
-
-	@Override
-	public void registerInstance() {
-		Resettable.super.registerInstance();
-	}
-
 
 	/**
 	 * Creates and returns an intrinsic weapon.
@@ -91,6 +87,5 @@ public class Goomba extends Actor implements Resettable {
 	@Override
 	protected IntrinsicWeapon getIntrinsicWeapon() {
 		return new IntrinsicWeapon(10, "kicks");
-	} //weapon hitrates are 50% by default
-
+	}
 }

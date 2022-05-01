@@ -7,7 +7,10 @@ import game.actions.SuicideAction;
 
 import java.util.Random;
 
-public class SuicideBehaviour extends Action implements Behaviour {
+/**
+ * Behaviour for suicide
+ */
+public class SuicideBehaviour implements Behaviour {
 
 	private final Random random = new Random();
 
@@ -25,15 +28,5 @@ public class SuicideBehaviour extends Action implements Behaviour {
 			return new SuicideAction();
 		}
 		return null;
-	}
-
-	@Override
-	public String execute(Actor actor, GameMap map) {
-		return menuDescription(actor);
-	}
-
-	@Override
-	public String menuDescription(Actor actor) {
-		return "Raagrh...";
 	}
 }

@@ -63,7 +63,8 @@ public class MoveActorAction extends Action {
 	 * @see Action#execute(Actor, GameMap)
 	 * @param actor The actor performing the action.
 	 * @param map The map the actor is on.
-     */
+	 * @return a description of the Action suitable for the menu
+	 */
 	@Override
 	public String execute(Actor actor, GameMap map) {
 		map.moveActor(actor, moveToLocation);

@@ -21,11 +21,21 @@ public class SpeakAction extends Action {
         this.speaker = speaker;
     }
 
+    /**
+     * Perform the Action
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
         return speaker.speak(actor);
     }
 
+    /**
+     * Returns a descriptive String
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String menuDescription(Actor actor) {
         return "Mario talks with Toad";

@@ -4,7 +4,8 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.ground.Dirt;
-import game.actors.Goomba;
+import game.enemies.Goomba;
+import game.reset.Resettable;
 
 /**
  * Sprout; a child class of tree
@@ -42,23 +43,22 @@ public class Sprout extends Tree {
         else {
             if(Math.random() <= 0.1){
                 if(!location.containsAnActor()){
-                    location.addActor(new Goomba(mario));
+                    location.addActor(new Goomba());
                 }
             }
         }
     }
 
-    
+    /**
+     * Resets abilities, attributes, and/or items.
+     *
+     * @see Resettable#resetInstance(GameMap map)
+     */
     @Override
     public void resetInstance(GameMap map) {
         if (Math.random() <= 0.5) {
             map.at(x, y).setGround(new Dirt());
         }
-    }
-
-    @Override
-    public void registerInstance() {
-        super.registerInstance();
     }
 
     /**

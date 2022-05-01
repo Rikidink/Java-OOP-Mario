@@ -16,6 +16,9 @@ import game.items.Wrench;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * A slimy creature that can trade things
+ */
 public class Toad extends Actor implements CanSpeak {
 
     private final ArrayList<String> dialogue = new ArrayList<>();
@@ -49,23 +52,17 @@ public class Toad extends Actor implements CanSpeak {
      */
     public String speak(Actor actor) {
         int randBound = 4;
-        int hasWrench = 5;
-        int hasPowerStar = 5;
-
         for (Item item : actor.getInventory()) { //checking if there is a wrench in the inventory
             if (item.toString().equals("Wrench")) {
-                hasWrench = 2;
+                randBound = 3;
             }
         }
-        if (actor.hasCapability(Status.HAS_EATEN_POWER_STAR)) {
-                hasPowerStar = 3;
+        for (Enum<?> capability : actor.capabilitiesList()) { //checking if the player is under the effects of the PowerStar
+            if (capability == Status.HAS_EATEN_POWER_STAR) {
+                randBound--;
             }
-
+        }
         int dialogueNumber = rand.nextInt(randBound);
-
-        while (dialogueNumber == hasPowerStar || dialogueNumber == hasWrench) {
-            dialogueNumber = rand.nextInt(randBound);
-        }
         return dialogue.get(dialogueNumber);
     }
 
@@ -75,7 +72,7 @@ public class Toad extends Actor implements CanSpeak {
         actions.add(new SpeakAction(this));
         actions.add(new BuyAction(new PowerStar(), 600));
         actions.add(new BuyAction(new SuperMushroom(), 400));
-        actions.add(new BuyAction(new Wrench(otherActor), 200));
+        actions.add(new BuyAction(new Wrench(), 200));
         return actions;
     }
 
@@ -85,7 +82,7 @@ public class Toad extends Actor implements CanSpeak {
     private void setDialogue() {
         dialogue.add("The Princess is depending on you! You are our only hope.");
         dialogue.add("Being imprisoned in these walls can drive a fungus crazy :(");
-        dialogue.add("You might need a wrench to smash Koopa's hard shells.");
         dialogue.add("You better get back to finding the Power Stars.");
+        dialogue.add("You might need a wrench to smash Koopa's hard shells.");
     }
 }

@@ -1,15 +1,14 @@
 package game.behaviours;
 
 import edu.monash.fit2099.engine.actions.Action;
-import edu.monash.fit2099.engine.actions.MoveActorAction;
 import edu.monash.fit2099.engine.actors.Actor;
-import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.actions.AttackAction;
 
 /**
  * Find out if something can be attacked
+ *
  */
 public class AttackBehaviour implements Behaviour{
 
@@ -25,7 +24,12 @@ public class AttackBehaviour implements Behaviour{
     }
 
 
-    //copied from follow behaviour
+    /**
+     * gets the action the actor does (attack or not)
+     * @param actor the Actor acting
+     * @param map the GameMap containing the Actor
+     * @return null or some info about the attack
+     */
     @Override
     public Action getAction(Actor actor, GameMap map) {
         if(!map.contains(target) || !map.contains(actor))
@@ -39,13 +43,11 @@ public class AttackBehaviour implements Behaviour{
             return new AttackAction(target, str_direction);
                 }
         return null;
-        }
-
-
-
+    }
 
     /**
      * Work out if the max xy distance between a and b <= 1 (ie attack can occur)
+     *
      * @param attacker an actor
      * @param target another actor
      * @return are the two actors close enough to attack?
@@ -59,20 +61,21 @@ public class AttackBehaviour implements Behaviour{
 
     /**
      * Find the direction from which the attack occurs
+     *
      * @param attacker from actor
      * @param target to actor
      * @return the direction, eg North-East
      **/
     private String direction(Location attacker, Location target) {
-
         String vertical = "?";
         String horizontal = "?";
-
         //get East/West
         int distx = attacker.x() - target.x();
+
         if (distx < 0) { // the higher a or b the further right they are
             vertical = "West";
-        } else if(distx > 0) {
+        }
+        else if(distx > 0) {
             vertical = "East";
         }
 
@@ -80,21 +83,24 @@ public class AttackBehaviour implements Behaviour{
         int disty = attacker.y() - target.y();
         if (disty < 0) { //higher a or b the lower down they are
             horizontal = "North";
-        } else if(disty > 0) {
+        }
+        else if(disty > 0) {
             horizontal = "South";
         }
 
         if (horizontal.equals("?")) {
             if (vertical.equals("?")) {
                 return "Directly on top of you!!??";
-            } else {
+            }
+            else {
                 return vertical;
             }
         }
         else {
             if (vertical.equals("?")) {
                 return horizontal;
-            } else {
+            }
+            else {
                 return  vertical + "-" + horizontal;
             }
         }

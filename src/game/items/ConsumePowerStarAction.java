@@ -6,6 +6,9 @@ import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.actors.Status;
 
+/**
+ * Eat a power start
+ */
 public class ConsumePowerStarAction extends Action {
 
     /**
@@ -16,18 +19,23 @@ public class ConsumePowerStarAction extends Action {
     private int timeRemaining;
 
 
-    /**2
-
+    /**
      * Constructor.
      *
-     * @param item the item to drop
+     * @param powerStar the item to drop
      */
 
-    public ConsumePowerStarAction(Item item, int timeRemaining) {
-        this.item = item;
+    public ConsumePowerStarAction(PowerStar powerStar, int timeRemaining) {
+        this.item = powerStar;
         this.timeRemaining = timeRemaining;
     }
 
+    /**
+     * Perform the action
+     * @param actor The actor performing the action.
+     * @param map The map the actor is on.
+     * @return a description of the action
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
         actor.removeItemFromInventory(item);
@@ -39,6 +47,11 @@ public class ConsumePowerStarAction extends Action {
         return menuDescription(actor);
     }
 
+    /**
+     * Creates a short description about eating the power start
+     * @param actor The actor performing the action.
+     * @return the short description crested
+     */
     @Override
     public String menuDescription(Actor actor) {
         return actor + " consumes the Power Star - " + timeRemaining + " turns remaining";
@@ -50,6 +63,4 @@ public class ConsumePowerStarAction extends Action {
     public void setTimeRemaining(int timeRemaining) {
         this.timeRemaining = timeRemaining;
     }
-
-
 }
