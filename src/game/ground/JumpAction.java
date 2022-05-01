@@ -35,7 +35,6 @@ public class JumpAction extends Action {
      * Method for creating the jump action
      *
      * @param location location of the high ground to be jumped to
-     * @param actor actor that will jump (the player)
      * @param direction the direction of the high ground to be jumped to
      * @param ground the HigherGround that will be jumped to
      */
