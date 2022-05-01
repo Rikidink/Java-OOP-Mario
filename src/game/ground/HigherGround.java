@@ -83,7 +83,7 @@ abstract public class HigherGround extends Ground {
                 actions.add(new PowerStarMoveActorAction(location,direction));
             }
             else {
-                actions.add(new JumpAction(location, actor, direction, (HigherGround) location.getGround()));
+                actions.add(new JumpAction(location, direction, (HigherGround) location.getGround()));
             }
         }
          return actions;

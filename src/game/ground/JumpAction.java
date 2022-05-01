@@ -20,12 +20,6 @@ public class JumpAction extends Action {
     private HigherGround highGround;
 
     /**
-     * Attribute of the player who is an actor
-     *
-     */
-    private Actor player;
-
-    /**
      * Attribute of the location to be jumped to
      *
      */
@@ -45,9 +39,8 @@ public class JumpAction extends Action {
      * @param direction the direction of the high ground to be jumped to
      * @param ground the HigherGround that will be jumped to
      */
-    public JumpAction(Location location, Actor actor, String direction, HigherGround ground){
+    public JumpAction(Location location, String direction, HigherGround ground){
         this.location = location;
-        this.player = actor;
         this.direction = direction;
         this.highGround = ground;
     }
