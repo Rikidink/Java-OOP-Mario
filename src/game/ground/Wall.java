@@ -37,33 +37,4 @@ public class Wall extends HigherGround {
 		return true;
 	}
 
-	/**
-	 * Method to return the success rate of the jump
-	 *
-	 * @return success rate
-	 */
-	@Override
-	public double getSuccessRate() {
-		return successRate;
-	}
-
-	/**
-	 * Method to return fall damage amount if player jump fails
-	 *
-	 * @return fall damage amount
-	 */
-	@Override
-	public int getFallDamage() {
-		return fallDamage;
-	}
-
-	/**
-	 * Method to return the name of the wall (Wall)
-	 *
-	 * @return Wall as a string
-	 */
-	@Override
-	public String getHighGroundName() {
-		return highGroundName;
-	}
 }

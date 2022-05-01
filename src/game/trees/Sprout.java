@@ -59,30 +59,4 @@ public class Sprout extends Tree {
         }
     }
 
-    /**
-     * Method to return the success rate
-     * @return the success rate
-     */
-    @Override
-    public double getSuccessRate() {
-        return successRate;
-    }
-
-    /**
-     * Method to return the fall damage
-     * @return the fall damage
-     */
-    @Override
-    public int getFallDamage() {
-        return fallDamage;
-    }
-
-    /**
-     * Method to return the name of the sprout (Sprout)
-     * @return Sprout as a string
-     */
-    @Override
-    public String getHighGroundName() {
-        return highGroundName;
-    }
 }

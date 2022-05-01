@@ -49,7 +49,9 @@ abstract public class HigherGround extends Ground {
      *
      * @return the success rate
      */
-    public abstract double getSuccessRate();
+    public double getSuccessRate(){
+        return successRate;
+    }
 
 
     /**
@@ -57,14 +59,18 @@ abstract public class HigherGround extends Ground {
      *
      * @return the fall damage
      */
-    public abstract int getFallDamage();
+    public int getFallDamage(){
+        return fallDamage;
+    }
 
     /**
      * Method to return the high ground name
      *
      * @return string of the high ground name
      */
-    public abstract String getHighGroundName();
+    public String getHighGroundName(){
+        return highGroundName;
+    }
 
     /**
      * Method that adds the jump action to higher ground objects
