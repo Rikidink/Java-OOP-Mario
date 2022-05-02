@@ -99,7 +99,7 @@ abstract public class HigherGround extends Ground {
      * Method that determines if an actor can enter the high ground (no)
      *
      * @param actor the Actor to check
-     * @return false, can't enter a wall
+     * @return false, can't enter high ground
      */
     @Override
     public boolean canActorEnter(Actor actor) {
