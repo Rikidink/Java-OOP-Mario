@@ -27,7 +27,7 @@ public class Goomba extends Enemy implements Resettable {
 	}
 
 	/**
-	 *All of the things it can do
+	 * Returns a new collection of the Actions that the otherActor can do to the current Actor.
 	 *
 	 * @param otherActor the Actor that might perform an action.
 	 * @param direction  String representing the direction of the other Actor

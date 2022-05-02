@@ -31,7 +31,7 @@ public class PowerStarMoveActorAction extends MoveActorAction {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        map.moveActor(actor, moveToLocation);
+        super.execute(actor, map);
         moveToLocation.setGround(new Dirt()); //remove the high ground
         moveToLocation.addItem(new Coin(5,moveToLocation.x(), moveToLocation.y())); //spawn a coin
         return menuDescription(actor);
