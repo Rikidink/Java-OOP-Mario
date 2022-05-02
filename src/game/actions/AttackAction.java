@@ -66,9 +66,7 @@ public class AttackAction extends Action {
 
 		if (target.hasCapability(Status.HAS_EATEN_POWER_STAR)){ //power stars make all damage 0
 			damage = 0;
-		}
-
-		if (target.hasCapability(Status.TALL)) {
+		} else if (target.hasCapability(Status.TALL)) {
 			target.removeCapability(Status.TALL);
 		}
 
