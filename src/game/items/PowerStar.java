@@ -21,7 +21,6 @@ public class PowerStar extends Item {
 	 */
 	public PowerStar() {
 		super("Power Star", '*', true);
-		System.out.println("adding a consume action");
 		super.addAction(consumePowerStarAction); //this is only added to the actionlist once so I must save it to later edit it
 	}
 

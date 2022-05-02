@@ -17,6 +17,7 @@ import game.ground.Floor;
 import game.ground.Wall;
 import game.items.PowerStar;
 import game.items.SuperMushroom;
+import game.items.Wrench;
 import game.trees.*;
 
 /**
