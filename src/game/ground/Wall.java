@@ -1,7 +1,6 @@
 package game.ground;
 
 import edu.monash.fit2099.engine.actors.Actor;
-import game.ground.HigherGround;
 
 /**
  * Wall; class that extends HigherGround since player can jump to a wall
