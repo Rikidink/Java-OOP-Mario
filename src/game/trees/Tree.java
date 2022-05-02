@@ -1,6 +1,9 @@
 package game.trees;
 
 import edu.monash.fit2099.engine.actors.Actor;
+import edu.monash.fit2099.engine.positions.GameMap;
+import edu.monash.fit2099.engine.positions.Location;
+import game.ground.Dirt;
 import game.ground.HigherGround;
 import game.reset.Resettable;
 
@@ -44,6 +47,12 @@ abstract public class Tree extends HigherGround implements Resettable {
         registerInstance();
     }
 
+    @Override
+    public void tick(Location location) {
+        super.tick(location);
+
+    }
+
     /**
      * Method that determines if an actor can enter a wall
      *
@@ -53,5 +62,17 @@ abstract public class Tree extends HigherGround implements Resettable {
     @Override
     public boolean canActorEnter(Actor actor) {
         return false;
+    }
+
+    /**
+     * Resets abilities, attributes, and/or items.
+     *
+     * @see Resettable#resetInstance(GameMap map)
+     */
+    @Override
+    public void resetInstance(GameMap map) {
+        if (Math.random() <= 0.5) {
+            map.at(x, y).setGround(new Dirt());
+        }
     }
 }

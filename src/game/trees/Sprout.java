@@ -50,15 +50,4 @@ public class Sprout extends Tree {
         }
     }
 
-    /**
-     * Resets abilities, attributes, and/or items.
-     *
-     * @see Resettable#resetInstance(GameMap map)
-     */
-    @Override
-    public void resetInstance(GameMap map) {
-        if (Math.random() <= 0.5) {
-            map.at(x, y).setGround(new Dirt());
-        }
-    }
 }
