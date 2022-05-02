@@ -10,6 +10,7 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import game.actions.BuyAction;
 import game.actions.SpeakAction;
 import game.items.PowerStar;
+import game.items.Wrench;
 import game.items.SuperMushroom;
 import game.items.Wrench;
 
@@ -72,7 +73,9 @@ public class Toad extends Actor implements CanSpeak {
         actions.add(new SpeakAction(this));
         actions.add(new BuyAction(new PowerStar(), 600));
         actions.add(new BuyAction(new SuperMushroom(), 400));
-        actions.add(new BuyAction(new Wrench(), 200));
+        Wrench wrench = new Wrench();
+        wrench.togglePortability();
+        actions.add(new BuyAction(wrench, 200));
         return actions;
     }
 
