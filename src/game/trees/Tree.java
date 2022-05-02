@@ -47,11 +47,6 @@ abstract public class Tree extends HigherGround implements Resettable {
         registerInstance();
     }
 
-    @Override
-    public void tick(Location location) {
-        super.tick(location);
-
-    }
 
     /**
      * Resets abilities, attributes, and/or items.
