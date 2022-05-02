@@ -8,11 +8,13 @@ import game.reset.Resettable;
 
 /**
  * Sapling class; child class of tree
+ *
  */
 public class Sapling extends Tree {
 
     /**
      * Constructor for the sapling
+     *
      * @param x x position of the sapling
      * @param y y position of the sapling
      */
@@ -24,6 +26,7 @@ public class Sapling extends Tree {
      * Function repeats every turn:
      * After 10 turns the sapling is replaced by a mature
      * Has 10 percent chance to spawn a coin at the sapling's location
+     *
      * @param location The location of the Ground (i.e: sapling)
      */
     @Override
@@ -41,7 +44,6 @@ public class Sapling extends Tree {
                 location.addItem(new Coin(20,location.x(), location.y()));
             }
         }
-
     }
 
     /**

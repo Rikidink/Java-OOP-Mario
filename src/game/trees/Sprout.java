@@ -9,11 +9,13 @@ import game.reset.Resettable;
 
 /**
  * Sprout; a child class of tree
+ *
  */
 public class Sprout extends Tree {
 
     /**
      * Constructor to create a sprout object
+     *
      * @param x x position of sprout
      * @param y y position of sprout
      */
@@ -26,6 +28,7 @@ public class Sprout extends Tree {
      * Function repeats with every turn:
      * After 10 turns the sprout becomes a sapling
      * Has 10 percent chance to spawn a goomba at the Sprout
+     *
      * @param location The location of the Ground (i.e: sprout)
      */
     @Override
@@ -58,5 +61,4 @@ public class Sprout extends Tree {
             map.at(x, y).setGround(new Dirt());
         }
     }
-
 }

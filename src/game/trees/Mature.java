@@ -14,11 +14,13 @@ import java.util.Random;
 
 /**
  * Mature; a child class of tree
+ *
  */
 public class Mature extends Tree {
 
     /**
      * Constructor to create a mature object
+     *
      * @param x x position of mature
      * @param y y position of mature
      */
@@ -31,6 +33,7 @@ public class Mature extends Tree {
      * Has 20 percent chance to die and be replaced with dirt
      * Every 5 turns, has chance to spawn a sprout on a surrounding fertile ground
      * Has a 15 percent chance to spawn a koopa on the mature
+     *
      * @param location The location of the Ground (i.e: mature)
      */
     @Override
@@ -42,11 +45,9 @@ public class Mature extends Tree {
         if(Math.random() <= 0.20){
             location.setGround(new Dirt());
         }
-
         // every 5 turns a sprout spawns in surrounding area
         else if(turnCount % 5 == 0){
             Random rand = new Random();
-
             // empty array list to store exits that are fertile ground
             ArrayList<Exit> exits = new ArrayList<>();
 
@@ -63,9 +64,7 @@ public class Mature extends Tree {
                 int randY = exits.get(randExitNum).getDestination().y();
                 exits.get(randExitNum).getDestination().setGround(new Sprout(randX, randY));
             }
-
         }
-
         // 15 percent chance to spawn koopa on the mature location
         else {
             if(Math.random() <= 0.15){
@@ -74,8 +73,6 @@ public class Mature extends Tree {
                 }
             }
         }
-
-
     }
 
     /**
@@ -89,5 +86,4 @@ public class Mature extends Tree {
             map.at(x, y).setGround(new Dirt());
         }
     }
-
 }

@@ -12,12 +12,11 @@ import edu.monash.fit2099.engine.positions.World;
 
 import game.actors.Player;
 import game.actors.Toad;
-import game.enemies.Koopa;
 import game.ground.Dirt;
 import game.ground.Floor;
 import game.ground.Wall;
 import game.items.PowerStar;
-import game.items.Wrench;
+import game.items.SuperMushroom;
 import game.trees.*;
 
 /**
@@ -61,10 +60,10 @@ public class Application {
 
 
 		gameMap.at(42, 10).addItem(new PowerStar());
+		gameMap.at(42, 10).addItem(new SuperMushroom());
 		gameMap.at(44, 11).addActor(new Toad());
 
-
-		// spawns sprouts
+		// spawn sprouts
 		SproutSpawner.generateSprouts(gameMap);
 		world.run();
 

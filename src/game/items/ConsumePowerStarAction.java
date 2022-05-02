@@ -8,23 +8,19 @@ import game.actors.Status;
 
 /**
  * Eat a power start
+ *
  */
 public class ConsumePowerStarAction extends Action {
 
-    /**
-     * Current item
-     */
     private final Item item;
 
     private int timeRemaining;
-
 
     /**
      * Constructor.
      *
      * @param powerStar the item to drop
      */
-
     public ConsumePowerStarAction(PowerStar powerStar, int timeRemaining) {
         this.item = powerStar;
         this.timeRemaining = timeRemaining;
@@ -32,6 +28,7 @@ public class ConsumePowerStarAction extends Action {
 
     /**
      * Perform the action
+     *
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
      * @return a description of the action
@@ -49,6 +46,7 @@ public class ConsumePowerStarAction extends Action {
 
     /**
      * Creates a short description about eating the power start
+     *
      * @param actor The actor performing the action.
      * @return the short description crested
      */
@@ -59,6 +57,7 @@ public class ConsumePowerStarAction extends Action {
 
     /**
      * Get the amount of time left before the item is destroyed
+     *
      */
     public void setTimeRemaining(int timeRemaining) {
         this.timeRemaining = timeRemaining;

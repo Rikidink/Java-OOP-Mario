@@ -8,27 +8,24 @@ import game.actors.Status;
 
 /**
  * Eat a super mushroom
+ *
  */
 public class ConsumeSuperMushroomAction extends Action {
 
-    /**
-     * Current item
-     */
     private final Item item;
-
 
     /**
      * Constructor.
      *
      * @param item the item to drop
      */
-
     public ConsumeSuperMushroomAction(Item item) {
         this.item = item;
     }
 
     /**
      * Does the action
+     *
      * @param actor The actor performing the action.
      * @param map The map the actor is on.
      * @return short description of the action done
@@ -45,6 +42,7 @@ public class ConsumeSuperMushroomAction extends Action {
 
     /**
      * A short description of the action done in execute
+     *
      * @param actor The actor performing the action.
      * @return the description of the action
      */
@@ -52,5 +50,4 @@ public class ConsumeSuperMushroomAction extends Action {
     public String menuDescription(Actor actor) {
         return actor + " consumes the Super Mushroom";
     }
-
 }

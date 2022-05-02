@@ -6,11 +6,13 @@ public class Wallet {
 
     /**
      * A singleton wallet instance
+     *
      */
     private static Wallet instance;
 
     /**
      * Get the singleton instance of wallet
+     *
      * @return Wallet singleton instance
      */
     public static Wallet getInstance(){
@@ -22,13 +24,15 @@ public class Wallet {
 
     /**
      * Constructor
+     *
      */
     public Wallet () {
         walletValue = 0;
     }
 
     /**
-     *Adds a value to the total money in the Wallet
+     * Adds a value to the total money in the Wallet
+     *
      * @param value The value of a Coin that has been picked up
      */
     public void addToWallet(Integer value) {
@@ -37,6 +41,7 @@ public class Wallet {
 
     /**
      * Removes a value from the total money in the Wallet
+     *
      * @param value The value of an Item that is being bought
      */
     public void removeFromWallet(Integer value) {
@@ -45,6 +50,7 @@ public class Wallet {
 
     /**
      * Getter for the current value of the Wallet
+     *
      * @return  The current total money stored in the wallet
      */
     public Integer getWalletValue() {

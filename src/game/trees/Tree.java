@@ -8,21 +8,25 @@ import game.reset.Resettable;
 /**
  * An abstract tree class that is the parent of the three tree child classes,
  * implements the HigherGround abstract class since trees can be jumped on
+ *
  */
 abstract public class Tree extends HigherGround implements Resettable {
 
     /**
      * Integer to count turns for turn-based functionality
+     *
      */
     protected int turnCount = 0;
 
     /**
      * X position of the tree
+     *
      */
     protected int x;
 
     /**
      * Y position of the tree
+     *
      */
     protected int y;
 
@@ -42,6 +46,7 @@ abstract public class Tree extends HigherGround implements Resettable {
 
     /**
      * Method that determines if an actor can enter a wall
+     *
      * @param actor the Actor to check
      * @return false, can't enter a wall
      */

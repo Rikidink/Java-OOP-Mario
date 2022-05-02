@@ -14,15 +14,14 @@ import java.util.List;
 public class PowerStar extends Item {
 
 	private int timeRemaining = 10; // time remaining until item is  destroyed
-
 	private ConsumePowerStarAction consumePowerStarAction = new ConsumePowerStarAction(this, timeRemaining);
 
 	/***
 	 * Constructor
+	 *
 	 */
 	public PowerStar() {
 		super("Power Star", '*', true);
-
 		System.out.println("adding a consume action");
 		super.addAction(consumePowerStarAction); //this is only added to the actionlist once so I must save it to later edit it
 	}
@@ -61,5 +60,4 @@ public class PowerStar extends Item {
 			consumePowerStarAction.setTimeRemaining(timeRemaining);
 		}
 	}
-
 }

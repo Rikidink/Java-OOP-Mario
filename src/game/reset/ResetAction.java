@@ -7,11 +7,17 @@ import game.actors.Status;
 
 /**
  * An Action type for resetting the game
+ *
  */
 public class ResetAction extends Action {
 
     protected static final String hotkey = "r";
 
+    /**
+     * Perform the Action
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
         actor.removeCapability(Status.CAN_RESET);
@@ -19,11 +25,21 @@ public class ResetAction extends Action {
         return "The game has been reset.";
     }
 
+    /**
+     * Returns a descriptive String
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String menuDescription(Actor actor) {
         return "Reset the game";
     }
 
+    /**
+     * Returns the key used in the menu to trigger this Action.
+     *
+     * @see Action#hotkey()
+     */
     @Override
     public String hotkey() {
         return hotkey;
