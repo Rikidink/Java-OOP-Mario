@@ -54,17 +54,6 @@ abstract public class Tree extends HigherGround implements Resettable {
     }
 
     /**
-     * Method that determines if an actor can enter a wall
-     *
-     * @param actor the Actor to check
-     * @return false, can't enter a wall
-     */
-    @Override
-    public boolean canActorEnter(Actor actor) {
-        return false;
-    }
-
-    /**
      * Resets abilities, attributes, and/or items.
      *
      * @see Resettable#resetInstance(GameMap map)

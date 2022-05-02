@@ -16,17 +16,6 @@ public class Wall extends HigherGround {
 	}
 
 	/**
-	 * Method that determines if an actor can enter a wall
-	 *
-	 * @param actor the Actor to check
-	 * @return false, can't enter a wall
-	 */
-	@Override
-	public boolean canActorEnter(Actor actor) {
-		return false;
-	}
-
-	/**
 	 * Method to determine if wall can block a thrown object
 	 *
 	 * @return true, blocks objects thrown
