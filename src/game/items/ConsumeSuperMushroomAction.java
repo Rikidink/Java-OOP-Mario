@@ -17,10 +17,10 @@ public class ConsumeSuperMushroomAction extends Action {
     /**
      * Constructor.
      *
-     * @param item the item to drop
+     * @param superMushroom the SuperMushroom to be consumed
      */
-    public ConsumeSuperMushroomAction(Item item) {
-        this.item = item;
+    public ConsumeSuperMushroomAction(SuperMushroom superMushroom) {
+        this.item = superMushroom;
     }
 
     /**
