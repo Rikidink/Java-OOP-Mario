@@ -1,0 +1,56 @@
+Index: src/game/enemies/Koopa.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game.enemies;\n\n\nimport edu.monash.fit2099.engine.actions.Action;\nimport edu.monash.fit2099.engine.actions.ActionList;\nimport edu.monash.fit2099.engine.actions.DoNothingAction;\nimport edu.monash.fit2099.engine.actors.Actor;\nimport edu.monash.fit2099.engine.displays.Display;\nimport edu.monash.fit2099.engine.positions.GameMap;\nimport edu.monash.fit2099.engine.weapons.IntrinsicWeapon;\nimport game.actors.Status;\nimport game.reset.Resettable;\nimport game.actions.AttackAction;\nimport game.behaviours.AttackBehaviour;\nimport game.behaviours.Behaviour;\nimport game.behaviours.FollowBehaviour;\nimport game.items.SuperMushroom;\n\n/**\n * A big turtle guy.\n */\npublic class Koopa extends Enemy implements Resettable {\n\n\t/**\n\t * Constructor.\n\t */\n\tpublic Koopa() {\n\t\tsuper(\"Koopa\", 'K', 100); //100 hp\n\t\tthis.addCapability(Status.CAN_BE_DORMANT); // adds a status\n\t\tthis.addItemToInventory(new SuperMushroom()); //So it drops a supermushroom when it dies\n\t\tregisterInstance();\n\t}\n\n\t/**\n\t * Returns a new collection of the Actions that the otherActor can do to the current Actor.\n\t *\n\t * @param otherActor the Actor that might perform an action.\n\t * @param direction  String representing the direction of the other Actor\n\t * @param map        current GameMap\n\t * @return list of actions\n\t * @see Status#HOSTILE_TO_ENEMY\n\t */\n\t@Override\n\tpublic ActionList allowableActions(Actor otherActor, String direction, GameMap map) {\n\t\tActionList actions = new ActionList();\n\t\tif (!(otherActor.hasCapability(Status.HOSTILE_TO_PLAYER))) {\n\t\t\tbehaviours.put(8, new AttackBehaviour(otherActor));\n\t\t}\n\n\t\t// it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.\n\t\tif(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY) && !(this.hasCapability(Status.IS_DORMANT)) || otherActor.getWeapon().toString().equals(\"Wrench\")) {\n\t\t\tactions.add(new AttackAction(this,direction));\n\t\t}\n\n\t\tif (this.hasCapability(Status.FOLLOWING)) {\n\t\t\tbehaviours.put(9, new FollowBehaviour(otherActor));\n\t\t\tbehaviours.put(8, new AttackBehaviour(otherActor));\n\t\t}\n\t\treturn actions;\n\t}\n\n\t/**\n\t * Figure out what to do next.\n\t *\n\t * @see Actor#playTurn(ActionList, Action, GameMap, Display)\n\t */\n\t@Override\n\tpublic Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {\n\t\tif (this.hasCapability(Status.IS_DORMANT)) { //if dormant...\n\t\t\tthis.setDisplayChar('D');\n\t\t}\n\t\telse { //Koopa will only do an action if it is not dormant\n\t\t\tfor (Behaviour Behaviour : behaviours.values()) {\n\t\t\t\tAction action = Behaviour.getAction(this, map);\n\t\t\t\tif (action != null)\n\t\t\t\t\treturn action;\n\t\t\t}\n\t\t}\n\t\treturn new DoNothingAction();\n\t}\n\n\t/**\n\t * Resets abilities, attributes, and/or items.\n\t *\n\t * @see Resettable#resetInstance(GameMap map)\n\t */\n\t@Override\n\tpublic void resetInstance(GameMap map) {\n\t\tmap.removeActor(this);\n\t}\n\n\t/**\n\t * Creates and returns an intrinsic weapon.\n\t *\n\t * @return a freshly-instantiated IntrinsicWeapon\n\t */\n\t@Override\n\tprotected IntrinsicWeapon getIntrinsicWeapon() {\n\t\treturn new IntrinsicWeapon(30, \"punches\");\n\t}\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/enemies/Koopa.java b/src/game/enemies/Koopa.java
+--- a/src/game/enemies/Koopa.java	(revision 36210fdc5ea15efdef0b5145705475f2e3835de9)
++++ b/src/game/enemies/Koopa.java	(date 1651553112116)
+@@ -49,7 +49,7 @@
+ 
+ 		// it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
+ 		if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY) && !(this.hasCapability(Status.IS_DORMANT)) || otherActor.getWeapon().toString().equals("Wrench")) {
+-			actions.add(new AttackAction(this,direction));
++			actions.add(new AttackAction(this,direction)); //todo: add check for if dormant - remove from alloiwable acitons
+ 		}
+ 
+ 		if (this.hasCapability(Status.FOLLOWING)) {
+Index: src/game/actions/PickUpCoinAction.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game.actions;\n\nimport edu.monash.fit2099.engine.actions.Action;\nimport edu.monash.fit2099.engine.actors.Actor;\nimport edu.monash.fit2099.engine.items.PickUpItemAction;\nimport edu.monash.fit2099.engine.positions.GameMap;\nimport game.Wallet;\nimport game.items.Coin;\n\n/**\n * A variation on the PickUpItem class that specifies what happens when a Coin is picked up\n */\npublic class PickUpCoinAction extends PickUpItemAction {\n\n    private final Coin coin;\n\n    /**\n     * Constructor\n     *\n     * @param coin  The Coin object that is being picked up\n     */\n    public PickUpCoinAction (Coin coin) {\n        super(coin);\n        this.coin = coin;\n    }\n\n    /**\n     * Perform the Action\n     *\n     * @see Action#execute(Actor actor, GameMap map)\n     */\n    @Override\n    public String execute(Actor actor, GameMap map) {\n        super.execute(actor, map);\n        Wallet.getInstance().addToWallet(coin.getValue());\n        return (actor + \" gained $\" + coin.getValue() + \". Total money: $\" + Wallet.getInstance().getWalletValue());\n    }\n\n    /**\n     * Returns a descriptive String\n     *\n     * @see Action#execute(Actor actor, GameMap map)\n     */\n    @Override\n    public String menuDescription(Actor actor) {\n        return (actor + \" picks up $\" + coin.getValue() + \" coin\");\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/actions/PickUpCoinAction.java b/src/game/actions/PickUpCoinAction.java
+--- a/src/game/actions/PickUpCoinAction.java	(revision 36210fdc5ea15efdef0b5145705475f2e3835de9)
++++ b/src/game/actions/PickUpCoinAction.java	(date 1651544521580)
+@@ -33,6 +33,7 @@
+     public String execute(Actor actor, GameMap map) {
+         super.execute(actor, map);
+         Wallet.getInstance().addToWallet(coin.getValue());
++        actor.removeItemFromInventory((coin));
+         return (actor + " gained $" + coin.getValue() + ". Total money: $" + Wallet.getInstance().getWalletValue());
+     }
+ 
+Index: src/game/items/ConsumeSuperMushroomAction.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game.items;\n\nimport edu.monash.fit2099.engine.actions.Action;\nimport edu.monash.fit2099.engine.actors.Actor;\nimport edu.monash.fit2099.engine.items.Item;\nimport edu.monash.fit2099.engine.positions.GameMap;\nimport game.actors.Status;\n\n/**\n * Eat a super mushroom\n *\n */\npublic class ConsumeSuperMushroomAction extends Action {\n\n    private final Item item;\n\n    /**\n     * Constructor.\n     *\n     * @param item the item to drop\n     */\n    public ConsumeSuperMushroomAction(Item item) {\n        this.item = item;\n    }\n\n    /**\n     * Does the action\n     *\n     * @param actor The actor performing the action.\n     * @param map The map the actor is on.\n     * @return short description of the action done\n     */\n    @Override\n    public String execute(Actor actor, GameMap map) {\n        actor.removeItemFromInventory(item);\n        map.locationOf(actor).removeItem(item);\n        actor.increaseMaxHp(50);  //increase max hp by 50\n        actor.addCapability(Status.TALL); // adds a status\n\n        return menuDescription(actor);\n    }\n\n    /**\n     * A short description of the action done in execute\n     *\n     * @param actor The actor performing the action.\n     * @return the description of the action\n     */\n    @Override\n    public String menuDescription(Actor actor) {\n        return actor + \" consumes the Super Mushroom\";\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/items/ConsumeSuperMushroomAction.java b/src/game/items/ConsumeSuperMushroomAction.java
+--- a/src/game/items/ConsumeSuperMushroomAction.java	(revision 36210fdc5ea15efdef0b5145705475f2e3835de9)
++++ b/src/game/items/ConsumeSuperMushroomAction.java	(date 1651553111997)
+@@ -32,7 +32,7 @@
+      */
+     @Override
+     public String execute(Actor actor, GameMap map) {
+-        actor.removeItemFromInventory(item);
++        actor.removeItemFromInventory(item); //todo: add a check for if in inventory
+         map.locationOf(actor).removeItem(item);
+         actor.increaseMaxHp(50);  //increase max hp by 50
+         actor.addCapability(Status.TALL); // adds a status
