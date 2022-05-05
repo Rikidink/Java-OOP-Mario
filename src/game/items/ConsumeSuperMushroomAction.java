@@ -32,7 +32,7 @@ public class ConsumeSuperMushroomAction extends Action {
      */
     @Override
     public String execute(Actor actor, GameMap map) {
-        actor.removeItemFromInventory(item);
+        actor.removeItemFromInventory(item); //todo: add a check for if in inventory
         map.locationOf(actor).removeItem(item);
         actor.increaseMaxHp(50);  //increase max hp by 50
         actor.addCapability(Status.TALL); // adds a status
