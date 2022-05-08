@@ -1,0 +1,913 @@
+Index: src/game/items/ConsumeSuperMushroomAction.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/items/ConsumeSuperMushroomAction.java b/src/game/items/consumable/ConsumeSuperMushroomAction.java
+rename from src/game/items/ConsumeSuperMushroomAction.java
+rename to src/game/items/consumable/ConsumeSuperMushroomAction.java
+--- a/src/game/items/ConsumeSuperMushroomAction.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/items/consumable/ConsumeSuperMushroomAction.java	(date 1651988419258)
+@@ -1,10 +1,11 @@
+-package game.items;
++package game.items.consumable;
+ 
+ import edu.monash.fit2099.engine.actions.Action;
+ import edu.monash.fit2099.engine.actors.Actor;
+ import edu.monash.fit2099.engine.items.Item;
+ import edu.monash.fit2099.engine.positions.GameMap;
+ import game.actors.Status;
++import game.items.consumable.SuperMushroom;
+ 
+ /**
+  * Eat a super mushroom
+Index: src/game/items/ConsumePowerStarAction.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/items/ConsumePowerStarAction.java b/src/game/items/consumable/ConsumePowerStarAction.java
+rename from src/game/items/ConsumePowerStarAction.java
+rename to src/game/items/consumable/ConsumePowerStarAction.java
+--- a/src/game/items/ConsumePowerStarAction.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/items/consumable/ConsumePowerStarAction.java	(date 1651992918211)
+@@ -1,4 +1,4 @@
+-package game.items;
++package game.items.consumable;
+ 
+ import edu.monash.fit2099.engine.actions.Action;
+ import edu.monash.fit2099.engine.actors.Actor;
+@@ -38,7 +38,7 @@
+         actor.removeItemFromInventory(item);
+         map.locationOf(actor).removeItem(item);
+         actor.heal(200); //heal by 200 hit points
+-        actor.addCapability(Status.HAS_EATEN_POWER_STAR); // adds a status
++        actor.addCapability(Status.INVINCIBLE); // adds a status
+         actor.addCapability(Status.HAS_EATEN_POWER_STAR_THIS_TURN); // adds a status
+ 
+         return menuDescription(actor);
+Index: src/game/items/PowerStar.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/items/PowerStar.java b/src/game/items/consumable/PowerStar.java
+rename from src/game/items/PowerStar.java
+rename to src/game/items/consumable/PowerStar.java
+--- a/src/game/items/PowerStar.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/items/consumable/PowerStar.java	(date 1651988419279)
+@@ -1,10 +1,9 @@
+-package game.items;
++package game.items.consumable;
+ 
+ import edu.monash.fit2099.engine.actors.Actor;
+ import edu.monash.fit2099.engine.items.Item;
+ import edu.monash.fit2099.engine.positions.Location;
+-
+-import java.util.List;
++import game.items.consumable.ConsumePowerStarAction;
+ 
+ /**
+  * The power star item, greatest of all items. He who consumes this shall gain power unmatched
+Index: src/game/items/SuperMushroom.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/items/SuperMushroom.java b/src/game/items/consumable/SuperMushroom.java
+rename from src/game/items/SuperMushroom.java
+rename to src/game/items/consumable/SuperMushroom.java
+--- a/src/game/items/SuperMushroom.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/items/consumable/SuperMushroom.java	(date 1651988419273)
+@@ -1,4 +1,4 @@
+-package game.items;
++package game.items.consumable;
+ 
+ import edu.monash.fit2099.engine.items.Item;
+ 
+Index: src/game/enemies/Koopa.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/enemies/Koopa.java b/src/game/actors/enemies/Koopa.java
+rename from src/game/enemies/Koopa.java
+rename to src/game/actors/enemies/Koopa.java
+--- a/src/game/enemies/Koopa.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/actors/enemies/Koopa.java	(date 1651992811207)
+@@ -1,4 +1,4 @@
+-package game.enemies;
++package game.actors.enemies;
+ 
+ 
+ import edu.monash.fit2099.engine.actions.Action;
+@@ -14,7 +14,7 @@
+ import game.behaviours.AttackBehaviour;
+ import game.behaviours.Behaviour;
+ import game.behaviours.FollowBehaviour;
+-import game.items.SuperMushroom;
++import game.items.consumable.SuperMushroom;
+ 
+ /**
+  * A big turtle guy.
+Index: src/game/actors/Toad.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game.actors;\n\nimport edu.monash.fit2099.engine.actions.Action;\nimport edu.monash.fit2099.engine.actions.ActionList;\nimport edu.monash.fit2099.engine.actions.DoNothingAction;\nimport edu.monash.fit2099.engine.actors.Actor;\nimport edu.monash.fit2099.engine.displays.Display;\nimport edu.monash.fit2099.engine.items.Item;\nimport edu.monash.fit2099.engine.positions.GameMap;\nimport game.actions.BuyAction;\nimport game.actions.SpeakAction;\nimport game.items.PowerStar;\nimport game.items.Wrench;\nimport game.items.SuperMushroom;\nimport game.items.Wrench;\n\nimport java.util.ArrayList;\nimport java.util.Random;\n\n/**\n * A slimy creature that can trade things\n */\npublic class Toad extends Actor implements CanSpeak {\n\n    private final ArrayList<String> dialogue = new ArrayList<>();\n\n    /**\n     * Random number generator\n     */\n    protected Random rand = new Random();\n\n    /**\n     * Constructor.\n     *\n     */\n    public Toad() {\n        super(\"Toad\", 'O', 50);\n        setDialogue();\n    }\n\n    @Override\n    public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {\n        return new DoNothingAction();\n    }\n\n    /**\n     * Randomly chooses a line for Toad to say to the Player.\n     * Checks if the Player is holding a Wrench or under the effects of a PowerStar.\n     * If either of these are true it omits the related dialogue options, so they cannot be chosen.\n     *\n     * @param actor The actor that Toad is speaking to i.e. the Player\n     * @return      The randomly chosen dialogue option that Toad will speak\n     */\n    public String speak(Actor actor) {\n        int randBound = 4;\n        for (Item item : actor.getInventory()) { //checking if there is a wrench in the inventory\n            if (item.toString().equals(\"Wrench\")) {\n                randBound = 3;\n            }\n        }\n        for (Enum<?> capability : actor.capabilitiesList()) { //checking if the player is under the effects of the PowerStar\n            if (capability == Status.HAS_EATEN_POWER_STAR) {\n                randBound--;\n            }\n        }\n        int dialogueNumber = rand.nextInt(randBound);\n        return dialogue.get(dialogueNumber);\n    }\n\n    @Override\n    public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {\n        ActionList actions = new ActionList();\n        actions.add(new SpeakAction(this));\n        actions.add(new BuyAction(new PowerStar(), 600));\n        actions.add(new BuyAction(new SuperMushroom(), 400));\n        Wrench wrench = new Wrench();\n        wrench.togglePortability();\n        actions.add(new BuyAction(wrench, 200));\n        return actions;\n    }\n\n    /**\n     * Fills Toad's dialogue attribute with the lines of dialogue he can potentially say.\n     */\n    private void setDialogue() {\n        dialogue.add(\"The Princess is depending on you! You are our only hope.\");\n        dialogue.add(\"Being imprisoned in these walls can drive a fungus crazy :(\");\n        dialogue.add(\"You better get back to finding the Power Stars.\");\n        dialogue.add(\"You might need a wrench to smash Koopa's hard shells.\");\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/actors/Toad.java b/src/game/actors/Toad.java
+--- a/src/game/actors/Toad.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/actors/Toad.java	(date 1651992918119)
+@@ -9,10 +9,9 @@
+ import edu.monash.fit2099.engine.positions.GameMap;
+ import game.actions.BuyAction;
+ import game.actions.SpeakAction;
+-import game.items.PowerStar;
++import game.items.consumable.PowerStar;
+ import game.items.Wrench;
+-import game.items.SuperMushroom;
+-import game.items.Wrench;
++import game.items.consumable.SuperMushroom;
+ 
+ import java.util.ArrayList;
+ import java.util.Random;
+@@ -59,7 +58,7 @@
+             }
+         }
+         for (Enum<?> capability : actor.capabilitiesList()) { //checking if the player is under the effects of the PowerStar
+-            if (capability == Status.HAS_EATEN_POWER_STAR) {
++            if (capability == Status.INVINCIBLE) {
+                 randBound--;
+             }
+         }
+Index: src/game/actors/Player.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game.actors;\n\nimport edu.monash.fit2099.engine.actions.Action;\nimport edu.monash.fit2099.engine.actions.ActionList;\nimport edu.monash.fit2099.engine.actors.Actor;\nimport edu.monash.fit2099.engine.displays.Display;\nimport edu.monash.fit2099.engine.positions.GameMap;\nimport edu.monash.fit2099.engine.displays.Menu;\nimport game.Wallet;\nimport game.reset.Resettable;\nimport game.reset.ResetAction;\n\n/**\n * Class representing the Player.\n */\npublic class Player extends Actor implements Resettable {\n\n\tprivate final Menu menu = new Menu();\n\tprivate int remainingInvincibility = -10;\n\n\t/**\n\t * Constructor.\n\t *\n\t * @param name        Name to call the player in the UI\n\t * @param displayChar Character to represent the player in the UI\n\t * @param hitPoints   Player's starting number of hitpoints\n\t */\n\tpublic Player(String name, char displayChar, int hitPoints) {\n\t\tsuper(name, displayChar, hitPoints);\n\t\tthis.addCapability(Status.HOSTILE_TO_ENEMY);\n\t\tthis.addCapability(Status.CAN_RESET);\n\t\tregisterInstance();\n\t}\n\n\t/**\n\t * Select and return an action to perform on the current turn.\n\t *\n\t * @see Actor#playTurn(ActionList actions, Action lastAction, GameMap map, Display display)\n\t */\n\t@Override\n\tpublic Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {\n\t\tSystem.out.println(\"HP: \" + printHp());\n\t\tSystem.out.println(\"Money: $\" + Wallet.getInstance().getWalletValue());\n\t\tmanagePowerStar();\n\n\t\t// Handle multi-turn Actions\n\t\tif (lastAction.getNextAction() != null)\n\t\t\treturn lastAction.getNextAction();\n\n\t\tif (this.hasCapability(Status.CAN_RESET)) {\n\t\t\tactions.add(new ResetAction());\n\t\t}\n\n\t\t// return/print the console menu\n\t\treturn menu.showMenu(this, actions, display);\n\t}\n\n\t/**\n\t *\n\t * @see Actor#getDisplayChar()\n\t */\n\t@Override\n\tpublic char getDisplayChar(){\n\t\treturn this.hasCapability(Status.TALL) ? Character.toUpperCase(super.getDisplayChar()): super.getDisplayChar();\n\t}\n\n\t/**\n\t * Resets abilities, attributes, and/or items.\n\t *\n\t * @see Resettable#resetInstance(GameMap map)\n\t */\n\t@Override\n\tpublic void resetInstance(GameMap map) {\n\t\theal(getMaxHp());\n\t\tfor (Enum<?> status : capabilitiesList()) {\n\t\t\tif (status == Status.HAS_EATEN_POWER_STAR || status == Status.TALL) {\n\t\t\t\tthis.removeCapability(status);\n\t\t\t}\n\t\t}\n\t}\n\n\t/**\n\t *Manages effects of the PowerStar on the Player once it has been consumed\n\t *\n\t */\n\tprivate void managePowerStar() {\n\t\tif (this.hasCapability(Status.HAS_EATEN_POWER_STAR_THIS_TURN)){\n\t\t\tthis.removeCapability(Status.HAS_EATEN_POWER_STAR_THIS_TURN);\n\t\t\tremainingInvincibility = 10;\n\t\t}\n\n\t\tif(this.hasCapability(Status.HAS_EATEN_POWER_STAR)){\n\t\t\tif (remainingInvincibility >= 1) {\n\t\t\t\tremainingInvincibility -= 1;\n\t\t\t\tSystem.out.println(\"Mario is INVINCIBLE!\");\n\t\t\t} else {\n\t\t\t\tthis.removeCapability(Status.HAS_EATEN_POWER_STAR);\n\t\t\t}\n\t\t}\n\t}\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/actors/Player.java b/src/game/actors/Player.java
+--- a/src/game/actors/Player.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/actors/Player.java	(date 1651992917996)
+@@ -73,7 +73,7 @@
+ 	public void resetInstance(GameMap map) {
+ 		heal(getMaxHp());
+ 		for (Enum<?> status : capabilitiesList()) {
+-			if (status == Status.HAS_EATEN_POWER_STAR || status == Status.TALL) {
++			if (status == Status.INVINCIBLE || status == Status.TALL) {
+ 				this.removeCapability(status);
+ 			}
+ 		}
+@@ -89,12 +89,12 @@
+ 			remainingInvincibility = 10;
+ 		}
+ 
+-		if(this.hasCapability(Status.HAS_EATEN_POWER_STAR)){
++		if(this.hasCapability(Status.INVINCIBLE)){
+ 			if (remainingInvincibility >= 1) {
+ 				remainingInvincibility -= 1;
+ 				System.out.println("Mario is INVINCIBLE!");
+ 			} else {
+-				this.removeCapability(Status.HAS_EATEN_POWER_STAR);
++				this.removeCapability(Status.INVINCIBLE);
+ 			}
+ 		}
+ 	}
+Index: src/game/actors/Status.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game.actors;\n\n/**\n * Use this enum class to give `buff` or `debuff`.\n * It is also useful to give a `state` to abilities or actions that can be attached-detached.\n */\npublic enum Status {\n    HOSTILE_TO_ENEMY, // use this status to be considered hostile towards enemy (e.g., to be attacked by enemy)\n    TALL, // use this status to tell that current instance has \"grown\".\n    CAN_RESET, // does the player have the ability to reset the game\n    HAS_EATEN_POWER_STAR, //if a player has eaten a power star\n    HAS_EATEN_POWER_STAR_THIS_TURN, // if the power star has been eaten this turn (used for resting count down)\n    IS_DORMANT, //if an actor is dormant - related to being attacked\n    CAN_BE_DORMANT, //if an actor can become IS_DORMANT\n    FOLLOWING, //indicates that the enemy is following the player\n    CANNOT_ENTER_FLOOR, //for enemies, so that they cannot walk on the floor\n    FERTILE_GROUND, // given to grounds if they can support trees\n    HOSTILE_TO_PLAYER, //if an actor is hostile to the player\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/actors/Status.java b/src/game/actors/Status.java
+--- a/src/game/actors/Status.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/actors/Status.java	(date 1651993192677)
+@@ -8,7 +8,12 @@
+     HOSTILE_TO_ENEMY, // use this status to be considered hostile towards enemy (e.g., to be attacked by enemy)
+     TALL, // use this status to tell that current instance has "grown".
+     CAN_RESET, // does the player have the ability to reset the game
+-    HAS_EATEN_POWER_STAR, //if a player has eaten a power star
++
++    //power star effects
++    INVINCIBLE, //if a player is (at least temporarily) invincible
++    WALK_TO_HIGHER_GROUND, //if an actor can walk (not jump to higher ground), this destroys the higher ground and drops a $5 coin
++    INSTA_KILLER, //the actor insta kills anything it successfully attacks. INVINCIBLE overrides this
++
+     HAS_EATEN_POWER_STAR_THIS_TURN, // if the power star has been eaten this turn (used for resting count down)
+     IS_DORMANT, //if an actor is dormant - related to being attacked
+     CAN_BE_DORMANT, //if an actor can become IS_DORMANT
+Index: src/game/trees/Sprout.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game.trees;\n\nimport edu.monash.fit2099.engine.actors.Actor;\nimport edu.monash.fit2099.engine.positions.GameMap;\nimport edu.monash.fit2099.engine.positions.Location;\nimport game.ground.Dirt;\nimport game.enemies.Goomba;\nimport game.reset.Resettable;\n\n/**\n * Sprout; a child class of tree\n *\n */\npublic class Sprout extends Tree {\n\n    /**\n     * Constructor to create a sprout object\n     *\n     * @param x x position of sprout\n     * @param y y position of sprout\n     */\n    public Sprout(int x, int y){\n        super('+', x, y, 0.9, 10, \"Sprout\");\n        \n    }\n\n    /**\n     * Function repeats with every turn:\n     * After 10 turns the sprout becomes a sapling\n     * Has 10 percent chance to spawn a goomba at the Sprout\n     *\n     * @param location The location of the Ground (i.e: sprout)\n     */\n    @Override\n    public void tick(Location location) {\n        super.tick(location);\n        turnCount += 1;\n\n        // replaced with sapling after 10 turns\n        if(turnCount == 10){\n            location.setGround(new Sapling(location.x(), location.y()));\n        }\n        // 10 percent chance to spawn a goomba on the sprout\n        else {\n            if(Math.random() <= 0.1){\n                if(!location.containsAnActor()){\n                    location.addActor(new Goomba());\n                }\n            }\n        }\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/trees/Sprout.java b/src/game/trees/Sprout.java
+--- a/src/game/trees/Sprout.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/trees/Sprout.java	(date 1651992811151)
+@@ -1,11 +1,7 @@
+ package game.trees;
+ 
+-import edu.monash.fit2099.engine.actors.Actor;
+-import edu.monash.fit2099.engine.positions.GameMap;
+ import edu.monash.fit2099.engine.positions.Location;
+-import game.ground.Dirt;
+-import game.enemies.Goomba;
+-import game.reset.Resettable;
++import game.actors.enemies.Goomba;
+ 
+ /**
+  * Sprout; a child class of tree
+Index: src/game/trees/Mature.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game.trees;\n\nimport edu.monash.fit2099.engine.actors.Actor;\nimport edu.monash.fit2099.engine.positions.Exit;\nimport edu.monash.fit2099.engine.positions.GameMap;\nimport edu.monash.fit2099.engine.positions.Location;\nimport game.ground.Dirt;\nimport game.actors.Status;\nimport game.enemies.Koopa;\nimport game.reset.Resettable;\n\nimport java.util.ArrayList;\nimport java.util.Random;\n\n/**\n * Mature; a child class of tree\n *\n */\npublic class Mature extends Tree {\n\n    /**\n     * Constructor to create a mature object\n     *\n     * @param x x position of mature\n     * @param y y position of mature\n     */\n    public Mature(int x, int y){\n        super('T', x, y, 0.7, 30, \"Mature\");\n    }\n\n    /**\n     * Function repeats with every turn:\n     * Has 20 percent chance to die and be replaced with dirt\n     * Every 5 turns, has chance to spawn a sprout on a surrounding fertile ground\n     * Has a 15 percent chance to spawn a koopa on the mature\n     *\n     * @param location The location of the Ground (i.e: mature)\n     */\n    @Override\n    public void tick(Location location) {\n        super.tick(location);\n        turnCount += 1;\n\n        // 20 percent chance to get replaced with dirt\n        if(Math.random() <= 0.20){\n            location.setGround(new Dirt());\n        }\n        // every 5 turns a sprout spawns in surrounding area\n        else if(turnCount % 5 == 0){\n            Random rand = new Random();\n            // empty array list to store exits that are fertile ground\n            ArrayList<Exit> exits = new ArrayList<>();\n\n            // checks if any exits are fertile ground and adds to the exits arraylist above\n            for(int i = 0; i < location.getExits().size(); i++){\n                if(location.getExits().get(i).getDestination().getGround().hasCapability(Status.FERTILE_GROUND)){\n                    exits.add(location.getExits().get(i));\n                }\n            }\n            // if there is fertile ground, choose a random exit in arraylist and spawn sprout\n            if(exits.size() > 0){\n                int randExitNum = rand.nextInt(exits.size());\n                int randX = exits.get(randExitNum).getDestination().x();\n                int randY = exits.get(randExitNum).getDestination().y();\n                exits.get(randExitNum).getDestination().setGround(new Sprout(randX, randY));\n            }\n        }\n        // 15 percent chance to spawn koopa on the mature location\n        else {\n            if(Math.random() <= 0.15){\n                if(!location.containsAnActor()){\n                   location.addActor(new Koopa());\n                }\n            }\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/trees/Mature.java b/src/game/trees/Mature.java
+--- a/src/game/trees/Mature.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/trees/Mature.java	(date 1651992811244)
+@@ -1,13 +1,10 @@
+ package game.trees;
+ 
+-import edu.monash.fit2099.engine.actors.Actor;
+ import edu.monash.fit2099.engine.positions.Exit;
+-import edu.monash.fit2099.engine.positions.GameMap;
+ import edu.monash.fit2099.engine.positions.Location;
+ import game.ground.Dirt;
+ import game.actors.Status;
+-import game.enemies.Koopa;
+-import game.reset.Resettable;
++import game.actors.enemies.Koopa;
+ 
+ import java.util.ArrayList;
+ import java.util.Random;
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"de024849-741f-4d08-9d2d-5f4159acaf9e\" name=\"Default Changelist\" comment=\"added sequence diagram\">\n      <change beforePath=\"$PROJECT_DIR$/src/game/actions/PickUpCoinAction.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/game/actions/PickUpCoinAction.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/game/enemies/Koopa.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/game/enemies/Koopa.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/game/items/ConsumeSuperMushroomAction.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/game/items/ConsumeSuperMushroomAction.java\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"GitSEFilterConfiguration\">\n    <file-type-list>\n      <filtered-out-file-type name=\"LOCAL_BRANCH\" />\n      <filtered-out-file-type name=\"REMOTE_BRANCH\" />\n      <filtered-out-file-type name=\"TAG\" />\n      <filtered-out-file-type name=\"COMMIT_BY_MESSAGE\" />\n    </file-type-list>\n  </component>\n  <component name=\"ProjectId\" id=\"28bgsDx0fchvdyT4jRKF5RCkNWd\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/docs\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"Application\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"game.Application\" />\n      <module name=\"basecode\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"game.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Application\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"de024849-741f-4d08-9d2d-5f4159acaf9e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1651490908037</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1651490908037</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"added power star exception ot supre mushroom reversion\">\n      <created>1651490972301</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1651490972302</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"added sequence diagram\">\n      <created>1651491137966</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1651491137966</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"added sequence diagram\">\n      <created>1651491380622</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1651491380623</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"4\" />\n    <servers />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"added power star exception ot supre mushroom reversion\" />\n    <MESSAGE value=\"added sequence diagram\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"added sequence diagram\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/.idea/workspace.xml	(date 1651994654707)
+@@ -1,16 +1,48 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ChangeListManager">
+-    <list default="true" id="de024849-741f-4d08-9d2d-5f4159acaf9e" name="Default Changelist" comment="added sequence diagram">
+-      <change beforePath="$PROJECT_DIR$/src/game/actions/PickUpCoinAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/PickUpCoinAction.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/game/enemies/Koopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemies/Koopa.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/game/items/ConsumeSuperMushroomAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/ConsumeSuperMushroomAction.java" afterDir="false" />
++    <list default="true" id="de024849-741f-4d08-9d2d-5f4159acaf9e" name="Default Changelist" comment="">
++      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/game/items/consumable/Consumable.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/game/items/consumable/ConsumeAction.java" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/game/items/consumable/PowerStar1.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actions/AttackAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actions/AttackAction.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/enemies/Enemy.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/enemies/Goomba.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/enemies/Koopa.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/ConsumeSuperMushroomAction.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/SuperMushroom.class" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Application.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/actions/AttackAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/AttackAction.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/actors/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/Player.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/actors/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/Status.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/actors/Toad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/Toad.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/enemies/Bowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Bowser.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/enemies/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Enemy.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/enemies/Goomba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Goomba.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/enemies/Koopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Koopa.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/enemies/PiranhaPlant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/PiranhaPlant.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/ground/HigherGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/HigherGround.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/items/ConsumePowerStarAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/consumable/ConsumePowerStarAction.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/items/ConsumeSuperMushroomAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/consumable/ConsumeSuperMushroomAction.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/items/PowerStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/consumable/PowerStar.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/items/SuperMushroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/consumable/SuperMushroom.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/trees/Mature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/trees/Mature.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/game/trees/Sprout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/trees/Sprout.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Class" />
++      </list>
++    </option>
++  </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+@@ -22,6 +54,11 @@
+       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+     </file-type-list>
+   </component>
++  <component name="HighlightingSettingsPerFile">
++    <setting file="file://$PROJECT_DIR$/src/game/items/consumable/PowerStar1.java" root0="SKIP_INSPECTION" />
++    <setting file="file://$PROJECT_DIR$/src/game/items/consumable/ConsumeAction.java" root0="SKIP_INSPECTION" />
++    <setting file="file://$PROJECT_DIR$/src/game/items/consumable/Consumable.java" root0="SKIP_INSPECTION" />
++  </component>
+   <component name="ProjectId" id="28bgsDx0fchvdyT4jRKF5RCkNWd" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+@@ -30,6 +67,7 @@
+   <component name="PropertiesComponent">
+     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
++    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+   </component>
+   <component name="RecentsManager">
+@@ -87,7 +125,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1651491380623</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="notes from my interview of what to fix">
++      <created>1651718589139</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1651718589139</updated>
++    </task>
++    <task id="LOCAL-00005" summary="unversioned files">
++      <created>1651718905977</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1651718905977</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -105,6 +157,8 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="added power star exception ot supre mushroom reversion" />
+     <MESSAGE value="added sequence diagram" />
+-    <option name="LAST_COMMIT_MESSAGE" value="added sequence diagram" />
++    <MESSAGE value="notes from my interview of what to fix" />
++    <MESSAGE value="unversioned files" />
++    <option name="LAST_COMMIT_MESSAGE" value="unversioned files" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: src/game/enemies/Enemy.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/enemies/Enemy.java b/src/game/actors/enemies/Enemy.java
+rename from src/game/enemies/Enemy.java
+rename to src/game/actors/enemies/Enemy.java
+--- a/src/game/enemies/Enemy.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/actors/enemies/Enemy.java	(date 1651993359736)
+@@ -1,4 +1,4 @@
+-package game.enemies;
++package game.actors.enemies;
+ 
+ import edu.monash.fit2099.engine.actors.Actor;
+ import game.actors.Status;
+Index: src/game/items/consumable/PowerStar1.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/items/consumable/PowerStar1.java b/src/game/items/consumable/PowerStar1.java
+new file mode 100644
+--- /dev/null	(date 1651995582394)
++++ b/src/game/items/consumable/PowerStar1.java	(date 1651995582394)
+@@ -0,0 +1,87 @@
++package game.items.consumable;
++
++import edu.monash.fit2099.engine.actors.Actor;
++import edu.monash.fit2099.engine.positions.GameMap;
++import edu.monash.fit2099.engine.positions.Location;
++import game.actors.Status;
++import java.util.ArrayList;
++import java.util.Arrays;
++
++public class PowerStar1 extends Consumable{
++
++    /**
++     * time remaining until item is  destroyed
++     */
++    private int timeRemaining = 10;
++
++    /**
++     * A consume action which is updated according to the time remaining
++     */
++    private ConsumeAction consumeAction = new ConsumeAction(this, " consumes the Power Star - " + timeRemaining + " turns remaining");
++
++
++    /**
++     * An array list of all of the statuses an actor will gain when consuming this item
++     */
++    ArrayList<Enum> statusList = new ArrayList<Enum>(Arrays.asList(Status.TALL));
++
++    /***
++     * Constructor.
++     * @param name the name of this Item
++     * @param displayChar the character to use to represent this item if it is on the ground
++     * @param portable true if and only if the Item can be picked up
++     */
++    public PowerStar1() {
++        super("Power Star", '*', true);
++        super.statusList = new ArrayList<Enum>(Arrays.asList(Status.INVINCIBLE, Status.WALK_TO_HIGHER_GROUND, Status.INSTA_KILLER)); //set the list of status to update
++        super.addAction(consumeAction);
++    }
++
++    @Override
++    public void otherThingsToDoWhenConsumed(Actor actor, GameMap map) {
++        //nothing here needed
++
++    }
++
++    @Override
++    public String menuDescription(Actor actor) {
++        return actor + " consumes the Power Star - " + timeRemaining + " turns remaining";
++    }
++
++
++
++    /**
++     * Inform a carried Item of the passage of time.
++     * This method is called once per turn, if the Item is being carried.
++     * If 10 turns have passed since create the item is removed from the game
++     *
++     * @param currentLocation The location of the actor carrying this Item.
++     * @param actor The actor carrying this Item.
++     */
++    @Override
++    public void tick(Location currentLocation, Actor actor) {
++        timeRemaining --;
++        if (timeRemaining == 0) {
++            actor.removeItemFromInventory(this);
++        } else {
++            super.removeAction(consumeAction);
++        }
++    }
++
++    /**
++     * Inform an Item on the ground of the passage of time.
++     * This method is called once per turn, if the item rests upon the ground.
++     * If 10 turns have passed since create the item is removed from the game
++     *
++     * @param currentLocation The location of the ground on which we lie.
++     */
++    @Override
++    public void tick(Location currentLocation) {
++        timeRemaining--;
++        if (timeRemaining == 0) {
++            currentLocation.removeItem(this);
++        } else {
++            consumeAction.setMenuDescriptionText(" consumes the Power Star - " + timeRemaining + " turns remaining");
++        }
++    }
++}
+Index: src/game/Application.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game;\n\nimport java.util.Arrays;\nimport java.util.List;\n\nimport edu.monash.fit2099.engine.actors.Actor;\nimport edu.monash.fit2099.engine.displays.Display;\nimport edu.monash.fit2099.engine.positions.FancyGroundFactory;\nimport edu.monash.fit2099.engine.positions.GameMap;\nimport edu.monash.fit2099.engine.positions.World;\n\n\nimport game.actors.Player;\nimport game.actors.Toad;\nimport game.ground.Dirt;\nimport game.ground.Floor;\nimport game.ground.Wall;\nimport game.items.PowerStar;\nimport game.items.SuperMushroom;\nimport game.items.Wrench;\nimport game.trees.*;\n\n/**\n * The main class for the Mario World game.\n *\n */\npublic class Application {\n\n\tpublic static void main(String[] args) {\n\n\t\tWorld world = new World(new Display());\n\n\t\tFancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor());\n\n\t\tList<String> map = Arrays.asList(\n\t\t\t\t\"..........................................##....................................\",\n\t\t\t\t\"............................................#...................................\",\n\t\t\t\t\"............................................#...................................\",\n\t\t\t\t\".............................................##.................................\",\n\t\t\t\t\"...............................................#................................\",\n\t\t\t\t\"................................................#...............................\",\n\t\t\t\t\"..................................................#.............................\",\n\t\t\t\t\".................................................##.............................\",\n\t\t\t\t\"................................................##..............................\",\n\t\t\t\t\".........................................#____####..............................\",\n\t\t\t\t\"........................................#_____###...............................\",\n\t\t\t\t\"........................................#______###..............................\",\n\t\t\t\t\".........................................#_____###..............................\",\n\t\t\t\t\".................................................##.............................\",\n\t\t\t\t\"...................................................#............................\",\n\t\t\t\t\"....................................................#...........................\",\n\t\t\t\t\".....................................................#..........................\",\n\t\t\t\t\"......................................................#.........................\",\n\t\t\t\t\".......................................................##.......................\");\n\n\t\tGameMap gameMap = new GameMap(groundFactory, map);\n\t\tworld.addGameMap(gameMap);\n\n\t\tActor mario = new Player(\"Player\", 'm', 100);\n\t\tworld.addPlayer(mario, gameMap.at(42, 10));\n\n\n\t\tgameMap.at(42, 10).addItem(new PowerStar());\n\t\tgameMap.at(42, 10).addItem(new SuperMushroom());\n\t\tgameMap.at(44, 11).addActor(new Toad());\n\n\t\t// spawn sprouts\n\t\tSproutSpawner.generateSprouts(gameMap);\n\t\tworld.run();\n\n\t}\n\n\t/*\n\n\tThe old map, just in case we need it again\n\n\t\t\t\t\"..........................................##..........+.........................\",\n\t\t\t\t\"............+............+..................#...................................\",\n\t\t\t\t\"............................................#...................................\",\n\t\t\t\t\".............................................##......................+..........\",\n\t\t\t\t\"...............................................#................................\",\n\t\t\t\t\"................................................#...............................\",\n\t\t\t\t\".................+................................#.............................\",\n\t\t\t\t\".................................................##.............................\",\n\t\t\t\t\"................................................##..............................\",\n\t\t\t\t\".........+..............................+#____####.................+............\",\n\t\t\t\t\".......................................+#_____###++.............................\",\n\t\t\t\t\".......................................+#______###..............................\",\n\t\t\t\t\"........................................+#_____###..............................\",\n\t\t\t\t\"........................+........................##.............+...............\",\n\t\t\t\t\"...................................................#............................\",\n\t\t\t\t\"....................................................#...........................\",\n\t\t\t\t\"...................+.................................#..........................\",\n\t\t\t\t\"......................................................#.........................\",\n\t\t\t\t\".......................................................##.......................\");\n\t */\n}\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/Application.java b/src/game/Application.java
+--- a/src/game/Application.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/Application.java	(date 1651995757992)
+@@ -15,9 +15,9 @@
+ import game.ground.Dirt;
+ import game.ground.Floor;
+ import game.ground.Wall;
+-import game.items.PowerStar;
+-import game.items.SuperMushroom;
+-import game.items.Wrench;
++import game.items.consumable.PowerStar;
++import game.items.consumable.PowerStar1;
++import game.items.consumable.SuperMushroom;
+ import game.trees.*;
+ 
+ /**
+@@ -60,8 +60,8 @@
+ 		world.addPlayer(mario, gameMap.at(42, 10));
+ 
+ 
+-		gameMap.at(42, 10).addItem(new PowerStar());
+-		gameMap.at(42, 10).addItem(new SuperMushroom());
++		gameMap.at(42, 10).addItem(new PowerStar1());
++		//gameMap.at(42, 10).addItem(new SuperMushroom());
+ 		gameMap.at(44, 11).addActor(new Toad());
+ 
+ 		// spawn sprouts
+Index: src/game/enemies/Goomba.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/enemies/Goomba.java b/src/game/actors/enemies/Goomba.java
+rename from src/game/enemies/Goomba.java
+rename to src/game/actors/enemies/Goomba.java
+--- a/src/game/enemies/Goomba.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/actors/enemies/Goomba.java	(date 1651993359747)
+@@ -1,4 +1,4 @@
+-package game.enemies;
++package game.actors.enemies;
+ 
+ import edu.monash.fit2099.engine.actions.Action;
+ import edu.monash.fit2099.engine.actions.ActionList;
+Index: .idea/uiDesigner.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/uiDesigner.xml b/.idea/uiDesigner.xml
+new file mode 100644
+--- /dev/null	(date 1651988419816)
++++ b/.idea/uiDesigner.xml	(date 1651988419816)
+@@ -0,0 +1,124 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Palette2">
++    <group name="Swing">
++      <item class="com.intellij.uiDesigner.HSpacer" tooltip-text="Horizontal Spacer" icon="/com/intellij/uiDesigner/icons/hspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="1" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="com.intellij.uiDesigner.VSpacer" tooltip-text="Vertical Spacer" icon="/com/intellij/uiDesigner/icons/vspacer.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="1" anchor="0" fill="2" />
++      </item>
++      <item class="javax.swing.JPanel" icon="/com/intellij/uiDesigner/icons/panel.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JScrollPane" icon="/com/intellij/uiDesigner/icons/scrollPane.png" removable="false" auto-create-binding="false" can-attach-label="true">
++        <default-constraints vsize-policy="7" hsize-policy="7" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JButton" icon="/com/intellij/uiDesigner/icons/button.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="0" fill="1" />
++        <initial-values>
++          <property name="text" value="Button" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JRadioButton" icon="/com/intellij/uiDesigner/icons/radioButton.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="RadioButton" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JCheckBox" icon="/com/intellij/uiDesigner/icons/checkBox.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="3" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="CheckBox" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JLabel" icon="/com/intellij/uiDesigner/icons/label.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="8" fill="0" />
++        <initial-values>
++          <property name="text" value="Label" />
++        </initial-values>
++      </item>
++      <item class="javax.swing.JTextField" icon="/com/intellij/uiDesigner/icons/textField.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JPasswordField" icon="/com/intellij/uiDesigner/icons/passwordField.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JFormattedTextField" icon="/com/intellij/uiDesigner/icons/formattedTextField.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1">
++          <preferred-size width="150" height="-1" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextArea" icon="/com/intellij/uiDesigner/icons/textArea.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTextPane" icon="/com/intellij/uiDesigner/icons/textPane.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JEditorPane" icon="/com/intellij/uiDesigner/icons/editorPane.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JComboBox" icon="/com/intellij/uiDesigner/icons/comboBox.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="2" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JTable" icon="/com/intellij/uiDesigner/icons/table.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JList" icon="/com/intellij/uiDesigner/icons/list.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="2" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTree" icon="/com/intellij/uiDesigner/icons/tree.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3">
++          <preferred-size width="150" height="50" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JTabbedPane" icon="/com/intellij/uiDesigner/icons/tabbedPane.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSplitPane" icon="/com/intellij/uiDesigner/icons/splitPane.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="3" hsize-policy="3" anchor="0" fill="3">
++          <preferred-size width="200" height="200" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JSpinner" icon="/com/intellij/uiDesigner/icons/spinner.png" removable="false" auto-create-binding="true" can-attach-label="true">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSlider" icon="/com/intellij/uiDesigner/icons/slider.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="8" fill="1" />
++      </item>
++      <item class="javax.swing.JSeparator" icon="/com/intellij/uiDesigner/icons/separator.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="6" anchor="0" fill="3" />
++      </item>
++      <item class="javax.swing.JProgressBar" icon="/com/intellij/uiDesigner/icons/progressbar.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JToolBar" icon="/com/intellij/uiDesigner/icons/toolbar.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="6" anchor="0" fill="1">
++          <preferred-size width="-1" height="20" />
++        </default-constraints>
++      </item>
++      <item class="javax.swing.JToolBar$Separator" icon="/com/intellij/uiDesigner/icons/toolbarSeparator.png" removable="false" auto-create-binding="false" can-attach-label="false">
++        <default-constraints vsize-policy="0" hsize-policy="0" anchor="0" fill="1" />
++      </item>
++      <item class="javax.swing.JScrollBar" icon="/com/intellij/uiDesigner/icons/scrollbar.png" removable="false" auto-create-binding="true" can-attach-label="false">
++        <default-constraints vsize-policy="6" hsize-policy="0" anchor="0" fill="2" />
++      </item>
++    </group>
++  </component>
++</project>
+\ No newline at end of file
+Index: src/game/items/consumable/ConsumeAction.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/items/consumable/ConsumeAction.java b/src/game/items/consumable/ConsumeAction.java
+new file mode 100644
+--- /dev/null	(date 1651995582448)
++++ b/src/game/items/consumable/ConsumeAction.java	(date 1651995582448)
+@@ -0,0 +1,47 @@
++package game.items.consumable;
++
++import edu.monash.fit2099.engine.actions.Action;
++import edu.monash.fit2099.engine.actors.Actor;
++import edu.monash.fit2099.engine.positions.GameMap;
++
++/**
++ * Action for consuming items
++ */
++public class ConsumeAction extends Action {
++
++    private Consumable consumable;
++
++    /**
++     * what is printed to the menu for the consume action
++     */
++    private String menuDescriptionText;
++
++    /**
++     * Constructor
++     * @param consumable
++     */
++    public ConsumeAction(Consumable consumable, String menuDescriptionText){
++        this.consumable = consumable;
++
++    }
++
++
++    @Override
++    public String execute(Actor actor, GameMap map) {
++        consumable.addStatuses(actor);
++        consumable.otherThingsToDoWhenConsumed(actor, map);
++
++        return menuDescription(actor);
++    }
++
++
++    @Override
++    public String menuDescription(Actor actor) {
++        return actor + menuDescriptionText;
++    }
++
++    public void setMenuDescriptionText(String menuDescriptionText){
++        this.menuDescriptionText = menuDescriptionText;
++    }
++
++}
+Index: src/game/actions/AttackAction.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game.actions;\n\nimport java.util.Random;\n\nimport edu.monash.fit2099.engine.actions.Action;\nimport edu.monash.fit2099.engine.actions.ActionList;\nimport edu.monash.fit2099.engine.actors.Actor;\nimport edu.monash.fit2099.engine.positions.GameMap;\nimport edu.monash.fit2099.engine.items.Item;\nimport edu.monash.fit2099.engine.weapons.Weapon;\nimport game.actors.Status;\n\n/**\n * Special Action for attacking other Actors.\n */\npublic class AttackAction extends Action {\n\n\t/**\n\t * The Actor that is to be attacked\n\t */\n\tprotected Actor target;\n\n\t/**\n\t * The direction of incoming attack.\n\t */\n\tprotected String direction;\n\n\t/**\n\t * Random number generator\n\t */\n\tprotected Random rand = new Random();\n\n\t/**\n\t * Constructor.\n\t * \n\t * @param target the Actor to attack\n\t */\n\tpublic AttackAction(Actor target, String direction) {\n\t\tthis.target = target;\n\t\tthis.direction = direction;\n\t}\n\n\t/**\n\t * Perform the Action\n\t *\n\t * @see Action#execute(Actor actor, GameMap map)\n\t */\n\t@Override\n\tpublic String execute(Actor actor, GameMap map) {\n\t\ttarget.addCapability(Status.FOLLOWING);\n\t\tWeapon weapon = actor.getWeapon();\n\n\t\tif (!(rand.nextInt(100) <= weapon.chanceToHit())) {\n\t\t\treturn actor + \" misses \" + target + \".\";\n\t\t}\n\n\t\tint damage;\n\t\tString result;\n\n\t\tif (actor.hasCapability(Status.HAS_EATEN_POWER_STAR)){ //power stars give one shot abilities\n\t\t\tdamage = 9001;\n\t\t}\n\t\telse {\n\t\t\tdamage = weapon.damage();\n\t\t}\n\n\t\tif (target.hasCapability(Status.HAS_EATEN_POWER_STAR)){ //power stars make all damage 0\n\t\t\tdamage = 0;\n\t\t} else if (target.hasCapability(Status.TALL)) {\n\t\t\ttarget.removeCapability(Status.TALL);\n\t\t}\n\n\t\ttarget.hurt(damage);\n\n\t\tif (!target.isConscious() && target.hasCapability(Status.CAN_BE_DORMANT)) {\n\t\t\t//if target in going to dormant state...\n\t\t\ttarget.addCapability(Status.IS_DORMANT);\n\t\t\ttarget.removeCapability(Status.CAN_BE_DORMANT);\n\t\t\tresult = actor + \" \" + weapon.verb() + \" \" + target + \". \" + target + \" becomes dormant.\";\n\n\t\t}\n\t\telse if (target.hasCapability(Status.IS_DORMANT) && !(weapon.toString().equals(\"Wrench\"))){ //trying to attack a dormant actor with ineffective weapon\n\t\t\tresult = actor + \" \" + weapon.verb() + \" \" + target + \". The dormant \" + target + \" snickers at the \" + actor + \" behind his very tough shell.\";\n\t\t}\n\t\telse { // else actor can be attacked normally\n\n\t\t\tresult = actor + \" \" + weapon.verb() + \" \" + target + \" for \" + damage + \" damage.\";\n\t\t\tif (!target.isConscious()) {\n\t\t\t\tActionList dropActions = new ActionList();\n\t\t\t\t// drop all items\n\t\t\t\tfor (Item item : target.getInventory())\n\t\t\t\t\tdropActions.add(item.getDropAction(actor));\n\t\t\t\tfor (Action drop : dropActions)\n\t\t\t\t\tdrop.execute(target, map);\n\t\t\t\t// remove actor\n\t\t\t\tmap.removeActor(target);\n\t\t\t\tresult += System.lineSeparator() + target + \" is killed.\";\n\t\t\t}\n\t\t}\n\t\treturn result;\n\t}\n\n\t/**\n\t * Returns a descriptive String\n\t *\n\t * @see Action#execute(Actor actor, GameMap map)\n\t */\n\t@Override\n\tpublic String menuDescription(Actor actor) {\n\t\treturn actor + \" attacks \" + target + \" at \" + direction;\n\t}\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/actions/AttackAction.java b/src/game/actions/AttackAction.java
+--- a/src/game/actions/AttackAction.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/actions/AttackAction.java	(date 1651992918042)
+@@ -54,21 +54,9 @@
+ 			return actor + " misses " + target + ".";
+ 		}
+ 
+-		int damage;
+ 		String result;
+ 
+-		if (actor.hasCapability(Status.HAS_EATEN_POWER_STAR)){ //power stars give one shot abilities
+-			damage = 9001;
+-		}
+-		else {
+-			damage = weapon.damage();
+-		}
+-
+-		if (target.hasCapability(Status.HAS_EATEN_POWER_STAR)){ //power stars make all damage 0
+-			damage = 0;
+-		} else if (target.hasCapability(Status.TALL)) {
+-			target.removeCapability(Status.TALL);
+-		}
++		int damage = calculateDamage(actor,map, weapon);
+ 
+ 		target.hurt(damage);
+ 
+@@ -109,4 +97,24 @@
+ 	public String menuDescription(Actor actor) {
+ 		return actor + " attacks " + target + " at " + direction;
+ 	}
++
++
++	private int calculateDamage(Actor actor, GameMap map, Weapon weapon) {
++		int damage;
++
++		if (actor.hasCapability(Status.INVINCIBLE)) { //power stars give one shot abilities
++			damage = 9001;
++		} else {
++			damage = weapon.damage();
++		}
++
++		if (target.hasCapability(Status.INVINCIBLE)) { //power stars make all damage 0
++			damage = 0;
++		} else if (target.hasCapability(Status.TALL)) {
++			target.removeCapability(Status.TALL);
++		}
++		return damage;
++	}
++
++
+ }
+Index: src/game/items/consumable/Consumable.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/items/consumable/Consumable.java b/src/game/items/consumable/Consumable.java
+new file mode 100644
+--- /dev/null	(date 1651992025893)
++++ b/src/game/items/consumable/Consumable.java	(date 1651992025893)
+@@ -0,0 +1,72 @@
++package game.items.consumable;
++
++import edu.monash.fit2099.engine.actors.Actor;
++import edu.monash.fit2099.engine.items.Item;
++import edu.monash.fit2099.engine.positions.GameMap;
++
++import java.util.ArrayList;
++
++/**
++ * All items that can be consumed
++ */
++public abstract class Consumable extends Item {
++
++    /**
++     * A list of all the statuses
++     */
++    protected ArrayList<Enum> statusList;
++
++    /***
++     * Constructor.
++     *  @param name the name of this Item
++     * @param displayChar the character to use to represent this item if it is on the ground
++     * @param portable true if and only if the Item can be picked up
++     */
++    public Consumable(String name, char displayChar, boolean portable) {
++        super(name, displayChar, portable);
++
++    }
++
++
++    /**
++     * Adds all of the statuses stored in the item to an actor (who consumed it presumably)
++     */
++    public void addStatuses(Actor actor){
++        for (Enum status: statusList){
++            actor.addCapability(status);
++        }
++    }
++
++    /**
++     * Set the statuslist
++     * @param statusList a list of all the statuses consuming the item will grant the actor
++     */
++    protected void setStatusList(ArrayList<Enum> statusList){
++        this.statusList = statusList;
++    }
++
++
++    /**
++     * Gets the status list
++     * @return  a list of all the statuses consuming the item will grant the actor
++     */
++    public ArrayList<Enum> getStatusList() {
++        return statusList;
++    }
++
++
++    /**
++     * A list of other things to be done when the item is consumed
++     */
++    abstract public void otherThingsToDoWhenConsumed(Actor actor, GameMap map);
++
++
++    /**
++     * The description for the menu when it is consumed
++     * @param actor
++     * @return
++     */
++    abstract public String menuDescription(Actor actor);
++
++
++}
+Index: src/game/ground/HigherGround.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package game.ground;\n\nimport edu.monash.fit2099.engine.actions.ActionList;\nimport edu.monash.fit2099.engine.actors.Actor;\nimport edu.monash.fit2099.engine.positions.Ground;\nimport edu.monash.fit2099.engine.positions.Location;\nimport game.actors.Status;\n\n\n/**\n * An abstract class that denotes that a child can be jumped to\n *\n */\nabstract public class HigherGround extends Ground {\n\n    /**\n     * The success rate of a jump on a given high ground\n     *\n     */\n    protected double successRate;\n\n    /**\n     * The fall damage taken if the jump to the high ground failed\n     *\n     */\n    protected int fallDamage;\n\n    /**\n     * A string of the name of the high ground\n     *\n     */\n    protected String highGroundName;\n\n\n    /**\n     * Base abstract constructor for the HigherGround class\n     *\n     * @param displayChar the displayed letter of the class on the game map\n     */\n    public HigherGround(char displayChar, double successRate, int fallDamage, String highGroundName) {\n        super(displayChar);\n        this.successRate = successRate;\n        this.fallDamage = fallDamage;\n        this.highGroundName = highGroundName;\n    }\n\n    /**\n     * Method to return the success rate of the jump\n     *\n     * @return the success rate\n     */\n    public double getSuccessRate(){\n        return successRate;\n    }\n\n\n    /**\n     * Method to return the fall damage received for a failed jump\n     *\n     * @return the fall damage\n     */\n    public int getFallDamage(){\n        return fallDamage;\n    }\n\n    /**\n     * Method to return the high ground name\n     *\n     * @return string of the high ground name\n     */\n    public String getHighGroundName(){\n        return highGroundName;\n    }\n\n    /**\n     * Method that adds the jump action to higher ground objects\n     *\n     * @param actor the Actor acting; i.e: the player\n     * @param location the current Location of the higher ground\n     * @param direction the direction of the Ground from the Actor\n     * @return the list of actions for the higher ground\n     */\n    @Override\n    public ActionList allowableActions(Actor actor, Location location, String direction) {\n        ActionList actions = new ActionList();\n\n        if(!location.containsAnActor()){\n            if (actor.hasCapability(Status.HAS_EATEN_POWER_STAR)){\n                actions.add(new PowerStarMoveActorAction(location,direction));\n            }\n            else {\n                actions.add(new JumpAction(location, direction, (HigherGround) location.getGround()));\n            }\n        }\n         return actions;\n    }\n\n    /**\n     * Method that determines if an actor can enter the high ground (no)\n     *\n     * @param actor the Actor to check\n     * @return false, can't enter high ground\n     */\n    @Override\n    public boolean canActorEnter(Actor actor) {\n        return false;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/ground/HigherGround.java b/src/game/ground/HigherGround.java
+--- a/src/game/ground/HigherGround.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/ground/HigherGround.java	(date 1651992917976)
+@@ -85,7 +85,7 @@
+         ActionList actions = new ActionList();
+ 
+         if(!location.containsAnActor()){
+-            if (actor.hasCapability(Status.HAS_EATEN_POWER_STAR)){
++            if (actor.hasCapability(Status.INVINCIBLE)){
+                 actions.add(new PowerStarMoveActorAction(location,direction));
+             }
+             else {
+Index: src/game/enemies/PiranhaPlant.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/enemies/PiranhaPlant.java b/src/game/actors/enemies/PiranhaPlant.java
+rename from src/game/enemies/PiranhaPlant.java
+rename to src/game/actors/enemies/PiranhaPlant.java
+--- a/src/game/enemies/PiranhaPlant.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/actors/enemies/PiranhaPlant.java	(date 1651992810960)
+@@ -1,4 +1,4 @@
+-package game.enemies;
++package game.actors.enemies;
+ 
+ import edu.monash.fit2099.engine.actions.Action;
+ import edu.monash.fit2099.engine.actions.ActionList;
+Index: src/game/enemies/Bowser.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/game/enemies/Bowser.java b/src/game/actors/enemies/Bowser.java
+rename from src/game/enemies/Bowser.java
+rename to src/game/actors/enemies/Bowser.java
+--- a/src/game/enemies/Bowser.java	(revision ae6cc91de28449234aa416220602774a34196892)
++++ b/src/game/actors/enemies/Bowser.java	(date 1651993359724)
+@@ -1,4 +1,4 @@
+-package game.enemies;
++package game.actors.enemies;
+ 
+ import edu.monash.fit2099.engine.actions.Action;
+ import edu.monash.fit2099.engine.actions.ActionList;
