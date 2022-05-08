@@ -1,38 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="de024849-741f-4d08-9d2d-5f4159acaf9e" name="Default Changelist" comment="changing how consume works (not complete)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/Status.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/enemies/FlyingKoopa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/enemies/NormalKoopa.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/ground/HigherGround.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/ground/HigherGround.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/ground/PowerStarMoveActorAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/Consumable.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/Consumable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/ConsumeAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/ConsumeAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/ConsumePowerStarAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/PowerStar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/PowerStar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/PowerStar1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/trees/Mature.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/trees/Mature.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actors/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actors/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/enemies/FlyingKoopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/FlyingKoopa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/enemies/NormalKoopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/NormalKoopa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/HigherGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/HigherGround.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/PowerStarMoveActorAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/WalkToHigherGroundAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/consumable/Consumable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/consumable/Consumable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/consumable/ConsumeAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/consumable/ConsumeAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/consumable/ConsumePowerStarAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/consumable/PowerStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/consumable/PowerStar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/consumable/PowerStar1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/consumable/SuperMushroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/consumable/SuperMushroom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/trees/Mature.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/trees/Mature.java" afterDir="false" />
+    <list default="true" id="de024849-741f-4d08-9d2d-5f4159acaf9e" name="Default Changelist" comment="added sequence diagram">
+      <change beforePath="$PROJECT_DIR$/src/game/actions/PickUpCoinAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/PickUpCoinAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/enemies/Koopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemies/Koopa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/items/ConsumeSuperMushroomAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/ConsumeSuperMushroomAction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,11 +22,6 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/game/actors/Player.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/game/items/consumable/ConsumeAction.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/game/items/consumable/PowerStar.java" root0="SKIP_INSPECTION" />
-  </component>
   <component name="ProjectId" id="28bgsDx0fchvdyT4jRKF5RCkNWd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -68,9 +35,6 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="game.items.consumable" />
     </key>
   </component>
   <component name="RunManager">
@@ -123,21 +87,7 @@
       <option name="project" value="LOCAL" />
       <updated>1651491380623</updated>
     </task>
-    <task id="LOCAL-00004" summary="changing how consume works (not complete)">
-      <created>1651998781987</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1651998781987</updated>
-    </task>
-    <task id="LOCAL-00005" summary="changing how consume works (not complete)">
-      <created>1651998806147</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1651998806147</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -155,7 +105,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added power star exception ot supre mushroom reversion" />
     <MESSAGE value="added sequence diagram" />
-    <MESSAGE value="changing how consume works (not complete)" />
-    <option name="LAST_COMMIT_MESSAGE" value="changing how consume works (not complete)" />
+    <option name="LAST_COMMIT_MESSAGE" value="added sequence diagram" />
   </component>
 </project>
