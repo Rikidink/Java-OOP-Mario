@@ -2,14 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de024849-741f-4d08-9d2d-5f4159acaf9e" name="Default Changelist" comment="added sequence diagram">
-      <change beforePath="$PROJECT_DIR$/src/game/actions/PickUpCoinAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/PickUpCoinAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/enemies/Koopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/enemies/Koopa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/ConsumeSuperMushroomAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/ConsumeSuperMushroomAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/ground/FireGround.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_5_2022__12_42_pm__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_5_5_2022__12_42_pm__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_5_2022__6_30_pm__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_5_2022__6_30_pm__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/ConsumePowerStarAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/PowerStar.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -21,6 +30,9 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="28bgsDx0fchvdyT4jRKF5RCkNWd" />
   <component name="ProjectViewState">
@@ -100,7 +112,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added power star exception ot supre mushroom reversion" />
