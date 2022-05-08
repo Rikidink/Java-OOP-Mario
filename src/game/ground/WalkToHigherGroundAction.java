@@ -10,14 +10,14 @@ import game.items.Coin;
 /**
  * This is what happenes when you move while being affected by a power star
  */
-public class PowerStarMoveActorAction extends MoveActorAction {
+public class WalkToHigherGroundAction extends MoveActorAction {
     /**
      * Constructor
      *
      * @param moveToLocation    location being moved to
      * @param direction         direction being moved in
      */
-    public PowerStarMoveActorAction(Location moveToLocation, String direction) {
+    public WalkToHigherGroundAction(Location moveToLocation, String direction) {
         super(moveToLocation, direction);
     }
 

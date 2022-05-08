@@ -1,6 +1,4 @@
-package game.enemies;
-
-import game.actors.enemies.Koopa;
+package game.actors.enemies;
 
 public class NormalKoopa extends Koopa {
 

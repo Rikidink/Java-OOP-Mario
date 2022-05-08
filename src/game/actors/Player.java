@@ -16,7 +16,6 @@ import game.reset.ResetAction;
 public class Player extends Actor implements Resettable {
 
 	private final Menu menu = new Menu();
-	private int remainingInvincibility = -10;
 
 	/**
 	 * Constructor.
@@ -39,9 +38,12 @@ public class Player extends Actor implements Resettable {
 	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
+
+		if (this.hasCapability(Status.INVINCIBLE)){
+			System.out.println("Mario is INVINCIBLE!");
+		}
 		System.out.println("HP: " + printHp());
 		System.out.println("Money: $" + Wallet.getInstance().getWalletValue());
-		managePowerStar();
 
 		// Handle multi-turn Actions
 		if (lastAction.getNextAction() != null)
@@ -79,23 +81,4 @@ public class Player extends Actor implements Resettable {
 		}
 	}
 
-	/**
-	 *Manages effects of the PowerStar on the Player once it has been consumed
-	 *
-	 */
-	private void managePowerStar() {
-		if (this.hasCapability(Status.HAS_EATEN_POWER_STAR_THIS_TURN)){
-			this.removeCapability(Status.HAS_EATEN_POWER_STAR_THIS_TURN);
-			remainingInvincibility = 10;
-		}
-
-		if(this.hasCapability(Status.INVINCIBLE)){
-			if (remainingInvincibility >= 1) {
-				remainingInvincibility -= 1;
-				System.out.println("Mario is INVINCIBLE!");
-			} else {
-				this.removeCapability(Status.INVINCIBLE);
-			}
-		}
-	}
 }

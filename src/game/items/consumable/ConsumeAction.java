@@ -23,6 +23,8 @@ public class ConsumeAction extends Action {
     public ConsumeAction(Consumable consumable, String menuDescriptionText){
         this.consumable = consumable;
 
+        setMenuDescriptionText(menuDescriptionText);
+
     }
 
 
@@ -30,6 +32,7 @@ public class ConsumeAction extends Action {
     public String execute(Actor actor, GameMap map) {
         consumable.addStatuses(actor);
         consumable.otherThingsToDoWhenConsumed(actor, map);
+
 
         return menuDescription(actor);
     }

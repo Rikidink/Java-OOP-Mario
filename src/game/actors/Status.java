@@ -13,8 +13,8 @@ public enum Status {
     INVINCIBLE, //if a player is (at least temporarily) invincible
     WALK_TO_HIGHER_GROUND, //if an actor can walk (not jump to higher ground), this destroys the higher ground and drops a $5 coin
     INSTA_KILLER, //the actor insta kills anything it successfully attacks. INVINCIBLE overrides this
+    STAR_FLAG, // a way to notify all power star items in an inventory whether or not to remove capabilities when they self destruct
 
-    HAS_EATEN_POWER_STAR_THIS_TURN, // if the power star has been eaten this turn (used for resting count down)
     IS_DORMANT, //if an actor is dormant - related to being attacked
     CAN_BE_DORMANT, //if an actor can become IS_DORMANT
     FOLLOWING, //indicates that the enemy is following the player

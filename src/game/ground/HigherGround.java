@@ -85,8 +85,8 @@ abstract public class HigherGround extends Ground {
         ActionList actions = new ActionList();
 
         if(!location.containsAnActor()){
-            if (actor.hasCapability(Status.INVINCIBLE)){
-                actions.add(new PowerStarMoveActorAction(location,direction));
+            if (actor.hasCapability(Status.WALK_TO_HIGHER_GROUND)){
+                actions.add(new WalkToHigherGroundAction(location,direction));
             }
             else {
                 actions.add(new JumpAction(location, direction, (HigherGround) location.getGround()));
