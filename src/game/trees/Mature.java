@@ -4,6 +4,8 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
+import game.enemies.FlyingKoopa;
+import game.enemies.NormalKoopa;
 import game.ground.Dirt;
 import game.actors.Status;
 import game.enemies.Koopa;
@@ -69,7 +71,13 @@ public class Mature extends Tree {
         else {
             if(Math.random() <= 0.15){
                 if(!location.containsAnActor()){
-                   location.addActor(new Koopa());
+                    if (Math.random() <= 0.5) {
+                        location.addActor(new NormalKoopa());
+                    }
+                    else {
+                        location.addActor(new FlyingKoopa());
+
+                    }
                 }
             }
         }
