@@ -31,12 +31,9 @@ public class SuperMushroom extends Item implements Consumable{
 
     @Override
     public void otherThingsToDoWhenConsumed(Actor actor, GameMap map) {
-        super.togglePortability(); //make it appear as though it doesn't exist
-        super.removeAction(consumeAction);
 
-        //make sure the item is in the actors inventory - and only there
+        //make sure the item is deleted
         actor.removeItemFromInventory(this);
-        actor.addItemToInventory(this);
         map.locationOf(actor).removeItem(this);
 
         //specific stuff
