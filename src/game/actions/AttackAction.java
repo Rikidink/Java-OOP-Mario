@@ -54,21 +54,9 @@ public class AttackAction extends Action {
 			return actor + " misses " + target + ".";
 		}
 
-		int damage;
 		String result;
 
-		if (actor.hasCapability(Status.HAS_EATEN_POWER_STAR)){ //power stars give one shot abilities
-			damage = 9001;
-		}
-		else {
-			damage = weapon.damage();
-		}
-
-		if (target.hasCapability(Status.HAS_EATEN_POWER_STAR)){ //power stars make all damage 0
-			damage = 0;
-		} else if (target.hasCapability(Status.TALL)) {
-			target.removeCapability(Status.TALL);
-		}
+		int damage = calculateDamage(actor,map, weapon);
 
 		target.hurt(damage);
 
@@ -109,4 +97,24 @@ public class AttackAction extends Action {
 	public String menuDescription(Actor actor) {
 		return actor + " attacks " + target + " at " + direction;
 	}
+
+
+	private int calculateDamage(Actor actor, GameMap map, Weapon weapon) {
+		int damage;
+
+		if (actor.hasCapability(Status.INVINCIBLE)) { //power stars give one shot abilities
+			damage = 9001;
+		} else {
+			damage = weapon.damage();
+		}
+
+		if (target.hasCapability(Status.INVINCIBLE)) { //power stars make all damage 0
+			damage = 0;
+		} else if (target.hasCapability(Status.TALL)) {
+			target.removeCapability(Status.TALL);
+		}
+		return damage;
+	}
+
+
 }

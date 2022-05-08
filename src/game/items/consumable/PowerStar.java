@@ -1,10 +1,9 @@
-package game.items;
+package game.items.consumable;
 
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.Location;
-
-import java.util.List;
+import game.items.consumable.ConsumePowerStarAction;
 
 /**
  * The power star item, greatest of all items. He who consumes this shall gain power unmatched

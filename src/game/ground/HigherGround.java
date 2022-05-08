@@ -85,7 +85,7 @@ abstract public class HigherGround extends Ground {
         ActionList actions = new ActionList();
 
         if(!location.containsAnActor()){
-            if (actor.hasCapability(Status.HAS_EATEN_POWER_STAR)){
+            if (actor.hasCapability(Status.INVINCIBLE)){
                 actions.add(new PowerStarMoveActorAction(location,direction));
             }
             else {

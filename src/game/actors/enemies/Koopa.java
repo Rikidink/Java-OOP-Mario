@@ -1,28 +1,33 @@
-package game.enemies;
+package game.actors.enemies;
+
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actions.ActionList;
+import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
-import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.actors.Status;
 import game.reset.Resettable;
 import game.actions.AttackAction;
-import game.behaviours.*;
+import game.behaviours.AttackBehaviour;
+import game.behaviours.Behaviour;
+import game.behaviours.FollowBehaviour;
+import game.items.consumable.SuperMushroom;
 
 /**
- * A little fungus guy.
+ * A big turtle guy.
  */
-public class Goomba extends Enemy implements Resettable {
+public class Koopa extends Enemy implements Resettable {
 
 	/**
 	 * Constructor.
 	 */
-	public Goomba() {
-		super("Goomba", 'g', 20); //changed health to 20
-		this.behaviours.put(1, new SuicideBehaviour()); // the order here is important, first to last possible
+	public Koopa(String name, char displayChar, int hitPoints) {
+		super(name, displayChar, hitPoints);
+		this.addCapability(Status.CAN_BE_DORMANT); // adds a status
+		this.addItemToInventory(new SuperMushroom()); //So it drops a supermushroom when it dies
 		registerInstance();
 	}
 
@@ -38,14 +43,13 @@ public class Goomba extends Enemy implements Resettable {
 	@Override
 	public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
 		ActionList actions = new ActionList();
-
 		if (!(otherActor.hasCapability(Status.HOSTILE_TO_PLAYER))) {
 			behaviours.put(8, new AttackBehaviour(otherActor));
 		}
 
 		// it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
-		if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
-			actions.add(new AttackAction(this,direction));
+		if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY) && !(this.hasCapability(Status.IS_DORMANT)) || otherActor.getWeapon().toString().equals("Wrench")) {
+			actions.add(new AttackAction(this,direction)); //todo: add check for if dormant - remove from alloiwable acitons
 		}
 
 		if (this.hasCapability(Status.FOLLOWING)) {
@@ -62,10 +66,15 @@ public class Goomba extends Enemy implements Resettable {
 	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-		for(Behaviour behaviour : behaviours.values()) {
-			Action action = behaviour.getAction(this, map);
-			if (action != null)
-				return action;
+		if (this.hasCapability(Status.IS_DORMANT)) { //if dormant...
+			this.setDisplayChar('D');
+		}
+		else { //Koopa will only do an action if it is not dormant
+			for (Behaviour Behaviour : behaviours.values()) {
+				Action action = Behaviour.getAction(this, map);
+				if (action != null)
+					return action;
+			}
 		}
 		return new DoNothingAction();
 	}
@@ -82,10 +91,12 @@ public class Goomba extends Enemy implements Resettable {
 
 	/**
 	 * Creates and returns an intrinsic weapon.
+	 *
 	 * @return a freshly-instantiated IntrinsicWeapon
 	 */
 	@Override
 	protected IntrinsicWeapon getIntrinsicWeapon() {
-		return new IntrinsicWeapon(10, "kicks");
+		return new IntrinsicWeapon(30, "punches");
 	}
 }
+

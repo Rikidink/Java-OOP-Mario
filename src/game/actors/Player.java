@@ -73,7 +73,7 @@ public class Player extends Actor implements Resettable {
 	public void resetInstance(GameMap map) {
 		heal(getMaxHp());
 		for (Enum<?> status : capabilitiesList()) {
-			if (status == Status.HAS_EATEN_POWER_STAR || status == Status.TALL) {
+			if (status == Status.INVINCIBLE || status == Status.TALL) {
 				this.removeCapability(status);
 			}
 		}
@@ -89,12 +89,12 @@ public class Player extends Actor implements Resettable {
 			remainingInvincibility = 10;
 		}
 
-		if(this.hasCapability(Status.HAS_EATEN_POWER_STAR)){
+		if(this.hasCapability(Status.INVINCIBLE)){
 			if (remainingInvincibility >= 1) {
 				remainingInvincibility -= 1;
 				System.out.println("Mario is INVINCIBLE!");
 			} else {
-				this.removeCapability(Status.HAS_EATEN_POWER_STAR);
+				this.removeCapability(Status.INVINCIBLE);
 			}
 		}
 	}

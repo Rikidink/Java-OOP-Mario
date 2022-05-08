@@ -1,22 +1,20 @@
-package game.enemies;
+package game.actors.enemies;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
-import game.items.Key;
 import game.reset.Resettable;
 
-public class Bowser extends Enemy implements Resettable {
+public class PiranhaPlant extends Enemy implements Resettable {
 
     /**
      * Constructor.
      *
      */
-    public Bowser() {
-        super("Bowser", 'B', 500);
-        addItemToInventory(new Key());
+    public PiranhaPlant() {
+        super("Piranha Plant", 'Y', 150);
         registerInstance();
     }
 
@@ -25,15 +23,14 @@ public class Bowser extends Enemy implements Resettable {
         return null;
     }
 
-
-
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(80, "punches");
+        return new IntrinsicWeapon(90, "chomps");
     }
 
     @Override
     public void resetInstance(GameMap map) {
-        //move back to original position, heal to max health, stop following.
+        this.increaseMaxHp(50);
+        this.heal(getMaxHp());
     }
 }

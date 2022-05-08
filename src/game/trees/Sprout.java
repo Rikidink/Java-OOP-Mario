@@ -1,11 +1,7 @@
 package game.trees;
 
-import edu.monash.fit2099.engine.actors.Actor;
-import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
-import game.ground.Dirt;
-import game.enemies.Goomba;
-import game.reset.Resettable;
+import game.actors.enemies.Goomba;
 
 /**
  * Sprout; a child class of tree

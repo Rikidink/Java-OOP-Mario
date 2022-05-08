@@ -1,10 +1,11 @@
-package game.items;
+package game.items.consumable;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.actors.Status;
+import game.items.consumable.SuperMushroom;
 
 /**
  * Eat a super mushroom

@@ -1,4 +1,4 @@
-package game.enemies;
+package game.actors.enemies;
 
 import edu.monash.fit2099.engine.actors.Actor;
 import game.actors.Status;

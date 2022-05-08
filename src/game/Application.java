@@ -15,9 +15,9 @@ import game.actors.Toad;
 import game.ground.Dirt;
 import game.ground.Floor;
 import game.ground.Wall;
-import game.items.PowerStar;
-import game.items.SuperMushroom;
-import game.items.Wrench;
+import game.items.consumable.PowerStar;
+import game.items.consumable.PowerStar1;
+import game.items.consumable.SuperMushroom;
 import game.trees.*;
 
 /**
@@ -60,8 +60,8 @@ public class Application {
 		world.addPlayer(mario, gameMap.at(42, 10));
 
 
-		gameMap.at(42, 10).addItem(new PowerStar());
-		gameMap.at(42, 10).addItem(new SuperMushroom());
+		gameMap.at(42, 10).addItem(new PowerStar1());
+		//gameMap.at(42, 10).addItem(new SuperMushroom());
 		gameMap.at(44, 11).addActor(new Toad());
 
 		// spawn sprouts

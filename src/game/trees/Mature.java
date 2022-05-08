@@ -1,15 +1,12 @@
 package game.trees;
 
-import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Exit;
-import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.enemies.FlyingKoopa;
 import game.enemies.NormalKoopa;
 import game.ground.Dirt;
 import game.actors.Status;
-import game.enemies.Koopa;
-import game.reset.Resettable;
+import game.actors.enemies.Koopa;
 
 import java.util.ArrayList;
 import java.util.Random;

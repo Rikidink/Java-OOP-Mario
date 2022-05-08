@@ -9,10 +9,9 @@ import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.actions.BuyAction;
 import game.actions.SpeakAction;
-import game.items.PowerStar;
+import game.items.consumable.PowerStar;
 import game.items.Wrench;
-import game.items.SuperMushroom;
-import game.items.Wrench;
+import game.items.consumable.SuperMushroom;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -59,7 +58,7 @@ public class Toad extends Actor implements CanSpeak {
             }
         }
         for (Enum<?> capability : actor.capabilitiesList()) { //checking if the player is under the effects of the PowerStar
-            if (capability == Status.HAS_EATEN_POWER_STAR) {
+            if (capability == Status.INVINCIBLE) {
                 randBound--;
             }
         }
