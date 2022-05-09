@@ -37,7 +37,7 @@ public class Bottle extends Item implements Consumable{
 
     @Override
     public String menuDescription(Actor actor) {
-        return actor + "drinks a big sip of " + type + " water";
+        return actor + " drinks a big sip of " + type + " water";
 
     }
 }
