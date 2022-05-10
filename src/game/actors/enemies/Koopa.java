@@ -19,7 +19,7 @@ import game.items.consumable.SuperMushroom;
 /**
  * A big turtle guy.
  */
-public class Koopa extends Enemy implements Resettable {
+public abstract class Koopa extends Enemy implements Resettable {
 
 	/**
 	 * Constructor.

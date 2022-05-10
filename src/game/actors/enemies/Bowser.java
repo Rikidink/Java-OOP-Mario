@@ -25,8 +25,6 @@ public class Bowser extends Enemy implements Resettable {
         return null;
     }
 
-
-
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
         return new IntrinsicWeapon(80, "punches");
