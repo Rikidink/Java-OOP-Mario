@@ -12,12 +12,6 @@ import java.util.Arrays;
 public class SuperMushroom extends Item implements Consumable{
 
     /**
-     * A consume action which is updated according to the time remaining
-     */
-    private ConsumeAction consumeAction = new ConsumeAction(this, " consumes the Super Mushroom");
-
-
-    /**
      * An array list of all of the statuses an actor will gain when consuming this item
      */
     ArrayList<Enum> statusList;
@@ -26,7 +20,7 @@ public class SuperMushroom extends Item implements Consumable{
     public SuperMushroom() {
         super("Super Mushroom", '^', true);
         statusList = new ArrayList<Enum>(Arrays.asList(Status.TALL)); //set the list of status to update
-        super.addAction(consumeAction);
+        super.addAction(new ConsumeAction(this, " consumes the Super Mushroom"));
     }
 
     @Override
@@ -63,7 +57,6 @@ public class SuperMushroom extends Item implements Consumable{
     public String menuDescription(Actor actor) {
         return actor + " consumes the Super Mushroom";
     }
-
 
 
 
