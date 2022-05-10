@@ -16,6 +16,7 @@ import game.actors.enemies.FlyingKoopa;
 import game.ground.Dirt;
 import game.ground.Floor;
 import game.ground.Wall;
+import game.items.Bottle;
 import game.items.consumable.PowerStar;
 import game.items.consumable.SuperMushroom;
 import game.trees.*;
@@ -64,6 +65,8 @@ public class Application {
 		gameMap.at(42, 10).addItem(new SuperMushroom());
 		gameMap.at(44, 11).addActor(new Toad());
 		gameMap.at(44, 8).addActor(new FlyingKoopa());
+
+		mario.addItemToInventory(new Bottle());
 
 		// spawn sprouts
 		SproutSpawner.generateSprouts(gameMap);

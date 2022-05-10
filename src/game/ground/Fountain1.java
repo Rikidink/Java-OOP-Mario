@@ -7,21 +7,36 @@ import edu.monash.fit2099.engine.positions.Location;
 import game.actors.Status;
 import game.items.consumable.ConsumeAction;
 
-abstract class Fountain extends Ground {
-    /**
-     * Constructor.
-     *
-     * @param displayChar character to display for this type of terrain
-     */
-    public Fountain(char displayChar) {
-        super(displayChar);
+/**
+ * Fountains are able to refill bottles and be drunk from to replenish health
+ */
+public class Fountain1 extends Ground {
+
+    private char displayChar;
+    private String type;
+
+
+
+    public Fountain1(String type) {
+        //set a placeholder display character while type is worked out
+        super('_');
+        if (type == "Health") {
+            displayChar = 'H';
+        } else if (type == "Power") {
+            displayChar = 'A';
+        } else {
+            displayChar = '_'; // a failsafe
+
+        }
+
+        super.setDisplayChar(displayChar);
+        this.type = type;
 
     }
 
-    @Override
+
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList actions = new ActionList();
-
 
         if(!location.containsAnActor()){
             if (actor.hasCapability(Status.WALK_TO_HIGHER_GROUND)){
