@@ -8,6 +8,7 @@ public enum Status {
     HOSTILE_TO_ENEMY, // use this status to be considered hostile towards enemy (e.g., to be attacked by enemy)
     TALL, // use this status to tell that current instance has "grown".
     CAN_RESET, // does the player have the ability to reset the game
+    LAVA_WALK,
 
     //power star effects
     INVINCIBLE, //if a player is (at least temporarily) invincible
