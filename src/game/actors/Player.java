@@ -38,6 +38,7 @@ public class Player extends CanHoldBottleActor implements Resettable {
 		super(name, displayChar, hitPoints);
 		this.addCapability(Status.HOSTILE_TO_ENEMY);
 		this.addCapability(Status.CAN_RESET);
+		this.addCapability(Status.LAVA_WALK);
 		registerInstance();
 	}
 

@@ -15,6 +15,7 @@ import game.actors.Player;
 import game.actors.Toad;
 import game.ground.Dirt;
 import game.ground.Floor;
+import game.ground.Lava;
 import game.ground.fountain.HealthFountain;
 import game.ground.Wall;
 import game.items.Bottle;
@@ -74,6 +75,9 @@ public class Application {
 
 		//add a fountain
 		gameMap.at(42, 8).addItem(new HealthFountain());
+
+		// test lava
+		gameMap.at(30, 10).setGround(new Lava());
 
 		// spawn sprouts
 		SproutSpawner.generateSprouts(gameMap);
