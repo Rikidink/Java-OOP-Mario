@@ -14,6 +14,7 @@ import game.actors.Player;
 import game.actors.Toad;
 import game.ground.Dirt;
 import game.ground.Floor;
+import game.ground.fountain.HealthFountain;
 import game.ground.Wall;
 import game.items.Bottle;
 import game.items.consumable.PowerStar;
@@ -66,8 +67,12 @@ public class Application {
 
 		mario.addItemToInventory(new Bottle());
 
+		//add a fountain
+		gameMap.at(42, 8).addItem(new HealthFountain());
+
 		// spawn sprouts
 		SproutSpawner.generateSprouts(gameMap);
+
 		world.run();
 
 	}

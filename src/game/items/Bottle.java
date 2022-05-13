@@ -1,18 +1,11 @@
 package game.items;
 
 import edu.monash.fit2099.engine.actions.Action;
-import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
-import edu.monash.fit2099.engine.positions.GameMap;
-import edu.monash.fit2099.engine.positions.Ground;
-import edu.monash.fit2099.engine.positions.Location;
-import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.Status;
-import game.ground.Fountain;
-import game.items.consumable.Consumable;
 import game.items.consumable.ConsumeAction;
 import game.items.consumable.StorableFood;
-import java.util.ArrayList;
+
 import java.util.HashMap;
 
 public class Bottle extends Item{

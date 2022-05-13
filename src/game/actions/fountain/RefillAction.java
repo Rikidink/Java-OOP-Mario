@@ -1,9 +1,9 @@
-package game.actions;
+package game.actions.fountain;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
-import game.ground.Fountain;
+import game.ground.fountain.Fountain;
 import game.items.Bottle;
 
 /**
@@ -31,7 +31,7 @@ public class RefillAction extends Action {
      */
     private Fountain fountain;
 
-    public RefillAction(String type, String waterInfo, Fountain fountain){
+    public RefillAction(String type, Fountain fountain){
         this.type = type;
         this.waterInfo = waterInfo;
         this.fountain = fountain;
@@ -41,12 +41,11 @@ public class RefillAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
         fountain.reduceRemainingWater();
-        bottle.addConsumableToBottle(fountain.getAppropriateWaterInstance());
         return actor +  " adds a portion of of " + type + " water to his bottle";
     }
 
     @Override
     public String menuDescription(Actor actor) {
-        return actor + " refills bottle from " + type + " " + waterInfo;
+        return actor + " refills bottle from " + type + " " + fountain.getWaterInfo();
     }
 }
