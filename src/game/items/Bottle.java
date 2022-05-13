@@ -1,13 +1,17 @@
 package game.items;
 
+import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
+import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
+import game.Status;
+import game.ground.Fountain;
 import game.items.consumable.Consumable;
+import game.items.consumable.ConsumeAction;
 import game.items.consumable.StorableFood;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -29,6 +33,12 @@ public class Bottle extends Item{
     private StorableFood currentStorable;
 
 
+    /**
+     * The current action possible (ie what you can currently consume)
+     */
+
+    private Action currentAction = new ConsumeAction(null,null);
+
     /***
      * Constructor.
      *  @param name the name of this Item
@@ -37,32 +47,40 @@ public class Bottle extends Item{
      */
     public Bottle() {
         super("Bottle", 'U', false);
+        this.addCapability(Status.CAN_BE_REFILLED);
     }
 
 
 
-    /**
-     * Inform a carried Item of the passage of time.
-     *
-     * This method is called once per turn, if the Item is being carried.
-     * @param currentLocation The location of the actor carrying this Item.
-     * @param actor The actor carrying this Item.
-     */
-    public void tick(Location currentLocation, Actor actor) {
-        //work out if top item has been consumed
-    }
+
 
 
     public void addConsumableToBottle(StorableFood storableFood){
-        storage_counter ++;
+        storage_counter++;
         storage.put(storage_counter, storableFood);
+
+        if (storage_counter == 1 && currentStorable == null){ //the case where this is the only item
+            reduceConsumableStack();
+        }
+
 
     }
 
 
-    public void getConsumableInBottle(StorableFood storableFood){
-        //if currentStorable.
-        //currentStorable =  storage.remove(storage_counter);
+    /**
+     * reduces the consumable stack by one
+     * @param storableFood
+     */
+    private void reduceConsumableStack(){
+        currentStorable =  storage.remove(storage_counter);
+        storage_counter --;
+        super.removeAction(currentAction);
+
+        if (currentStorable != null){ //replace the current action
+            currentAction = new ConsumeAction(currentStorable, currentStorable.getMenuDescriptionText());
+            super.addAction(currentAction);
+            //todo: fix the weird menu description method spam
+        }
 
     }
 

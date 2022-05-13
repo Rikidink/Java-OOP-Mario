@@ -1,7 +1,7 @@
 package game.actors.enemies;
 
 import edu.monash.fit2099.engine.actors.Actor;
-import game.actors.Status;
+import game.Status;
 import game.behaviours.Behaviour;
 import game.behaviours.WanderBehaviour;
 

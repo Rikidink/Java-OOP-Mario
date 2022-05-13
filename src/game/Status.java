@@ -1,4 +1,4 @@
-package game.actors;
+package game;
 
 /**
  * Use this enum class to give `buff` or `debuff`.
@@ -21,4 +21,10 @@ public enum Status {
     CANNOT_ENTER_FLOOR, //for enemies, so that they cannot walk on the floor
     FERTILE_GROUND, // given to grounds if they can support trees
     HOSTILE_TO_PLAYER, //if an actor is hostile to the player
+
+
+    //fountain stuff
+    CAN_BE_REFILLED, // if a bottle (or other item) can be refilled (at a fountain)
+    HAS_REFILLED_BOTTLE, //if an actor has refilled a bottle this status gets added
+
 }

@@ -67,5 +67,13 @@ public interface Consumable{
      */
     String menuDescription(Actor actor);
 
+    /**
+     * A check for if the action was able to happen. Intended for cases when an action can be access multiple times per turn
+     * but might only be intended to be access once
+     * @return if the action was a success, ie if it cna happen
+     */
+    default boolean actionSuccess(){
+        return true;
+    }
 
 }

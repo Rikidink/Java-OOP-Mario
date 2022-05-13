@@ -1,14 +1,12 @@
 package game.items.consumable;
 
-import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
-import game.actors.Status;
+import game.Status;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class PowerStar extends Item implements Consumable{
 

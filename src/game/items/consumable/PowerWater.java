@@ -1,21 +1,16 @@
 package game.items.consumable;
 
 import edu.monash.fit2099.engine.actors.Actor;
-import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 
-import java.util.ArrayList;
 
-public class PowerWater extends Item implements Consumable, StorableFood{
+public class PowerWater extends StorableFood implements Consumable{
 
 
     /***
      * Constructor.
-     *  @param name the name of this Item
-     * @param displayChar the character to use to represent this item if it is on the ground
-     * @param portable true if and only if the Item can be picked up
      */
-    public PowerWater(String name, char displayChar, boolean portable) {
+    public PowerWater() {
         super("Power Water", 'w', false);
     }
 
@@ -28,7 +23,7 @@ public class PowerWater extends Item implements Consumable, StorableFood{
         //remove item from existence
         actor.removeItemFromInventory(this);
         map.locationOf(actor).removeItem(this);
-        setHasBeenConsumed(true);
+        super.setHasBeenConsumed(true);
 
 
 
@@ -39,13 +34,9 @@ public class PowerWater extends Item implements Consumable, StorableFood{
         return actor + " drinks some extremely powerful water";
     }
 
-    @Override
-    public boolean setHasBeenConsumed(boolean status) {
-        return false;
-    }
 
     @Override
-    public boolean getConsumptionStatus() {
-        return false;
+    public String getMenuDescriptionText() {
+        return " drinks some extremely powerful water";
     }
 }

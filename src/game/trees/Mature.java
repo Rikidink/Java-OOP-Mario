@@ -5,7 +5,7 @@ import edu.monash.fit2099.engine.positions.Location;
 import game.actors.enemies.FlyingKoopa;
 import game.actors.enemies.NormalKoopa;
 import game.ground.Dirt;
-import game.actors.Status;
+import game.Status;
 
 import java.util.ArrayList;
 import java.util.Random;
