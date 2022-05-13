@@ -8,6 +8,8 @@ import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Status;
 import game.actions.fountain.DrinkHealthWaterAction;
+import game.actions.fountain.FakeRefillAction;
+import game.items.Bottle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +41,10 @@ public abstract class Fountain extends Item {
      */
     protected int timeUntilRefill = 5;
 
+    /**
+     * Where is the founted? usefull is you need to know if the actor at the location has a bottle in its inventory
+     */
+    protected Location location;
 
     /**
      * Constructor.
@@ -55,31 +61,22 @@ public abstract class Fountain extends Item {
 
     @Override
     public List<Action> getAllowableActions() {
-        System.out.println("chaingng allowble actions");
-        //ActionList actions = new ActionList();
 
         List<Action> actions = new ArrayList<>();
 
 
 
-        //I need a fill bottle action as well as a consume action?
         //if there is enough water left
         if (remainingWater > 0) {
             //allow actor to sip water
             actions.add(new DrinkHealthWaterAction(type,this, true));
 
-
-            boolean canRefilled = false;
-//
-//            for (Item item : actor.getInventory()) { //if an actor has a refillable item in his inventory allow it to be filled
-//                if (item.hasCapability(Status.CAN_BE_REFILLED)) {
-//                    canRefilled = true;
-//                }
-//            }
-
-            if (canRefilled == true) {
-                //actions.add(new RefillAction());
+            //check if a actor on same location has a bottle, if so allow refill
+            if (location.getActor().hasCapability(Status.HAS_A_BOTTLE)){
+                actions.add(new FakeRefillAction( type, this));
             }
+
+
 
 
         }
@@ -95,6 +92,7 @@ public abstract class Fountain extends Item {
 
 
     public void tick(Location location) {
+        this.location = location;
 
         //does it refill or not?
         if (remainingWater == 0){ // a requirement is to only refill if water is at 0

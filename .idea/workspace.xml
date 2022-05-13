@@ -4,21 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="adding partially implimented fountains">
-      <change afterPath="$PROJECT_DIR$/src/game/actions/fountain/DrinkAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/actions/fountain/DrinkHealthWaterAction.java" afterDir="false" />
+    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="done sipping from a health fountain">
+      <change afterPath="$PROJECT_DIR$/src/game/actions/fountain/FakeRefillAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/actors/CanHoldBottleActor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/Application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Bowser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Bowser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/FlyingKoopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/FlyingKoopa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/NormalKoopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/NormalKoopa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/ConsumeSuperMushroomAction.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actions/RefillAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/fountain/RefillAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/Fountain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/fountain/Fountain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/HealthFountain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/fountain/HealthFountain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/Bottle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/Bottle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/consumable/HealthWaterConsumeAction.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/consumable/PowerWater.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actions/fountain/RefillAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/fountain/RefillAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/ground/fountain/Fountain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/fountain/Fountain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/items/consumable/ConsumeSuperMushroomAction.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +52,7 @@
     <setting file="file://$PROJECT_DIR$/src/game/items/consumable/ConsumeAction.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/ground/fountain/Fountain.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/DrinkAction.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/FakeRefillAction.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/items/consumable/PowerStar.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="28bgsDx0fchvdyT4jRKF5RCkNWd" />
@@ -157,7 +155,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652407677155</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="done sipping from a health fountain">
+      <created>1652421850686</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1652421850686</updated>
+    </task>
+    <task id="LOCAL-00010" summary="done sipping from a health fountain">
+      <created>1652421863454</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1652421863454</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -179,6 +191,7 @@
     <MESSAGE value="minor improvements for super mushroom" />
     <MESSAGE value="added bottle" />
     <MESSAGE value="adding partially implimented fountains" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding partially implimented fountains" />
+    <MESSAGE value="done sipping from a health fountain" />
+    <option name="LAST_COMMIT_MESSAGE" value="done sipping from a health fountain" />
   </component>
 </project>

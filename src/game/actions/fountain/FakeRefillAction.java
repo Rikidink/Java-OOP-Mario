@@ -1,15 +1,20 @@
 package game.actions.fountain;
 
+/**
+ * Doesn't actually refill, tells the actor that it needs to refill
+ */
+
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.Status;
 import game.ground.fountain.Fountain;
 import game.items.Bottle;
 
 /**
  * For refilling bottles at a fountain. Assumes the ground it is at is a fountain.
  */
-public class RefillAction extends Action {
+public class FakeRefillAction extends Action {
 
     /**
      * what kinda thing are you refilling with?
@@ -17,30 +22,19 @@ public class RefillAction extends Action {
     private String type;
 
     /**
-     * Some information about the capacity of the container
-     */
-    private String waterInfo;
-
-    /**
-     * The bottle where the water is refilled to
-     */
-    private Bottle bottle;
-
-    /**
      * The Fountain where the water comes from
      */
     private Fountain fountain;
 
-    public RefillAction(String type, Fountain fountain, Bottle bottle){
+    public FakeRefillAction(String type, Fountain fountain){
         this.type = type;
-        this.waterInfo = waterInfo;
         this.fountain = fountain;
-        this.bottle = bottle;
 
     }
     @Override
     public String execute(Actor actor, GameMap map) {
         fountain.reduceRemainingWater();
+        actor.addCapability(Status.NEEDS_TO_REFILL_BOTTLE);
         return actor +  " adds a portion of " + type + " water to his bottle";
     }
 
@@ -49,3 +43,4 @@ public class RefillAction extends Action {
         return actor + " refills bottle from " + type + " " + fountain.getWaterInfo();
     }
 }
+

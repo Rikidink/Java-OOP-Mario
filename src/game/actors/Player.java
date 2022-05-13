@@ -8,17 +8,26 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
 import game.Status;
 import game.Wallet;
+import game.actions.fountain.FakeRefillAction;
+import game.actions.fountain.RefillAction;
+import game.items.Bottle;
 import game.reset.Resettable;
 import game.reset.ResetAction;
 
 /**
  * Class representing the Player.
  */
-public class Player extends Actor implements Resettable {
+public class Player extends CanHoldBottleActor implements Resettable {
+
+	/**
+	 * A bottle which can store things
+	 */
+	private Bottle bottle;
+
 
 	private final Menu menu = new Menu();
 
-	/**
+	/**lop
 	 * Constructor.
 	 *
 	 * @param name        Name to call the player in the UI
@@ -54,6 +63,7 @@ public class Player extends Actor implements Resettable {
 			actions.add(new ResetAction());
 		}
 
+
 		// return/print the console menu
 		return menu.showMenu(this, actions, display);
 	}
@@ -81,5 +91,6 @@ public class Player extends Actor implements Resettable {
 			}
 		}
 	}
+
 
 }

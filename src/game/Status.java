@@ -25,6 +25,7 @@ public enum Status {
 
     //fountain stuff
     CAN_BE_REFILLED, // if a bottle (or other item) can be refilled (at a fountain)
-    HAS_REFILLED_BOTTLE, //if an actor has refilled a bottle this status gets added
+    HAS_A_BOTTLE, //to work out if something uses a CanHoldBottle interface
+    NEEDS_TO_REFILL_BOTTLE, //for when an actor is told to refill a bottle but hasn't done it yet
 
 }

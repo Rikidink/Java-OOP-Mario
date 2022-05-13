@@ -10,6 +10,7 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.World;
 
 
+import game.actors.CanHoldBottleActor;
 import game.actors.Player;
 import game.actors.Toad;
 import game.ground.Dirt;
@@ -57,7 +58,7 @@ public class Application {
 		GameMap gameMap = new GameMap(groundFactory, map);
 		world.addGameMap(gameMap);
 
-		Actor mario = new Player("Player", 'm', 100);
+		CanHoldBottleActor mario = new Player("Player", 'm', 100);
 		world.addPlayer(mario, gameMap.at(42, 10));
 
 
@@ -65,7 +66,11 @@ public class Application {
 		gameMap.at(42, 10).addItem(new SuperMushroom());
 		gameMap.at(44, 11).addActor(new Toad());
 
-		mario.addItemToInventory(new Bottle());
+		//bottle stuff
+		Bottle bottle = new Bottle();
+		mario.addItemToInventory(bottle);
+		mario.setBottle(bottle);
+
 
 		//add a fountain
 		gameMap.at(42, 8).addItem(new HealthFountain());
@@ -74,6 +79,8 @@ public class Application {
 		SproutSpawner.generateSprouts(gameMap);
 
 		world.run();
+
+
 
 	}
 
