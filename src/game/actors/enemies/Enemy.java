@@ -24,7 +24,6 @@ public abstract class Enemy extends Actor {
      */
     public Enemy(String name, char displayChar, int hitPoints) {
         super(name, displayChar, hitPoints);
-        this.behaviours.put(10, new WanderBehaviour());
         this.addCapability(Status.CANNOT_ENTER_FLOOR);
         this.addCapability(Status.HOSTILE_TO_PLAYER);
     }

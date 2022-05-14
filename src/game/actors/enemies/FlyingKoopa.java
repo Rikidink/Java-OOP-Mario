@@ -5,14 +5,13 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Status;
 import game.actions.AttackAction;
-import game.behaviours.AttackBehaviour;
-import game.behaviours.FlyingFollowBehaviour;
-import game.behaviours.FollowBehaviour;
+import game.behaviours.*;
 
 public class FlyingKoopa extends Koopa {
 
     public FlyingKoopa() {
         super("Flying Koopa", 'F', 150);
+        this.behaviours.put(10, new FlyingWanderBehaviour());
     }
 
     @Override
@@ -22,7 +21,7 @@ public class FlyingKoopa extends Koopa {
 
         // it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
         if (otherActor.hasCapability(Status.HOSTILE_TO_ENEMY) && !(this.hasCapability(Status.IS_DORMANT)) || otherActor.getWeapon().toString().equals("Wrench")) {
-            actions.add(new AttackAction(this, direction)); //todo: add check for if dormant - remove from alloiwable acitons
+            actions.add(new AttackAction(this, direction));
         }
 
         if (this.hasCapability(Status.FOLLOWING)) {

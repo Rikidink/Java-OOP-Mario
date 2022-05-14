@@ -7,11 +7,13 @@ import game.Status;
 import game.actions.AttackAction;
 import game.behaviours.AttackBehaviour;
 import game.behaviours.FollowBehaviour;
+import game.behaviours.WanderBehaviour;
 
 public class NormalKoopa extends Koopa {
 
     public NormalKoopa() {
         super("Koopa", 'K', 100);
+        this.behaviours.put(10, new WanderBehaviour());
     }
 
     @Override
