@@ -13,7 +13,6 @@ import game.reset.Resettable;
 import game.actions.AttackAction;
 import game.behaviours.AttackBehaviour;
 import game.behaviours.Behaviour;
-import game.behaviours.FollowBehaviour;
 import game.items.consumable.SuperMushroom;
 
 /**
@@ -53,7 +52,6 @@ public abstract class Koopa extends Enemy implements Resettable {
 		}
 
 		if (this.hasCapability(Status.FOLLOWING)) {
-			behaviours.put(9, new FollowBehaviour(otherActor));
 			behaviours.put(8, new AttackBehaviour(otherActor));
 		}
 		return actions;

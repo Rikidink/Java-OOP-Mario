@@ -4,17 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="added spores that sometimes appear when the player digs a soft ground">
-      <change afterPath="$PROJECT_DIR$/src/game/ground/SoftGroundSpawner.java" afterDir="false" />
+    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="added uml for creative REQ 2 to docs folder">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/Toad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/Toad.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Enemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/FlyingKoopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/FlyingKoopa.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/NormalKoopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/NormalKoopa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/Spores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/Spores.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/FlyingKoopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/FlyingKoopa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Koopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Koopa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/NormalKoopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/NormalKoopa.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +188,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652508167155</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="implemented time duration for spores and generation of soft grounds at game start">
+      <created>1652509144321</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1652509144321</updated>
+    </task>
+    <task id="LOCAL-00015" summary="added uml for creative REQ 2 to docs folder">
+      <created>1652512942224</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1652512942224</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,6 +227,8 @@
     <MESSAGE value="implemented flying koopas can cross any round while wandering" />
     <MESSAGE value="added Shovel, SoftGround, and DigAction" />
     <MESSAGE value="added spores that sometimes appear when the player digs a soft ground" />
-    <option name="LAST_COMMIT_MESSAGE" value="added spores that sometimes appear when the player digs a soft ground" />
+    <MESSAGE value="implemented time duration for spores and generation of soft grounds at game start" />
+    <MESSAGE value="added uml for creative REQ 2 to docs folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="added uml for creative REQ 2 to docs folder" />
   </component>
 </project>
