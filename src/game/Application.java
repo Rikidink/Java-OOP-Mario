@@ -65,7 +65,6 @@ public class Application {
 		gameMap.at(42, 10).addItem(new SuperMushroom());
 		gameMap.at(42, 10).addItem(new Coin(50, 42, 10));
 		gameMap.at(44, 11).addActor(new Toad());
-		gameMap.at(40, 4).setGround(new SoftGround());
 
 		//bottle stuff
 		Bottle bottle = new Bottle();
@@ -81,6 +80,7 @@ public class Application {
 
 		// spawn sprouts
 		SproutSpawner.generateSprouts(gameMap);
+		SoftGroundSpawner.generateSoftGround(gameMap);
 
 		world.run();
 

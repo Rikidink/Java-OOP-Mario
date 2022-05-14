@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="added Shovel, SoftGround, and DigAction">
-      <change afterPath="$PROJECT_DIR$/src/game/ground/Spores.java" afterDir="false" />
+    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="added spores that sometimes appear when the player digs a soft ground">
+      <change afterPath="$PROJECT_DIR$/src/game/ground/SoftGroundSpawner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/Application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/Toad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/Toad.class" afterDir="false" />
@@ -14,7 +14,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/NormalKoopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/NormalKoopa.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actions/DigAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/DigAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/ground/Spores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/Spores.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652502517546</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added spores that sometimes appear when the player digs a soft ground">
+      <created>1652508167155</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1652508167155</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,6 +213,7 @@
     <MESSAGE value="done sipping from a health fountain" />
     <MESSAGE value="implemented flying koopas can cross any round while wandering" />
     <MESSAGE value="added Shovel, SoftGround, and DigAction" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Shovel, SoftGround, and DigAction" />
+    <MESSAGE value="added spores that sometimes appear when the player digs a soft ground" />
+    <option name="LAST_COMMIT_MESSAGE" value="added spores that sometimes appear when the player digs a soft ground" />
   </component>
 </project>
