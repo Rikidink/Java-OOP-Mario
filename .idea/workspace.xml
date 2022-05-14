@@ -4,12 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="implemented flying koopas can cross any round while following the player">
+    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="implemented flying koopas can cross any round while wandering">
+      <change afterPath="$PROJECT_DIR$/src/game/actions/DigAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/ground/SoftGround.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/items/Shovel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/FlyingKoopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/FlyingKoopa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Goomba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Goomba.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/NormalKoopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/NormalKoopa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/behaviours/FlyingWanderBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/behaviours/FlyingWanderBehaviour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/Application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/Application.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/Toad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/Toad.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/FlyingKoopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/FlyingKoopa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/NormalKoopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/NormalKoopa.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/Toad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/Toad.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +171,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652421863454</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="implemented flying koopas can cross any round while wandering">
+      <created>1652499697780</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1652499697780</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,6 +200,7 @@
     <MESSAGE value="added bottle" />
     <MESSAGE value="adding partially implimented fountains" />
     <MESSAGE value="done sipping from a health fountain" />
-    <option name="LAST_COMMIT_MESSAGE" value="done sipping from a health fountain" />
+    <MESSAGE value="implemented flying koopas can cross any round while wandering" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented flying koopas can cross any round while wandering" />
   </component>
 </project>

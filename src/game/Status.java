@@ -9,6 +9,7 @@ public enum Status {
     TALL, // use this status to tell that current instance has "grown".
     CAN_RESET, // does the player have the ability to reset the game
     LAVA_WALK,
+    CAN_DIG,
 
     //power star effects
     INVINCIBLE, //if a player is (at least temporarily) invincible
