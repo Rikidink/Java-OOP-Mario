@@ -13,12 +13,10 @@ import edu.monash.fit2099.engine.positions.World;
 import game.actors.CanHoldBottleActor;
 import game.actors.Player;
 import game.actors.Toad;
-import game.ground.Dirt;
-import game.ground.Floor;
-import game.ground.Lava;
+import game.ground.*;
 import game.ground.fountain.HealthFountain;
-import game.ground.Wall;
 import game.items.Bottle;
+import game.items.Coin;
 import game.items.consumable.PowerStar;
 import game.items.consumable.SuperMushroom;
 import game.trees.*;
@@ -65,7 +63,9 @@ public class Application {
 
 		gameMap.at(42, 10).addItem(new PowerStar());
 		gameMap.at(42, 10).addItem(new SuperMushroom());
+		gameMap.at(42, 10).addItem(new Coin(50, 42, 10));
 		gameMap.at(44, 11).addActor(new Toad());
+		gameMap.at(40, 4).setGround(new SoftGround());
 
 		//bottle stuff
 		Bottle bottle = new Bottle();
