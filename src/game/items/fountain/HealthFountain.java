@@ -1,7 +1,8 @@
-package game.ground.fountain;
+package game.items.fountain;
 
 
 import edu.monash.fit2099.engine.actions.Action;
+import game.actions.fountain.DrinkAction;
 import game.actions.fountain.DrinkHealthWaterAction;
 
 /**
@@ -18,8 +19,8 @@ public class HealthFountain extends Fountain {
     }
 
     @Override
-    public Action getAppropriateWaterAction() {
-        return new DrinkHealthWaterAction(super.type, this, false);
+    public DrinkAction getAppropriateWaterAction(boolean directlyRelated) {
+        return new DrinkHealthWaterAction(super.type, this, directlyRelated);
 
     }
 }

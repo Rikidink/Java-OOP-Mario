@@ -9,7 +9,6 @@ import edu.monash.fit2099.engine.displays.Menu;
 import game.Status;
 import game.Wallet;
 import game.actions.fountain.FakeRefillAction;
-import game.actions.fountain.RefillAction;
 import game.items.Bottle;
 import game.reset.Resettable;
 import game.reset.ResetAction;
@@ -18,11 +17,6 @@ import game.reset.ResetAction;
  * Class representing the Player.
  */
 public class Player extends CanHoldBottleActor implements Resettable {
-
-	/**
-	 * A bottle which can store things
-	 */
-	private Bottle bottle;
 
 
 	private final Menu menu = new Menu();
@@ -64,7 +58,13 @@ public class Player extends CanHoldBottleActor implements Resettable {
 			actions.add(new ResetAction());
 		}
 
+		if (this.hasCapability(Status.NEEDS_TO_REFILL_BOTTLE)){
+			refillTheBottle();
+		}
 
+		if (getBottle().getCurrentDrinkAction() != null){ //add the action to drink from the bottle
+			actions.add(getBottle().getCurrentDrinkAction());
+		}
 		// return/print the console menu
 		return menu.showMenu(this, actions, display);
 	}

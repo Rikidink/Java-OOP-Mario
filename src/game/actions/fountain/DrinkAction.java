@@ -3,8 +3,7 @@ package game.actions.fountain;
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
-import game.ground.fountain.Fountain;
-import game.items.consumable.StorableFood;
+import game.items.fountain.Fountain;
 
 public abstract class DrinkAction extends Action {
 
@@ -23,6 +22,19 @@ public abstract class DrinkAction extends Action {
      */
     protected Fountain fountain;
 
+    /**
+     * If the action has been used - an thus needs to be deleted
+     */
+    private boolean hasBeenUsed = false;
+
+    public void setHasBeenUsed(boolean value){
+        hasBeenUsed = value;
+    }
+
+    public boolean getHasBeenUsed(){
+        return hasBeenUsed;
+    }
+
 
     public DrinkAction(String type, Fountain fountain, boolean directlyRelated){
         this.type = type;
@@ -36,6 +48,12 @@ public abstract class DrinkAction extends Action {
 
     @Override
     public String menuDescription(Actor actor) {
+
+        //for bottles
+        if (fountain == null) {
+            return actor + " drinks the " + type + " water from the bottle";
+        }
+        //for sipping
         return actor + " drinks the water from the " + type + " " +  fountain.getWaterInfo();
     }
 }

@@ -3,8 +3,8 @@ package game.items;
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.items.Item;
 import game.Status;
+import game.actions.fountain.DrinkAction;
 import game.items.consumable.ConsumeAction;
-import game.items.consumable.StorableFood;
 
 import java.util.HashMap;
 
@@ -13,7 +13,7 @@ public class Bottle extends Item{
     /**
      * what drinks bottle contains, is used like a stack
      */
-    HashMap<Integer, StorableFood> storage = new HashMap<Integer, StorableFood>();
+    HashMap<Integer, DrinkAction> storage = new HashMap<Integer, DrinkAction>();
 
     /**
      * How large the stack of the bottle storage is. This is used to retrieve the latest element
@@ -21,16 +21,10 @@ public class Bottle extends Item{
     private int storage_counter = 0;
 
     /**
-     * The current consumable active
+     * The current action
      */
-    private StorableFood currentStorable;
+    private DrinkAction currentDrinkAction;
 
-
-    /**
-     * The current action possible (ie what you can currently consume)
-     */
-
-    private Action currentAction = new ConsumeAction(null,null);
 
     /***
      * Constructor.
@@ -46,13 +40,11 @@ public class Bottle extends Item{
 
 
 
-
-
-    public void addConsumableToBottle(StorableFood storableFood){
+    public void addConsumableToBottle(DrinkAction drinkAction){
         storage_counter++;
-        storage.put(storage_counter, storableFood);
+        storage.put(storage_counter, drinkAction);
 
-        if (storage_counter == 1 && currentStorable == null){ //the case where this is the only item
+        if (storage_counter == 1 && currentDrinkAction == null){ //the case where this is the only item
             reduceConsumableStack();
         }
 
@@ -65,17 +57,25 @@ public class Bottle extends Item{
      * @param storableFood
      */
     private void reduceConsumableStack(){
-        currentStorable =  storage.remove(storage_counter);
+        currentDrinkAction =  storage.remove(storage_counter);
         storage_counter --;
-        super.removeAction(currentAction);
+        //removeAction(currentDrinkAction);
 
-        if (currentStorable != null){ //replace the current action
-            currentAction = new ConsumeAction(currentStorable, currentStorable.getMenuDescriptionText());
-            super.addAction(currentAction);
-            //todo: fix the weird menu description method spam
-        }
 
     }
 
+    /**
+     * get the current drink action
+     * @return the currect drink action
+     */
+    public DrinkAction getCurrentDrinkAction(){
+
+        if (currentDrinkAction == null){
+            return null;
+        } else if (currentDrinkAction.getHasBeenUsed() == true){
+            reduceConsumableStack();
+        }
+        return currentDrinkAction;
+    }
 
 }

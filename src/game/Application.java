@@ -71,6 +71,8 @@ public class Application {
 		mario.addItemToInventory(bottle);
 		mario.setBottle(bottle);
 
+		mario.hurt(99);
+
 
 		//add a fountain
 		gameMap.at(42, 8).addItem(new HealthFountain());
