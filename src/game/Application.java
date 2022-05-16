@@ -14,11 +14,11 @@ import game.actors.CanHoldBottleActor;
 import game.actors.Player;
 import game.actors.Toad;
 import game.ground.*;
-import game.ground.fountain.HealthFountain;
 import game.items.Bottle;
 import game.items.Coin;
 import game.items.consumable.PowerStar;
 import game.items.consumable.SuperMushroom;
+import game.items.fountain.HealthFountain;
 import game.trees.*;
 
 /**
