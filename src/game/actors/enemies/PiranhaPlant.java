@@ -20,6 +20,8 @@ public class PiranhaPlant extends Enemy implements Resettable {
 
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
+        alsoDoThisWhenTicked();
+
         return null;
     }
 

@@ -3,10 +3,11 @@ package game.actors;
 import game.Status;
 import game.actions.fountain.DrinkAction;
 import game.actions.fountain.DrinkHealthWaterAction;
+import game.actions.fountain.DrinkPowerWaterAction;
 import game.items.Bottle;
 
 /**
- * To allow actions to add items to a bottle, assumaes actors can only hold one bottle at a time
+ * To allow actions to add items to a bottle, assumes actors can only hold one bottle at a time
  */
 public abstract class CanHoldBottleActor extends ModifiableIntrinsicWeaponActor {
 
@@ -26,10 +27,6 @@ public abstract class CanHoldBottleActor extends ModifiableIntrinsicWeaponActor 
      */
     protected Bottle bottle;
 
-//    /**
-//     * The Fountain where the water comes from
-//     */
-//    private Fountain fountain;
 
     CanHoldBottleActor(String name, char displayChar, int hitPoints) {
         super(name, displayChar, hitPoints);
@@ -51,11 +48,11 @@ public abstract class CanHoldBottleActor extends ModifiableIntrinsicWeaponActor 
     public void setBottle(Bottle bottle) {
         this.bottle = bottle;
 
-        if (bottle == null){
-            this.removeCapability(Status.HAS_A_BOTTLE);
-        } else {
-            this.addCapability(Status.HAS_A_BOTTLE);
-        }
+//        if (bottle == null){
+//            this.removeCapability(Status.HAS_A_BOTTLE);
+//        } else {
+//            this.addCapability(Status.HAS_A_BOTTLE);
+//        }
 
     }
 
@@ -63,12 +60,6 @@ public abstract class CanHoldBottleActor extends ModifiableIntrinsicWeaponActor 
         this.type = type;
 
     }
-
-//    public void setFountain(Fountain fountain){
-//        this.fountain = fountain;
-//
-//    }
-
     /**
      * Actually refills the bottle (continues on from FakRefillAction)
      */
@@ -84,6 +75,13 @@ public abstract class CanHoldBottleActor extends ModifiableIntrinsicWeaponActor 
             this.removeCapability(Status.REFILL_TYPE_HEALTH);
             setRefillType("Health Fountain");
             return new DrinkHealthWaterAction(type, null, false);
+        } else if (this.hasCapability(Status.REFILL_TYPE_POWER)){
+            this.removeCapability(Status.REFILL_TYPE_POWER);
+            setRefillType("Power Fountain");
+            return new DrinkPowerWaterAction(type, null, false);
+
+
+
         }
         return null;
     }

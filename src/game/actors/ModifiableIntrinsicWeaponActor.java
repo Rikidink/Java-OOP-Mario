@@ -52,9 +52,9 @@ public abstract class ModifiableIntrinsicWeaponActor extends Actor {
     }
 
     protected void alsoDoThisWhenTicked(){
-        if (this.hasCapability(Status.NEEDS_TO_BOOST_POWER_50)){
-            this.removeCapability(Status.NEEDS_TO_BOOST_POWER_50);
-            modifyIntrinsicDamage(50);
+        if (this.hasCapability(Status.NEEDS_TO_BOOST_POWER_15)){
+            this.removeCapability(Status.NEEDS_TO_BOOST_POWER_15);
+            modifyIntrinsicDamage(15);
 
 
         }

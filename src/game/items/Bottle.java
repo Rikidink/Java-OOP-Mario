@@ -40,15 +40,16 @@ public class Bottle extends Item{
 
 
 
-    public void addConsumableToBottle(DrinkAction drinkAction){
-        storage_counter++;
-        storage.put(storage_counter, drinkAction);
+    public void addConsumableToBottle(DrinkAction drinkAction) {
 
-        if (storage_counter == 1 && currentDrinkAction == null){ //the case where this is the only item
-            reduceConsumableStack();
+        if (currentDrinkAction == null) {
+            currentDrinkAction = drinkAction;
+        } else {
+            storage_counter++;
+            storage.put(storage_counter, currentDrinkAction);
+            currentDrinkAction = drinkAction;
+
         }
-
-
     }
 
 

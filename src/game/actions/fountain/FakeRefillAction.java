@@ -38,6 +38,9 @@ public class FakeRefillAction extends Action {
         //add the appropritate refill type enum to the actor
         if (type == "Health Fountain"){
             actor.addCapability(Status.REFILL_TYPE_HEALTH);
+        } else if (type == "Power Fountain"){
+            actor.addCapability(Status.REFILL_TYPE_POWER);
+
         }
         return actor +  " adds a portion of " + type + " water to his bottle";
     }

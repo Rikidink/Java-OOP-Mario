@@ -43,6 +43,7 @@ public class Player extends CanHoldBottleActor implements Resettable {
 	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
+		alsoDoThisWhenTicked();
 
 		if (this.hasCapability(Status.INVINCIBLE)){
 			System.out.println("Mario is INVINCIBLE!");
@@ -62,7 +63,7 @@ public class Player extends CanHoldBottleActor implements Resettable {
 			refillTheBottle();
 		}
 
-		if (getBottle().getCurrentDrinkAction() != null){ //add the action to drink from the bottle
+		if (getBottle().getCurrentDrinkAction() != null && this.hasCapability(Status.HAS_A_BOTTLE)){ //add the action to drink from the bottle
 			actions.add(getBottle().getCurrentDrinkAction());
 		}
 		// return/print the console menu
