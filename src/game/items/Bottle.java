@@ -1,10 +1,8 @@
 package game.items;
 
-import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.items.Item;
 import game.Status;
 import game.actions.fountain.DrinkAction;
-import game.items.consumable.ConsumeAction;
 
 import java.util.HashMap;
 

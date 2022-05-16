@@ -8,10 +8,8 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.displays.Menu;
 import game.Status;
 import game.Wallet;
-import game.actions.fountain.FakeRefillAction;
-import game.items.Bottle;
 import game.reset.Resettable;
-import game.reset.ResetAction;
+import game.actions.ResetAction;
 
 /**
  * Class representing the Player.

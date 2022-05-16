@@ -5,6 +5,8 @@ import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Status;
+import game.actions.ConsumeAction;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
