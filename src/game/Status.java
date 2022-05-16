@@ -30,5 +30,7 @@ public enum Status {
     HAS_A_BOTTLE, //to work out if something uses a CanHoldBottle interface
     NEEDS_TO_REFILL_BOTTLE, //for when an actor is told to refill a bottle but hasn't done it yet
     REFILL_TYPE_HEALTH, //what type of water to refill the bottle with
+    REFILL_TYPE_POWER, //what type of water to refill the bottle with
+    NEEDS_TO_BOOST_POWER_50, // if an actor needs to increase its intrinsic power by 50
 
 }

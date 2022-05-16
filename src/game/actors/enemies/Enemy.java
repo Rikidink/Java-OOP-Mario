@@ -2,6 +2,7 @@ package game.actors.enemies;
 
 import edu.monash.fit2099.engine.actors.Actor;
 import game.Status;
+import game.actors.ModifiableIntrinsicWeaponActor;
 import game.behaviours.Behaviour;
 import game.behaviours.WanderBehaviour;
 
@@ -11,7 +12,7 @@ import java.util.Map;
 /**
  * A generic enemy
  */
-public abstract class Enemy extends Actor {
+public abstract class Enemy extends ModifiableIntrinsicWeaponActor {
 
     protected final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
 

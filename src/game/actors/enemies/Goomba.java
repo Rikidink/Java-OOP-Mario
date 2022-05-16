@@ -87,6 +87,6 @@ public class Goomba extends Enemy implements Resettable {
 	 */
 	@Override
 	protected IntrinsicWeapon getIntrinsicWeapon() {
-		return new IntrinsicWeapon(10, "kicks");
+		return super.getIntrinsicWeapon(10, "kicks");
 	}
 }

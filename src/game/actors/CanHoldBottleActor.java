@@ -1,17 +1,14 @@
 package game.actors;
 
-import edu.monash.fit2099.engine.actors.Actor;
 import game.Status;
 import game.actions.fountain.DrinkAction;
 import game.actions.fountain.DrinkHealthWaterAction;
-import game.items.consumable.StorableFood;
-import game.items.fountain.Fountain;
 import game.items.Bottle;
 
 /**
  * To allow actions to add items to a bottle, assumaes actors can only hold one bottle at a time
  */
-public abstract class CanHoldBottleActor extends Actor {
+public abstract class CanHoldBottleActor extends ModifiableIntrinsicWeaponActor {
 
 
     /**

@@ -25,7 +25,7 @@ public class PiranhaPlant extends Enemy implements Resettable {
 
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(90, "chomps");
+        return super.getIntrinsicWeapon(90, "chomps");
     }
 
     @Override

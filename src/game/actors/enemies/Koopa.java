@@ -92,9 +92,9 @@ public abstract class Koopa extends Enemy implements Resettable {
 	 *
 	 * @return a freshly-instantiated IntrinsicWeapon
 	 */
-	@Override
-	protected IntrinsicWeapon getIntrinsicWeapon() {
-		return new IntrinsicWeapon(30, "punches");
+
+	public IntrinsicWeapon getIntrinsicWeapon() {
+		return super.getIntrinsicWeapon(30, "punches");
 	}
 }
 

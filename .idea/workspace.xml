@@ -4,24 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="changedf imports">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_5_2022,_6_30_pm_[Default_Changelist]/AttackAction.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_5_2022,_6_30_pm_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_5_2022__6_30_pm__Default_Changelist_.xml" beforeDir="false" />
+    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="bottle now works">
+      <change afterPath="$PROJECT_DIR$/src/game/actors/ModifiableIntrinsicWeaponActor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Koopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Koopa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Enemy.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actions/fountain/DrinkAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/fountain/DrinkAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actions/fountain/DrinkHealthWaterAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/fountain/DrinkHealthWaterAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actions/fountain/FakeRefillAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/fountain/FakeRefillAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actions/fountain/RefillAction.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/actors/CanHoldBottleActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/CanHoldBottleActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actors/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/fountain/Fountain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/fountain/Fountain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/fountain/HealthFountain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/fountain/HealthFountain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/Bottle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/Bottle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/PrincessPeach.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/PrincessPeach.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Bowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Bowser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Goomba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Goomba.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Koopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Koopa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/PiranhaPlant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/PiranhaPlant.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -49,6 +43,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/game/items/Bottle.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actors/ModifiableIntrinsicWeaponActor.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/actors/Player.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/actors/CanHoldBottleActor.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/edu/monash/fit2099/engine/items/Item.java" root0="SKIP_INSPECTION" />
@@ -216,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652671886304</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="bottle now works">
+      <created>1652674629877</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1652674629877</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -245,6 +247,7 @@
     <MESSAGE value="implemented time duration for spores and generation of soft grounds at game start" />
     <MESSAGE value="added uml for creative REQ 2 to docs folder" />
     <MESSAGE value="changedf imports" />
-    <option name="LAST_COMMIT_MESSAGE" value="changedf imports" />
+    <MESSAGE value="bottle now works" />
+    <option name="LAST_COMMIT_MESSAGE" value="bottle now works" />
   </component>
 </project>
