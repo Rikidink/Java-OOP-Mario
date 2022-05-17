@@ -53,6 +53,7 @@ public abstract class Fountain extends Item {
         this.type = type;
         this.maxWater = maxWater;
         this.remainingWater = maxWater;
+        this.addCapability(Status.IS_A_FOUNTAIN);
     }
 
 

@@ -14,8 +14,8 @@ public class GoToFountainBehaviour implements Behaviour{
     @Override
     public Action getAction(Actor actor, GameMap map) {
 
-        // there is a 10% chance each turn to go start going to the closest fountain
-        if (Math.random() < 0.1){
+        // there is a 15% chance each turn to go start going to the closest fountain
+        if (Math.random() < 0.15){
             actor.addCapability(Status.WANTS_TO_GO_TO_A_FOUNTAIN);
         }
 

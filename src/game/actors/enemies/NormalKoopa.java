@@ -5,6 +5,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Status;
 import game.behaviours.FollowBehaviour;
+import game.behaviours.GoToFountainBehaviour;
 import game.behaviours.WanderBehaviour;
 
 public class NormalKoopa extends Koopa {
@@ -23,6 +24,8 @@ public class NormalKoopa extends Koopa {
         if (this.hasCapability(Status.FOLLOWING)) {
             behaviours.put(9, new FollowBehaviour(otherActor));
         }
+
+
         return actions;
     }
 }
