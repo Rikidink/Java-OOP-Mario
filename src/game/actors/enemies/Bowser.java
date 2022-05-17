@@ -5,10 +5,14 @@ import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
+import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.Status;
 import game.actions.AttackAction;
+import game.behaviours.AttackBehaviour;
+import game.behaviours.Behaviour;
+import game.behaviours.FollowBehaviour;
 import game.items.Key;
 import game.reset.Resettable;
 
@@ -36,6 +40,18 @@ public class Bowser extends Enemy implements Resettable {
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
         alsoDoThisWhenTicked();
+        for (Exit exit : map.locationOf(this).getExits()) {
+            if (exit.getDestination().containsAnActor() && exit.getDestination().getActor().hasCapability(Status.HOSTILE_TO_ENEMY)) {
+                behaviours.put(8, new AttackBehaviour(exit.getDestination().getActor()));
+                behaviours.put(9, new FollowBehaviour(exit.getDestination().getActor()));
+            }
+        }
+
+        for(Behaviour behaviour : behaviours.values()) {
+            Action action = behaviour.getAction(this, map);
+            if (action != null)
+                return action;
+        }
         return new DoNothingAction();
     }
 
