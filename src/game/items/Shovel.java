@@ -11,11 +11,11 @@ public class Shovel extends Item implements Buyable{
      */
     public Shovel() {
         super("Shovel", 's', true);
+        this.addCapability(Status.CAN_DIG);
     }
 
     @Override
     public void onBuy(Actor actor) {
         actor.addItemToInventory(this);
-        actor.addCapability(Status.CAN_DIG);
     }
 }
