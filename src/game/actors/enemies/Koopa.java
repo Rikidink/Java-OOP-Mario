@@ -42,6 +42,7 @@ public abstract class Koopa extends Enemy implements Resettable {
 	@Override
 	public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
 		ActionList actions = new ActionList();
+		actions.add(super.allowableActions(otherActor, direction, map));
 		if (!(otherActor.hasCapability(Status.HOSTILE_TO_PLAYER))) {
 			behaviours.put(8, new AttackBehaviour(otherActor));
 		}

@@ -4,15 +4,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="added Buyable interface and implementations">
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actions/BuyAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actions/BuyAction.class" afterDir="false" />
+    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="intrinsic weapon change done">
+      <change afterPath="$PROJECT_DIR$/src/game/actions/StatusGiveAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/actions/fountain/DrinkPowerWaterAction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/game/items/fountain/PowerFountain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/PrincessPeach.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/PrincessPeach.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/Toad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/Toad.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Bowser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Bowser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Koopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Koopa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/Wrench.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/items/Wrench.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/PowerStar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/PowerStar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/SuperMushroom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/SuperMushroom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/PiranhaPlant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/PiranhaPlant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actions/fountain/FakeRefillAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/fountain/FakeRefillAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/CanHoldBottleActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/CanHoldBottleActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/ModifiableIntrinsicWeaponActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/ModifiableIntrinsicWeaponActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/Toad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/Toad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Bowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Bowser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Goomba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Goomba.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Koopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Koopa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/PiranhaPlant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/PiranhaPlant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/items/Bottle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/Bottle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,18 +54,21 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/game/items/consumable/PowerStar.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/game/items/consumable/StorableFood.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/DrinkAction.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/edu/monash/fit2099/engine/items/Item.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actors/ModifiableIntrinsicWeaponActor.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actors/Toad.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actors/Player.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actions/StatusGiveAction.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/FakeRefillAction.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/items/Bottle.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/game/actors/Player.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actors/CanHoldBottleActor.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/edu/monash/fit2099/engine/items/Item.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/items/consumable/StorableFood.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/items/consumable/Consumable.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/DrinkHealthWaterAction.java" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+    <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/DrinkPowerWaterAction.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/items/consumable/ConsumeAction.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/DrinkAction.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/items/consumable/PowerStar.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="28bgsDx0fchvdyT4jRKF5RCkNWd" />
   <component name="ProjectViewState">
@@ -201,21 +219,28 @@
       <option name="project" value="LOCAL" />
       <updated>1652512942224</updated>
     </task>
-    <task id="LOCAL-00016" summary="cleanups in Koopa and new subclasses">
-      <created>1652513492353</created>
+    <task id="LOCAL-00016" summary="changedf imports">
+      <created>1652671886304</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1652513492353</updated>
+      <updated>1652671886304</updated>
     </task>
-    <task id="LOCAL-00017" summary="added Buyable interface and implementations">
-      <created>1652755340883</created>
+    <task id="LOCAL-00017" summary="bottle now works">
+      <created>1652674629877</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1652755340883</updated>
+      <updated>1652674629877</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="intrinsic weapon change done">
+      <created>1652695083057</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1652695083057</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,6 +253,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added power star exception ot supre mushroom reversion" />
@@ -242,8 +268,9 @@
     <MESSAGE value="added spores that sometimes appear when the player digs a soft ground" />
     <MESSAGE value="implemented time duration for spores and generation of soft grounds at game start" />
     <MESSAGE value="added uml for creative REQ 2 to docs folder" />
-    <MESSAGE value="cleanups in Koopa and new subclasses" />
-    <MESSAGE value="added Buyable interface and implementations" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Buyable interface and implementations" />
+    <MESSAGE value="changedf imports" />
+    <MESSAGE value="bottle now works" />
+    <MESSAGE value="intrinsic weapon change done" />
+    <option name="LAST_COMMIT_MESSAGE" value="intrinsic weapon change done" />
   </component>
 </project>
