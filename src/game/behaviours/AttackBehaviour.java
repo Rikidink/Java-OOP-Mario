@@ -4,7 +4,9 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
+import game.Status;
 import game.actions.AttackAction;
+import game.actions.FireAttackAction;
 
 /**
  * Find out if something can be attacked
@@ -40,7 +42,12 @@ public class AttackBehaviour implements Behaviour{
 
         if (distance(here, there)) {
             String str_direction =  direction(here, there);
-            return new AttackAction(target, str_direction);
+            if (actor.hasCapability(Status.CAN_FIRE_ATTACK)) {
+                return new FireAttackAction(target, str_direction);
+            }
+            else {
+                return new AttackAction(target, str_direction);
+            }
                 }
         return null;
     }

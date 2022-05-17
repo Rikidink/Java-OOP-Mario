@@ -10,6 +10,7 @@ public enum Status {
     CAN_RESET, // does the player have the ability to reset the game
     LAVA_WALK,
     CAN_DIG,
+    CAN_FIRE_ATTACK,
 
     //power star effects
     INVINCIBLE, //if a player is (at least temporarily) invincible

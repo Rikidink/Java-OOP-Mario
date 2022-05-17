@@ -24,7 +24,7 @@ public class Goomba extends Enemy implements Resettable {
 	public Goomba() {
 		super("Goomba", 'g', 20); //changed health to 20
 		this.behaviours.put(1, new SuicideBehaviour()); // the order here is important, first to last possible
-		behaviours.put(7, new GoToFountainBehaviour());
+		this.behaviours.put(7, new GoToFountainBehaviour());
 		this.behaviours.put(10, new WanderBehaviour());
 		registerInstance();
 	}

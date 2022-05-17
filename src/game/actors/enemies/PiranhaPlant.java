@@ -4,8 +4,12 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.displays.Display;
+import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
+import game.Status;
+import game.behaviours.AttackBehaviour;
+import game.behaviours.Behaviour;
 import game.reset.Resettable;
 
 public class PiranhaPlant extends Enemy implements Resettable {
@@ -23,6 +27,18 @@ public class PiranhaPlant extends Enemy implements Resettable {
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
         alsoDoThisWhenTicked();
 
+        for (Exit exit : map.locationOf(this).getExits()) {
+            if (exit.getDestination().containsAnActor() && exit.getDestination().getActor().hasCapability(Status.HOSTILE_TO_ENEMY)) {
+                behaviours.put(8, new AttackBehaviour(exit.getDestination().getActor()));
+            }
+        }
+
+        for(Behaviour behaviour : behaviours.values()) {
+            Action action = behaviour.getAction(this, map);
+            if (action != null)
+                return action;
+        }
+
         return new DoNothingAction();
     }
 
@@ -36,4 +52,5 @@ public class PiranhaPlant extends Enemy implements Resettable {
         this.increaseMaxHp(50);
         this.heal(getMaxHp());
     }
+
 }
