@@ -13,12 +13,9 @@ public class PrincessPeach extends Actor implements CanSpeak {
     /**
      * Constructor.
      *
-     * @param name        the name of the Actor
-     * @param displayChar the character that will represent the Actor in the display
-     * @param hitPoints   the Actor's starting hit points
      */
-    public PrincessPeach(String name, char displayChar, int hitPoints) {
-        super(name, displayChar, hitPoints);
+    public PrincessPeach() {
+        super("Princess Peach", 'P', 9001);
     }
 
     @Override

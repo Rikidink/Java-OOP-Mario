@@ -12,6 +12,7 @@ import edu.monash.fit2099.engine.positions.World;
 
 import game.actors.CanHoldBottleActor;
 import game.actors.Player;
+import game.actors.PrincessPeach;
 import game.actors.Toad;
 import game.ground.*;
 import game.items.Bottle;
@@ -67,9 +68,9 @@ public class Application {
 				"LLLLLLLLL...................................................LLLLLL",
 				"LLLLLLL.................................................LLLLLLLLLL",
 				"LLLLL.................................................LLLLLLLLLLLL",
-				"LLLLLL....................................................LLLLLLLL",
-				"LLLLLL....................................................LLLLLLLL",
-				"LLLLLLL.................................................LLLLLLLLLL",
+				"LLLLLL............................................___.....LLLLLLLL",
+				"LLLLLL............................................___.....LLLLLLLL",
+				"LLLLLLL...........................................___...LLLLLLLLLL",
 				"LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL....................LLLLLLLLLLLLL",
 				"LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL............LLLLLLLLLLLLLLLLL");
 
@@ -110,6 +111,7 @@ public class Application {
 
 		//gameMap.at(12, 10).addActor(new Goomba());
 		gameMap2.at(1, 1).setGround(new Pipe(gameMap, gameMap2));
+		gameMap2.at(51, 12).addActor(new PrincessPeach());
 
 
 		// spawn sprouts
