@@ -20,12 +20,14 @@ public class PiranhaPlant extends Enemy implements Resettable {
 
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
+        alsoDoThisWhenTicked();
+
         return null;
     }
 
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(90, "chomps");
+        return super.getIntrinsicWeapon(90, "chomps");
     }
 
     @Override

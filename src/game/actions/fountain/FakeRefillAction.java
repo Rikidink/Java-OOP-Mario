@@ -8,8 +8,7 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Status;
-import game.ground.fountain.Fountain;
-import game.items.Bottle;
+import game.items.fountain.Fountain;
 
 /**
  * For refilling bottles at a fountain. Assumes the ground it is at is a fountain.
@@ -35,6 +34,14 @@ public class FakeRefillAction extends Action {
     public String execute(Actor actor, GameMap map) {
         fountain.reduceRemainingWater();
         actor.addCapability(Status.NEEDS_TO_REFILL_BOTTLE);
+
+        //add the appropritate refill type enum to the actor
+        if (type == "Health Fountain"){
+            actor.addCapability(Status.REFILL_TYPE_HEALTH);
+        } else if (type == "Power Fountain"){
+            actor.addCapability(Status.REFILL_TYPE_POWER);
+
+        }
         return actor +  " adds a portion of " + type + " water to his bottle";
     }
 

@@ -22,12 +22,13 @@ public class Bowser extends Enemy implements Resettable {
 
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
+        alsoDoThisWhenTicked();
         return null;
     }
 
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
-        return new IntrinsicWeapon(80, "punches");
+        return super.getIntrinsicWeapon(80, "punches");
     }
 
     @Override

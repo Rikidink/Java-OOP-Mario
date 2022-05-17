@@ -14,11 +14,12 @@ import game.actors.CanHoldBottleActor;
 import game.actors.Player;
 import game.actors.Toad;
 import game.ground.*;
-import game.ground.fountain.HealthFountain;
 import game.items.Bottle;
 import game.items.Coin;
 import game.items.consumable.PowerStar;
 import game.items.consumable.SuperMushroom;
+import game.items.fountain.HealthFountain;
+import game.items.fountain.PowerFountain;
 import game.trees.*;
 
 /**
@@ -63,7 +64,7 @@ public class Application {
 
 		gameMap.at(42, 10).addItem(new PowerStar());
 		gameMap.at(42, 10).addItem(new SuperMushroom());
-		gameMap.at(42, 10).addItem(new Coin(50, 42, 10));
+		gameMap.at(42, 10).addItem(new Coin(5000, 42, 10));
 		gameMap.at(44, 11).addActor(new Toad());
 
 		//bottle stuff
@@ -72,8 +73,11 @@ public class Application {
 		mario.setBottle(bottle);
 
 
-		//add a fountain
+
+
+		//add fountains
 		gameMap.at(42, 8).addItem(new HealthFountain());
+		gameMap.at(42, 7).addItem(new PowerFountain());
 
 		// test lava
 		gameMap.at(30, 10).setGround(new Lava());

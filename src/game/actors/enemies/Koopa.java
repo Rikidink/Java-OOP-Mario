@@ -64,6 +64,8 @@ public abstract class Koopa extends Enemy implements Resettable {
 	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
+		alsoDoThisWhenTicked();
+
 		if (this.hasCapability(Status.IS_DORMANT)) { //if dormant...
 			this.setDisplayChar('D');
 		}
@@ -92,9 +94,9 @@ public abstract class Koopa extends Enemy implements Resettable {
 	 *
 	 * @return a freshly-instantiated IntrinsicWeapon
 	 */
-	@Override
-	protected IntrinsicWeapon getIntrinsicWeapon() {
-		return new IntrinsicWeapon(30, "punches");
+
+	public IntrinsicWeapon getIntrinsicWeapon() {
+		return super.getIntrinsicWeapon(30, "punches");
 	}
 }
 

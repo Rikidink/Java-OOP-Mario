@@ -1,15 +1,12 @@
-package game.ground.fountain;
+package game.items.fountain;
 
 import edu.monash.fit2099.engine.actions.Action;
-import edu.monash.fit2099.engine.actions.ActionList;
-import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
-import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Status;
+import game.actions.fountain.DrinkAction;
 import game.actions.fountain.DrinkHealthWaterAction;
 import game.actions.fountain.FakeRefillAction;
-import game.items.Bottle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +66,7 @@ public abstract class Fountain extends Item {
         //if there is enough water left
         if (remainingWater > 0) {
             //allow actor to sip water
-            actions.add(new DrinkHealthWaterAction(type,this, true));
+            actions.add(getAppropriateWaterAction(true));
 
             //check if a actor on same location has a bottle, if so allow refill
             if (location.getActor().hasCapability(Status.HAS_A_BOTTLE)){
@@ -88,7 +85,7 @@ public abstract class Fountain extends Item {
      * Get the appropriate water type. For sipping water
      * @return an instance of the corrosponding water action type
      */
-    abstract public Action getAppropriateWaterAction();
+    abstract public DrinkAction getAppropriateWaterAction(boolean directlyRelated);
 
 
     public void tick(Location location) {

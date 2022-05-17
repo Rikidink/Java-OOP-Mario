@@ -8,7 +8,7 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 
 public class PrincessPeach extends Actor implements CanSpeak {
-    String dialogue;
+    String dialogue = "Thank you for saving me Mario! :)";
 
     /**
      * Constructor.
@@ -19,7 +19,6 @@ public class PrincessPeach extends Actor implements CanSpeak {
      */
     public PrincessPeach(String name, char displayChar, int hitPoints) {
         super(name, displayChar, hitPoints);
-        dialogue = "Thank you for saving me Mario! :)";
     }
 
     @Override

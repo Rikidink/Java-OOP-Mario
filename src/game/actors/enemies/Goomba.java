@@ -63,6 +63,9 @@ public class Goomba extends Enemy implements Resettable {
 	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
+		alsoDoThisWhenTicked();
+
+
 		for(Behaviour behaviour : behaviours.values()) {
 			Action action = behaviour.getAction(this, map);
 			if (action != null)
@@ -87,6 +90,6 @@ public class Goomba extends Enemy implements Resettable {
 	 */
 	@Override
 	protected IntrinsicWeapon getIntrinsicWeapon() {
-		return new IntrinsicWeapon(10, "kicks");
+		return super.getIntrinsicWeapon(10, "kicks");
 	}
 }
