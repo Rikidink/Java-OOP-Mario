@@ -22,6 +22,7 @@ public class TeleportAction extends Action {
     @Override
     public String execute(Actor actor, GameMap treeMap) {
             if(targetPipe.getInitialPipe() == null){
+                lavaMap.removeActor(targetPipe.getLavaPipe().getActor());
                 MoveActorAction move = new MoveActorAction(targetPipe.getLavaPipe(), direction);
                 move.execute(actor,treeMap);
                 targetPipe.getPipeLava().setInitialPipe(targetPipe.getPipeLocation());

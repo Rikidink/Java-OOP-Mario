@@ -15,6 +15,7 @@ import game.actors.Player;
 import game.actors.PrincessPeach;
 import game.actors.Toad;
 import game.actors.enemies.Bowser;
+import game.actors.enemies.PiranhaPlant;
 import game.ground.*;
 import game.items.Bottle;
 import game.items.Coin;
@@ -102,14 +103,12 @@ public class Application {
 		gameMap.at(42, 8).addItem(new HealthFountain());
 		gameMap.at(42, 7).addItem(new PowerFountain());
 
-		// test lava
-		gameMap.at(30, 10).setGround(new Lava());
-
-
 		// pipe test
 		gameMap.at(42,6).setGround(new Pipe(gameMap2));
 
 		gameMap2.at(1, 1).setGround(new Pipe(gameMap2));
+		gameMap2.at(1, 1).addActor(new PiranhaPlant());
+
 		gameMap2.at(32, 7).addActor(new PrincessPeach());
 		gameMap2.at(31, 7).addActor(new Bowser());
 
