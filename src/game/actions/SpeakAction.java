@@ -38,6 +38,6 @@ public class SpeakAction extends Action {
      */
     @Override
     public String menuDescription(Actor actor) {
-        return "Mario talks with Toad";
+        return "Mario talks with " + speaker.toString();
     }
 }

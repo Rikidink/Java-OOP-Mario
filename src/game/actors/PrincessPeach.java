@@ -5,7 +5,10 @@ import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
+import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.actions.SpeakAction;
+import game.items.Key;
 
 public class PrincessPeach extends Actor implements CanSpeak {
     String dialogue = "Thank you for saving me Mario! :)";
@@ -26,5 +29,16 @@ public class PrincessPeach extends Actor implements CanSpeak {
     @Override
     public String speak(Actor actor) {
         return dialogue;
+    }
+
+    @Override
+    public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
+        ActionList actions = new ActionList();
+        for (Item item : otherActor.getInventory()) {
+            if (item.toString().equals("Key")) {
+                actions.add(new SpeakAction(this));
+            }
+        }
+        return actions;
     }
 }
