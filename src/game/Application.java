@@ -13,6 +13,7 @@ import edu.monash.fit2099.engine.positions.World;
 import game.actors.CanHoldBottleActor;
 import game.actors.Player;
 import game.actors.Toad;
+import game.actors.enemies.Goomba;
 import game.ground.*;
 import game.items.Bottle;
 import game.items.Coin;
@@ -105,11 +106,11 @@ public class Application {
 
 
 		// pipe test
-		gameMap.at(42,6).setGround(new Pipe(gameMap, gameMap2));
-		//gameMap.at(11, 10).addActor(new Goomba());
+		gameMap.at(42,6).setGround(new Pipe(gameMap2));
+		gameMap.at(40,6).setGround(new Pipe(gameMap2));
+		gameMap.at(38,6).setGround(new Pipe(gameMap2));
 
-		//gameMap.at(12, 10).addActor(new Goomba());
-		gameMap2.at(1, 1).setGround(new Pipe(gameMap, gameMap2));
+		gameMap2.at(1, 1).setGround(new Pipe(gameMap2));
 
 
 		// spawn sprouts
