@@ -4,20 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="pipe no longer stuffed up">
+    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="goomba now has proof of concept for drinking at fountains">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Koopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Koopa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/NormalKoopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/NormalKoopa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/behaviours/SuicideBehaviour.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/behaviours/SuicideBehaviour.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actions/GoToFountainAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/GoToFountainAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Goomba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Goomba.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Koopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Koopa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/NormalKoopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/NormalKoopa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/behaviours/GoToFountainBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/behaviours/GoToFountainBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/behaviours/SuicideBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/behaviours/SuicideBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/fountain/Fountain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/fountain/Fountain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/PiranhaPlant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/PiranhaPlant.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652759188317</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="goomba now has proof of concept for drinking at fountains">
+      <created>1652784419756</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1652784419756</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -293,6 +289,7 @@
     <MESSAGE value="intrinsic weapon change done" />
     <MESSAGE value="did some work on allowing actors to dink from fountains" />
     <MESSAGE value="pipe no longer stuffed up" />
-    <option name="LAST_COMMIT_MESSAGE" value="pipe no longer stuffed up" />
+    <MESSAGE value="goomba now has proof of concept for drinking at fountains" />
+    <option name="LAST_COMMIT_MESSAGE" value="goomba now has proof of concept for drinking at fountains" />
   </component>
 </project>
