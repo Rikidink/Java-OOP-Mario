@@ -17,6 +17,7 @@ public class NormalKoopa extends Koopa {
     @Override
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList actions = new ActionList();
+
         actions.add(super.allowableActions(otherActor, direction, map));
 
         if (this.hasCapability(Status.FOLLOWING)) {

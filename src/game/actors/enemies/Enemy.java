@@ -1,6 +1,8 @@
 package game.actors.enemies;
 
+import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
+import edu.monash.fit2099.engine.positions.GameMap;
 import game.Status;
 import game.actors.ModifiableIntrinsicWeaponActor;
 import game.behaviours.Behaviour;
@@ -28,4 +30,12 @@ public abstract class Enemy extends ModifiableIntrinsicWeaponActor {
         this.addCapability(Status.CANNOT_ENTER_FLOOR);
         this.addCapability(Status.HOSTILE_TO_PLAYER);
     }
+
+    @Override
+    public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
+        ActionList actions = new ActionList();
+        actions.add(super.allowableActions(otherActor, direction, map));
+        return actions;
+    }
+
 }
