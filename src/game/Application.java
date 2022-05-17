@@ -111,7 +111,7 @@ public class Application {
 		//gameMap.at(11, 10).addActor(new Goomba());
 
 		//gameMap.at(12, 10).addActor(new Goomba());
-		gameMap2.at(1, 1).setGround(new Pipe(gameMap));
+		gameMap2.at(1, 1).setGround(new Pipe(gameMap2));
 		gameMap2.at(32, 7).addActor(new PrincessPeach());
 		gameMap2.at(31, 7).addActor(new Bowser());
 
