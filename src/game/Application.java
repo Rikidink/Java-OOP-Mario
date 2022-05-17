@@ -14,6 +14,7 @@ import game.actors.CanHoldBottleActor;
 import game.actors.Player;
 import game.actors.PrincessPeach;
 import game.actors.Toad;
+import game.actors.enemies.Bowser;
 import game.ground.*;
 import game.items.Bottle;
 import game.items.Coin;
@@ -68,9 +69,9 @@ public class Application {
 				"LLLLLLLLL...................................................LLLLLL",
 				"LLLLLLL.................................................LLLLLLLLLL",
 				"LLLLL.................................................LLLLLLLLLLLL",
-				"LLLLLL............................................___.....LLLLLLLL",
-				"LLLLLL............................................___.....LLLLLLLL",
-				"LLLLLLL...........................................___...LLLLLLLLLL",
+				"LLLLLL....................................................LLLLLLLL",
+				"LLLLLL....................................................LLLLLLLL",
+				"LLLLLLL.................................................LLLLLLLLLL",
 				"LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL....................LLLLLLLLLLLLL",
 				"LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL............LLLLLLLLLLLLLLLLL");
 
@@ -111,7 +112,8 @@ public class Application {
 
 		//gameMap.at(12, 10).addActor(new Goomba());
 		gameMap2.at(1, 1).setGround(new Pipe(gameMap, gameMap2));
-		gameMap2.at(51, 12).addActor(new PrincessPeach());
+		gameMap2.at(32, 7).addActor(new PrincessPeach());
+		gameMap2.at(31, 7).addActor(new Bowser());
 
 
 		// spawn sprouts
