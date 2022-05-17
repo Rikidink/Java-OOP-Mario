@@ -7,6 +7,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.actions.EndGameAction;
 import game.actions.SpeakAction;
 import game.items.Key;
 
@@ -36,7 +37,7 @@ public class PrincessPeach extends Actor implements CanSpeak {
         ActionList actions = new ActionList();
         for (Item item : otherActor.getInventory()) {
             if (item.toString().equals("Key")) {
-                actions.add(new SpeakAction(this));
+                actions.add(new EndGameAction(this));
             }
         }
         return actions;

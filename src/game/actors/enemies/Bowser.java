@@ -23,7 +23,7 @@ public class Bowser extends Enemy implements Resettable {
      *
      */
     public Bowser() {
-        super("Bowser", 'B', 500);
+        super("Bowser", 'B', 5);
         addItemToInventory(new Key());
         this.addCapability(Status.CAN_FIRE_ATTACK);
         registerInstance();
@@ -43,7 +43,7 @@ public class Bowser extends Enemy implements Resettable {
         alsoDoThisWhenTicked();
         for (Exit exit : map.locationOf(this).getExits()) {
             if (exit.getDestination().containsAnActor() && exit.getDestination().getActor().hasCapability(Status.HOSTILE_TO_ENEMY)) {
-                behaviours.put(8, new AttackBehaviour(exit.getDestination().getActor()));
+                //behaviours.put(8, new AttackBehaviour(exit.getDestination().getActor()));
                 behaviours.put(9, new FollowBehaviour(exit.getDestination().getActor()));
             }
         }
