@@ -71,6 +71,7 @@ public abstract class Koopa extends Enemy implements Resettable {
 			this.setDisplayChar('D');
 		}
 		else { //Koopa will only do an action if it is not dormant
+
 			for (Behaviour Behaviour : behaviours.values()) {
 				Action action = Behaviour.getAction(this, map);
 				if (action != null)

@@ -26,43 +26,48 @@ public class GoToFountainAction extends Action {
     private int y;
 
     public GoToFountainAction(Actor actor, GameMap map){
-        System.out.println("initialising go to fountain!!");
     }
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        System.out.println("going to a fountain");
 
         findClosestFountainCords(map, actor);
 
-        //if the actor is already at the fountain
+        //if the actor is already at the fountain 50% chance to remove the status
         if (map.locationOf(actor).x() == x && map.locationOf(actor).y() == y) {
             actor.removeCapability(Status.WANTS_TO_GO_TO_A_FOUNTAIN);
-            return actor + " has arrived at a fountain!";
+            return actor + " arrives at a fountain";
 
         } else {
             //if the actor is not already at the fountain
+
+            //todo: set original distances, and then let the actor go diagonally etc to the thing
+
             Location destination;
 
             for (Exit exit : map.locationOf(actor).getExits()) {
                 destination = exit.getDestination();
                 if (destination.canActorEnter(actor)) {
-                    int newXDistance = Math.abs(x - destination.x());
-                    int newYDistance = Math.abs(y - destination.y());
+                    int newXDistance = Math.abs(destination.x() - x);
+                    int newYDistance = Math.abs(destination.y() - y);
 
-                    int oldXDistance = Math.abs(map.locationOf(actor).x());
-                    int oldYDistance = Math.abs(map.locationOf(actor).y());
+                    int oldXDistance = Math.abs(map.locationOf(actor).x() - x);
+                    int oldYDistance = Math.abs(map.locationOf(actor).y() - y);
 
-                    if (newXDistance + newYDistance < oldXDistance + oldYDistance) { // if the distance is shorter
-                        Location newLocation = new Location(map, newXDistance, newYDistance);
-                        map.moveActor(actor, newLocation);
+
+                    if (Math.pow(newXDistance,2) + Math.pow(newYDistance,2) < Math.pow(oldXDistance,2) + Math.pow(oldYDistance,2)) {
+                        // if the distance is shorter. using square things because I am cool
+
+                        map.moveActor(actor, map.at(destination.x(),destination.y()));
                         return menuDescription(actor);
                     }
 
                 }
 
             }
+            actor.removeCapability(Status.WANTS_TO_GO_TO_A_FOUNTAIN); //so after getting stuck it will wander again
             return actor + " tries to wander to a fountain... but is stuck";
+
         }
     }
 
@@ -90,9 +95,8 @@ public class GoToFountainAction extends Action {
         //gets all of the fountain locations on the map
 
         //return a list of fountain
-        Random rand = new Random();
-        // amount of sprouts that should be spawned on the map
-        int sproutAmount = 30;
+
+
         NumberRange mapY = map.getYRange();
         NumberRange mapX = map.getXRange();
 
