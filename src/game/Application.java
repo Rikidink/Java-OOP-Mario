@@ -105,6 +105,7 @@ public class Application {
 
 		// pipe test
 		gameMap.at(42,6).setGround(new Pipe(gameMap2));
+		//gameMap.at(42, 6).addActor(new PiranhaPlant()); ADD THIS BACK AFTER TESTING
 		//gameMap.at(11, 10).addActor(new Goomba());
 
 		//gameMap.at(12, 10).addActor(new Goomba());

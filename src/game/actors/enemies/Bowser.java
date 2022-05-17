@@ -25,6 +25,7 @@ public class Bowser extends Enemy implements Resettable {
     public Bowser() {
         super("Bowser", 'B', 500);
         addItemToInventory(new Key());
+        this.addCapability(Status.CAN_FIRE_ATTACK);
         registerInstance();
     }
 
