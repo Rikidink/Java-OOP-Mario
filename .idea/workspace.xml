@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="added Buyable interface and implementations">
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actions/BuyAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actions/BuyAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/Toad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/Toad.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Koopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Koopa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/Wrench.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/items/Wrench.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/PowerStar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/PowerStar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/SuperMushroom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/SuperMushroom.class" afterDir="false" />
-    </list>
+    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="did some work on allowing actors to dink from fountains" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,18 +30,21 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/game/items/consumable/PowerStar.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/game/items/consumable/StorableFood.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/DrinkAction.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/edu/monash/fit2099/engine/items/Item.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actors/ModifiableIntrinsicWeaponActor.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actors/Toad.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actors/Player.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actions/StatusGiveAction.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/FakeRefillAction.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/items/Bottle.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/game/actors/Player.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actors/CanHoldBottleActor.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/edu/monash/fit2099/engine/items/Item.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/items/consumable/StorableFood.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/items/consumable/Consumable.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/DrinkHealthWaterAction.java" root0="SKIP_INSPECTION" />
-  </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
+    <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/DrinkPowerWaterAction.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actions/ConsumeAction.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/DrinkAction.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/items/consumable/PowerStar.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProjectId" id="28bgsDx0fchvdyT4jRKF5RCkNWd" />
   <component name="ProjectViewState">
@@ -201,21 +195,49 @@
       <option name="project" value="LOCAL" />
       <updated>1652512942224</updated>
     </task>
-    <task id="LOCAL-00016" summary="cleanups in Koopa and new subclasses">
-      <created>1652513492353</created>
+    <task id="LOCAL-00016" summary="changedf imports">
+      <created>1652671886304</created>
       <option name="number" value="00016" />
       <option name="presentableId" value="LOCAL-00016" />
       <option name="project" value="LOCAL" />
-      <updated>1652513492353</updated>
+      <updated>1652671886304</updated>
     </task>
-    <task id="LOCAL-00017" summary="added Buyable interface and implementations">
-      <created>1652755340883</created>
+    <task id="LOCAL-00017" summary="bottle now works">
+      <created>1652674629877</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1652755340883</updated>
+      <updated>1652674629877</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="intrinsic weapon change done">
+      <created>1652695083057</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1652695083057</updated>
+    </task>
+    <task id="LOCAL-00019" summary="did some work on allowing actors to dink from fountains">
+      <created>1652758825364</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1652758825364</updated>
+    </task>
+    <task id="LOCAL-00020" summary="did some work on allowing actors to dink from fountains">
+      <created>1652758911526</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1652758911526</updated>
+    </task>
+    <task id="LOCAL-00021" summary="did some work on allowing actors to dink from fountains">
+      <created>1652758947999</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1652758947999</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -228,6 +250,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added power star exception ot supre mushroom reversion" />
@@ -242,8 +265,10 @@
     <MESSAGE value="added spores that sometimes appear when the player digs a soft ground" />
     <MESSAGE value="implemented time duration for spores and generation of soft grounds at game start" />
     <MESSAGE value="added uml for creative REQ 2 to docs folder" />
-    <MESSAGE value="cleanups in Koopa and new subclasses" />
-    <MESSAGE value="added Buyable interface and implementations" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Buyable interface and implementations" />
+    <MESSAGE value="changedf imports" />
+    <MESSAGE value="bottle now works" />
+    <MESSAGE value="intrinsic weapon change done" />
+    <MESSAGE value="did some work on allowing actors to dink from fountains" />
+    <option name="LAST_COMMIT_MESSAGE" value="did some work on allowing actors to dink from fountains" />
   </component>
 </project>
