@@ -4,11 +4,12 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Status;
+import game.items.Buyable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SuperMushroom extends Item implements Consumable{
+public class SuperMushroom extends Item implements Consumable, Buyable {
 
     /**
      * An array list of all of the statuses an actor will gain when consuming this item
@@ -58,7 +59,9 @@ public class SuperMushroom extends Item implements Consumable{
     }
 
 
-
-
-
+    @Override
+    public void onBuy(Actor actor) {
+        actor.addItemToInventory(this);
+        this.togglePortability();
+    }
 }

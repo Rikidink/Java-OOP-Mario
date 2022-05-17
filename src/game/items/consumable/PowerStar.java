@@ -5,10 +5,12 @@ import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Status;
+import game.items.Buyable;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class PowerStar extends Item implements Consumable{
+public class PowerStar extends Item implements Consumable, Buyable {
 
     /**
      * time remaining until item is  destroyed
@@ -133,4 +135,9 @@ public class PowerStar extends Item implements Consumable{
         }
     }
 
+    @Override
+    public void onBuy(Actor actor) {
+        actor.addItemToInventory(this);
+        this.togglePortability();
+    }
 }
