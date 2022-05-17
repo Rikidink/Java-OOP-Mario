@@ -32,7 +32,7 @@ public class Application {
 
 		World world = new World(new Display());
 
-		FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor());
+		FancyGroundFactory groundFactory = new FancyGroundFactory(new Dirt(), new Wall(), new Floor(), new Lava());
 
 		List<String> map = Arrays.asList(
 				"..........................................##....................................",
@@ -55,8 +55,29 @@ public class Application {
 				"......................................................#.........................",
 				".......................................................##.......................");
 
+		List<String> map2 = Arrays.asList(
+				".............LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL",
+				"....................LLLLLLLLLLLLLLLLLLLLLLLLLLLLL.............LLLL",
+				"........................LLLLLLLLLLLLLLLLLLLLL...............LLLLLL",
+				"LL...........................................................LLLLL",
+				"LLLLLLL....................................................LLLLLLL",
+				"LLLLLLLLLLL............................................LLLLLLLLLLL",
+				"LLLLLLLLLL..........................................LLLLLLLLLLLLLL",
+				"LLLLLLLLLLL.............................................LLLLLLLLLL",
+				"LLLLLLLLL...................................................LLLLLL",
+				"LLLLLLL.................................................LLLLLLLLLL",
+				"LLLLL.................................................LLLLLLLLLLLL",
+				"LLLLLL....................................................LLLLLLLL",
+				"LLLLLL....................................................LLLLLLLL",
+				"LLLLLLL.................................................LLLLLLLLLL",
+				"LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL....................LLLLLLLLLLLLL",
+				"LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL............LLLLLLLLLLLLLLLLL");
+
 		GameMap gameMap = new GameMap(groundFactory, map);
 		world.addGameMap(gameMap);
+
+		GameMap gameMap2 = new GameMap(groundFactory,map2);
+		world.addGameMap(gameMap2);
 
 		CanHoldBottleActor mario = new Player("Player", 'm', 100);
 		world.addPlayer(mario, gameMap.at(42, 10));
@@ -81,6 +102,15 @@ public class Application {
 
 		// test lava
 		gameMap.at(30, 10).setGround(new Lava());
+
+
+		// pipe test
+		gameMap.at(42,6).setGround(new Pipe(gameMap, gameMap2));
+		//gameMap.at(11, 10).addActor(new Goomba());
+
+		//gameMap.at(12, 10).addActor(new Goomba());
+		gameMap2.at(1, 1).setGround(new Pipe(gameMap, gameMap2));
+
 
 		// spawn sprouts
 		SproutSpawner.generateSprouts(gameMap);
