@@ -5,13 +5,14 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Wallet;
+import game.items.Buyable;
 
 /**
  * An Action type for buying an Item from another Actor
  */
 public class BuyAction extends Action {
 
-    private final Item item;
+    private final Buyable item;
     private final Integer price;
 
     /**
@@ -20,9 +21,8 @@ public class BuyAction extends Action {
      * @param item  The Item that the BuyAction allows the Actor to buy
      * @param price The price of the Item that relates to the BuyAction
      */
-    public BuyAction(Item item, Integer price) {
+    public BuyAction(Buyable item, Integer price) {
         this.item = item;
-        item.togglePortability();
         this.price = price;
     }
 
@@ -35,8 +35,8 @@ public class BuyAction extends Action {
     public String execute(Actor actor, GameMap map) {
         if (Wallet.getInstance().getWalletValue() >= price) {
             Wallet.getInstance().removeFromWallet(price);
-            actor.addItemToInventory(item);
-            return (actor + " buys " + item.toString());
+            item.onBuy(actor);
+            return (actor + " buys " + item);
         }
         else {
             return "You don't have enough coins!";
