@@ -11,32 +11,34 @@ import game.actions.TeleportAction;
 
 public class Pipe extends HigherGround {
 
-    private GameMap treeMap, lavaMap;
+    private GameMap lavaMap;
     private Location pipeLocation;
     private Location lavaPipe;
-    private Pipe initialPipe;
-    private int x;
-    private int y;
+    private Pipe pipeLava;
+    private Location initialPipe;
+
 
     /**
      * Constructor.
      */
-    public Pipe(GameMap treeMap, GameMap lavaMap) {
+    public Pipe(GameMap lavaMap) {
         super('C', 1, 0, "Pipe");
-        this.treeMap = treeMap;
         this.lavaMap = lavaMap;
         this.lavaPipe = lavaMap.at(1, 1);
+        this.initialPipe = null;
     }
 
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         this.pipeLocation = location;
+        this.pipeLava = (Pipe) lavaMap.at(1, 1).getGround();
+
         ActionList actions = new ActionList();
         if(!location.containsAnActor()) {
             actions.add(new JumpAction(location, direction, this));
         }
         else {
-            actions.add(new TeleportAction(location, lavaMap, direction, this));
+            actions.add(new TeleportAction(lavaMap, direction, this));
 
         }
         return actions;
@@ -50,12 +52,15 @@ public class Pipe extends HigherGround {
         return lavaPipe;
     }
 
-    public Pipe getInitialPipe(){
-        return initialPipe;
+    public Pipe getPipeLava(){
+        return pipeLava;
+    }
+    public Location getInitialPipe(){
+        return this.initialPipe;
     }
 
     public void setInitialPipe(Location initialPipe){
-
+        this.initialPipe = initialPipe;
     }
 
     @Override

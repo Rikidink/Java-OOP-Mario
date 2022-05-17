@@ -9,35 +9,30 @@ import game.ground.Pipe;
 
 public class TeleportAction extends Action {
 
-    private Location location;
-    private Location initialPipe;
     private GameMap lavaMap;
     private String direction;
     private Pipe targetPipe;
 
-    public TeleportAction(Location location, GameMap lavaMap, String direction, Pipe pipe){
-        this.location = location;
+    public TeleportAction(GameMap lavaMap, String direction, Pipe pipe){
         this.direction = direction;
         this.lavaMap = lavaMap;
-        this.initialPipe = null;
         this.targetPipe = pipe;
     }
 
     @Override
     public String execute(Actor actor, GameMap treeMap) {
-        if(treeMap.contains(actor)){
-            if(location.containsAnActor()){
+            if(targetPipe.getInitialPipe() == null){
                 MoveActorAction move = new MoveActorAction(targetPipe.getLavaPipe(), direction);
                 move.execute(actor,treeMap);
-                targetPipe.setInitialPipe(targetPipe.getPipeLocation());
-                return "Teleported!";
+                targetPipe.getPipeLava().setInitialPipe(targetPipe.getPipeLocation());
+                return "Teleported to the lava world!";
             }
+            else {
+                MoveActorAction move = new MoveActorAction(targetPipe.getInitialPipe(),direction);
+                move.execute(actor, lavaMap);
 
-        }
-        else {
-            return "test";
-        }
-        return null;
+                return "Teleported back to the tree world!";
+            }
     }
 
     @Override
