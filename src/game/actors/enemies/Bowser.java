@@ -26,7 +26,7 @@ public class Bowser extends Enemy implements Resettable {
      *
      */
     public Bowser() {
-        super("Bowser", 'B', 5, Arrays.asList(7), Arrays.asList( new GoToFountainBehaviour()));
+        super("Bowser", 'B', 500, Arrays.asList(7), Arrays.asList( new GoToFountainBehaviour()));
         addItemToInventory(new Key());
         this.addCapability(Status.CAN_FIRE_ATTACK);
         registerInstance();
@@ -39,6 +39,24 @@ public class Bowser extends Enemy implements Resettable {
             actions.add(new AttackAction(this,direction));
         }
         return actions;
+    }
+
+    @Override
+    public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
+        alsoDoThisWhenTicked();
+        for (Exit exit : map.locationOf(this).getExits()) {
+            if (exit.getDestination().containsAnActor() && exit.getDestination().getActor().hasCapability(Status.HOSTILE_TO_ENEMY)) {
+                behaviours.put(8, new AttackBehaviour(exit.getDestination().getActor()));
+                behaviours.put(9, new FollowBehaviour(exit.getDestination().getActor()));
+            }
+        }
+
+        for(Behaviour behaviour : behaviours.values()) {
+            Action action = behaviour.getAction(this, map);
+            if (action != null)
+                return action;
+        }
+        return new DoNothingAction();
     }
 
 

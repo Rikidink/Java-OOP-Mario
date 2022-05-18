@@ -18,7 +18,7 @@ public class FireAttackAction extends AttackAction{
 
     @Override
     public String execute(Actor actor, GameMap map) {
-        map.locationOf(actor).setGround(new FireGround());
+        map.locationOf(target).setGround(new FireGround());
         return super.execute(actor, map);
     }
 }

@@ -12,7 +12,7 @@ public class FireGround extends Ground {
      *
      */
     public FireGround() {
-        super('f');
+        super('v');
         timeRemaining = 3;
     }
 
