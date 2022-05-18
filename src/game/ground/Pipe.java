@@ -6,11 +6,13 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
+import game.actors.enemies.PiranhaPlant;
 import game.ground.JumpAction;
 import game.actions.TeleportAction;
 
 public class Pipe extends HigherGround {
 
+    private int timeTilPiranhaPlantSpawn = 1;
     private GameMap lavaMap;
     private Location pipeLocation;
     private Location lavaPipe;
@@ -66,5 +68,16 @@ public class Pipe extends HigherGround {
     @Override
     public boolean canActorEnter(Actor actor) {
         return false;
+    }
+
+    @Override
+    public void tick(Location location) {
+        timeTilPiranhaPlantSpawn--;
+        if (timeTilPiranhaPlantSpawn == 0) {
+            if(!location.containsAnActor()) {
+                location.addActor(new PiranhaPlant());
+                timeTilPiranhaPlantSpawn--;
+            }
+        }
     }
 }
