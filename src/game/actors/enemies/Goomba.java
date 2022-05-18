@@ -13,6 +13,8 @@ import game.reset.Resettable;
 import game.actions.AttackAction;
 import game.behaviours.*;
 
+import java.util.Arrays;
+
 /**
  * A little fungus guy.
  */
@@ -22,9 +24,8 @@ public class Goomba extends Enemy implements Resettable {
 	 * Constructor.
 	 */
 	public Goomba() {
-		super("Goomba", 'g', 20); //changed health to 20
+		super("Goomba", 'g', 20, Arrays.asList(7), Arrays.asList( new GoToFountainBehaviour())); //changed health to 20
 		this.behaviours.put(1, new SuicideBehaviour()); // the order here is important, first to last possible
-		this.behaviours.put(7, new GoToFountainBehaviour());
 		this.behaviours.put(10, new WanderBehaviour());
 		registerInstance();
 	}
@@ -65,30 +66,7 @@ public class Goomba extends Enemy implements Resettable {
 	 *
 	 * @see Actor#playTurn(ActionList, Action, GameMap, Display)
 	 */
-	@Override
-	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-		alsoDoThisWhenTicked();
 
-
-		for (Action action: actions){
-			// but definitely drink from a fountain
-			if (action instanceof DrinkAction){
-				return action;
-
-			}
-
-
-		}
-
-
-
-		for(Behaviour behaviour : behaviours.values()) {
-			Action action = behaviour.getAction(this, map);
-			if (action != null)
-				return action;
-		}
-		return new DoNothingAction();
-	}
 
 	/**
 	 * Resets abilities, attributes, and/or items.

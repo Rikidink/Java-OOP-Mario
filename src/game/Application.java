@@ -15,6 +15,7 @@ import game.actors.Player;
 import game.actors.PrincessPeach;
 import game.actors.Toad;
 import game.actors.enemies.Bowser;
+import game.actors.enemies.Goomba;
 import game.actors.enemies.PiranhaPlant;
 import game.ground.*;
 import game.items.Bottle;
@@ -98,6 +99,9 @@ public class Application {
 
 
 
+		gameMap.at(11, 10).addActor(new Goomba());
+
+
 
 		//add fountains
 		gameMap.at(42, 8).addItem(new HealthFountain());
@@ -105,7 +109,7 @@ public class Application {
 
 		// pipe test
 		gameMap.at(42,6).setGround(new Pipe(gameMap2));
-		//gameMap.at(11, 10).addActor(new Goomba());
+
 
 		//gameMap.at(12, 10).addActor(new Goomba());
 		gameMap2.at(1, 1).setGround(new Pipe(gameMap2));

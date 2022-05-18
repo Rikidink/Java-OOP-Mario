@@ -4,9 +4,66 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="goomba now has proof of concept for drinking at fountains">
+    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="goomba suicide working again">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/conwayslife/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/conwayslife/ConwayGameMap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/conwayslife/ConwayLocation$NextTurn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/conwayslife/ConwayLocation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/conwayslife/Floor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/conwayslife/Player$SleepAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/conwayslife/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/conwayslife/Status.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/conwayslife/Tree.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/mars/Application.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/mars/DemoCapabilities.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/mars/actions/KickAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/mars/actions/WindowSmashAction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/mars/actors/Bug.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/mars/actors/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/mars/behaviours/SpitBehaviour.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/mars/grounds/Crater.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/mars/grounds/Floor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/mars/grounds/LockedDoor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/mars/grounds/Wall.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/mars/items/MartianItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/edu/monash/fit2099/demo/mars/items/Stick.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/PrincessPeach.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/PrincessPeach.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Bowser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Bowser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Enemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Koopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Koopa.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/PiranhaPlant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/PiranhaPlant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/behaviours/AttackBehaviour.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/behaviours/AttackBehaviour.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/conwayslife/Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/conwayslife/ConwayGameMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/conwayslife/ConwayLocation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/conwayslife/Floor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/conwayslife/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/conwayslife/Status.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/conwayslife/Tree.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/mars/Application.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/mars/DemoCapabilities.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/mars/actions/KickAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/mars/actions/WindowSmashAction.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/mars/actors/Bug.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/mars/actors/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/mars/behaviours/SpitBehaviour.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/mars/grounds/Crater.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/mars/grounds/Floor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/mars/grounds/LockedDoor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/mars/grounds/Wall.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/mars/items/MartianItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/monash/fit2099/demo/mars/items/Stick.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actions/GoToFountainAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/GoToFountainAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/Toad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/Toad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Bowser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Bowser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Goomba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Goomba.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Koopa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Koopa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/PiranhaPlant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/PiranhaPlant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/behaviours/GoToFountainBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/behaviours/GoToFountainBehaviour.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +94,8 @@
     <setting file="file://$PROJECT_DIR$/src/game/actors/Toad.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/actors/Player.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/actions/StatusGiveAction.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actors/enemies/Bowser.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/actors/enemies/Koopa.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/actors/enemies/Goomba.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/FakeRefillAction.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/items/Bottle.java" root0="SKIP_INSPECTION" />
@@ -256,7 +315,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652784419756</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="goomba suicide working again">
+      <created>1652787957164</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1652787957164</updated>
+    </task>
+    <task id="LOCAL-00025" summary="goomba suicide working again">
+      <created>1652787986091</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1652787986091</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -290,6 +363,7 @@
     <MESSAGE value="did some work on allowing actors to dink from fountains" />
     <MESSAGE value="pipe no longer stuffed up" />
     <MESSAGE value="goomba now has proof of concept for drinking at fountains" />
-    <option name="LAST_COMMIT_MESSAGE" value="goomba now has proof of concept for drinking at fountains" />
+    <MESSAGE value="goomba suicide working again" />
+    <option name="LAST_COMMIT_MESSAGE" value="goomba suicide working again" />
   </component>
 </project>

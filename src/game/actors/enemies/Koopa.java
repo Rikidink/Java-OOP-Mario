@@ -9,11 +9,15 @@ import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.Status;
+import game.behaviours.GoToFountainBehaviour;
 import game.reset.Resettable;
 import game.actions.AttackAction;
 import game.behaviours.AttackBehaviour;
 import game.behaviours.Behaviour;
 import game.items.consumable.SuperMushroom;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * A big turtle guy.
@@ -24,9 +28,11 @@ public abstract class Koopa extends Enemy implements Resettable {
 	 * Constructor.
 	 */
 	public Koopa(String name, char displayChar, int hitPoints) {
-		super(name, displayChar, hitPoints);
+		super(name, displayChar, hitPoints,  Arrays.asList(7), Arrays.asList( new GoToFountainBehaviour()));
 		this.addCapability(Status.CAN_BE_DORMANT); // adds a status
 		this.addItemToInventory(new SuperMushroom()); //So it drops a supermushroom when it dies
+
+
 		registerInstance();
 	}
 
@@ -68,18 +74,14 @@ public abstract class Koopa extends Enemy implements Resettable {
 		alsoDoThisWhenTicked();
 
 		if (this.hasCapability(Status.IS_DORMANT)) { //if dormant...
-			this.setDisplayChar('D');
+			return new DoNothingAction();
 		}
 		else { //Koopa will only do an action if it is not dormant
-
-			for (Behaviour Behaviour : behaviours.values()) {
-				Action action = Behaviour.getAction(this, map);
-				if (action != null)
-					return action;
+			return super.playTurn(actions,lastAction,map,display);
 			}
 		}
-		return new DoNothingAction();
-	}
+
+
 
 	/**
 	 * Resets abilities, attributes, and/or items.
@@ -99,6 +101,15 @@ public abstract class Koopa extends Enemy implements Resettable {
 
 	public IntrinsicWeapon getIntrinsicWeapon() {
 		return super.getIntrinsicWeapon(30, "punches");
+	}
+
+	@Override
+	public char getDisplayChar(){
+		if (this.hasCapability(Status.IS_DORMANT)) {
+			return 'D';
+		} else {
+			return super.getDisplayChar();
+		}
 	}
 }
 

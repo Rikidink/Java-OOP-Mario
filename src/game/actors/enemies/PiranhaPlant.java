@@ -10,7 +10,10 @@ import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.Status;
 import game.behaviours.AttackBehaviour;
 import game.behaviours.Behaviour;
+import game.behaviours.GoToFountainBehaviour;
 import game.reset.Resettable;
+
+import java.util.Arrays;
 
 public class PiranhaPlant extends Enemy implements Resettable {
 
@@ -19,28 +22,11 @@ public class PiranhaPlant extends Enemy implements Resettable {
      *
      */
     public PiranhaPlant() {
-        super("Piranha Plant", 'Y', 150);
+        super("Piranha Plant", 'Y', 150, Arrays.asList(), Arrays.asList());
         registerInstance();
     }
 
-    @Override
-    public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-        alsoDoThisWhenTicked();
 
-        for (Exit exit : map.locationOf(this).getExits()) {
-            if (exit.getDestination().containsAnActor() && exit.getDestination().getActor().hasCapability(Status.HOSTILE_TO_ENEMY)) {
-                behaviours.put(8, new AttackBehaviour(exit.getDestination().getActor()));
-            }
-        }
-
-        for(Behaviour behaviour : behaviours.values()) {
-            Action action = behaviour.getAction(this, map);
-            if (action != null)
-                return action;
-        }
-
-        return new DoNothingAction();
-    }
 
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {

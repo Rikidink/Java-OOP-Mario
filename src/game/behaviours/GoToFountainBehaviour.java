@@ -14,14 +14,19 @@ public class GoToFountainBehaviour implements Behaviour{
     @Override
     public Action getAction(Actor actor, GameMap map) {
 
-        // there is a 15% chance each turn to go start going to the closest fountain
-        if (Math.random() < 0.15){
+        // there is a 10% chance each turn to go start going to the closest fountain, if there is a fountain in the world
+
+        GoToFountainAction goToFountainAction = new GoToFountainAction(actor,map);
+
+        boolean isThereAFountainToGoTO = goToFountainAction.findClosestFountainCords(map,actor);
+
+        if (Math.random() < 0.1 && isThereAFountainToGoTO){
             actor.addCapability(Status.WANTS_TO_GO_TO_A_FOUNTAIN);
         }
 
         // - go to the closest fountain regardless of the fountain type
         if (actor.hasCapability(Status.WANTS_TO_GO_TO_A_FOUNTAIN)){
-            return new GoToFountainAction(actor, map);
+            return goToFountainAction;
         }
 
 

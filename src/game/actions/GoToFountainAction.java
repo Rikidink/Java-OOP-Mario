@@ -81,7 +81,7 @@ public class GoToFountainAction extends Action {
      * @param map the map to find the fountain on
      * @param actor the actor of whome to find the closest fountain for
      */
-    private void findClosestFountainCords(GameMap map, Actor actor){
+    public boolean findClosestFountainCords(GameMap map, Actor actor) {
 
         //get the location of the actor
         Location actorLocation = map.locationOf(actor);
@@ -102,12 +102,12 @@ public class GoToFountainAction extends Action {
 
         //scan the whole map for fountains
 
-        for (int y: mapY){
-            for (int x: mapX){
-                List<Item> items = map.at(x,y).getItems();
-                for (Item item: items){
-                    if (item.hasCapability(Status.IS_A_FOUNTAIN)){ // fountain found - now is it closest?
-                        if ( Math.abs(actorX - x)  + Math.abs(actorY - y) < Math.abs(actorX - minX) + Math.abs(actorY - minY)){
+        for (int y : mapY) {
+            for (int x : mapX) {
+                List<Item> items = map.at(x, y).getItems();
+                for (Item item : items) {
+                    if (item.hasCapability(Status.IS_A_FOUNTAIN)) { // fountain found - now is it closest?
+                        if (Math.abs(actorX - x) + Math.abs(actorY - y) < Math.abs(actorX - minX) + Math.abs(actorY - minY)) {
                             minX = x;
                             minY = y;
 
@@ -120,5 +120,13 @@ public class GoToFountainAction extends Action {
 
         this.x = minX;
         this.y = minY;
+
+
+        if (this.x == 100) { //ie if no fountains found
+            return false;
+
+        } else {
+            return true;
+        }
     }
 }
