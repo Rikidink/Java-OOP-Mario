@@ -4,7 +4,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 
-public class FireGround extends Ground {
+public class FireGround extends DamagingGround {
     int timeRemaining;
 
     /**
@@ -12,7 +12,7 @@ public class FireGround extends Ground {
      *
      */
     public FireGround() {
-        super('v');
+        super('v', 20);
         timeRemaining = 3;
     }
 
@@ -22,11 +22,8 @@ public class FireGround extends Ground {
             location.setGround(new Dirt());
         }
         else {
-            if (location.containsAnActor()) {
-                Actor actor  = location.getActor();
-                actor.hurt(20);
+            super.tick(location);
             }
             timeRemaining -= 1;
-        }
     }
 }
