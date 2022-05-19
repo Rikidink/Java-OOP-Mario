@@ -64,7 +64,7 @@ public class NecromancyWeapon extends WeaponItem {
     public void tick(Location currentLocation, Actor actor) {
         if (firstTime) {
             firstTime = false;
-        } else {
+        } else if (actor.hasCapability(Status.KILLER)){
             increaseChanceToHit(5);
             increaseDamage(5);
 
