@@ -14,10 +14,7 @@ import game.actors.CanHoldBottleActor;
 import game.actors.Player;
 import game.actors.PrincessPeach;
 import game.actors.Toad;
-import game.actors.enemies.Bowser;
-import game.actors.enemies.Corpse;
-import game.actors.enemies.Goomba;
-import game.actors.enemies.PiranhaPlant;
+import game.actors.enemies.*;
 import game.behaviours.GoToFountainBehaviour;
 import game.ground.*;
 import game.items.Bottle;
@@ -101,17 +98,15 @@ public class Application {
 		mario.addItemToInventory(bottle);
 		mario.setBottle(bottle);
 
-		//add necro weapon to mario
-		mario.addItemToInventory(new NecromancyWeapon());
-
-
 
 		gameMap.at(11, 10).addActor(new Goomba());
 
 
 		//testing necromancy weapon
-		gameMap.at(40, 8).addActor(new Corpse(Arrays.asList(1), Arrays.asList()));
+		gameMap.at(40, 8).addActor(new Corpse());
 		mario.addItemToInventory(new NecromancyWeapon());
+		gameMap.at(41, 8).addActor(new NormalKoopa());
+
 
 
 		//add fountains

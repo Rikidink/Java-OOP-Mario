@@ -8,12 +8,13 @@ import game.Status;
 import game.actions.ReanimateAction;
 import game.behaviours.Behaviour;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Corpse extends Enemy{
 
-    public Corpse(List<Integer> positionList, List<Behaviour> behaviours) {
-        super("Corpse", '@', 9001, positionList, behaviours);
+    public Corpse() {
+        super("Corpse", '@', 9001, Arrays.asList(), Arrays.asList());
     }
 
     @Override
