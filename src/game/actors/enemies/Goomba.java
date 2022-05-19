@@ -56,16 +56,11 @@ public class Goomba extends Enemy implements Resettable {
 
 		if (this.hasCapability(Status.FOLLOWING)) {
 			behaviours.put(9, new FollowBehaviour(otherActor));
-//			behaviours.put(8, new AttackBehaviour(otherActor));
+			behaviours.put(8, new AttackBehaviour(otherActor));
 		}
 		return actions;
 	}
 
-	/**
-	 * Figure out what to do next.
-	 *
-	 * @see Actor#playTurn(ActionList, Action, GameMap, Display)
-	 */
 
 
 	/**
