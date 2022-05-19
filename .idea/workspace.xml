@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="some zonbie and zonbie sword done">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Bowser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Bowser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/ground/FireGround.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/ground/FireGround.class" afterDir="false" />
+    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="nore sword stuff I think">
       <change beforePath="$PROJECT_DIR$/src/game/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actions/AttackAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/AttackAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actors/Zonbi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/Zonbi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/items/NecromancyWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/NecromancyWeapon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -309,7 +302,21 @@
       <option name="project" value="LOCAL" />
       <updated>1652938626157</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="small bug fixes for pulling">
+      <created>1652958957445</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1652958957445</updated>
+    </task>
+    <task id="LOCAL-00031" summary="nore sword stuff I think">
+      <created>1652960341026</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1652960341026</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -346,6 +353,8 @@
     <MESSAGE value="goomba suicide working again" />
     <MESSAGE value="req3 done" />
     <MESSAGE value="some zonbie and zonbie sword done" />
-    <option name="LAST_COMMIT_MESSAGE" value="some zonbie and zonbie sword done" />
+    <MESSAGE value="small bug fixes for pulling" />
+    <MESSAGE value="nore sword stuff I think" />
+    <option name="LAST_COMMIT_MESSAGE" value="nore sword stuff I think" />
   </component>
 </project>
