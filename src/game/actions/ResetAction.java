@@ -22,7 +22,7 @@ public class ResetAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
         actor.removeCapability(Status.CAN_RESET);
-        ResetManager.getInstance().run(map);
+        ResetManager.getInstance().run();
         return "The game has been reset.";
     }
 

@@ -13,6 +13,8 @@ import java.util.List;
  *
  */
 public class ResetManager {
+    GameMap mainMap;
+
     /**
      * A list of resettable instances (any classes that implements Resettable,
      * such as Player implements Resettable will be stored in here)
@@ -51,9 +53,9 @@ public class ResetManager {
      * By doing this way, it will avoid using `instanceof` all over the place.
      *
      */
-    public void run(GameMap map){
+    public void run(){
         for (Resettable resettable : resettableList) {
-            resettable.resetInstance(map);
+            resettable.resetInstance(mainMap);
         }
     }
 
@@ -63,5 +65,13 @@ public class ResetManager {
      */
     public void appendResetInstance(Resettable reset){
         resettableList.add(reset);
+    }
+
+    public void setMainMap(GameMap map) {
+        mainMap = map;
+    }
+
+    public GameMap getMainMap() {
+        return mainMap;
     }
 }

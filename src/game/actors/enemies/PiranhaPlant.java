@@ -61,8 +61,8 @@ public class PiranhaPlant extends Enemy implements Resettable {
 
     @Override
     public void resetInstance(GameMap map) {
-        this.increaseMaxHp(50);
-        this.heal(getMaxHp());
+        increaseMaxHp(50);
+        heal(getMaxHp());
     }
 
 }

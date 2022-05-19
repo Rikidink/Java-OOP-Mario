@@ -75,7 +75,7 @@ public class Pipe extends HigherGround {
         timeTilPiranhaPlantSpawn--;
         if (timeTilPiranhaPlantSpawn == 0) {
             if(!location.containsAnActor()) {
-                location.addActor(new PiranhaPlant());
+                //location.addActor(new PiranhaPlant());
                 timeTilPiranhaPlantSpawn--;
             }
         }

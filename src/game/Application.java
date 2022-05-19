@@ -24,6 +24,7 @@ import game.items.consumable.PowerStar;
 import game.items.consumable.SuperMushroom;
 import game.items.fountain.HealthFountain;
 import game.items.fountain.PowerFountain;
+import game.reset.ResetManager;
 import game.trees.*;
 
 /**
@@ -116,9 +117,9 @@ public class Application {
 		gameMap2.at(1, 1).addActor(new PiranhaPlant());
 
 		gameMap2.at(32, 7).addActor(new PrincessPeach());
-		gameMap2.at(31, 7).addActor(new Bowser());
+		gameMap2.at(31, 7).addActor(new Bowser(gameMap2));
 
-
+		ResetManager.getInstance().setMainMap(gameMap);
 
 		// spawn sprouts
 		SproutSpawner.generateSprouts(gameMap);
