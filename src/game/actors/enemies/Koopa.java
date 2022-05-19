@@ -28,9 +28,10 @@ public abstract class Koopa extends Enemy implements Resettable {
 	 * Constructor.
 	 */
 	public Koopa(String name, char displayChar, int hitPoints) {
-		super(name, displayChar, hitPoints,  Arrays.asList(7), Arrays.asList( new GoToFountainBehaviour()));
+		super(name, displayChar, hitPoints);
 		this.addCapability(Status.CAN_BE_DORMANT); // adds a status
 		this.addItemToInventory(new SuperMushroom()); //So it drops a supermushroom when it dies
+		this.behaviours.put(7, new GoToFountainBehaviour());
 
 
 		registerInstance();

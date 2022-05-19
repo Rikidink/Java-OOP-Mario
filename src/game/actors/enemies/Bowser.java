@@ -27,7 +27,7 @@ public class Bowser extends Enemy implements Resettable {
      *
      */
     public Bowser(GameMap map) {
-        super("Bowser", 'B', 500, Arrays.asList(7), Arrays.asList( new GoToFountainBehaviour()));
+        super("Bowser", 'B', 500);
         addItemToInventory(new Key());
         this.addCapability(Status.CAN_FIRE_ATTACK);
         bowserMap = map;

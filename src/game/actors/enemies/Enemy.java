@@ -26,19 +26,10 @@ public abstract class Enemy extends ModifiableIntrinsicWeaponActor {
     protected final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
 
 
-    public Enemy(String name, char displayChar, int hitPoints, List<Integer> positionList, List<Behaviour> behaviours){
+    public Enemy(String name, char displayChar, int hitPoints){
         super(name, displayChar, hitPoints);
         this.addCapability(Status.CANNOT_ENTER_FLOOR);
         this.addCapability(Status.HOSTILE_TO_PLAYER);
-
-        //add all of the behaviours to the behaviour list
-        //eg  this.behaviours.put(7, new GoToFountainBehaviour());
-        for (Behaviour behaviour : behaviours){
-            int index = behaviours.indexOf(behaviour);
-            this.behaviours.put(positionList.get(index),behaviour);
-
-        }
-
     }
 
 

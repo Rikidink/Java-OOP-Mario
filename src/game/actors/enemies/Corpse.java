@@ -12,8 +12,8 @@ import java.util.List;
 
 public class Corpse extends Enemy{
 
-    public Corpse(List<Integer> positionList, List<Behaviour> behaviours) {
-        super("Corpse", '@', 9001, positionList, behaviours);
+    public Corpse() {
+        super("Corpse", '@', 9001);
     }
 
     @Override

@@ -110,7 +110,7 @@ public class Application {
 
 
 		//testing necromancy weapon
-		gameMap.at(40, 8).addActor(new Corpse(Arrays.asList(1), Arrays.asList()));
+		gameMap.at(40, 8).addActor(new Corpse());
 		mario.addItemToInventory(new NecromancyWeapon());
 
 
