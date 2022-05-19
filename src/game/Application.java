@@ -101,6 +101,9 @@ public class Application {
 		mario.addItemToInventory(bottle);
 		mario.setBottle(bottle);
 
+		//add necro weapon to mario
+		mario.addItemToInventory(new NecromancyWeapon());
+
 
 
 		gameMap.at(11, 10).addActor(new Goomba());

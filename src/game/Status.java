@@ -12,6 +12,7 @@ public enum Status {
     CAN_DIG,
     CAN_FIRE_ATTACK,
     CAN_END_GAME,
+    KILLER, // Lets everyone know what a horrible actor this guy is. He Killed someone!!!
     CAN_REANIMATE,
 
     //power star effects

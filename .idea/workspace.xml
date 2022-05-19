@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="req3 done">
-      <change afterPath="$PROJECT_DIR$/src/game/actors/Zonbi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/game/items/NecromancyWeapon.java" afterDir="false" />
+    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="some zonbie and zonbie sword done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/Toad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/Toad.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Bowser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Bowser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/PiranhaPlant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/PiranhaPlant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Goomba.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basecode/game/ground/FireGround.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/ground/FireGround.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/reset/ResetManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/reset/ResetManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/actors/enemies/Goomba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/enemies/Goomba.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actions/AttackAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actions/AttackAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/actors/Zonbi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/actors/Zonbi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/items/NecromancyWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/NecromancyWeapon.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +54,7 @@
     <setting file="file://$PROJECT_DIR$/src/game/Application.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/items/consumable/StorableFood.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/actors/Zonbi.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/game/items/NecromancyWeapon.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/items/consumable/Consumable.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/DrinkHealthWaterAction.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/game/actions/fountain/DrinkPowerWaterAction.java" root0="SKIP_INSPECTION" />
@@ -301,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652855297383</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="some zonbie and zonbie sword done">
+      <created>1652938626157</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1652938626157</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -337,6 +345,7 @@
     <MESSAGE value="goomba now has proof of concept for drinking at fountains" />
     <MESSAGE value="goomba suicide working again" />
     <MESSAGE value="req3 done" />
-    <option name="LAST_COMMIT_MESSAGE" value="req3 done" />
+    <MESSAGE value="some zonbie and zonbie sword done" />
+    <option name="LAST_COMMIT_MESSAGE" value="some zonbie and zonbie sword done" />
   </component>
 </project>

@@ -83,6 +83,8 @@ public class AttackAction extends Action {
 				// remove actor
 				map.removeActor(target);
 				result += System.lineSeparator() + target + " is killed.";
+
+				actor.addCapability(Status.KILLER);
 			}
 		}
 		return result;
