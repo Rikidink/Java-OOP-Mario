@@ -74,5 +74,6 @@ public class Bowser extends Enemy implements Resettable {
         bowserMap.moveActor(this, bowserMap.at(31, 8));
         heal(getMaxHp());
         removeCapability(Status.FOLLOWING);
+        behaviours.clear();
     }
 }
