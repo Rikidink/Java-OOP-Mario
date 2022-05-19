@@ -2,8 +2,10 @@ package game.actors;
 
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actions.ActionList;
+import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
+import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.Status;
@@ -33,9 +35,6 @@ public class Zonbi extends Actor implements Resettable {
     /**
      * Constructor.
      *
-     * @param name        the name of the Actor
-     * @param displayChar the character that will represent the Actor in the display
-     * @param hitPoints   the Actor's starting hit points
      */
     public Zonbi() {
         super("Zonbi", 'z', 20);
@@ -46,32 +45,32 @@ public class Zonbi extends Actor implements Resettable {
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
         //Zonbie will only live for at most 10 turns
-        turnsLeft --;
         if (turnsLeft == 0){
             return new SuicideAction();
-
         }
-        return null;
+
+        for (Exit exit : map.locationOf(this).getExits()) {
+            if (exit.getDestination().containsAnActor() && exit.getDestination().getActor().hasCapability(Status.HOSTILE_TO_PLAYER)) {
+                behaviours.put(8, new AttackBehaviour(exit.getDestination().getActor()));
+                behaviours.put(9, new FollowBehaviour(exit.getDestination().getActor()));
+            }
+        }
+
+        for(Behaviour behaviour : behaviours.values()) {
+            Action action = behaviour.getAction(this, map);
+            if (action != null)
+                return action;
+        }
+
+        turnsLeft --;
+        return new DoNothingAction();
     }
 
     @Override
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList actions = new ActionList();
-
-
-
-        if (!(otherActor.hasCapability(Status.HOSTILE_TO_PLAYER))) {
-            behaviours.put(8, new AttackBehaviour(otherActor));
-        }
-
-        // it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
-        if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY)) {
+        if(otherActor.hasCapability(Status.HOSTILE_TO_PLAYER)) {
             actions.add(new AttackAction(this,direction));
-        }
-
-        if (this.hasCapability(Status.FOLLOWING)) {
-            behaviours.put(9, new FollowBehaviour(otherActor));
-            behaviours.put(8, new AttackBehaviour(otherActor));
         }
         return actions;
     }
@@ -88,3 +87,4 @@ public class Zonbi extends Actor implements Resettable {
     }
 
 }
+
