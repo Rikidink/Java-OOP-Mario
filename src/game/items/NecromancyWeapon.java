@@ -1,6 +1,7 @@
 package game.items;
 
 import edu.monash.fit2099.engine.weapons.WeaponItem;
+import game.Status;
 
 /**
  * A weapon capale of undead magic when held
@@ -8,7 +9,7 @@ import edu.monash.fit2099.engine.weapons.WeaponItem;
 public class NecromancyWeapon extends WeaponItem {
 
     /**
-     * How likely the weapon is to strike a hit, changes with the amount of kills the palayer gets
+     * How likely the weapon is to strike a hit, changes with the amount of kills the player gets
      */
     private int hitRate = 30;
 
@@ -17,6 +18,7 @@ public class NecromancyWeapon extends WeaponItem {
 
     public NecromancyWeapon() {
         super("Necromancy Weapon", 'N', 10, "strikes", 30);
+        this.addCapability(Status.CAN_REANIMATE);
     }
 
     @Override

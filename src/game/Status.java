@@ -12,6 +12,7 @@ public enum Status {
     CAN_DIG,
     CAN_FIRE_ATTACK,
     CAN_END_GAME,
+    CAN_REANIMATE,
 
     //power star effects
     INVINCIBLE, //if a player is (at least temporarily) invincible
