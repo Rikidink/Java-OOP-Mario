@@ -44,7 +44,7 @@ public class Zonbi extends Actor implements Resettable {
 
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-        //Zonbie will only live for at most 10 turns
+        //Zonbie will only live for at most 20 turns
         if (turnsLeft == 0){
             return new SuicideAction();
         }

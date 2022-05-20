@@ -36,11 +36,11 @@ public abstract class ModifiableIntrinsicWeaponActor extends Actor {
      * default intrinsic weapon stats
      * @return an updates intrinsic weapon
      */
-    protected IntrinsicWeapon getIntrinsicWeapon() {
+    /*protected IntrinsicWeapon getIntrinsicWeapon() {
         //int hitChance = oldIntrinsicWeapon.chanceToHit();
 
         return new IntrinsicWeapon(5 + intrinsicDamageAdjuster, "punches");
-    }
+    }*/
 
 
     /**

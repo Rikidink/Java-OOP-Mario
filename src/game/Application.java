@@ -92,6 +92,7 @@ public class Application {
 		gameMap.at(42, 10).addItem(new SuperMushroom());
 		gameMap.at(42, 10).addItem(new Coin(5000, 42, 10));
 		gameMap.at(44, 11).addActor(new Toad());
+		gameMap.at(3, 9).addItem(new NecromancyWeapon());
 
 		//bottle stuff
 		Bottle bottle = new Bottle();

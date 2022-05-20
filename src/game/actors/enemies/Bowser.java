@@ -71,7 +71,7 @@ public class Bowser extends Enemy implements Resettable {
     @Override
     public void resetInstance(GameMap map) {
         //move back to original position, heal to max health, stop following.
-        bowserMap.moveActor(this, bowserMap.at(31, 8));
+        bowserMap.moveActor(this, bowserMap.at(31, 7));
         heal(getMaxHp());
         removeCapability(Status.FOLLOWING);
         behaviours.clear();
