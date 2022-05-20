@@ -7,8 +7,11 @@ import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.items.Item;
+import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.weapons.Weapon;
 import game.Status;
+import game.actors.Zonbi;
+import game.actors.enemies.Corpse;
 
 /**
  * Special Action for attacking other Actors.
@@ -80,10 +83,17 @@ public class AttackAction extends Action {
 					dropActions.add(item.getDropAction(actor));
 				for (Action drop : dropActions)
 					drop.execute(target, map);
-				// remove actor
-				map.removeActor(target);
-				result += System.lineSeparator() + target + " is killed.";
+				// remove actor or replace with Corpse
 
+				if (target.hasCapability(Status.HOSTILE_TO_PLAYER)) {
+					Location spawnLocation = map.locationOf(target);
+					map.removeActor(target);
+					spawnLocation.addActor(new Corpse());
+				}
+				else {
+					map.removeActor(target);
+				}
+				result += System.lineSeparator() + target + " is killed.";
 				actor.addCapability(Status.KILLER);
 			}
 		}
