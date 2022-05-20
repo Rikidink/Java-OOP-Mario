@@ -1,8 +1,10 @@
 package game.ground;
 
 import edu.monash.fit2099.engine.actions.Action;
+import edu.monash.fit2099.engine.actions.ActionList;
 import edu.monash.fit2099.engine.actions.MoveActorAction;
 import edu.monash.fit2099.engine.actors.Actor;
+import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Status;
@@ -52,17 +54,35 @@ public class JumpAction extends Action {
      * @return a string showing details of a successful/failed jump
      */
     @Override
-    public String execute(Actor actor, GameMap map){
+    public String execute(Actor actor, GameMap map) {
         // uses the success rate from high ground objects
-        if(actor.hasCapability(Status.TALL) || Math.random() <= highGround.getSuccessRate()){
+        if (actor.hasCapability(Status.TALL) || Math.random() <= highGround.getSuccessRate()) {
             MoveActorAction move = new MoveActorAction(this.location, this.direction);
-            move.execute(actor,map);
-            return "Jumped to " + highGround.getHighGroundName() + " " + location.x() + " " +  location.y() + " successfully!";
+            move.execute(actor, map);
+            return "Jumped to " + highGround.getHighGroundName() + " " + location.x() + " " + location.y() + " successfully!";
         }
-        // uses fall damage from high ground objects
         else {
+            // uses fall damage from high ground objects
             actor.hurt(highGround.getFallDamage());
-            return "Jump to " + this.direction  + " failed! Lost " + highGround.getFallDamage() + " health!";
+
+            if(!actor.isConscious()){
+                ActionList dropActions = new ActionList();
+                // drop all items
+                for (Item item : actor.getInventory())
+                    dropActions.add(item.getDropAction(actor));
+                for (Action drop : dropActions)
+                    drop.execute(actor, location.map());
+                // remove actor
+                location.map().removeActor(actor);
+
+                return "Jump to " + this.direction + " failed! Mario has died to fall damage!";
+            }
+
+            else {
+                return "Jump to " + this.direction + " failed! Lost " + highGround.getFallDamage() + " health!";
+
+            }
+
         }
     }
 
@@ -77,3 +97,4 @@ public class JumpAction extends Action {
         return "Jump to " + highGround.getHighGroundName() + " (" + location.x() + " " + location.y() + ") at " + direction;
     }
 }
+
