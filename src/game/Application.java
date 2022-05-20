@@ -10,10 +10,7 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.World;
 
 
-import game.actors.CanHoldBottleActor;
-import game.actors.Player;
-import game.actors.PrincessPeach;
-import game.actors.Toad;
+import game.actors.*;
 import game.actors.enemies.*;
 import game.behaviours.GoToFountainBehaviour;
 import game.ground.*;
@@ -84,7 +81,7 @@ public class Application {
 		GameMap gameMap2 = new GameMap(groundFactory,map2);
 		world.addGameMap(gameMap2);
 
-		CanHoldBottleActor mario = new Player("Player", 'm', 100);
+		Actor mario = new Player("Player", 'm', 100);
 		world.addPlayer(mario, gameMap.at(42, 10));
 
 
@@ -93,11 +90,6 @@ public class Application {
 		gameMap.at(42, 10).addItem(new Coin(5000, 42, 10));
 		gameMap.at(44, 11).addActor(new Toad());
 		gameMap.at(3, 9).addItem(new NecromancyWeapon());
-
-		//bottle stuff
-		Bottle bottle = new Bottle();
-		mario.addItemToInventory(bottle);
-		mario.setBottle(bottle);
 
 
 		gameMap.at(11, 10).addActor(new Goomba());

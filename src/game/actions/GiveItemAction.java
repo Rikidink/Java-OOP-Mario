@@ -5,7 +5,6 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Status;
-import game.Wallet;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,16 +13,16 @@ import java.util.List;
  * like a trade action, but it gives mario a status not an item. This
  * status is intended to unlock an item
  */
-public class StatusGiveAction extends Action  {
+public class GiveItemAction extends Action  {
 
     private List<Status> statusesToGive = new ArrayList<Status>();
-
     private String description;
+    Item item;
 
-    public StatusGiveAction(List<Status> statusesToGive, String description) {
+    public GiveItemAction(List<Status> statusesToGive, String description, Item item) {
         this.statusesToGive = statusesToGive;
         this.description = description;
-
+        this.item = item;
     }
 
 
@@ -35,6 +34,7 @@ public class StatusGiveAction extends Action  {
             actor.addCapability(status);
 
         }
+        actor.addItemToInventory(item);
         return menuDescription(actor);
     }
 

@@ -10,7 +10,8 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import game.Status;
 import game.actions.BuyAction;
 import game.actions.SpeakAction;
-import game.actions.StatusGiveAction;
+import game.actions.GiveItemAction;
+import game.items.Bottle;
 import game.items.Shovel;
 import game.items.consumable.PowerStar;
 import game.items.Wrench;
@@ -82,7 +83,7 @@ public class Toad extends Actor implements CanSpeak {
         if (!otherActor.hasCapability(Status.HAS_A_BOTTLE)){
             List<Status> statusesToGive = new ArrayList<Status>();
             statusesToGive.add(Status.HAS_A_BOTTLE);
-            actions.add(new StatusGiveAction(statusesToGive," gets a free bottle from the smelly Toad"));
+            actions.add(new GiveItemAction(statusesToGive," gets a free bottle from the smelly Toad", new Bottle()));
         }
 
         return actions;

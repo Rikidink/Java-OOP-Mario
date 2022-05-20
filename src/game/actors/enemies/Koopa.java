@@ -31,7 +31,7 @@ public abstract class Koopa extends Enemy implements Resettable {
 		super(name, displayChar, hitPoints);
 		this.addCapability(Status.CAN_BE_DORMANT); // adds a status
 		this.addItemToInventory(new SuperMushroom()); //So it drops a supermushroom when it dies
-		this.behaviours.put(7, new GoToFountainBehaviour());
+		this.behaviours.put(9, new GoToFountainBehaviour());
 
 
 		registerInstance();
@@ -51,7 +51,7 @@ public abstract class Koopa extends Enemy implements Resettable {
 		ActionList actions = new ActionList();
 		actions.add(super.allowableActions(otherActor, direction, map));
 		if (!(otherActor.hasCapability(Status.HOSTILE_TO_PLAYER))) {
-			behaviours.put(8, new AttackBehaviour(otherActor));
+			behaviours.put(7, new AttackBehaviour(otherActor));
 		}
 
 		// it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
@@ -60,7 +60,7 @@ public abstract class Koopa extends Enemy implements Resettable {
 		}
 
 		if (this.hasCapability(Status.FOLLOWING)) {
-			behaviours.put(8, new AttackBehaviour(otherActor));
+			behaviours.put(7, new AttackBehaviour(otherActor));
 		}
 		return actions;
 	}

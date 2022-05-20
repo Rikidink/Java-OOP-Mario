@@ -3,14 +3,10 @@ package game.actions.fountain;
 import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
+import game.actors.ModifiableIntrinsicWeaponActor;
 import game.items.fountain.Fountain;
 
-public abstract class DrinkAction extends Action {
-
-    /**
-     * If the drink action is directly related to the fountain (eg stored in a bottle vs directly taking from fountain
-     */
-    protected boolean directlyRelated;
+public class DrinkAction extends Action {
 
     /**
      * what kinda thing are you drinking?
@@ -22,33 +18,28 @@ public abstract class DrinkAction extends Action {
      */
     protected Fountain fountain;
 
-    /**
-     * If the action has been used - an thus needs to be deleted
-     */
-    private boolean hasBeenUsed = false;
+    private boolean fromBottleFlag;
 
-    public void setHasBeenUsed(boolean value){
-        hasBeenUsed = value;
-    }
-
-    public boolean getHasBeenUsed(){
-        return hasBeenUsed;
-    }
-
-
-    public DrinkAction(String type, Fountain fountain, boolean directlyRelated){
+    public DrinkAction(String type, Fountain fountain, boolean fromBottleFlag){
         this.type = type;
         this.fountain = fountain;
-        this.directlyRelated = directlyRelated;
-
+        this.fromBottleFlag = fromBottleFlag;
     }
 
-
-    abstract public String execute(Actor actor, GameMap map);
+    @Override
+    public String execute(Actor actor, GameMap map) {
+        if (fromBottleFlag) {
+            return (fountain.effects((ModifiableIntrinsicWeaponActor) actor));
+        }
+        else if (fountain.canDrinkFrom()) {
+            fountain.reduceRemainingWater(5);
+            return (fountain.effects((ModifiableIntrinsicWeaponActor) actor));
+        }
+        return "The fountain does not have enough water to drink from yet.";
+    }
 
     @Override
     public String menuDescription(Actor actor) {
-
         //for bottles
         if (fountain == null) {
             return actor + " drinks the " + type + " water from the bottle";

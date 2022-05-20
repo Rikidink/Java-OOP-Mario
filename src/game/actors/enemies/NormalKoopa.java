@@ -22,7 +22,7 @@ public class NormalKoopa extends Koopa {
         actions.add(super.allowableActions(otherActor, direction, map));
 
         if (this.hasCapability(Status.FOLLOWING)) {
-            behaviours.put(9, new FollowBehaviour(otherActor));
+            behaviours.put(8, new FollowBehaviour(otherActor));
         }
 
 

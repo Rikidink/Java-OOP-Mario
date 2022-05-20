@@ -1,28 +1,34 @@
 package game.items;
 
+import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import game.Status;
+import game.Wallet;
 import game.actions.fountain.DrinkAction;
 
 import java.util.HashMap;
+import java.util.Stack;
 
 public class Bottle extends Item{
 
     /**
-     * what drinks bottle contains, is used like a stack
+     * what drinks bottle contains
      */
-    HashMap<Integer, DrinkAction> storage = new HashMap<Integer, DrinkAction>();
+    private Stack<DrinkAction> bottleContents;
+
+    private static Bottle instance;
 
     /**
-     * How large the stack of the bottle storage is. This is used to retrieve the latest element
+     * Get the singleton instance of bottle
+     *
+     * @return Bottle singleton instance
      */
-    private int storage_counter = 0;
-
-    /**
-     * The current action
-     */
-    private DrinkAction currentDrinkAction;
-
+    public static Bottle getInstance(){
+        if(instance == null){
+            instance = new Bottle();
+        }
+        return instance;
+    }
 
     /***
      * Constructor.
@@ -33,34 +39,12 @@ public class Bottle extends Item{
     public Bottle() {
         super("Bottle", 'U', false);
         this.addCapability(Status.CAN_BE_REFILLED);
+        this.addCapability(Status.CAN_FILL_BOTTLE);
+        bottleContents = new Stack<>();
     }
-
-
-
 
     public void addConsumableToBottle(DrinkAction drinkAction) {
-
-        if (currentDrinkAction == null) {
-            currentDrinkAction = drinkAction;
-        } else {
-            storage_counter++;
-            storage.put(storage_counter, currentDrinkAction);
-            currentDrinkAction = drinkAction;
-
-        }
-    }
-
-
-    /**
-     * reduces the consumable stack by one
-     * @param storableFood
-     */
-    private void reduceConsumableStack(){
-        currentDrinkAction =  storage.remove(storage_counter);
-        storage_counter --;
-        //removeAction(currentDrinkAction);
-
-
+        bottleContents.push(drinkAction);
     }
 
     /**
@@ -68,13 +52,12 @@ public class Bottle extends Item{
      * @return the currect drink action
      */
     public DrinkAction getCurrentDrinkAction(){
-
-        if (currentDrinkAction == null){
+        if (bottleContents.empty()){
             return null;
-        } else if (currentDrinkAction.getHasBeenUsed() == true){
-            reduceConsumableStack();
         }
-        return currentDrinkAction;
+        else {
+            return bottleContents.peek();
+        }
     }
 
 }

@@ -2,14 +2,19 @@ package game.items.fountain;
 
 
 import edu.monash.fit2099.engine.actions.Action;
+import edu.monash.fit2099.engine.actors.Actor;
+import game.Status;
 import game.actions.fountain.DrinkAction;
-import game.actions.fountain.DrinkHealthWaterAction;
+import game.actions.fountain.FillBottleAction;
+import game.actors.ModifiableIntrinsicWeaponActor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A fountain that has healing water
  */
 public class HealthFountain extends Fountain {
-
 
     /**
      * Constructor.
@@ -19,8 +24,26 @@ public class HealthFountain extends Fountain {
     }
 
     @Override
-    public DrinkAction getAppropriateWaterAction(boolean directlyRelated) {
-        return new DrinkHealthWaterAction(super.type, this, directlyRelated);
+    public List<Action> getAllowableActions() {
+        List<Action> actions = new ArrayList<>();
 
+        if (remainingWater > 0) {
+            if (location.getActor().hasCapability(Status.CAN_FILL_BOTTLE)) {
+                if (remainingWater > 0) {
+                    actions.add(new FillBottleAction(new DrinkAction("health", this, true), this));
+                }
+            }
+
+            if (location.getActor().hasCapability(Status.CAN_DRINK)) {
+                actions.add(new DrinkAction("health", this, false));
+            }
+        }
+        return actions;
+    }
+
+    @Override
+    public String effects(ModifiableIntrinsicWeaponActor actor) {
+        actor.heal(50);
+        return "The healthy water heals " + actor + " by 50 points";
     }
 }

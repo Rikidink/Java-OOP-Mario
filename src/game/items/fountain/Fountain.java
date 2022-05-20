@@ -1,15 +1,9 @@
 package game.items.fountain;
 
-import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Status;
-import game.actions.fountain.DrinkAction;
-import game.actions.fountain.DrinkHealthWaterAction;
-import game.actions.fountain.FakeRefillAction;
-
-import java.util.ArrayList;
-import java.util.List;
+import game.actors.ModifiableIntrinsicWeaponActor;
 
 
 /**
@@ -56,39 +50,6 @@ public abstract class Fountain extends Item {
         this.addCapability(Status.IS_A_FOUNTAIN);
     }
 
-
-    @Override
-    public List<Action> getAllowableActions() {
-
-        List<Action> actions = new ArrayList<>();
-
-
-
-        //if there is enough water left
-        if (remainingWater > 0) {
-            //allow actor to sip water
-            actions.add(getAppropriateWaterAction(true));
-
-            //check if a actor on same location has a bottle, if so allow refill
-            if (location.getActor().hasCapability(Status.HAS_A_BOTTLE)){
-                actions.add(new FakeRefillAction( type, this));
-            }
-
-
-
-
-        }
-        return actions;
-
-    }
-
-    /**
-     * Get the appropriate water type. For sipping water
-     * @return an instance of the corrosponding water action type
-     */
-    abstract public DrinkAction getAppropriateWaterAction(boolean directlyRelated);
-
-
     public void tick(Location location) {
         this.location = location;
 
@@ -108,22 +69,24 @@ public abstract class Fountain extends Item {
     /**
      * reduces the amount of water left
      */
-    public void reduceRemainingWater(){
-        if (remainingWater > 4){
-            remainingWater -= 5;
-        }
-        else{
+    public void reduceRemainingWater(int reductionAmount){
+        remainingWater -= reductionAmount;
+
+        if (remainingWater < 0) {
             remainingWater = 0;
         }
-
     }
 
     /**
      * If the fountain has enough water to refill items
      */
 
-    public boolean canRefillItem(){
-        return remainingWater > 4;
+    public boolean canFillBottle(){
+        return remainingWater >= 1;
+    }
+
+    public boolean canDrinkFrom() {
+        return remainingWater >=5;
     }
 
 
@@ -133,6 +96,8 @@ public abstract class Fountain extends Item {
     public String getWaterInfo(){
         return "(" + remainingWater + "/" + maxWater + ")";
     }
+
+    public abstract String effects(ModifiableIntrinsicWeaponActor actor);
 
 
 }

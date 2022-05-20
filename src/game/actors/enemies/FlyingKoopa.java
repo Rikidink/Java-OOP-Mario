@@ -19,7 +19,7 @@ public class FlyingKoopa extends Koopa {
         actions.add(super.allowableActions(otherActor, direction, map));
 
         if (this.hasCapability(Status.FOLLOWING)) {
-            behaviours.put(9, new FlyingFollowBehaviour(otherActor));
+            behaviours.put(8, new FlyingFollowBehaviour(otherActor));
         }
         return actions;
     }

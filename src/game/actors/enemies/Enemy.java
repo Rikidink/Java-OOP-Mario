@@ -30,6 +30,7 @@ public abstract class Enemy extends ModifiableIntrinsicWeaponActor {
         super(name, displayChar, hitPoints);
         this.addCapability(Status.CANNOT_ENTER_FLOOR);
         this.addCapability(Status.HOSTILE_TO_PLAYER);
+        this.addCapability(Status.CAN_DRINK);
     }
 
 
