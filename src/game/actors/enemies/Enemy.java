@@ -26,8 +26,8 @@ public abstract class Enemy extends ModifiableIntrinsicWeaponActor {
     protected final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
 
 
-    public Enemy(String name, char displayChar, int hitPoints){
-        super(name, displayChar, hitPoints);
+    public Enemy(String name, char displayChar, int hitPoints, int baseDamage, String verb){
+        super(name, displayChar, hitPoints, baseDamage, verb);
         this.addCapability(Status.CANNOT_ENTER_FLOOR);
         this.addCapability(Status.HOSTILE_TO_PLAYER);
         this.addCapability(Status.CAN_DRINK);
@@ -44,8 +44,6 @@ public abstract class Enemy extends ModifiableIntrinsicWeaponActor {
 
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-        alsoDoThisWhenTicked();
-
 
         for (Action action: actions){
             // definitely drink from a fountain

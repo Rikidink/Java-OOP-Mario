@@ -18,7 +18,7 @@ public class Corpse extends Enemy{
     int timeRemaining;
 
     public Corpse() {
-        super("Corpse", '@', 9001);
+        super("Corpse", '@', 9001, 0, "doesn't attack");
         timeRemaining = 5;
     }
 

@@ -27,7 +27,7 @@ public class Bowser extends Enemy implements Resettable {
      *
      */
     public Bowser(GameMap map) {
-        super("Bowser", 'B', 500);
+        super("Bowser", 'B', 500, 80, "punches");
         addItemToInventory(new Key());
         this.addCapability(Status.CAN_FIRE_ATTACK);
         bowserMap = map;
@@ -45,7 +45,6 @@ public class Bowser extends Enemy implements Resettable {
 
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-        alsoDoThisWhenTicked();
         for (Exit exit : map.locationOf(this).getExits()) {
             if (exit.getDestination().containsAnActor() && exit.getDestination().getActor().hasCapability(Status.HOSTILE_TO_ENEMY)) {
                 behaviours.put(8, new AttackBehaviour(exit.getDestination().getActor()));
@@ -59,13 +58,6 @@ public class Bowser extends Enemy implements Resettable {
                 return action;
         }
         return new DoNothingAction();
-    }
-
-
-
-    @Override
-    protected IntrinsicWeapon getIntrinsicWeapon() {
-        return super.getIntrinsicWeapon(80, "punches");
     }
 
     @Override

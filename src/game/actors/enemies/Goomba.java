@@ -24,7 +24,7 @@ public class Goomba extends Enemy implements Resettable {
 	 * Constructor.
 	 */
 	public Goomba() {
-		super("Goomba", 'g', 20); //changed health to 20
+		super("Goomba", 'g', 20, 10, "kicks"); //changed health to 20
 		this.behaviours.put(1, new SuicideBehaviour()); // the order here is important, first to last possible
 		this.behaviours.put(10, new WanderBehaviour());
 		this.behaviours.put(9, new GoToFountainBehaviour());
@@ -74,12 +74,4 @@ public class Goomba extends Enemy implements Resettable {
 		map.removeActor(this);
 	}
 
-	/**
-	 * Creates and returns an intrinsic weapon.
-	 * @return a freshly-instantiated IntrinsicWeapon
-	 */
-	@Override
-	protected IntrinsicWeapon getIntrinsicWeapon() {
-		return super.getIntrinsicWeapon(10, "kicks");
-	}
 }

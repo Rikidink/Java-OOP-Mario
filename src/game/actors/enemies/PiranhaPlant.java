@@ -25,7 +25,7 @@ public class PiranhaPlant extends Enemy implements Resettable {
      *
      */
     public PiranhaPlant() {
-        super("Piranha Plant", 'Y', 150);
+        super("Piranha Plant", 'Y', 150, 90, "chomps");
         registerInstance();
     }
 
@@ -52,11 +52,6 @@ public class PiranhaPlant extends Enemy implements Resettable {
                 return action;
         }
         return new DoNothingAction();
-    }
-
-    @Override
-    protected IntrinsicWeapon getIntrinsicWeapon() {
-        return super.getIntrinsicWeapon(90, "chomps");
     }
 
     @Override

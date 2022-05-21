@@ -97,7 +97,7 @@ public class Application {
 
 		//testing necromancy weapon
 		gameMap.at(40, 8).addActor(new Corpse());
-		mario.addItemToInventory(new NecromancyWeapon());
+		//mario.addItemToInventory(new NecromancyWeapon());
 		gameMap.at(41, 8).addActor(new Goomba());
 
 

@@ -28,7 +28,7 @@ public abstract class Koopa extends Enemy implements Resettable {
 	 * Constructor.
 	 */
 	public Koopa(String name, char displayChar, int hitPoints) {
-		super(name, displayChar, hitPoints);
+		super(name, displayChar, hitPoints, 30, "punches");
 		this.addCapability(Status.CAN_BE_DORMANT); // adds a status
 		this.addItemToInventory(new SuperMushroom()); //So it drops a supermushroom when it dies
 		this.behaviours.put(9, new GoToFountainBehaviour());
@@ -72,7 +72,6 @@ public abstract class Koopa extends Enemy implements Resettable {
 	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-		alsoDoThisWhenTicked();
 
 		if (this.hasCapability(Status.IS_DORMANT)) { //if dormant...
 			return new DoNothingAction();
@@ -92,16 +91,6 @@ public abstract class Koopa extends Enemy implements Resettable {
 	@Override
 	public void resetInstance(GameMap map) {
 		map.removeActor(this);
-	}
-
-	/**
-	 * Creates and returns an intrinsic weapon.
-	 *
-	 * @return a freshly-instantiated IntrinsicWeapon
-	 */
-
-	public IntrinsicWeapon getIntrinsicWeapon() {
-		return super.getIntrinsicWeapon(30, "punches");
 	}
 
 	@Override

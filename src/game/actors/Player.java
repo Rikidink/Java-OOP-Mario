@@ -29,7 +29,7 @@ public class Player extends ModifiableIntrinsicWeaponActor implements Resettable
 	 * @param hitPoints   Player's starting number of hitpoints
 	 */
 	public Player(String name, char displayChar, int hitPoints) {
-		super(name, displayChar, hitPoints);
+		super(name, displayChar, hitPoints, 5, "punches");
 		this.addCapability(Status.HOSTILE_TO_ENEMY);
 		this.addCapability(Status.CAN_RESET);
 		this.addCapability(Status.LAVA_WALK);
@@ -44,7 +44,6 @@ public class Player extends ModifiableIntrinsicWeaponActor implements Resettable
 	 */
 	@Override
 	public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
-		alsoDoThisWhenTicked();
 
 		if (this.hasCapability(Status.INVINCIBLE)){
 			System.out.println("Mario is INVINCIBLE!");
@@ -89,10 +88,5 @@ public class Player extends ModifiableIntrinsicWeaponActor implements Resettable
 				this.removeCapability(status);
 			}
 		}
-	}
-
-	@Override
-	protected IntrinsicWeapon getIntrinsicWeapon() {
-		return super.getIntrinsicWeapon();
 	}
 }
