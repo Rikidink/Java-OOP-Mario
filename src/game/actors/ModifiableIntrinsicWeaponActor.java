@@ -27,6 +27,10 @@ public abstract class ModifiableIntrinsicWeaponActor extends Actor {
         currentIntrinsicWeapon = new IntrinsicWeapon(baseDamage, verb);
     }
 
+    /**
+     * Create a new intrinsic weapon for the actor (with modified damage)
+     * @param modifier
+     */
     public void createNewIntrinsicWeapon(int modifier) {
         baseDamage += modifier;
         currentIntrinsicWeapon = new IntrinsicWeapon((baseDamage), verb);

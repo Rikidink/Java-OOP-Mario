@@ -7,6 +7,11 @@ import game.actors.ModifiableIntrinsicWeaponActor;
 import game.items.Bottle;
 import game.items.fountain.Fountain;
 
+
+/**
+ * Action for drinking, currently from fountain or bottles
+ */
+
 public class DrinkAction extends Action {
 
     /**
@@ -20,6 +25,13 @@ public class DrinkAction extends Action {
     protected Fountain fountain;
 
     private boolean fromBottleFlag;
+
+    /**
+     * Constructor
+     * @param type what thetype of fountain is
+     * @param fountain fountain instance
+     * @param fromBottleFlag if the drink action happens in a bottle
+     */
 
     public DrinkAction(String type, Fountain fountain, boolean fromBottleFlag){
         this.type = type;

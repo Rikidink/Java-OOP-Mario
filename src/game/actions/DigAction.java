@@ -8,6 +8,9 @@ import game.ground.Dirt;
 import game.ground.Spores;
 import game.items.Coin;
 
+/**
+ * action for digging
+ */
 public class DigAction extends Action {
 
     @Override

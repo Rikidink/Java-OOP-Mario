@@ -9,7 +9,7 @@ import game.ground.Dirt;
 import game.items.Coin;
 
 /**
- * This is what happenes when you move while being affected by a power star
+ * This is what happens when you move while being affected by - for example - a power star
  */
 public class WalkToHigherGroundAction extends MoveActorAction {
     /**

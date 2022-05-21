@@ -13,10 +13,16 @@ import game.behaviours.Behaviour;
 
 import java.util.List;
 
+/**
+ * What becomes of an actor when it dies
+ */
 public class Corpse extends Enemy{
 
-    int timeRemaining;
+    private int timeRemaining;
 
+    /**
+     * Constructor
+     */
     public Corpse() {
         super("Corpse", '@', 9001, 0, "doesn't attack");
         timeRemaining = 5;

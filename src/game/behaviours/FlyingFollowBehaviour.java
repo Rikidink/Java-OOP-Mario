@@ -7,6 +7,9 @@ import edu.monash.fit2099.engine.positions.Exit;
 import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 
+/**
+ * Behaviour for things that fly and follow
+ */
 public class FlyingFollowBehaviour implements Behaviour{
 
     private final Actor target;

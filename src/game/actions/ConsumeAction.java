@@ -44,6 +44,10 @@ public class ConsumeAction extends Action {
         return actor + menuDescriptionText;
     }
 
+    /**
+     * what is the menu description
+     * @param menuDescriptionText text of the menu description
+     */
     public void setMenuDescriptionText(String menuDescriptionText){
         this.menuDescriptionText = menuDescriptionText;
     }

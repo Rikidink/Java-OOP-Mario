@@ -6,11 +6,19 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import game.items.Bottle;
 import game.items.fountain.Fountain;
 
+/**
+ * Action for filling bottles from a fountain
+ */
 public class FillBottleAction extends Action {
 
     private final DrinkAction drinkAction;
     private final Fountain fountain;
 
+    /**
+     * Constructor
+     * @param drinkAction the drink action to put in the bottle
+     * @param fountain fountain where the drink action came from
+     */
     public FillBottleAction(DrinkAction drinkAction, Fountain fountain) {
         this.drinkAction = drinkAction;
         this.fountain = fountain;

@@ -23,9 +23,19 @@ import java.util.Map;
  */
 public abstract class Enemy extends ModifiableIntrinsicWeaponActor {
 
+    /**
+     * What behaviours does the enemy have?
+     */
     protected final Map<Integer, Behaviour> behaviours = new HashMap<>(); // priority, behaviour
 
-
+    /**
+     * Constructor
+     * @param name name of the enemy
+     * @param displayChar what character the enemy is displayed as
+     * @param hitPoints how much health the enemy has
+     * @param baseDamage how much damage the enemy does by default
+     * @param verb verb used when enemy attacks
+     */
     public Enemy(String name, char displayChar, int hitPoints, int baseDamage, String verb){
         super(name, displayChar, hitPoints, baseDamage, verb);
         this.addCapability(Status.CANNOT_ENTER_FLOOR);

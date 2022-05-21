@@ -56,7 +56,7 @@ public abstract class Koopa extends Enemy implements Resettable {
 
 		// it can be attacked only by the HOSTILE opponent, and this action will not attack the HOSTILE enemy back.
 		if(otherActor.hasCapability(Status.HOSTILE_TO_ENEMY) && !(this.hasCapability(Status.IS_DORMANT)) || otherActor.getWeapon().toString().equals("Wrench")) {
-			actions.add(new AttackAction(this,direction)); //todo: add check for if dormant - remove from alloiwable acitons
+			actions.add(new AttackAction(this,direction));
 		}
 
 		if (this.hasCapability(Status.FOLLOWING)) {

@@ -19,18 +19,18 @@ import game.reset.Resettable;
 
 import java.util.Arrays;
 
+/**
+ * Boss mob
+ */
 public class Bowser extends Enemy implements Resettable {
-    GameMap bowserMap;
 
     /**
-     * Constructor.
-     *
+     * Constructor
      */
-    public Bowser(GameMap map) {
+    public Bowser() {
         super("Bowser", 'B', 500, 80, "punches");
         addItemToInventory(new Key());
         this.addCapability(Status.CAN_FIRE_ATTACK);
-        bowserMap = map;
         registerInstance();
     }
 
@@ -63,7 +63,7 @@ public class Bowser extends Enemy implements Resettable {
     @Override
     public void resetInstance(GameMap map) {
         //move back to original position, heal to max health, stop following.
-        bowserMap.moveActor(this, bowserMap.at(31, 7));
+        map.moveActor(this, map.at(31, 7));
         heal(getMaxHp());
         removeCapability(Status.FOLLOWING);
         behaviours.clear();

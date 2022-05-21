@@ -118,7 +118,7 @@ public class Application {
 		gameMap2.at(1, 1).addActor(new PiranhaPlant());
 
 		gameMap2.at(32, 7).addActor(new PrincessPeach());
-		gameMap2.at(31, 7).addActor(new Bowser(gameMap2));
+		gameMap2.at(31, 7).addActor(new Bowser());
 
 		ResetManager.getInstance().setMainMap(gameMap);
 

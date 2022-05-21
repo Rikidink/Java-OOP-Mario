@@ -6,9 +6,16 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.actors.Zonbi;
 
+/**
+ * reanimates fallen actors
+ */
 public class ReanimateAction extends Action {
     Actor target;
 
+    /**
+     * Constructor
+     * @param target what to reanimate
+     */
     public ReanimateAction(Actor target) {
         this.target = target;
     }

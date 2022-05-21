@@ -18,11 +18,13 @@ import game.reset.Resettable;
 
 import java.util.Arrays;
 
+/**
+ * Spooky plant that likes eating Mario flesh
+ */
 public class PiranhaPlant extends Enemy implements Resettable {
 
     /**
      * Constructor.
-     *
      */
     public PiranhaPlant() {
         super("Piranha Plant", 'Y', 150, 90, "chomps");

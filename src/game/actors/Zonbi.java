@@ -34,7 +34,6 @@ public class Zonbi extends Actor implements Resettable {
 
     /**
      * Constructor.
-     *
      */
     public Zonbi() {
         super("Zonbi", 'z', 20);

@@ -6,8 +6,14 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import game.Status;
 import game.behaviours.*;
 
+/**
+ * A variant of the dreaded Koopa that can fly to follow the actor. It can fly now? It can fly now!!!
+ */
 public class FlyingKoopa extends Koopa {
 
+    /**
+     * Constructor
+     */
     public FlyingKoopa() {
         super("Flying Koopa", 'F', 150);
         this.behaviours.put(10, new FlyingWanderBehaviour());

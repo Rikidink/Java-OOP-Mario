@@ -8,6 +8,9 @@ import game.behaviours.FollowBehaviour;
 import game.behaviours.GoToFountainBehaviour;
 import game.behaviours.WanderBehaviour;
 
+/**
+ * The normal Koopa
+ */
 public class NormalKoopa extends Koopa {
 
     public NormalKoopa() {

@@ -12,6 +12,9 @@ import game.actions.EndGameAction;
 import game.actions.SpeakAction;
 import game.items.Key;
 
+/**
+ * A very peachy princess (no don't try to eat her)
+ */
 public class PrincessPeach extends Actor implements CanSpeak {
     String dialogue = "Thank you for saving me Mario! :)";
 

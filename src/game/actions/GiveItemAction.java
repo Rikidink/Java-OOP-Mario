@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * like a trade action, but it gives mario a status not an item. This
- * status is intended to unlock an item
+ * like a trade action, except a gift. Also can give Status effects
  */
 public class GiveItemAction extends Action  {
 

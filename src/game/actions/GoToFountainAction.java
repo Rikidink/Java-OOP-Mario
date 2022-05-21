@@ -13,6 +13,9 @@ import game.trees.Sprout;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Action which directs mobs to go to a fountain (and then later drink from the fountain)
+ */
 public class GoToFountainAction extends Action {
 
     /**
@@ -25,8 +28,6 @@ public class GoToFountainAction extends Action {
      */
     private int y;
 
-    public GoToFountainAction(Actor actor, GameMap map){
-    }
 
     @Override
     public String execute(Actor actor, GameMap map) {
@@ -41,7 +42,6 @@ public class GoToFountainAction extends Action {
         } else {
             //if the actor is not already at the fountain
 
-            //todo: set original distances, and then let the actor go diagonally etc to the thing
 
             Location destination;
 

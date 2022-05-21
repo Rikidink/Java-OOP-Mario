@@ -7,12 +7,21 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import game.ground.Pipe;
 
+/**
+ * Action for teleportation
+ */
 public class TeleportAction extends Action {
 
     private GameMap lavaMap;
     private String direction;
     private Pipe targetPipe;
 
+    /**
+     * Constructor
+     * @param lavaMap lavaworld to teleport to
+     * @param direction to or from the lavaworld?
+     * @param pipe pipe used to teleport
+     */
     public TeleportAction(GameMap lavaMap, String direction, Pipe pipe){
         this.direction = direction;
         this.lavaMap = lavaMap;
