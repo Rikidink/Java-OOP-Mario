@@ -10,4 +10,14 @@ public class RuinWall extends HigherGround{
     public RuinWall() {
         super('%', 0.1, 40, "Ruin Wall");
     }
+
+    /**
+     * Method to determine if wall can block a thrown object
+     *
+     * @return true, blocks objects thrown
+     */
+    @Override
+    public boolean blocksThrownObjects() {
+        return true;
+    }
 }

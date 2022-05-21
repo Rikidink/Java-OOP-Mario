@@ -20,6 +20,12 @@ public class Lava extends DamagingGround {
         super('L', 15);
     }
 
+
+    /**
+     * Functions states that only actors with the LAVA_WALK status can walk onto lava
+     * @param actor the Actor to check
+     * @return true if the actor has LAVA_WALK, false if they don't
+     */
     @Override
     public boolean canActorEnter(Actor actor) {
         return actor.hasCapability(Status.LAVA_WALK);
