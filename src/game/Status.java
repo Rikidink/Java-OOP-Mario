@@ -34,7 +34,7 @@ public enum Status {
     CAN_BE_REFILLED, // if a bottle (or other item) can be refilled (at a fountain)
     HAS_A_BOTTLE, //to work out if something uses a CanHoldBottle interface
     WANTS_TO_GO_TO_A_FOUNTAIN, // if an actor wants to go to a fountain
-    CAN_FILL_BOTTLE,
-    CAN_DRINK
+    CAN_FILL_BOTTLE, //if an actor cann fill a bottle
+    CAN_DRINK,  //if an actor can drink
 
 }
