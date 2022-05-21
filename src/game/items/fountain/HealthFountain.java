@@ -23,27 +23,15 @@ public class HealthFountain extends Fountain {
         super('H', "Health Fountain", 10);
     }
 
-    @Override
-    public List<Action> getAllowableActions() {
-        List<Action> actions = new ArrayList<>();
-
-        if (remainingWater > 0) {
-            if (location.getActor().hasCapability(Status.CAN_FILL_BOTTLE)) {
-                if (remainingWater > 0) {
-                    actions.add(new FillBottleAction(new DrinkAction("Healing water", this, true), this));
-                }
-            }
-
-            if (location.getActor().hasCapability(Status.CAN_DRINK)) {
-                actions.add(new DrinkAction("Healing water", this, false));
-            }
-        }
-        return actions;
-    }
 
     @Override
     public String effects(ModifiableIntrinsicWeaponActor actor) {
         actor.heal(50);
         return "The healthy water heals " + actor + " by 50 points";
+    }
+
+    @Override
+    protected DrinkAction getDrinkAction(Boolean fromBottleFlag) {
+        return new DrinkAction("Health Fountain", this, fromBottleFlag);
     }
 }

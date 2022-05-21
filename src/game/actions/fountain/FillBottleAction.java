@@ -20,7 +20,7 @@ public class FillBottleAction extends Action {
     public String execute(Actor actor, GameMap map) {
         if (fountain.canFillBottle()){
             Bottle.getInstance().addConsumableToBottle(drinkAction);
-            fountain.reduceRemainingWater(1);
+            fountain.reduceRemainingWater(5);
             return "The bottle is filled with " + drinkAction.type;
         }
         else {

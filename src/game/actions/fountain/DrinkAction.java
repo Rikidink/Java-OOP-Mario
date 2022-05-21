@@ -34,10 +34,10 @@ public class DrinkAction extends Action {
             return (fountain.effects((ModifiableIntrinsicWeaponActor) actor));
         }
         else if (fountain.canDrinkFrom()) {
-            fountain.reduceRemainingWater(5);
+            fountain.reduceRemainingWater(1);
             return (fountain.effects((ModifiableIntrinsicWeaponActor) actor));
         }
-        return "The fountain does not have enough water to drink from yet.";
+        return "The fountain does not have enough water to drink from yet."; //this will never show up as the action wil
     }
 
     @Override
@@ -47,7 +47,7 @@ public class DrinkAction extends Action {
             StringBuilder bottleOutput = new StringBuilder();
 
             for (DrinkAction action : Bottle.getInstance().getBottleContents()) {
-                bottleOutput.append(type + ", ");
+                bottleOutput.append(type + " Water" + ", ");
             }
             bottleOutput.deleteCharAt(bottleOutput.length() -1);
             bottleOutput.deleteCharAt(bottleOutput.length() -1);

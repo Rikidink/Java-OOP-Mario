@@ -1,9 +1,15 @@
 package game.items.fountain;
 
+import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Status;
+import game.actions.fountain.DrinkAction;
+import game.actions.fountain.FillBottleAction;
 import game.actors.ModifiableIntrinsicWeaponActor;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -33,7 +39,7 @@ public abstract class Fountain extends Item {
     protected int timeUntilRefill = 5;
 
     /**
-     * Where is the founted? usefull is you need to know if the actor at the location has a bottle in its inventory
+     * Where is the fountain? useful if you need to know if the actor at the location has a bottle in its inventory
      */
     protected Location location;
 
@@ -48,6 +54,24 @@ public abstract class Fountain extends Item {
         this.maxWater = maxWater;
         this.remainingWater = maxWater;
         this.addCapability(Status.IS_A_FOUNTAIN);
+    }
+
+    @Override
+    public List<Action> getAllowableActions() {
+        List<Action> actions = new ArrayList<>();
+
+        if (remainingWater > 0) {
+            if (location.getActor().hasCapability(Status.CAN_FILL_BOTTLE)) {
+                if (remainingWater >= 5) {
+                    actions.add(new FillBottleAction( getDrinkAction(true), this));
+                }
+            }
+
+            if (location.getActor().hasCapability(Status.CAN_DRINK)) {
+                actions.add(getDrinkAction(false));
+            }
+        }
+        return actions;
     }
 
     public void tick(Location location) {
@@ -82,11 +106,11 @@ public abstract class Fountain extends Item {
      */
 
     public boolean canFillBottle(){
-        return remainingWater >= 1;
+        return remainingWater >= 5;
     }
 
     public boolean canDrinkFrom() {
-        return remainingWater >=5;
+        return remainingWater >=1;
     }
 
 
@@ -99,6 +123,12 @@ public abstract class Fountain extends Item {
 
     public abstract String effects(ModifiableIntrinsicWeaponActor actor);
 
+    /**
+     * action for getting the
+     * @param fromBottleFlag
+     * @return
+     */
+    protected abstract DrinkAction getDrinkAction(Boolean fromBottleFlag);
+
 
 }
-

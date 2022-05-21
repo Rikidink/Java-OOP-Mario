@@ -92,13 +92,13 @@ public class Application {
 		gameMap.at(3, 9).addItem(new NecromancyWeapon());
 
 
-		gameMap.at(11, 10).addActor(new Goomba());
+
 
 
 		//testing necromancy weapon
 		gameMap.at(40, 8).addActor(new Corpse());
 		//mario.addItemToInventory(new NecromancyWeapon());
-		gameMap.at(41, 8).addActor(new Goomba());
+
 
 
 
@@ -110,7 +110,10 @@ public class Application {
 		gameMap.at(42,6).setGround(new Pipe(gameMap2));
 
 
-		//gameMap.at(12, 10).addActor(new Goomba());
+
+		gameMap.at(12, 10).addActor(new Goomba());
+
+
 		gameMap2.at(1, 1).setGround(new Pipe(gameMap2));
 		gameMap2.at(1, 1).addActor(new PiranhaPlant());
 
