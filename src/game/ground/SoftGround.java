@@ -7,10 +7,12 @@ import edu.monash.fit2099.engine.positions.Location;
 import game.Status;
 import game.actions.DigAction;
 
+/**
+ * A type of ground which you can dig at
+ */
 public class SoftGround extends Ground {
     /**
      * Constructor.
-     *
      */
     public SoftGround() {
         super('x');

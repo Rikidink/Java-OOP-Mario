@@ -29,9 +29,6 @@ public class GoToFountainBehaviour implements Behaviour{
         if (actor.hasCapability(Status.WANTS_TO_GO_TO_A_FOUNTAIN)){
             return goToFountainAction;
         }
-
-
-
         return null;
     }
 

@@ -13,8 +13,7 @@ import java.util.List;
 
 
 /**
- * A fountain full of magical replenishing water. A sip takes away 5, a fill takes away 5.
- * ie each Health water class is worth 5 water in the fountain
+ * A fountain full of magical replenishing water.
  */
 public abstract class Fountain extends Item {
 
@@ -44,9 +43,10 @@ public abstract class Fountain extends Item {
     protected Location location;
 
     /**
-     * Constructor.
-     * @param displayChar character to display for this type of terrain
-     *
+     * Constructor
+     * @param displayChar what the fountain is displayed as
+     * @param type the type of fountain
+     * @param maxWater how much water the fountain can hold
      */
     public Fountain(char displayChar, String type, int maxWater) {
         super(type, displayChar, false);
@@ -74,6 +74,7 @@ public abstract class Fountain extends Item {
         return actions;
     }
 
+    @Override
     public void tick(Location location) {
         this.location = location;
 
@@ -92,6 +93,7 @@ public abstract class Fountain extends Item {
 
     /**
      * reduces the amount of water left
+     * @param reductionAmount how much to reduce the water by
      */
     public void reduceRemainingWater(int reductionAmount){
         remainingWater -= reductionAmount;
@@ -102,13 +104,15 @@ public abstract class Fountain extends Item {
     }
 
     /**
-     * If the fountain has enough water to refill items
+     * If the fountain has enough water to refill a bottle
      */
-
     public boolean canFillBottle(){
         return remainingWater >= 5;
     }
 
+    /**
+     * If there is enough water to drink from the fountain
+     */
     public boolean canDrinkFrom() {
         return remainingWater >=1;
     }

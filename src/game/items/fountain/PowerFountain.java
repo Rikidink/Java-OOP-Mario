@@ -16,7 +16,6 @@ import java.util.List;
 public class PowerFountain extends Fountain {
     /**
      * Constructor.
-
      */
     public PowerFountain() {
         super('A', "Power Fountain", 10);

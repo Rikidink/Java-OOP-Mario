@@ -8,6 +8,9 @@ import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 import game.Status;
 
+/**
+ * The floor is lava.. literally. A type of ground that is somehow less damaging than ground that is 'only' on fire
+ */
 public class Lava extends DamagingGround {
 
     /**

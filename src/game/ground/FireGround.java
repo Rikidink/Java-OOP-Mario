@@ -4,12 +4,14 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 
+/**
+ * Ground that is on fire
+ */
 public class FireGround extends DamagingGround {
     int timeRemaining;
 
     /**
      * Constructor.
-     *
      */
     public FireGround() {
         super('v', 20);

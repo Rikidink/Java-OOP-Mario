@@ -7,6 +7,10 @@ import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 
+/**
+ * Ground that hurts an actor when it stands on it
+ * #protip: don't stand on it
+ */
 public abstract class DamagingGround extends Ground {
     int damageAmount;
 

@@ -10,6 +10,9 @@ import game.actors.enemies.PiranhaPlant;
 import game.ground.JumpAction;
 import game.actions.TeleportAction;
 
+/**
+ * Teleportation device
+ */
 public class Pipe extends HigherGround {
 
     private int timeTilPiranhaPlantSpawn = 1;
@@ -21,7 +24,8 @@ public class Pipe extends HigherGround {
 
 
     /**
-     * Constructor.
+     * Constructor
+     * @param lavaMap the lava map the pipe teleports to
      */
     public Pipe(GameMap lavaMap) {
         super('C', 1, 0, "Pipe");

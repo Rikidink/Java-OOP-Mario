@@ -67,11 +67,13 @@ public class ResetManager {
         resettableList.add(reset);
     }
 
+    /**
+     * sets them main map
+     * @param map the map to make main
+     */
     public void setMainMap(GameMap map) {
         mainMap = map;
     }
 
-    public GameMap getMainMap() {
-        return mainMap;
-    }
+
 }

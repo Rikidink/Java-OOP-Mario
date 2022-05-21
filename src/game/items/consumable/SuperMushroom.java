@@ -10,6 +10,9 @@ import game.items.Buyable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * A magic mushroom that isn't illegal. It allows actors to jump pretty well among other things
+ */
 public class SuperMushroom extends Item implements Consumable, Buyable {
 
     /**

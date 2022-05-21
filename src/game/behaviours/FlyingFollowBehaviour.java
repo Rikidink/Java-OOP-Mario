@@ -8,7 +8,7 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 
 /**
- * Behaviour for things that fly and follow
+ * Behaviour for things that can fly to follow
  */
 public class FlyingFollowBehaviour implements Behaviour{
 

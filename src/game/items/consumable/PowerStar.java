@@ -11,6 +11,9 @@ import game.items.Buyable;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * A light in the black which grands powerful abilities
+ */
 public class PowerStar extends Item implements Consumable, Buyable {
 
     /**

@@ -6,7 +6,7 @@ import edu.monash.fit2099.engine.weapons.WeaponItem;
 import game.Status;
 
 /**
- * A weapon capale of undead magic when held
+ * A weapon capable of undead magic when held
  */
 public class NecromancyWeapon extends WeaponItem {
 
@@ -40,7 +40,10 @@ public class NecromancyWeapon extends WeaponItem {
         return damage;
     }
 
-
+    /**
+     * increase the chance of the weapon striking successfully
+     * @param amount % amount to increase by
+     */
     public void increaseChanceToHit(int amount){
         hitRate += amount;
 
@@ -50,6 +53,10 @@ public class NecromancyWeapon extends WeaponItem {
 
     }
 
+    /**
+     * increase the damage of the weapon
+     * @param amount amount to increase the damage by
+     */
     public void increaseDamage(int amount){
         damage += amount;
 

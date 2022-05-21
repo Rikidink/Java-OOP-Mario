@@ -1,5 +1,8 @@
 package game;
 
+/**
+ * Stores money
+ */
 public class Wallet {
 
     private Integer walletValue;

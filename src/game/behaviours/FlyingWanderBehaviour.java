@@ -9,6 +9,9 @@ import edu.monash.fit2099.engine.positions.Location;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Wander behaviour for things that can fly
+ */
 public class FlyingWanderBehaviour implements Behaviour{
     private final Random random = new Random();
 

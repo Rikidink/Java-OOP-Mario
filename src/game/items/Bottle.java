@@ -10,6 +10,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Stack;
 
+/**
+ * An item which can bottle up fountain waterfor later
+ */
 public class Bottle extends Item{
 
     /**
@@ -44,6 +47,10 @@ public class Bottle extends Item{
         bottleContents = new Stack<>();
     }
 
+    /**
+     * Adds a consumable to the bottle
+     * @param drinkAction consumable to add
+     */
     public void addConsumableToBottle(DrinkAction drinkAction) {
         bottleContents.push(drinkAction);
     }
@@ -61,10 +68,17 @@ public class Bottle extends Item{
         }
     }
 
+    /**
+     * Consumable a consumable from the bottle
+     */
     public void consumeFromBottle() {
         bottleContents.pop();
     }
 
+    /**
+     * get the contents of the bottle
+     * @return the bottle contents
+     */
     public Stack<DrinkAction> getBottleContents() {
         return bottleContents;
     }

@@ -2,6 +2,9 @@ package game.reset;
 
 import edu.monash.fit2099.engine.positions.GameMap;
 
+/**
+ * If something can be reset when the great reset happens
+ */
 public interface Resettable {
     /**
      * Allows any classes that use this interface to reset abilities, attributes, and/or items.
