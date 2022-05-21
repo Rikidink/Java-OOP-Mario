@@ -6,6 +6,7 @@ import game.Status;
 import game.Wallet;
 import game.actions.fountain.DrinkAction;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Stack;
 
@@ -58,6 +59,14 @@ public class Bottle extends Item{
         else {
             return bottleContents.peek();
         }
+    }
+
+    public void consumeFromBottle() {
+        bottleContents.pop();
+    }
+
+    public Stack<DrinkAction> getBottleContents() {
+        return bottleContents;
     }
 
 }

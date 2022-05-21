@@ -30,12 +30,12 @@ public class HealthFountain extends Fountain {
         if (remainingWater > 0) {
             if (location.getActor().hasCapability(Status.CAN_FILL_BOTTLE)) {
                 if (remainingWater > 0) {
-                    actions.add(new FillBottleAction(new DrinkAction("health", this, true), this));
+                    actions.add(new FillBottleAction(new DrinkAction("Healing water", this, true), this));
                 }
             }
 
             if (location.getActor().hasCapability(Status.CAN_DRINK)) {
-                actions.add(new DrinkAction("health", this, false));
+                actions.add(new DrinkAction("Healing water", this, false));
             }
         }
         return actions;

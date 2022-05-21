@@ -30,12 +30,12 @@ public class PowerFountain extends Fountain {
         if (remainingWater > 0) {
             if (location.getActor().hasCapability(Status.CAN_FILL_BOTTLE)) {
                 if (remainingWater > 0) {
-                    actions.add(new FillBottleAction(new DrinkAction("power", this, true), this));
+                    actions.add(new FillBottleAction(new DrinkAction("Power water", this, true), this));
                 }
             }
 
             if (location.getActor().hasCapability(Status.CAN_DRINK)) {
-                actions.add(new DrinkAction("power", this, false));
+                actions.add(new DrinkAction("Power water", this, false));
             }
         }
         return actions;

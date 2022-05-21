@@ -4,6 +4,7 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.actors.ModifiableIntrinsicWeaponActor;
+import game.items.Bottle;
 import game.items.fountain.Fountain;
 
 public class DrinkAction extends Action {
@@ -29,6 +30,7 @@ public class DrinkAction extends Action {
     @Override
     public String execute(Actor actor, GameMap map) {
         if (fromBottleFlag) {
+            Bottle.getInstance().consumeFromBottle();
             return (fountain.effects((ModifiableIntrinsicWeaponActor) actor));
         }
         else if (fountain.canDrinkFrom()) {
@@ -41,8 +43,15 @@ public class DrinkAction extends Action {
     @Override
     public String menuDescription(Actor actor) {
         //for bottles
-        if (fountain == null) {
-            return actor + " drinks the " + type + " water from the bottle";
+        if (fromBottleFlag) {
+            StringBuilder bottleOutput = new StringBuilder();
+
+            for (DrinkAction action : Bottle.getInstance().getBottleContents()) {
+                bottleOutput.append(type + ", ");
+            }
+            bottleOutput.deleteCharAt(bottleOutput.length() -1);
+            bottleOutput.deleteCharAt(bottleOutput.length() -1);
+            return actor + " drinks from Bottle [" + bottleOutput + "]";
         }
         //for sipping
         return actor + " drinks the water from the " + type + " " +  fountain.getWaterInfo();
