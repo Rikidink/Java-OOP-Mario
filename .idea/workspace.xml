@@ -4,43 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="javadoc part1">
+    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="javadoc part2">
+      <change afterPath="$PROJECT_DIR$/docs/FIT2099_A3_REQ3.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/PrincessPeach.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/PrincessPeach.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Bowser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Bowser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/Enemy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/FlyingKoopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/FlyingKoopa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/NormalKoopa.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/NormalKoopa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/PiranhaPlant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/actors/enemies/PiranhaPlant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/ground/FireGround.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/ground/FireGround.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/ground/Wall.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/ground/Wall.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Wallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Wallet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/behaviours/FlyingFollowBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/behaviours/FlyingFollowBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/behaviours/FlyingWanderBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/behaviours/FlyingWanderBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/behaviours/FollowBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/behaviours/FollowBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/behaviours/GoToFountainBehaviour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/behaviours/GoToFountainBehaviour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/DamagingGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/DamagingGround.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/FireGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/FireGround.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/Lava.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/Lava.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/Pipe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/Pipe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/RuinWall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/RuinWall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/SoftGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/SoftGround.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/SoftGroundSpawner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/SoftGroundSpawner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/Spores.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/Spores.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/ground/Wall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/ground/Wall.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/Bottle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/Bottle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/Buyable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/Buyable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/Key.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/Key.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/NecromancyWeapon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/NecromancyWeapon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/Shovel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/Shovel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/Wrench.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/Wrench.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/consumable/PowerStar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/consumable/PowerStar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/consumable/StorableFood.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/consumable/SuperMushroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/consumable/SuperMushroom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/fountain/Fountain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/fountain/Fountain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/items/fountain/PowerFountain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/items/fountain/PowerFountain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/reset/ResetManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/reset/ResetManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/reset/Resettable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/reset/Resettable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/behaviours/FollowBehaviour.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/behaviours/FollowBehaviour.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/PowerStar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/PowerStar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Status.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -358,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653123602785</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="javadoc part2">
+      <created>1653125300425</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1653125300425</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -374,7 +350,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added power star exception ot supre mushroom reversion" />
     <MESSAGE value="added sequence diagram" />
     <MESSAGE value="reworked consumables" />
     <MESSAGE value="minor improvements for super mushroom" />
@@ -399,6 +374,7 @@
     <MESSAGE value="nore sword stuff I think" />
     <MESSAGE value="Some changes to fountain" />
     <MESSAGE value="javadoc part1" />
-    <option name="LAST_COMMIT_MESSAGE" value="javadoc part1" />
+    <MESSAGE value="javadoc part2" />
+    <option name="LAST_COMMIT_MESSAGE" value="javadoc part2" />
   </component>
 </project>
