@@ -1,0 +1,16 @@
+WBA - Assignment 3
+
+Coming up with creative REQs - Linden and Rebekah 
+
+REQ1 - Ricky
+REQ2 - Rebekah 
+REQ3 - Linden
+REQ4 - All 3 team members
+REQ5 - Rebekah 
+
+All 3 team members to work on their designated REQs as stated above. Each to also test and fix each others REQs as necessary.
+Each member to write up the design rationale and to create the UML for their designated REQs. For REQ4, Ricky to write design rationale, Rebekah to create UML.
+Rebekah to create sequence diagram.
+Again, all team members to proofread each others design rationales and UMLs.
+
+I agree to this WBA - Rebekah Fullard
