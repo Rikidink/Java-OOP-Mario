@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="javadoc part2">
-      <change afterPath="$PROJECT_DIR$/docs/FIT2099_A3_REQ3.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/behaviours/FollowBehaviour.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/behaviours/FollowBehaviour.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/PowerStar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basecode/game/items/consumable/PowerStar.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Status.java" afterDir="false" />
-    </list>
+    <list default="true" id="a2cc5f86-3907-4a99-97ac-b4ee862365a3" name="Default Changelist" comment="javadoc part2" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
