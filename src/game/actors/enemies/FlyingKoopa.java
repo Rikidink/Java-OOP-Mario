@@ -17,6 +17,7 @@ public class FlyingKoopa extends Koopa {
     public FlyingKoopa() {
         super("Flying Koopa", 'F', 150);
         this.behaviours.put(10, new FlyingWanderBehaviour());
+        this.behaviours.put(9, new GoToFountainBehaviour());
     }
 
     /**

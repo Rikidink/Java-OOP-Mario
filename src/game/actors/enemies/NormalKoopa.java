@@ -5,6 +5,7 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
 import game.Status;
 import game.behaviours.FollowBehaviour;
+import game.behaviours.GoToFountainBehaviour;
 import game.behaviours.WanderBehaviour;
 
 /**
@@ -18,6 +19,7 @@ public class NormalKoopa extends Koopa {
     public NormalKoopa() {
         super("Koopa", 'K', 100);
         this.behaviours.put(10, new WanderBehaviour());
+        this.behaviours.put(9, new GoToFountainBehaviour());
     }
 
     /**
