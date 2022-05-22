@@ -72,7 +72,8 @@ public abstract class Fountain extends Item {
             if (location.getActor().hasCapability(Status.CAN_FILL_BOTTLE)) {
                     actions.add(new FillBottleAction( getDrinkAction(true), this));
             }
-
+        }
+        if (remainingWater >= 5) {
             if (location.getActor().hasCapability(Status.CAN_DRINK)) {
                 actions.add(getDrinkAction(false));
             }
