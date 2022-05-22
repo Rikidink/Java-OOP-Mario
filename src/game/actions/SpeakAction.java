@@ -10,6 +10,9 @@ import game.actors.CanSpeak;
  */
 public class SpeakAction extends Action {
 
+    /**
+     * The CanSpeak who will speak with this Action
+     */
     private final CanSpeak speaker;
 
     /**

@@ -9,10 +9,15 @@ import game.ground.Spores;
 import game.items.Coin;
 
 /**
- * action for digging
+ * An Action allowing an Actor to dig
  */
 public class DigAction extends Action {
 
+    /**
+     * Perform the Action
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
         String output;
@@ -31,6 +36,11 @@ public class DigAction extends Action {
         return output;
     }
 
+    /**
+     * Returns a descriptive String
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String menuDescription(Actor actor) {
         return (actor + " digs for treasure.");

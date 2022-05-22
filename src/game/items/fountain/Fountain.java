@@ -62,9 +62,7 @@ public abstract class Fountain extends Item {
 
         if (remainingWater > 0) {
             if (location.getActor().hasCapability(Status.CAN_FILL_BOTTLE)) {
-                if (remainingWater >= 5) {
                     actions.add(new FillBottleAction( getDrinkAction(true), this));
-                }
             }
 
             if (location.getActor().hasCapability(Status.CAN_DRINK)) {
@@ -107,14 +105,14 @@ public abstract class Fountain extends Item {
      * If the fountain has enough water to refill a bottle
      */
     public boolean canFillBottle(){
-        return remainingWater >= 5;
+        return remainingWater >= 1;
     }
 
     /**
      * If there is enough water to drink from the fountain
      */
     public boolean canDrinkFrom() {
-        return remainingWater >=1;
+        return remainingWater >=5;
     }
 
 

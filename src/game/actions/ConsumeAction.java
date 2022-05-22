@@ -10,25 +10,31 @@ import game.items.consumable.Consumable;
  */
 public class ConsumeAction extends Action {
 
+    /**
+     * The Consumable that will be consumed by this action
+     */
     private Consumable consumable;
 
     /**
-     * what is printed to the menu for the consume action
+     * The text for the menu description for this Action
      */
     private String menuDescriptionText;
 
     /**
      * Constructor
-     * @param consumable
+     * @param consumable          The Consumable that will be consumed by this action
+     * @param menuDescriptionText The text for the menu description for this Action
      */
     public ConsumeAction(Consumable consumable, String menuDescriptionText){
         this.consumable = consumable;
-
         setMenuDescriptionText(menuDescriptionText);
-
     }
 
-
+    /**
+     * Perform the Action
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
         consumable.addStatuses(actor);
@@ -38,18 +44,22 @@ public class ConsumeAction extends Action {
         return menuDescription(actor);
     }
 
-
+    /**
+     * Returns a descriptive String
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String menuDescription(Actor actor) {
         return actor + menuDescriptionText;
     }
 
     /**
-     * what is the menu description
-     * @param menuDescriptionText text of the menu description
+     * Sets the text for the menu description
+     *
+     * @param menuDescriptionText The text for the menu description for this Action
      */
     public void setMenuDescriptionText(String menuDescriptionText){
         this.menuDescriptionText = menuDescriptionText;
     }
-
 }

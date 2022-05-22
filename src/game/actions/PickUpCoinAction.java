@@ -12,12 +12,15 @@ import game.items.Coin;
  */
 public class PickUpCoinAction extends PickUpItemAction {
 
+    /**
+     * The Coin that will be picked up by this Action
+     */
     private final Coin coin;
 
     /**
      * Constructor
      *
-     * @param coin  The Coin object that is being picked up
+     * @param coin The Coin that will be picked up by this Action
      */
     public PickUpCoinAction (Coin coin) {
         super(coin);

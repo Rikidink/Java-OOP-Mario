@@ -11,24 +11,37 @@ import game.items.fountain.Fountain;
  */
 public class FillBottleAction extends Action {
 
+    /**
+     * The DrinkAction to be stored in the bottle
+     */
     private final DrinkAction drinkAction;
+
+    /**
+     * The fountain that the DrinkAction came from
+     */
     private final Fountain fountain;
 
     /**
      * Constructor
-     * @param drinkAction the drink action to put in the bottle
-     * @param fountain fountain where the drink action came from
+     *
+     * @param drinkAction   The DrinkAction to be stored in the bottle
+     * @param fountain      The fountain that the DrinkAction came from
      */
     public FillBottleAction(DrinkAction drinkAction, Fountain fountain) {
         this.drinkAction = drinkAction;
         this.fountain = fountain;
     }
 
+    /**
+     * Perform the Action
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
         if (fountain.canFillBottle()){
             Bottle.getInstance().addConsumableToBottle(drinkAction);
-            fountain.reduceRemainingWater(5);
+            fountain.reduceRemainingWater(1);
             return "The bottle is filled with " + drinkAction.type;
         }
         else {
@@ -36,6 +49,11 @@ public class FillBottleAction extends Action {
         }
     }
 
+    /**
+     * Returns a descriptive String
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String menuDescription(Actor actor) {
         return actor + " fills bottle from " + fountain;

@@ -12,14 +12,21 @@ import game.items.Buyable;
  */
 public class BuyAction extends Action {
 
+    /**
+     * The Buyable that can be bought with a given BuyAction
+     */
     private final Buyable item;
+
+    /**
+     * The price of the Buyable
+     */
     private final Integer price;
 
     /**
      * Constructor
      *
-     * @param item  The Item that the BuyAction allows the Actor to buy
-     * @param price The price of the Item that relates to the BuyAction
+     * @param item  The Buyable that can be bought with a given BuyAction
+     * @param price The price of the Buyable
      */
     public BuyAction(Buyable item, Integer price) {
         this.item = item;

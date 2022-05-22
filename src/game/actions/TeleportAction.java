@@ -4,7 +4,6 @@ import edu.monash.fit2099.engine.actions.Action;
 import edu.monash.fit2099.engine.actions.MoveActorAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
-import edu.monash.fit2099.engine.positions.Location;
 import game.ground.Pipe;
 
 /**
@@ -29,9 +28,9 @@ public class TeleportAction extends Action {
 
     /**
      * Constructor
-     * @param lavaMap lavaworld to teleport to
+     * @param lavaMap   lavaworld to teleport to
      * @param direction direction of the pipe mario jumps to
-     * @param pipe pipe used to teleport
+     * @param pipe      pipe used to teleport
      */
     public TeleportAction(GameMap lavaMap, String direction, Pipe pipe){
         this.direction = direction;
@@ -43,9 +42,9 @@ public class TeleportAction extends Action {
      * Method for actually teleporting mario
      * Checks if the pipe's initial pipe is null (always null for tree pipes) and does the
      * appropriate teleport
-     * @param actor The actor performing the action.
-     * @param treeMap
-     * @return
+     * @param actor     The actor performing the action.
+     * @param treeMap   The map of the original world you spawned in
+     * @return          Output to console once this Action is complete
      */
     @Override
     public String execute(Actor actor, GameMap treeMap) {
@@ -70,7 +69,6 @@ public class TeleportAction extends Action {
             }
     }
 
-
     /**
      * String output when mario is on the pipe
      * @param actor The actor performing the action.
@@ -79,7 +77,5 @@ public class TeleportAction extends Action {
     @Override
     public String menuDescription(Actor actor) {
         return "Teleport to lava world!";
-
     }
-
 }

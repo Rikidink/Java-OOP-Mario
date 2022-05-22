@@ -36,7 +36,8 @@ public class AttackAction extends Action {
 	/**
 	 * Constructor.
 	 * 
-	 * @param target the Actor to attack
+	 * @param target 	The Actor to attack
+	 * @param direction The direction of incoming attack
 	 */
 	public AttackAction(Actor target, String direction) {
 		this.target = target;
@@ -111,6 +112,14 @@ public class AttackAction extends Action {
 	}
 
 
+	/**
+	 * Calculates the damage to be done to the target, taking into account any powerups
+	 *
+	 * @param actor		The Actor doing the attack
+	 * @param map		The Map this is occurring on
+	 * @param weapon	The weapon the attack is being made with
+	 * @return			The final damage to be done to the target
+	 */
 	private int calculateDamage(Actor actor, GameMap map, Weapon weapon) {
 		int damage;
 

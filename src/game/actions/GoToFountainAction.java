@@ -1,7 +1,6 @@
 package game.actions;
 
 import edu.monash.fit2099.engine.actions.Action;
-import edu.monash.fit2099.engine.actions.MoveActorAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import edu.monash.fit2099.engine.positions.Exit;
@@ -9,26 +8,28 @@ import edu.monash.fit2099.engine.positions.GameMap;
 import edu.monash.fit2099.engine.positions.Location;
 import edu.monash.fit2099.engine.positions.NumberRange;
 import game.Status;
-import game.trees.Sprout;
 import java.util.List;
-import java.util.Random;
 
 /**
- * Action which directs mobs to go to a fountain (and then later drink from the fountain)
+ * Action which directs Enemies to go to a Fountain (and then later drink from the fountain)
  */
 public class GoToFountainAction extends Action {
 
     /**
-     * y of the closest fountain
+     * x-axis position of the closest fountain
      */
     private int x;
 
     /**
-     * y of the closest fountain
+     * y-axis position of the closest fountain
      */
     private int y;
 
-
+    /**
+     * Perform the Action
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
 
@@ -71,15 +72,22 @@ public class GoToFountainAction extends Action {
         }
     }
 
+    /**
+     * Returns a descriptive String
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String menuDescription(Actor actor) {
         return actor + " wanders towards a fountain";
     }
 
     /**
-     * finds the closest fountain to an actor and returns the coordinants
-     * @param map the map to find the fountain on
-     * @param actor the actor of whome to find the closest fountain for
+     * Finds the closest fountain to an actor
+     *
+     * @param map   the map to find the fountain on
+     * @param actor the actor who is looking for a fountain
+     * @return      whether a fountain was found
      */
     public boolean findClosestFountainCords(GameMap map, Actor actor) {
 
@@ -96,12 +104,10 @@ public class GoToFountainAction extends Action {
 
         //return a list of fountain
 
-
         NumberRange mapY = map.getYRange();
         NumberRange mapX = map.getXRange();
 
         //scan the whole map for fountains
-
         for (int y : mapY) {
             for (int x : mapX) {
                 List<Item> items = map.at(x, y).getItems();
@@ -110,23 +116,16 @@ public class GoToFountainAction extends Action {
                         if (Math.abs(actorX - x) + Math.abs(actorY - y) < Math.abs(actorX - minX) + Math.abs(actorY - minY)) {
                             minX = x;
                             minY = y;
-
                         }
                     }
                 }
             }
-
         }
 
         this.x = minX;
         this.y = minY;
 
-
-        if (this.x == 100) { //ie if no fountains found
-            return false;
-
-        } else {
-            return true;
-        }
+        //ie if no fountains found
+        return this.x != 100;
     }
 }

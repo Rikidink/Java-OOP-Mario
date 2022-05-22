@@ -9,36 +9,44 @@ import game.items.fountain.Fountain;
 
 
 /**
- * Action for drinking, currently from fountain or bottles
+ * An Action for drinking from a fountain or a drink stored in the bottle
  */
 
 public class DrinkAction extends Action {
 
     /**
-     * what kinda thing are you drinking?
+     * The type of fountain that the DrinkAction has come from
      */
     protected String type;
 
     /**
-     * The Fountain where the water comes from
+     * The Fountain where the DrinkAction has come from
      */
     protected Fountain fountain;
 
+    /**
+     * A flag for whether the action is to drink directly from the fountain, or to drink from a bottle
+     */
     private boolean fromBottleFlag;
 
     /**
      * Constructor
-     * @param type what thetype of fountain is
-     * @param fountain fountain instance
-     * @param fromBottleFlag if the drink action happens in a bottle
+     *
+     * @param type              The type of fountain that the DrinkAction has come from
+     * @param fountain          The Fountain where the DrinkAction has come from
+     * @param fromBottleFlag    A flag for whether the action is to drink directly from the fountain, or to drink from a bottle
      */
-
     public DrinkAction(String type, Fountain fountain, boolean fromBottleFlag){
         this.type = type;
         this.fountain = fountain;
         this.fromBottleFlag = fromBottleFlag;
     }
 
+    /**
+     * Perform the Action
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String execute(Actor actor, GameMap map) {
         if (fromBottleFlag) {
@@ -46,12 +54,17 @@ public class DrinkAction extends Action {
             return (fountain.effects((ModifiableIntrinsicWeaponActor) actor));
         }
         else if (fountain.canDrinkFrom()) {
-            fountain.reduceRemainingWater(1);
+            fountain.reduceRemainingWater(5);
             return (fountain.effects((ModifiableIntrinsicWeaponActor) actor));
         }
-        return "The fountain does not have enough water to drink from yet."; //this will never show up as the action wil
+        return "The fountain does not have enough water to drink from yet.";
     }
 
+    /**
+     * Returns a descriptive String
+     *
+     * @see Action#execute(Actor actor, GameMap map)
+     */
     @Override
     public String menuDescription(Actor actor) {
         //for bottles

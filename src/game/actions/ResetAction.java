@@ -12,6 +12,9 @@ import game.reset.ResetManager;
  */
 public class ResetAction extends Action {
 
+    /**
+     * The hotkey for this Action when it appears in the menu
+     */
     protected static final String hotkey = "r";
 
     /**
