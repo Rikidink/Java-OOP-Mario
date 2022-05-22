@@ -90,7 +90,7 @@ abstract public class HigherGround extends Ground {
                 actions.add(new WalkToHigherGroundAction(location,direction));
             }
             else {
-                actions.add(new JumpAction(location, direction, (HigherGround) location.getGround()));
+                actions.add(new JumpAction(location, direction, this));
             }
         }
          return actions;
