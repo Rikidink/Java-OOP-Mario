@@ -104,6 +104,9 @@ public class Application {
 		gameMap2.at(32, 7).addActor(new PrincessPeach());
 		gameMap2.at(31, 7).addActor(new Bowser(gameMap2));
 
+		gameMap.at(7, 9).addActor(new GuardKoopa());
+		gameMap.at(8, 9).addActor(new GuardKoopa());
+
 		// spawn sprouts and soft grounds
 		SproutSpawner.generateSprouts(gameMap);
 		SoftGroundSpawner.generateSoftGround(gameMap);
