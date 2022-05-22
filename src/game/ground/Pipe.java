@@ -71,7 +71,7 @@ public class Pipe extends HigherGround {
             actions.add(new JumpAction(location, direction, this));
         }
         else {
-            actions.add(new TeleportAction(lavaMap, direction, this));
+            actions.add(new TeleportAction(lavaMap, this));
 
         }
         return actions;

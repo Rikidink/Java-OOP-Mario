@@ -16,10 +16,6 @@ public class TeleportAction extends Action {
      */
     private GameMap lavaMap;
 
-    /**
-     * Direction of the pipe mario jumps to
-     */
-    private String direction;
 
     /**
      * Pipe that mario teleports through
@@ -29,11 +25,9 @@ public class TeleportAction extends Action {
     /**
      * Constructor
      * @param lavaMap   lavaworld to teleport to
-     * @param direction direction of the pipe mario jumps to
      * @param pipe      pipe used to teleport
      */
-    public TeleportAction(GameMap lavaMap, String direction, Pipe pipe){
-        this.direction = direction;
+    public TeleportAction(GameMap lavaMap, Pipe pipe){
         this.lavaMap = lavaMap;
         this.targetPipe = pipe;
     }
@@ -53,8 +47,7 @@ public class TeleportAction extends Action {
                     lavaMap.removeActor(targetPipe.getLavaPipe().getActor());
                 }
                 // Move actor to lavaPipe
-                MoveActorAction move = new MoveActorAction(targetPipe.getLavaPipe(), direction);
-                move.execute(actor,treeMap);
+                treeMap.moveActor(actor,targetPipe.getLavaPipe());
 
                 // Sets the initialPipe attribute at the lavaPipe to the one mario came from
                 targetPipe.getPipeLava().setInitialPipe(targetPipe.getPipeLocation());
@@ -63,8 +56,7 @@ public class TeleportAction extends Action {
             else {
 
                 // Uses initialPipe attribute from the lavaPipe
-                MoveActorAction move = new MoveActorAction(targetPipe.getInitialPipe(),direction);
-                move.execute(actor, lavaMap);
+                lavaMap.moveActor(actor, targetPipe.getInitialPipe());
 
                 return "Teleported back to the tree world!";
             }
@@ -77,6 +69,12 @@ public class TeleportAction extends Action {
      */
     @Override
     public String menuDescription(Actor actor) {
-        return "Teleport to lava world!";
+        if(!lavaMap.contains(actor)){
+            return "Teleport to lava world!";
+        }
+        else {
+            return "Teleport back to tree world!";
+        }
+
     }
 }

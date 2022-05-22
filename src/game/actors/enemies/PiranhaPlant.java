@@ -27,7 +27,8 @@ public class PiranhaPlant extends Enemy implements Resettable {
      * Constructor.
      */
     public PiranhaPlant() {
-        super("Piranha Plant", 'Y', 150, 90, "chomps");
+        // 150, 90
+        super("Piranha Plant", 'Y', 1, 1, "chomps");
         registerInstance();
     }
 
