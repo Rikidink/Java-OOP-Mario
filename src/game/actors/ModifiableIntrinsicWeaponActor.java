@@ -4,13 +4,19 @@ import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 
 /**
- * modifies the intrinsic weapon of the actor class it inherits from
+ * A type of Actor that can modify its intrinsic weapon
  */
 
 public abstract class ModifiableIntrinsicWeaponActor extends Actor {
 
-    private IntrinsicWeapon currentIntrinsicWeapon;
+    /**
+     * The current base damage of the Actor's intrinsic weapon
+     */
     private int baseDamage;
+
+    /**
+     * The output verb for the Actor's intrinsic weapon
+     */
     String verb;
 
     /**
@@ -19,25 +25,32 @@ public abstract class ModifiableIntrinsicWeaponActor extends Actor {
      * @param name        the name of the Actor
      * @param displayChar the character that will represent the Actor in the display
      * @param hitPoints   the Actor's starting hit points
+     * @param baseDamage  The current base damage of the Actor's intrinsic weapon
+     * @param verb        The current output verb for the Actor's intrinsic weapon
      */
     public ModifiableIntrinsicWeaponActor(String name, char displayChar, int hitPoints, int baseDamage, String verb) {
         super(name, displayChar, hitPoints);
         this.baseDamage = baseDamage;
         this.verb = verb;
-        currentIntrinsicWeapon = new IntrinsicWeapon(baseDamage, verb);
     }
 
     /**
      * Create a new intrinsic weapon for the actor (with modified damage)
-     * @param modifier
+     *
+     * @param modifier  the amount of damage to add to the intrinsic weapon damage
      */
-    public void createNewIntrinsicWeapon(int modifier) {
+    public void modifyIntrinsicWeaponDamage(int modifier) {
         baseDamage += modifier;
-        currentIntrinsicWeapon = new IntrinsicWeapon((baseDamage), verb);
     }
 
+    /**
+     * Creates and returns an intrinsic weapon.
+     *
+     * @return a freshly-instantiated IntrinsicWeapon
+     * @see Actor#getIntrinsicWeapon()
+     */
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
-        return currentIntrinsicWeapon;
+        return new IntrinsicWeapon(baseDamage, verb);
     }
 }

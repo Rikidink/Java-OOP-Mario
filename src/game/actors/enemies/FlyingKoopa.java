@@ -19,6 +19,15 @@ public class FlyingKoopa extends Koopa {
         this.behaviours.put(10, new FlyingWanderBehaviour());
     }
 
+    /**
+     * Returns a new collection of the Actions that the otherActor can do to the current Actor.
+     *
+     * @param otherActor the Actor that might perform an action.
+     * @param direction  String representing the direction of the other Actor
+     * @param map        current GameMap
+     * @return list of actions
+     * @see Status#HOSTILE_TO_ENEMY
+     */
     @Override
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList actions = new ActionList();

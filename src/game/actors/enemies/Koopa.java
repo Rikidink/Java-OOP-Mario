@@ -7,17 +7,12 @@ import edu.monash.fit2099.engine.actions.DoNothingAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.displays.Display;
 import edu.monash.fit2099.engine.positions.GameMap;
-import edu.monash.fit2099.engine.weapons.IntrinsicWeapon;
 import game.Status;
 import game.behaviours.GoToFountainBehaviour;
 import game.reset.Resettable;
 import game.actions.AttackAction;
 import game.behaviours.AttackBehaviour;
-import game.behaviours.Behaviour;
 import game.items.consumable.SuperMushroom;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * A big turtle guy.
@@ -80,8 +75,6 @@ public abstract class Koopa extends Enemy implements Resettable {
 			return super.playTurn(actions,lastAction,map,display);
 			}
 		}
-
-
 
 	/**
 	 * Resets abilities, attributes, and/or items.

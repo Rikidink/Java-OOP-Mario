@@ -18,10 +18,9 @@ import game.actions.ResetAction;
  */
 public class Player extends ModifiableIntrinsicWeaponActor implements Resettable {
 
-
 	private final Menu menu = new Menu();
 
-	/**lop
+	/**
 	 * Constructor.
 	 *
 	 * @param name        Name to call the player in the UI

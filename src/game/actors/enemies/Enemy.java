@@ -30,6 +30,7 @@ public abstract class Enemy extends ModifiableIntrinsicWeaponActor {
 
     /**
      * Constructor
+     *
      * @param name name of the enemy
      * @param displayChar what character the enemy is displayed as
      * @param hitPoints how much health the enemy has
@@ -43,7 +44,15 @@ public abstract class Enemy extends ModifiableIntrinsicWeaponActor {
         this.addCapability(Status.CAN_DRINK);
     }
 
-
+    /**
+     * Returns a new collection of the Actions that the otherActor can do to the current Actor.
+     *
+     * @param otherActor the Actor that might perform an action.
+     * @param direction  String representing the direction of the other Actor
+     * @param map        current GameMap
+     * @return list of actions
+     * @see Status#HOSTILE_TO_ENEMY
+     */
     @Override
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList actions = new ActionList();
@@ -51,7 +60,11 @@ public abstract class Enemy extends ModifiableIntrinsicWeaponActor {
         return actions;
     }
 
-
+    /**
+     * Figure out what to do next.
+     *
+     * @see Actor#playTurn(ActionList, Action, GameMap, Display)
+     */
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
 

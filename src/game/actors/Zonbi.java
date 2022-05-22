@@ -41,6 +41,11 @@ public class Zonbi extends Actor implements Resettable {
         behaviours.put(10, new WanderBehaviour());
     }
 
+    /**
+     * Figure out what to do next.
+     *
+     * @see Actor#playTurn(ActionList, Action, GameMap, Display)
+     */
     @Override
     public Action playTurn(ActionList actions, Action lastAction, GameMap map, Display display) {
         //Zonbie will only live for at most 20 turns
@@ -65,6 +70,15 @@ public class Zonbi extends Actor implements Resettable {
         return new DoNothingAction();
     }
 
+    /**
+     * Returns a new collection of the Actions that the otherActor can do to the current Actor.
+     *
+     * @param otherActor the Actor that might perform an action.
+     * @param direction  String representing the direction of the other Actor
+     * @param map        current GameMap
+     * @return list of actions
+     * @see Status#HOSTILE_TO_ENEMY
+     */
     @Override
     public ActionList allowableActions(Actor otherActor, String direction, GameMap map) {
         ActionList actions = new ActionList();
@@ -74,16 +88,24 @@ public class Zonbi extends Actor implements Resettable {
         return actions;
     }
 
-
+    /**
+     * Creates and returns an intrinsic weapon.
+     *
+     * @return a freshly-instantiated IntrinsicWeapon
+     * @see Actor#getIntrinsicWeapon()
+     */
     @Override
     protected IntrinsicWeapon getIntrinsicWeapon() {
         return new IntrinsicWeapon(10, "bites");
     }
 
+    /**
+     * Resets abilities, attributes, and/or items.
+     *
+     * @see Resettable#resetInstance(GameMap map)
+     */
     @Override
     public void resetInstance(GameMap map) {
-
     }
-
 }
 
