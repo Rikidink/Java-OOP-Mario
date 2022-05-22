@@ -75,61 +75,40 @@ public class Application {
 				"LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL....................LLLLLLLLLLLLL",
 				"LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL............LLLLLLLLLLLLLLLLL");
 
+		//create game-maps
 		GameMap gameMap = new GameMap(groundFactory, map);
 		world.addGameMap(gameMap);
 
 		GameMap gameMap2 = new GameMap(groundFactory,map2);
 		world.addGameMap(gameMap2);
 
+		//create player
 		Actor mario = new Player("Player", 'm', 100);
 		world.addPlayer(mario, gameMap.at(42, 10));
 
-
+		//set up main world
 		gameMap.at(42, 10).addItem(new PowerStar());
 		gameMap.at(42, 10).addItem(new SuperMushroom());
 		gameMap.at(42, 10).addItem(new Coin(5000, 42, 10));
 		gameMap.at(44, 11).addActor(new Toad());
 		gameMap.at(3, 9).addItem(new NecromancyWeapon());
-
-
-
-
-
-		//testing necromancy weapon
-		gameMap.at(40, 8).addActor(new Corpse());
-		//mario.addItemToInventory(new NecromancyWeapon());
-
-
-
-
+		gameMap.at(42,6).setGround(new Pipe(gameMap2));
+		ResetManager.getInstance().setMainMap(gameMap);
 		//add fountains
 		gameMap.at(42, 8).addItem(new HealthFountain());
 		gameMap.at(42, 7).addItem(new PowerFountain());
 
-		// pipe test
-		gameMap.at(42,6).setGround(new Pipe(gameMap2));
-
-
-
-		gameMap.at(12, 10).addActor(new Goomba());
-
-
+		//set up lava world
 		gameMap2.at(1, 1).setGround(new Pipe(gameMap2));
 		gameMap2.at(1, 1).addActor(new PiranhaPlant());
-
 		gameMap2.at(32, 7).addActor(new PrincessPeach());
-		gameMap2.at(31, 7).addActor(new Bowser());
+		gameMap2.at(31, 7).addActor(new Bowser(gameMap2));
 
-		ResetManager.getInstance().setMainMap(gameMap);
-
-		// spawn sprouts
+		// spawn sprouts and soft grounds
 		SproutSpawner.generateSprouts(gameMap);
 		SoftGroundSpawner.generateSoftGround(gameMap);
 
 		world.run();
-
-
-
 	}
 
 	/*
