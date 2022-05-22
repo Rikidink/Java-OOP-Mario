@@ -42,6 +42,7 @@ public class Pipe extends HigherGround {
      */
     private Location initialPipe;
 
+
     /**
      * Constructor
      * @param lavaMap the lava map the pipe teleports to
@@ -63,7 +64,7 @@ public class Pipe extends HigherGround {
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         this.pipeLocation = location;
-        this.pipeLava = (Pipe) lavaMap.at(1, 1).getGround();
+        this.pipeLava = (Pipe) lavaPipe.getGround();
 
         ActionList actions = new ActionList();
         if(!location.containsAnActor()) {

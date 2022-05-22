@@ -92,7 +92,6 @@ public class Application {
 		gameMap.at(42, 10).addItem(new Coin(5000, 42, 10));
 		gameMap.at(44, 11).addActor(new Toad());
 		gameMap.at(3, 9).addItem(new NecromancyWeapon());
-		gameMap.at(42,6).setGround(new Pipe(gameMap2));
 		ResetManager.getInstance().setMainMap(gameMap);
 		//add fountains
 		gameMap.at(42, 8).addItem(new HealthFountain());
@@ -110,6 +109,7 @@ public class Application {
 		// spawn sprouts and soft grounds
 		SproutSpawner.generateSprouts(gameMap);
 		SoftGroundSpawner.generateSoftGround(gameMap);
+		PipeSpawner.spawnPipes(gameMap,gameMap2);
 
 		world.run();
 	}
