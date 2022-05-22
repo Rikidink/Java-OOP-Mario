@@ -14,6 +14,9 @@ import game.actions.FireAttackAction;
  */
 public class AttackBehaviour implements Behaviour{
 
+    /**
+     * The target of the attack
+     */
     private final Actor target;
 
     /**

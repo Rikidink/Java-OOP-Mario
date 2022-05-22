@@ -11,7 +11,12 @@ import game.actions.GoToFountainAction;
  */
 public class GoToFountainBehaviour implements Behaviour{
 
-
+    /**
+     * gets the action the actor does (attack or not)
+     * @param actor the Actor acting
+     * @param map the GameMap containing the Actor
+     * @return null or some info about the attack
+     */
     @Override
     public Action getAction(Actor actor, GameMap map) {
 
@@ -31,5 +36,4 @@ public class GoToFountainBehaviour implements Behaviour{
         }
         return null;
     }
-
 }

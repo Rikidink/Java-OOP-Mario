@@ -15,9 +15,15 @@ import java.util.Random;
 public class FlyingWanderBehaviour implements Behaviour{
     private final Random random = new Random();
 
+    /**
+     * gets the action the actor does (attack or not)
+     * @param actor the Actor acting
+     * @param map the GameMap containing the Actor
+     * @return null or some info about the attack
+     */
     @Override
     public Action getAction(Actor actor, GameMap map) {
-        ArrayList<Action> actions = new ArrayList<Action>();
+        ArrayList<Action> actions = new ArrayList<>();
 
         for (Exit exit : map.locationOf(actor).getExits()) {
                 actions.add(exit.getDestination().getMoveAction(actor, exit.getName(), exit.getHotKey()));

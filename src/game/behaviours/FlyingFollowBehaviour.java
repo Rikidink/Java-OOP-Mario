@@ -12,6 +12,9 @@ import edu.monash.fit2099.engine.positions.Location;
  */
 public class FlyingFollowBehaviour implements Behaviour{
 
+    /**
+     * The target that is being followed
+     */
     private final Actor target;
 
     /**
@@ -23,6 +26,12 @@ public class FlyingFollowBehaviour implements Behaviour{
         this.target = subject;
     }
 
+    /**
+     * gets the action the actor does (attack or not)
+     * @param actor the Actor acting
+     * @param map the GameMap containing the Actor
+     * @return null or some info about the attack
+     */
     @Override
     public Action getAction(Actor actor, GameMap map) {
         if (!map.contains(target) || !map.contains(actor)) {
@@ -46,6 +55,13 @@ public class FlyingFollowBehaviour implements Behaviour{
         return null;
     }
 
+    /**
+     * Compute the Manhattan distance between two locations.
+     *
+     * @param a the first location
+     * @param b the first location
+     * @return the number of steps between a and b if you only move in the four cardinal directions.
+     */
     private int distance(Location a, Location b) {
         return Math.abs(a.x() - b.x()) + Math.abs(a.y() - b.y());
     }
