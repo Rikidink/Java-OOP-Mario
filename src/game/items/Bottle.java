@@ -1,13 +1,9 @@
 package game.items;
 
-import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.items.Item;
 import game.Status;
-import game.Wallet;
 import game.actions.fountain.DrinkAction;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Stack;
 
 /**
@@ -20,6 +16,10 @@ public class Bottle extends Item{
      */
     private Stack<DrinkAction> bottleContents;
 
+    /**
+     * A singleton Bottle instance
+     *
+     */
     private static Bottle instance;
 
     /**
@@ -36,6 +36,7 @@ public class Bottle extends Item{
 
     /***
      * Constructor.
+     *
      *  @param name the name of this Item
      * @param displayChar the character to use to represent this item if it is on the ground
      * @param portable true if and only if the Item can be picked up
@@ -48,16 +49,18 @@ public class Bottle extends Item{
     }
 
     /**
-     * Adds a consumable to the bottle
+     * Adds a DrinkAction to be stored in the bottle
+     *
      * @param drinkAction consumable to add
      */
-    public void addConsumableToBottle(DrinkAction drinkAction) {
+    public void addToBottle(DrinkAction drinkAction) {
         bottleContents.push(drinkAction);
     }
 
     /**
-     * get the current drink action
-     * @return the currect drink action
+     * Looks at the DrinkAction that is currently on top of the stack
+     *
+     * @return the DrinkAction at the top of the stack
      */
     public DrinkAction getCurrentDrinkAction(){
         if (bottleContents.empty()){
@@ -69,7 +72,7 @@ public class Bottle extends Item{
     }
 
     /**
-     * Consumable a consumable from the bottle
+     * Consumable a DrinkAction from the bottle by using pop() to remove it from the top of the stack
      */
     public void consumeFromBottle() {
         bottleContents.pop();
@@ -77,6 +80,7 @@ public class Bottle extends Item{
 
     /**
      * get the contents of the bottle
+     *
      * @return the bottle contents
      */
     public Stack<DrinkAction> getBottleContents() {

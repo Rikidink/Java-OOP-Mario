@@ -12,5 +12,4 @@ public interface Buyable {
      * @param actor the actor to do it on
      */
     void onBuy(Actor actor);
-
 }

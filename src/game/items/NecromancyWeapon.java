@@ -25,16 +25,32 @@ public class NecromancyWeapon extends WeaponItem {
      */
     private boolean firstTime = true;
 
+    /**
+     * Constructor
+     *
+     */
     public NecromancyWeapon() {
         super("Necromancy Weapon", 'N', 10, "strikes", 30);
         this.addCapability(Status.CAN_REANIMATE);
     }
 
+    /**
+     * Returns the chance to hit the target in integer. Use it altogether with nextInt() method.
+     *
+     * @return the hitRate of the weapon
+     * @see WeaponItem#chanceToHit()
+     */
     @Override
     public int chanceToHit() {
         return hitRate;
     }
 
+    /**
+     * Accessor for damage done by this weapon.
+     *
+     * @return the damage
+     * @see WeaponItem#damage()
+     */
     @Override
     public int damage() {
         return damage;
@@ -42,6 +58,7 @@ public class NecromancyWeapon extends WeaponItem {
 
     /**
      * increase the chance of the weapon striking successfully
+     *
      * @param amount % amount to increase by
      */
     public void increaseChanceToHit(int amount){
@@ -50,20 +67,20 @@ public class NecromancyWeapon extends WeaponItem {
         if (hitRate > 100){
             hitRate = 100;
         }
-
     }
 
     /**
      * increase the damage of the weapon
+     *
      * @param amount amount to increase the damage by
      */
     public void increaseDamage(int amount){
         damage += amount;
-
     }
 
     /**
      * tick item in actors inventory
+     *
      * @param currentLocation The location of the actor carrying this Item.
      * @param actor The actor carrying this Item.
      */
@@ -74,15 +91,13 @@ public class NecromancyWeapon extends WeaponItem {
         } else if (actor.hasCapability(Status.KILLER)){
             increaseChanceToHit(5);
             increaseDamage(5);
-
-
         }
-
         actor.removeCapability(Status.KILLER);
     }
 
     /**
      * tick actor on ground
+     *
      * @param currentLocation The location of the ground on which we lie.
      */
     @Override

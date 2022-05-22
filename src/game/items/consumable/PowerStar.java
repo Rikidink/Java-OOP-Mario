@@ -31,19 +31,28 @@ public class PowerStar extends Item implements Consumable, Buyable {
      */
     private ConsumeAction consumeAction = new ConsumeAction(this, " consumes the Power Star - " + timeRemaining + " turns remaining");
 
-
     /**
      * An array list of all of the statuses an actor will gain when consuming this item
      */
     ArrayList<Enum> statusList;
 
-
+    /**
+     * Constructor
+     *
+     */
     public PowerStar() {
         super("Power Star", '*', true);
         statusList = new ArrayList<Enum>(Arrays.asList(Status.INVINCIBLE, Status.WALK_TO_HIGHER_GROUND, Status.INSTA_KILLER)); //set the list of status to update
         super.addAction(consumeAction);
     }
 
+    /**
+     * A list of other things to be done when the item is consumed
+     *
+     * @param actor the actor to be effected by the consumption
+     * @param map   the map this is occuring on
+     * @see Consumable#otherThingsToDoWhenConsumed(Actor actor, GameMap map)
+     */
     @Override
     public void otherThingsToDoWhenConsumed(Actor actor, GameMap map) {
         consumed = true;
@@ -56,11 +65,12 @@ public class PowerStar extends Item implements Consumable, Buyable {
         map.locationOf(actor).removeItem(this);
 
         timeRemaining = 10; //reset time remaining so it knows when to remove itself from the inventory
-
     }
 
     /**
      * Adds all of the statuses stored in the item to an actor (who consumed it presumably)
+     *
+     * @param actor the actor to add the statuses to
      */
     public void addStatuses(Actor actor){
         for (Enum status: statusList){
@@ -77,12 +87,15 @@ public class PowerStar extends Item implements Consumable, Buyable {
         }
     }
 
+    /**
+     * The description for the menu when it is consumed
+     * @param actor The Actor that can take the action
+     * @return      The sting of the menu description to output
+     */
     @Override
     public String menuDescription(Actor actor) {
         return actor + " consumes the Power Star - " + timeRemaining + " turns remaining";
     }
-
-
 
     /**
      * Inform a carried Item of the passage of time.
@@ -139,6 +152,12 @@ public class PowerStar extends Item implements Consumable, Buyable {
         }
     }
 
+    /**
+     * what to do when something is bought
+     *
+     * @param actor the actor to be effected
+     * @see Buyable#onBuy(Actor actor)
+     */
     @Override
     public void onBuy(Actor actor) {
         actor.addItemToInventory(this);

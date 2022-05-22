@@ -17,6 +17,12 @@ public class Shovel extends Item implements Buyable{
         this.addCapability(Status.CAN_DIG);
     }
 
+    /**
+     * what to do when something is bought
+     *
+     * @param actor the actor to be effected
+     * @see Buyable#onBuy(Actor actor)
+     */
     @Override
     public void onBuy(Actor actor) {
         actor.addItemToInventory(this);
