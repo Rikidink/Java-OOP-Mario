@@ -8,6 +8,10 @@ import edu.monash.fit2099.engine.positions.Location;
  * A nasty little ground type which hurts a bit
  */
 public class Spores extends DamagingGround {
+
+    /**
+     * remaining time that this Spores will exist for
+     */
     int timeRemaining;
 
     /**
@@ -18,6 +22,12 @@ public class Spores extends DamagingGround {
         timeRemaining = 10;
     }
 
+    /**
+     * Ground can also experience the joy of time.
+     *
+     * @param location The location of the Ground
+     * @see Ground#tick(Location location)
+     */
     @Override
     public void tick(Location location) {
         timeRemaining--;

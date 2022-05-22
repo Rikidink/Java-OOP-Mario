@@ -18,6 +18,14 @@ public class SoftGround extends Ground {
         super('x');
     }
 
+    /**
+     * Method that adds the jump action to higher ground objects
+     *
+     * @param actor the Actor acting; i.e: the player
+     * @param location the current Location of the higher ground
+     * @param direction the direction of the Ground from the Actor
+     * @return the list of actions for the SoftGround
+     */
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
         ActionList actions = new ActionList();

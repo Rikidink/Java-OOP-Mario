@@ -1,6 +1,5 @@
 package game.ground;
 
-import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
 
@@ -8,6 +7,10 @@ import edu.monash.fit2099.engine.positions.Location;
  * Ground that is on fire
  */
 public class FireGround extends DamagingGround {
+
+    /**
+     * remaining time that this FireGround will exist for
+     */
     int timeRemaining;
 
     /**
@@ -18,6 +21,12 @@ public class FireGround extends DamagingGround {
         timeRemaining = 3;
     }
 
+    /**
+     * Ground can also experience the joy of time.
+     *
+     * @param location The location of the Ground
+     * @see Ground#tick(Location location)
+     */
     @Override
     public void tick(Location location) {
         if (timeRemaining == 0) {

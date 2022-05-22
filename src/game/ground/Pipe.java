@@ -1,20 +1,20 @@
 package game.ground;
 
 import edu.monash.fit2099.engine.actions.ActionList;
-import edu.monash.fit2099.engine.actions.MoveActorAction;
 import edu.monash.fit2099.engine.actors.Actor;
 import edu.monash.fit2099.engine.positions.GameMap;
-import edu.monash.fit2099.engine.positions.Ground;
 import edu.monash.fit2099.engine.positions.Location;
-import game.actors.enemies.PiranhaPlant;
-import game.ground.JumpAction;
 import game.actions.TeleportAction;
+import game.actors.enemies.PiranhaPlant;
 
 /**
  * Teleportation device
  */
 public class Pipe extends HigherGround {
 
+    /**
+     * How long til PirhanaPlant spawns after the game starts
+     */
     private int timeTilPiranhaPlantSpawn = 1;
 
     /**
@@ -42,7 +42,6 @@ public class Pipe extends HigherGround {
      */
     private Location initialPipe;
 
-
     /**
      * Constructor
      * @param lavaMap the lava map the pipe teleports to
@@ -56,10 +55,10 @@ public class Pipe extends HigherGround {
 
     /**
      * Method for adding the jump and teleport action to a pipe, also sets location and pipeLava attribute
-     * @param actor the Actor acting; i.e: the player
-     * @param location the current Location of the higher ground
+     * @param actor     the Actor acting; i.e: the player
+     * @param location  the current Location of the higher ground
      * @param direction the direction of the Ground from the Actor
-     * @return
+     * @return          the list of actions for the Pipe
      */
     @Override
     public ActionList allowableActions(Actor actor, Location location, String direction) {
@@ -85,7 +84,6 @@ public class Pipe extends HigherGround {
         return pipeLocation;
     }
 
-
     /**
      * Getter for the location of the pipe in the lava world (1, 1)
      * @return lavaPipe attribute
@@ -93,7 +91,6 @@ public class Pipe extends HigherGround {
     public Location getLavaPipe(){
         return lavaPipe;
     }
-
 
     /**
      * Getter for the lava pipe as Pipe class
@@ -103,7 +100,6 @@ public class Pipe extends HigherGround {
         return pipeLava;
     }
 
-
     /**
      * Getter for the location of the pipe that mario came from
      * @return initialPipe attribute
@@ -112,7 +108,6 @@ public class Pipe extends HigherGround {
         return this.initialPipe;
     }
 
-
     /**
      * Setter for the initialPipe attribute
      * @param initialPipe a location to set the initialPipe attribute
@@ -120,7 +115,6 @@ public class Pipe extends HigherGround {
     public void setInitialPipe(Location initialPipe){
         this.initialPipe = initialPipe;
     }
-
 
     /**
      * Method that denotes if an actor can actor enter the pipe (false)
@@ -132,7 +126,6 @@ public class Pipe extends HigherGround {
         return false;
     }
 
-
     /**
      *
      * @param location The location of the Ground
@@ -142,7 +135,7 @@ public class Pipe extends HigherGround {
         timeTilPiranhaPlantSpawn--;
         if (timeTilPiranhaPlantSpawn == 0) {
             if(!location.containsAnActor()) {
-                //location.addActor(new PiranhaPlant());
+                location.addActor(new PiranhaPlant());
                 timeTilPiranhaPlantSpawn--;
             }
         }

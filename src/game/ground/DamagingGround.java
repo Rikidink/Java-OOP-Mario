@@ -28,11 +28,11 @@ public abstract class DamagingGround extends Ground {
         this.damageAmount = damageAmount;
     }
 
-
     /**
      * Tick method that checks if the location contains an actor
      * If it contains an actor (i.e: mario) it damages him for an amount
      * If he is not conscious, the game ends
+     *
      * @param location The location of the Ground
      */
     @Override
